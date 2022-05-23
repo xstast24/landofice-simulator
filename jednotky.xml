@@ -1231,12 +1231,12 @@
 	<jednotka>
 		<id>72</id>
 		<nazev>Zelený lesní pavouk</nazev>
-		<damage>22</damage>
-		<utok>4</utok>
+		<damage>33</damage>
+		<utok>6</utok>
 		<obrana>12</obrana>
 		<zivoty>78</zivoty>
 		<iniciativa>6</iniciativa>
-		<hodnota>225</hodnota>
+		<hodnota>60</hodnota>
 		<typUtoku>1</typUtoku>
 		<stav>1</stav>
 		<pocetUtoku>1</pocetUtoku>
@@ -1251,12 +1251,12 @@
 	<jednotka>
 		<id>73</id>
 		<nazev>Červený lesní pavouk</nazev>
-		<damage>26</damage>
-		<utok>6</utok>
+		<damage>40</damage>
+		<utok>9</utok>
 		<obrana>13</obrana>
 		<zivoty>88</zivoty>
 		<iniciativa>7</iniciativa>
-		<hodnota>250</hodnota>
+		<hodnota>75</hodnota>
 		<typUtoku>1</typUtoku>
 		<stav>1</stav>
 		<pocetUtoku>1</pocetUtoku>
@@ -1271,13 +1271,13 @@
 	<jednotka>
 		<id>74</id>
 		<nazev>Černý lesní pavouk</nazev>
-		<damage>29</damage>
-		<utok>8</utok>
+		<damage>50</damage>
+		<utok>12</utok>
 		<obrana>14</obrana>
 		<zivoty>98</zivoty>
 		<iniciativa>8</iniciativa>
-		<hodnota>275</hodnota>
-		<typUtoku>1</typUtoku>
+		<hodnota>80</hodnota>
+		<typUtoku>2</typUtoku>
 		<stav>1</stav>
 		<pocetUtoku>1</pocetUtoku>
 		<frakce>1</frakce>
@@ -5834,11 +5834,11 @@
 	<jednotka>
 		<id>623</id>
 		<nazev>Obří zelený pavouk</nazev>
-		<damage>220</damage>
-		<utok>8</utok>
+		<damage>350</damage>
+		<utok>12</utok>
 		<obrana>12</obrana>
-		<zivoty>780</zivoty>
-		<iniciativa>6</iniciativa>
+		<zivoty>500</zivoty>
+		<iniciativa>7</iniciativa>
 		<hodnota>225</hodnota>
 		<typUtoku>1</typUtoku>
 		<stav>1</stav>
@@ -5847,18 +5847,18 @@
 		<schopnosti>
 			<schopnost>
 				<nazev>jedovyUtok</nazev>
-				<hodnota>20</hodnota>
+				<hodnota>40</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
 		<id>624</id>
 		<nazev>Obří červený pavouk</nazev>
-		<damage>220</damage>
-		<utok>12</utok>
+		<damage>420</damage>
+		<utok>15</utok>
 		<obrana>13</obrana>
-		<zivoty>880</zivoty>
-		<iniciativa>7</iniciativa>
+		<zivoty>620</zivoty>
+		<iniciativa>8</iniciativa>
 		<hodnota>250</hodnota>
 		<typUtoku>1</typUtoku>
 		<stav>1</stav>
@@ -5867,27 +5867,27 @@
 		<schopnosti>
 			<schopnost>
 				<nazev>jedovyUtok</nazev>
-				<hodnota>25</hodnota>
+				<hodnota>60</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
 		<id>625</id>
 		<nazev>Obří černý pavouk</nazev>
-		<damage>300</damage>
-		<utok>16</utok>
+		<damage>500</damage>
+		<utok>18</utok>
 		<obrana>14</obrana>
-		<zivoty>980</zivoty>
-		<iniciativa>8</iniciativa>
+		<zivoty>740</zivoty>
+		<iniciativa>9</iniciativa>
 		<hodnota>275</hodnota>
-		<typUtoku>1</typUtoku>
+		<typUtoku>2</typUtoku>
 		<stav>1</stav>
 		<pocetUtoku>1</pocetUtoku>
 		<frakce>1</frakce>
 		<schopnosti>
 			<schopnost>
 				<nazev>jedovyUtok</nazev>
-				<hodnota>30</hodnota>
+				<hodnota>80</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
