@@ -1,0 +1,93 @@
+table.text {
+	border-collapse: collapse;
+	margin: 10px 0;
+	font-size: 0.9em;
+}
+
+table.text td {
+	background-color: #0d0d0d;
+	padding: 2px 5px;
+	border: 2px solid #262626;
+}
+table.text th { padding: 2px 5px; }
+
+table.text .img {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.utok-formular {
+	float: left;
+	width: 59%;
+	margin-bottom: 20px;
+}
+
+.utok-formular .multi-select {
+	text-align: center;
+}
+.utok-formular .multi-select select {
+	width: 115px
+}
+
+.utok-popis {
+	float: right;
+	text-align: center;
+	width: 39%;
+	margin-top: 50px;
+}
+.utok-popis .pozn { margin-top: 1em;}
+
+/** vypis utoku */
+.bojiste {
+	color: white;
+}
+
+.bojiste .kolo-action-links {
+	font-size: 0.7em;
+	color: #BFBEBC;
+	margin-left: 2em;
+}
+
+.bojiste .armady {
+	margin-bottom: 1em;
+}
+.bojiste .armady p {
+	margin-bottom: 0;
+}
+
+.zprava-bojiste {
+	margin-top: 3em;
+}
+
+.zprava-bojiste p {
+	color: #C0C0C0;
+}
+.zprava-bojiste .straty {
+	color: #B22222;
+}
+
+.bojiste-vyhodnoceni .utocnik, .bojiste .utocnik {
+	color: #b0c4de;
+}
+.bojiste .utocnik, .bojiste .obrance {
+	margin-bottom: 1em;
+}
+.bojiste-vyhodnoceni .utocnik {
+	margin-bottom: 2em;
+}
+
+.bojiste-vyhodnoceni .obrance {
+	color: white;
+	margin-bottom: 2em;
+}
+
+.bojiste .predmet, .bojiste-vyhodnoceni .predmet {
+	color: #bdb76b;
+}
+
+.bojiste-vyhodnoceni .utocnik .privolane {
+	color: #708090;
+}
+.bojiste-vyhodnoceni .obrance .privolane {
+	color: silver;
+}

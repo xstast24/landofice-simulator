@@ -1,0 +1,264 @@
+0x dobyta
+1. útok         - da 1 kolo
+500 x Vlkodlak
+500 x Snìhobílý Vlkodlak
+500 x Kancodlak
+500 x Snìhobílí Kancodlak
+500 x Medvìdodlak
+500 x Snìhobílí Mìdvìdodlak
+50 x Mamutodlak
+50 x Snìhobílí Mamutodlak
+2 x Medùza
+
+1x dobyta
+2. utok
+1,150 x Vlkodlak
+1,150 x Snìhobílý Vlkodlak
+1,150 x Kancodlak
+1,150 x Snìhobílí Kancodlak
+1,150 x Medvìdodlak
+1,150 x Snìhobílí Mìdvìdodlak
+115 x Mamutodlak
+115 x Snìhobílí Mamutodlak
+5 x Medùza
+
+tajemná jeskynì - 2x dobyta
+3. utok
+2,077 x Vlkodlak
+2,077 x Snìhobílý Vlkodlak
+2,077 x Kancodlak
+2,077 x Snìhobílí Kancodlak
+2,077 x Medvìdodlak
+2,077 x Snìhobílí Mìdvìdodlak
+208 x Mamutodlak
+208 x Snìhobílí Mamutodlak
+9 x Medùza
+
+3x dobyta   - da 6 kol
+4. utok
+3,185 x Vlkodlak
+3,185 x Snìhobílý Vlkodlak
+3,185 x Kancodlak
+3,185 x Snìhobílí Kancodlak
+3,185 x Medvìdodlak
+3,185 x Snìhobílí Mìdvìdodlak
+319 x Mamutodlak
+319 x Snìhobílí Mamutodlak
+13 x Medùza
+
+4x dobyta - da 7 kol
+5.utok
+4,460 x Vlkodlak
+4,460 x Snìhobílý Vlkodlak
+4,460 x Kancodlak
+4,460 x Snìhobílí Kancodlak
+4,460 x Medvìdodlak
+4,460 x Snìhobílí Mìdvìdodlak
+446 x Mamutodlak
+446 x Snìhobílí Mamutodlak
+18 x Medùza
+
+5x dobyta  - da 9 kol
+6. utok
+5,909 x Vlkodlak
+5,909 x Snìhobílý Vlkodlak
+5,909 x Kancodlak
+5,909 x Snìhobílí Kancodlak
+5,909 x Medvìdodlak
+5,909 x Snìhobílí Mìdvìdodlak
+591 x Mamutodlak
+591 x Snìhobílí Mamutodlak
+24 x Medùza
+
+6x dobyta  - da 11 kol
+7. utok
+7,549 x Vlkodlak
+7,549 x Snìhobílý Vlkodlak
+7,549 x Kancodlak
+7,549 x Snìhobílí Kancodlak
+7,549 x Medvìdodlak
+7,549 x Snìhobílí Mìdvìdodlak
+755 x Mamutodlak
+755 x Snìhobílí Mamutodlak
+31 x Medùza
+
+
+tajemná jeskynì - 7x dobyta - da 12 kol
+8. utok
+9,413 x Vlkodlak
+9,413 x Snìhobílý Vlkodlak
+9,413 x Kancodlak
+9,413 x Snìhobílí Kancodlak
+9,413 x Medvìdodlak
+9,413 x Snìhobílí Mìdvìdodlak
+942 x Mamutodlak
+942 x Snìhobílí Mamutodlak
+38 x Medùza
+
+8 x dobyta - da 11 kol
+9. utok
+11,543 x Vlkodlak
+11,543 x Snìhobílý Vlkodlak
+11,543 x Kancodlak
+11,543 x Snìhobílí Kancodlak
+11,543 x Medvìdodlak
+11,543 x Snìhobílí Mìdvìdodlak
+1,155 x Mamutodlak
+1,155 x Snìhobílí Mamutodlak
+47 x Medùza
+
+9 x dobyta - da 15 kol
+10. utok
+14,002 x Vlkodlak
+14,002 x Snìhobílý Vlkodlak
+14,002 x Kancodlak
+14,002 x Snìhobílí Kancodlak
+14,002 x Medvìdodlak
+14,002 x Snìhobílí Mìdvìdodlak
+1,401 x Mamutodlak
+1,401 x Snìhobílí Mamutodlak
+57 x Medùza
+
+10 x dobyta
+11. utok
+16,870 x Vlkodlak
+16,870 x Snìhobílý Vlkodlak
+16,870 x Kancodlak
+16,870 x Snìhobílí Kancodlak
+16,870 x Medvìdodlak
+16,870 x Snìhobílí Mìdvìdodlak
+1,687 x Mamutodlak
+1,687 x Snìhobílí Mamutodlak
+68 x Medùza
+
+11 x dobyta
+12. utok
+20,254 x Vlkodlak
+20,254 x Snìhobílý Vlkodlak
+20,254 x Kancodlak
+20,254 x Snìhobílí Kancodlak
+20,254 x Medvìdodlak
+20,254 x Snìhobílí Mìdvìdodlak
+2,026 x Mamutodlak
+2,026 x Snìhobílí Mamutodlak
+82 x Medùza
+
+12. dobyta
+13. utok
+24,294 x Vlkodlak
+24,294 x Snìhobílý Vlkodlak
+24,294 x Kancodlak
+24,294 x Snìhobílí Kancodlak
+24,294 x Medvìdodlak
+24,294 x Snìhobílí Mìdvìdodlak
+2,430 x Mamutodlak
+2,430 x Snìhobílí Mamutodlak
+98 x Medùza
+
+14. dobyta
+15. utok - dá 22 kol
+35,138 x Vlkodlak
+35,138 x Snìhobílý Vlkodlak
+35,138 x Kancodlak
+35,138 x Snìhobílý Kancodlak
+35,138 x Medvìdodlak
+35,138 x Snìhobílý Mìdvìdodlak
+3,514 x Mamutodlak
+3,514 x Snìhobílý Mamutodlak
+141 x Medùza
+
+16. dobyta
+17. utok
+51,651 x Vlkodlak
+51,651 x Snìhobílý Vlkodlak
+51,651 x Kancodlak
+51,651 x Snìhobílí Kancodlak
+51,651 x Medvìdodlak
+51,651 x Snìhobílí Mìdvìdodlak
+5,166 x Mamutodlak
+5,166 x Snìhobílí Mamutodlak
+207 x Medùza
+
+22. dobyta
+23. utok
+188,397 x Vlkodlak
+188,397 x Snìhobílý Vlkodlak
+188,397 x Kancodlak
+188,397 x Snìhobílý Kancodlak
+188,397 x Medvìdodlak
+188,397 x Snìhobílý Mìdvìdodlak
+18,840 x Mamutodlak
+18,840 x Snìhobílý Mamutodlak
+754 x Medùza
+
+39. dobyta
+40. utok
+13,950,398 x Vlkodlak
+13,950,398 x Snìhobílý Vlkodlak
+13,950,398 x Kancodlak
+13,950,398 x Snìhobílý Kancodlak
+13,950,398 x Medvìdodlak
+13,950,398 x Snìhobílý Mìdvìdodlak
+1,395,040 x Mamutodlak
+1,395,040 x Snìhobílý Mamutodlak
+55,802 x Medùza
+
+40. dobyta
+41. utok
+18,119,918 x Vlkodlak
+18,119,918 x Snìhobílý Vlkodlak
+18,119,918 x Kancodlak
+18,119,918 x Snìhobílý Kancodlak
+18,119,918 x Medvìdodlak
+18,119,918 x Snìhobílý Mìdvìdodlak
+1,811,992 x Mamutodlak
+1,811,992 x Snìhobílý Mamutodlak
+72,480 x Medùza
+
+45.dobyta
+46. utok
+67,123,902 x Vlkodlak
+67,123,902 x Snìhobílý Vlkodlak
+67,123,902 x Kancodlak
+67,123,902 x Snìhobílý Kancodlak
+67,123,902 x Medvìdodlak
+67,123,902 x Snìhobílý Mìdvìdodlak
+6,712,391 x Mamutodlak
+6,712,391 x Snìhobílý Mamutodlak
+268,496 x Medùza
+
+46.dobyta
+47. utok
+87,241,968 x Vlkodlak
+87,241,968 x Snìhobílý Vlkodlak
+87,241,968 x Kancodlak
+87,241,968 x Snìhobílý Kancodlak
+87,241,968 x Medvìdodlak
+87,241,968 x Snìhobílý Mìdvìdodlak
+8,724,197 x Mamutodlak
+8,724,197 x Snìhobílý Mamutodlak
+348,968 x Medùza
+
+47.dobyta
+48.utok
+113,394,853 x Vlkodlak
+113,394,853 x Snìhobílý Vlkodlak
+113,394,853 x Kancodlak
+113,394,853 x Snìhobílý Kancodlak
+113,394,853 x Medvìdodlak
+113,394,853 x Snìhobílý Mìdvìdodlak
+11,339,486 x Mamutodlak
+11,339,486 x Snìhobílý Mamutodlak
+453,580 x Medùza
+
+54.dobyta
+55. utok
+711,157,175 x Vlkodlak
+711,157,175 x Snìhobílý Vlkodlak
+711,157,175 x Kancodlak
+711,157,175 x Snìhobílý Kancodlak
+711,157,175 x Medvìdodlak
+711,157,175 x Snìhobílý Mìdvìdodlak
+71,115,718 x Mamutodlak
+71,115,718 x Snìhobílý Mamutodlak
+2,844,629 x Medùza

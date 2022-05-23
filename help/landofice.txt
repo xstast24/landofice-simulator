@@ -1,0 +1,196 @@
+$damage = ceil((( $jednotka[$a]['damage'] + $bonus_damage ) * ( 1 + ( $rozdil / 100 * 4 ))) * $jednotka[$a]['pocet'] * $random );
+
+
+nezmar@landofice.com
+
+sit
+http://landofice.com/forum/viewtopic.php?f=6&t=322&p=2748#p2748
+
+74 velemagu + poloautomaticka socha s tvrz. pláty = stituje meteorit
+
+skype nezmar: nezmar159
+
+nezmar hosting:
+host: 31.22.4.35
+user: loi-help@nezmar.info
+pass: ;HW2H=sA#%~r
+
+meno: death
+heslo: 44444
+
+Chesity velitel klanu Chester nám poslal zprávu:
+niqush - Polianka123
+
+
+http://asgard.mysteria.cz/loi/index.php
+
+
+zemì	 nic	 nic	  nic	oheò - plány železných knìží
+zemì	 nic	nebesa	nic	oheò - detailní plány železných knìží
+zemì	oheò	nebesa	nic	oheò - utajené plány železných knìží
+zemì	 nic	 oheò	  nic	zemì - runy nebes
+
+Neznámá indície: X = 4. Y = 15
+
+
+
+DREADD
+ziskani kostlivce z chramu zivota
+5320 x Ozbrojený vesnièan
+35397 x zombie
+849 x Èerný rytíø
+10 x nekromant
+
+chram zivota - stiny (i rytiri tak jdou)
+10,000 x Ozbrojený vesnièan
+40 x Nekromant
+3,970 x Zombie
+
+
+
+druidi (chram zivota)
+5320 x Ozbrojený vesnièan
+35397 x zombie
+7 x nekromant
+
+chrám ohnì:
+20340 x zombie
+10000 x kostlivec
+8 x nekromant (Prokletá kouzelnická róba)
+
+10tis+ x zombie
+8 x nekromant (Prokletá kouzelnická róba)
+2 x zvìstovatel soudného dne
+
+svatyne ohne:
+46,751 x Zombie
+110 x Temný pøízrak
+40 x Nekromant
+653 x Lich
+
+svatyne ohne:
+600+ x stin (kouzelnická róba)
+50 x temný pøízrak
+8 x zvìstovatel soudného dne (ocelové pláty)
+40+ x nekromant
+
+utok na demoni mesto (ozivovani lichu)
+1 x Dreaddùv Vyvolený
+30 x Nekromant
+20 x temný pøízrak
+2 x obøí kostlivec
+(dá 300+ lichu)
+
+dá chrám ohnì:
+44056 x Ozbrojený vesnièan
+10000 x Otrok s kopím
+10000 x Otrok s oštìpy
+10000 x Otrok štítonoš
+14 x Elfí luèištník
+708 x Mág ohnì
+1400 x Arcimág ohnì
+55 x Lávový golem
+100 x magmatický golem
+80 x Ohnivý Fénix
+120 x ledový fénix
+16 x Flamekeeper
+500 x Efreet
+10 x ledový obr
+
+
+
+obøí kostlivec z aethera
+264 x Nemrtvý Druid
+14,787 x Ozbrojený vesnièan
+15 x Elfí luèištník
+10,000 x Lich
+405 x Stín
+214 x Temný pøízrak
+1 x Tìžká balista
+1 x Dreaddùv Vyvolený
+1 x sdfsderwsss velitel klanu sfgegggetee
+71 x Nekromant
+48 x Obøí kostlivec
+2 x Tìžký katapult
+1 x Otrok s oštìpy
+5,000 x Zombie
+53 x Elitní støelec starého impéria
+
+
+
+DEMONI
+
+Dh Karn
+13000 x zombie(Železné pláty)
+874 x lich
+30 x Nekromant(Prokletá kouzelnická róba)
+
+120 x soulkeeper
+40 x nekromant(Prokletá kouzelnická róba)
+100 x rytíø temnoty(Kouzelnická róba)
+
+Dr RAGH
+13000 x zombie(Železné pláty)
+400 x rytíø temnoty(Vulkánùv ohnivý prapor)
+30 x Nekromant(Prokletá kouzelnická róba)
+
+30000 x zombie
+30 x nekromant(Prokletá kouzelnická róba)
+6 x zvìstovatel soudného dne
+
+26 x spolek mocných - zvìstovatelé
+11 x zvìstovatel soudného dne
+3000 x zombie
+1000 x Otrok s kopím
+1000 x Otrok s oštìpy
+1000 x Otrok štítonoš
+1000 x ozbrojený vesnièan
+70 x nekromant(Prokletá kouzelnická róba)
+1 x obøí kostlivec
+5000 x kostlivec
+
+VULCAN - svatyne ohne
+140 x Efreet
+14 x Lávový golem
+12 x Flamekeeper
+450 x Arcimág ohnì
+10,000 x Ozbrojený vesnièan
+3 x Tìžký katapult
+34 x Ohnivý Fénix
+500 x Mág ohnì
+25 x Ledový Fénix
+1,000 x Otrok s kopím
+1,000 x Otrok s oštìpy
+1,000 x Otrok štítonoš
+
+DREAD - svatyne ohne
+17,285 x Kostlivec
+35 x Prokletý knìz
+13 x Elfí luèištník
+1,246 x Lich
+40 x Nekromant
+79,096 x Zombie
+135 x Soulkeeper
+223 x Nemrtvý ledový kouzelník
+1 x Dreaddùv Vyvolený
+
+50 x Temný pøízrak
+775 x Stín
+8 x Zvìstovatel soudného dne
+40 x Nekromant
+
+
+DREAD - svatyne zivota (nemrtvi druidi)
+
+70 x Nekromant
+400 x Temný pøízrak
+217,863 x Zombie
+3,673 x Lich (PKS)
+
+DREAD - Svatyne ledu (nemrtvi ledovy kouzelnik, mùže dát i obra)
+
+90 x Nekromant
+180- x Temný pøízrak
+222,754 x Zombie
+
+

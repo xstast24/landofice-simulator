@@ -1,0 +1,252 @@
+case 1: // 1 Dh' Arok
+$odmena_zlato = $odmena_zlato + mt_rand(20000,100000);
+
+case 2: // 2 Dh' Karn
+$odmena_zlato = $odmena_zlato + mt_rand(10000,50000);
+$nahoda = mt_rand(1,3);
+if	($nahoda == 1){	$odmena_r1 = $odmena_r1 + mt_rand(1,6);	}
+elseif	($nahoda == 2){	$odmena_r2 = $odmena_r2 + mt_rand(1,4);	}
+elseif	($nahoda == 3){	$odmena_r3 = $odmena_r3 + mt_rand(1,2);	}
+
+case 3:// 3 Dh' Ragh
+$odmena_zlato = $odmena_zlato + mt_rand(2000,30000);
+$odmena_lidi = $odmena_lidi + mt_rand(4000,10000);
+
+case 4:// 4 Dr' Gor
+$odmena_lidi = $odmena_lidi + mt_rand(6000,12000);
+if (mt_rand(1,111) == 1){
+$show_log .= "Copak to tu ještì leží? Essence života!<br />";
+$odmena_predmet->uloz_vybaveni(100);
+}else if(mt_rand(1,1000) == 666){
+$show_log .= "Tenhle démon byl obleèený jako knìz, zajímavé...<br />";
+$odmena_predmet->uloz_vybaveni(40);
+}else{
+$odmena_zlato = $odmena_zlato + mt_rand(10000,20000);
+}
+
+case 5:// 5 Dr' Ragnar
+$odmena_zlato = $odmena_zlato + mt_rand(200,2000);
+$odmena_lidi = $odmena_lidi + mt_rand(20,100);
+$NoveJednotky->pridej_jednotku(21, mt_rand(20,220));
+if (rand(1,125) == 1){
+$show_log .= "Copak to tu ještì leží? Essence života!<br />";
+$odmena_predmet->uloz_vybaveni(100);
+}
+
+case 6:// 6 Dr' Ghor Re Thor
+$odmena_r3 = $odmena_r3 + mt_rand(6,12);
+if (rand(1,30) == 1){
+$show_log .= "Copak to tu ještì leží? Essence života!<br />";
+$odmena_predmet->uloz_vybaveni(100);
+}else if(mt_rand(1,100) == 66){
+$show_log .= "Copak to tu ještì leží? Nìjaký totem ...<br />";
+$odmena_predmet->uloz_vybaveni(5);
+}else{
+$odmena_zlato = $odmena_zlato + mt_rand(10000,20000);
+}
+
+case 7:// 7 Dr' Thurrgen
+if (rand(1,70) == 1){
+$show_log .= "Copak to tu ještì leží? Essence života!<br />";
+$odmena_predmet->uloz_vybaveni(100);
+} else {
+$odmena_zlato = $odmena_zlato + mt_rand(30000,100000);
+}
+
+case 13: // Dr' Talaziel
+$odmena_skore = $odmena_skore + 8;
+$odmena_r3 = $odmena_r3 + mt_rand(6,12);
+
+$artefacts = array(
+40	=>"Co to je? Že by nìjaký artefakt?!?",
+24	=>"Co to je? Že by nìjaký artefakt?!?",
+82	=>"Co to je? Že by nìjaký artefakt?!?",
+83	=>"Co to je? Že by nìjaký artefakt?!?",
+84	=>"Co to je? Že by nìjaký artefakt?!?",
+201	=>"Co to je? Že by nìjaká formula?!?",
+);
+foreach($artefacts AS $artefact => $text){
+if(mt_rand(1, 100) == 1){
+$show_log .= "$text<br />";
+$odmena_predmet->uloz_vybaveni($artefact);
+}
+}
+
+$odmena_zlato = $odmena_zlato + mt_rand(450000,1000000);
+
+
+case 14: // Dr' Seharon
+$odmena_skore = $odmena_skore + 9;
+$odmena_r3 = $odmena_r3 + mt_rand(6,12);
+if (rand(1, 50) == 1){
+$show_log .= "Copak to tu ještì leží? Essence života!<br />";
+$odmena_predmet->uloz_vybaveni(100);
+} 
+if( mt_rand(1, 80) == 1){
+$show_log .= "Copak to tu ještì leží? Prapor stínù!<br />";
+$odmena_predmet->uloz_vybaveni(1);
+}
+if( mt_rand(1, 50) == 1){
+$show_log .= "Copak to tu ještì leží? Magická formule moci!<br />";
+$odmena_predmet->uloz_vybaveni(201);
+}
+if( mt_rand(1, 50) == 1){
+$show_log .= "Copak to tu ještì leží? Mágova róba moci!<br />";
+$odmena_predmet->uloz_vybaveni(84);
+}
+if( mt_rand(1, 100) == 1){
+$show_log .= "Copak to tu ještì stojí ? Hoøící palisáda, honem ji sbalit než dohoøí!<br />";
+$odmena_predmet->uloz_vybaveni(55);
+} 
+
+$odmena_zlato = $odmena_zlato + mt_rand(450000,1500000);
+
+
+case 8:// 8 Dra'Ghan Tru Tran
+if (rand(1,8) == 1){
+$show_log .= "V táboøe Dra'Ghan Tru Trana jsme nalezli Ohnivý Biè!<br />";
+$odmena_predmet->uloz_vybaveni(30);
+}
+if (rand(1,13) == 1){
+$show_log .= "Copak to tu ještì leží? Essence života!<br />";
+$odmena_predmet->uloz_vybaveni(100);
+}
+$odmena_zlato = $odmena_zlato + mt_rand(100000,200000);
+
+case 9: // Dra' Ghottan
+if (rand(1,8) == 1){
+$show_log .= "Copak to tu ještì leží? Hùl ohnì!<br />";
+$odmena_predmet->uloz_vybaveni(9);
+}	
+if (rand(1,15) == 1){
+$show_log .= "Copak to tu ještì leží? Ohnivá róba!<br />";
+$odmena_predmet->uloz_vybaveni(29);
+}	
+if (rand(1,40) == 1){
+$show_log .= "Copak to tu ještì leží? Ohnivý biè!<br />";
+$odmena_predmet->uloz_vybaveni(30);
+}
+if (rand(1,10) == 1){
+$show_log .= "Copak to tu ještì leží? Essence života!<br />";
+$odmena_predmet->uloz_vybaveni(100);
+}	
+if (rand(1,125) == 1){
+$show_log .= "Co to je? Že by nìjaký artefakt?!?<br />";
+$odmena_predmet->uloz_vybaveni(101);
+}
+$odmena_zlato = $odmena_zlato + mt_rand(250000,500000);
+
+case 15: // Dra' Astuer
+$odmena_skore = $odmena_skore + 10;
+if (rand(1,20) == 1){
+$show_log .= "Copak to tu ještì leží? Hùl ohnì!<br />";
+$odmena_predmet->uloz_vybaveni(9);
+}	
+if (rand(1,20) == 1){
+$show_log .= "Copak to tu ještì leží? Kostìná hùl<br />";
+$odmena_predmet->uloz_vybaveni(11);
+}	
+if (rand(1,20) == 1){
+$show_log .= "Copak to tu ještì leží? Hùlka ledu!<br />";
+$odmena_predmet->uloz_vybaveni(23);
+}	
+if (rand(1,60) == 1){
+$show_log .= "Copak to tu ještì leží? Hùlka ohnì!<br />";
+$odmena_predmet->uloz_vybaveni(24);
+}
+if (rand(1,10) == 1){
+$show_log .= "Copak to tu ještì leží? Essence života!<br />";
+$odmena_predmet->uloz_vybaveni(100);
+}	
+if (rand(1, 50) == 1){
+$show_log .= "Copak to tu ještì leží? Mágová róba moci<br />";
+$odmena_predmet->uloz_vybaveni(84);
+}
+if( mt_rand(1, 50) == 1){
+$show_log .= "Copak to tu ještì leží? Magická formule moci!<br />";
+$odmena_predmet->uloz_vybaveni(201);
+}
+if( mt_rand(1, 150) == 1){
+$show_log .= "Tihle démoni zvládli pøedtím pobít i nìjaké trpaslíky. Tenhle má nìco ostrého!<br />";
+$odmena_predmet->uloz_vybaveni(69);
+}
+
+$odmena_lidi = $odmena_lidi + mt_rand(20000,100000);
+$odmena_zlato = $odmena_zlato + mt_rand(200000,1000000);
+
+case 10:// 10 Tel' Thullgeon
+$odmena_skore = $odmena_skore + 1;
+if (rand(1,50) == 1){
+$show_log .= "Co to je? Že by nìjaký artefakt?!?<br />";
+$odmena_predmet->uloz_vybaveni(101);
+}
+$odmena_zlato = $odmena_zlato + mt_rand(500000,1000000);
+
+case 16: // Tel' Osroxas
+$odmena_skore = $odmena_skore + 10;
+if( mt_rand(1, 20) == 1){
+$show_log .= "Copak to tu ještì leží? Drtivé støeli!<br />";
+$odmena_predmet->uloz_vybaveni(50);
+}
+if( mt_rand(1, 20) == 1){
+$show_log .= "Copak to tu ještì leží? Posvìcené støeli!<br />";
+$odmena_predmet->uloz_vybaveni(51);
+}
+if (rand(1,50) == 1){
+$show_log .= "Co to je? Že by nìjaký artefakt?!?<br />";
+$odmena_predmet->uloz_vybaveni(101);
+}
+if (rand(1, 50) == 1){
+$show_log .= "Copak to tu ještì leží? Mágová róba moci<br />";
+$odmena_predmet->uloz_vybaveni(84);
+}
+if (rand(1, 50) == 1){
+$show_log .= "Copak to tu ještì leží? Mágová formule moci<br />";
+$odmena_predmet->uloz_vybaveni(201);
+}
+if (rand(1, 200) == 1){
+$show_log .= "Tenhle démon má nìjaké lepší brnìní. To musíme vyzkoušet!<br />";
+$odmena_predmet->uloz_vybaveni(63);
+}
+if (rand(1, 400) == 1){
+$show_log .= "Z pod hromady démoních støev vytahuješ nìjaký papír nasáklý krví. Cítíš z nìho silnou magii. To bude nìco cenného ! <br />";
+$odmena_predmet->uloz_vybaveni(57);
+}
+$odmena_zlato = $odmena_zlato + mt_rand(1000000,3000000);
+
+case 11:// 11 Rah Ghor Pravus
+$odmena_skore = $odmena_skore + 3;
+$artefacts = array(
+101	=>"Co to je? Že by nìjaký artefakt?!?",
+200	=>"Co to je? Že by nìjaká formula?!?",
+53	=>"Co to je? Asi tu zbylo nìco po Aethrovì armádì...",
+);
+foreach($artefacts AS $artefact => $text){
+if(mt_rand(1, 35) == 1){
+$show_log .= "$text<br />";
+$odmena_predmet->uloz_vybaveni($artefact);
+}
+}
+$odmena_zlato = $odmena_zlato + mt_rand(450000,2000000);
+
+case 12: // 12 Rah' Cosmo Pravus
+$odmena_skore = $odmena_skore + 7;
+
+$artefacts = array(
+101	=>"Co to je? Že by nìjaký artefakt?!?",
+40	=>"Co to je? Že by nìjaký artefakt?!?",
+37	=>"Co to je? Že by nìjaký artefakt?!?",
+27	=>"Co to je? Že by nìjaký artefakt?!?",
+24	=>"Co to je? Že by nìjaký artefakt?!?",
+200	=>"Co to je? Že by nìjaká formula?!?",
+52	=>"Co to je? Že by nìjaká formula?!?",
+160	=>"Co to je? Že by nìjaký zápisník?!?",
+);
+foreach($artefacts AS $artefact => $text){
+if(mt_rand(1, 100) == 1){
+$show_log .= "$text<br />";
+$odmena_predmet->uloz_vybaveni($artefact);
+}
+}
+
+$odmena_zlato = $odmena_zlato + mt_rand(850000,3000000);
