@@ -152,10 +152,12 @@ class Jednotka {
 
 				$this->typ = $jednotka->typUtoku * 1;
 
+				#stav 1 - zivy, 2 - nemrtvy, 3 - nezivy
 				$this->stav = $jednotka->stav * 1;
 
 				$this->pocetUtoku = $jednotka->pocetUtoku * 1;
-
+				
+				#frakce: 0 - nezařazeno, 1 - Dralgar, 2 - vulkan, 3 - Aether, 4 - Dreadd, 5 - Dhar, 6 - Ghoro, 7 - crinis, 8 - ascendacy
 				$this->frakce = $jednotka->frakce * 1;
 
 				foreach ($jednotka->schopnosti->schopnost as $schopnost){
