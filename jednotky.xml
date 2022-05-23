@@ -2278,7 +2278,7 @@
 	<jednotka>
 		<id>116</id>
 		<nazev>Oživlé bahno</nazev>
-		<damage>4</damage>
+		<damage>6</damage>
 		<utok>4</utok>
 		<obrana>8</obrana>
 		<zivoty>10</zivoty>
@@ -2291,11 +2291,59 @@
 		<schopnosti>
 			<schopnost>
 				<nazev>stec</nazev>
-				<hodnota>5</hodnota>
+				<hodnota>6</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>slayer</nazev>
 				<hodnota>1</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>9302</id>
+		<nazev>Bahenní Golem</nazev>
+		<damage>50</damage>
+		<utok>18</utok>
+		<obrana>16</obrana>
+		<zivoty>100</zivoty>
+		<iniciativa>7</iniciativa>
+		<hodnota>200</hodnota>
+		<typUtoku>2</typUtoku>
+		<stav>3</stav>
+		<pocetUtoku>1</pocetUtoku>
+		<frakce>5</frakce>
+		<schopnosti>
+			<schopnost>
+				<nazev>slayer</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>9303</id>
+		<nazev>Toxický Bahenní Golem</nazev>
+		<damage>70</damage>
+		<utok>20</utok>
+		<obrana>16</obrana>
+		<zivoty>100</zivoty>
+		<iniciativa>8</iniciativa>
+		<hodnota>200</hodnota>
+		<typUtoku>2</typUtoku>
+		<stav>3</stav>
+		<pocetUtoku>1</pocetUtoku>
+		<frakce>5</frakce>
+		<schopnosti>
+			<schopnost>
+				<nazev>slayer</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>toxickyStit</nazev>
+				<hodnota>10</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>jedovyUtok</nazev>
+				<hodnota>20</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -3842,11 +3890,11 @@
 	<jednotka>
 		<id>206</id>
 		<nazev>Toxické oživlé bahno</nazev>
-		<damage>5</damage>
+		<damage>8</damage>
 		<utok>6</utok>
 		<obrana>8</obrana>
 		<zivoty>10</zivoty>
-		<iniciativa>3</iniciativa>
+		<iniciativa>4</iniciativa>
 		<hodnota>10</hodnota>
 		<typUtoku>1</typUtoku>
 		<stav>3</stav>
@@ -3855,7 +3903,7 @@
 		<schopnosti>
 			<schopnost>
 				<nazev>stec</nazev>
-				<hodnota>6</hodnota>
+				<hodnota>8</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>slayer</nazev>
@@ -3867,7 +3915,7 @@
 			</schopnost>
 			<schopnost>
 				<nazev>jedovyUtok</nazev>
-				<hodnota>15</hodnota>
+				<hodnota>10</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -5523,6 +5571,54 @@
 			</schopnost>
 			<schopnost>
 				<nazev>toxickyStit</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>9350</id>
+		<nazev>Bahenní Brouk</nazev>
+		<damage>1</damage>
+		<utok>0</utok>
+		<obrana>0</obrana>
+		<zivoty>1</zivoty>
+		<iniciativa>15</iniciativa>
+		<hodnota>3</hodnota>
+		<typUtoku>1</typUtoku>
+		<stav>1</stav>
+		<pocetUtoku>1</pocetUtoku>
+		<frakce>5</frakce>
+		<schopnosti>
+			<schopnost>
+				<nazev>jedovyUtok</nazev>
+				<hodnota>400</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>slayer</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>9350</id>
+		<nazev>Toxický Bahenní Brouk</nazev>
+		<damage>1</damage>
+		<utok>0</utok>
+		<obrana>0</obrana>
+		<zivoty>1</zivoty>
+		<iniciativa>18</iniciativa>
+		<hodnota>3</hodnota>
+		<typUtoku>1</typUtoku>
+		<stav>1</stav>
+		<pocetUtoku>1</pocetUtoku>
+		<frakce>5</frakce>
+		<schopnosti>
+			<schopnost>
+				<nazev>jedovyUtok</nazev>
+				<hodnota>400</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>slayer</nazev>
 				<hodnota>1</hodnota>
 			</schopnost>
 		</schopnosti>

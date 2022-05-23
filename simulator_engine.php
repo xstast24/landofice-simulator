@@ -152,6 +152,7 @@ class Jednotka {
 
 				$this->typ = $jednotka->typUtoku * 1;
 
+				#stav 1 - zivy, 2 - nemrtvy, 3 - nezivy
 				$this->stav = $jednotka->stav * 1;
 
 				$this->pocetUtoku = $jednotka->pocetUtoku * 1;
