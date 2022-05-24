@@ -5490,12 +5490,12 @@
 	<jednotka>
 		<id>604</id>
 		<nazev>Bahenní ještěr</nazev>
-		<damage>9</damage>
+		<damage>13</damage>
 		<utok>7</utok>
 		<obrana>4</obrana>
 		<zivoty>7</zivoty>
 		<iniciativa>5</iniciativa>
-		<hodnota>55</hodnota>
+		<hodnota>40</hodnota>
 		<typUtoku>2</typUtoku>
 		<stav>1</stav>
 		<pocetUtoku>1</pocetUtoku>
@@ -5651,7 +5651,7 @@
 		<obrana>10</obrana>
 		<zivoty>3000</zivoty>
 		<iniciativa>8</iniciativa>
-		<hodnota>45000</hodnota>
+		<hodnota>30000</hodnota>
 		<typUtoku>4</typUtoku>
 		<stav>1</stav>
 		<pocetUtoku>1</pocetUtoku>
