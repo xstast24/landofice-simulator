@@ -1,6 +1,6 @@
 .PHONY: info docker-build docker-run docker-run-bash run
 
-HOST = "0.0.0.0"
+HOST = "0.0.0.0" # use this, because "localhost" might fail to connect in some cases, see https://stackoverflow.com/a/38570561/7684041
 PORT = "8069"
 PHP_VERSION = "5.6"
 DOCKER_IMAGE_NAME = "php:$(PHP_VERSION)-alpine"
