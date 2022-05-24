@@ -50,9 +50,7 @@ def set_abilities(unit: dict, abilities: str) -> None:
         parse_ability(unit, ability)
 
 def parse_ability(unit: dict, ability: str) -> None:
-    print("ABILITY: ", ability['title'])
-    name, description = ability['title'].split(" - ")
-    print("ABILITY: ", name)
+    name, description = ability['title'].split(" - ", 1)
 
     if name == "Dav":
         unit["schopnosti"]["dav"] = "1"
@@ -106,6 +104,28 @@ def parse_ability(unit: dict, ability: str) -> None:
         unit["schopnosti"]["sit"] = "1"
     elif name == "Gobliní výsadek":
         unit["schopnosti"]["vyvolavaJednotku"] = summon_unit_table.get(unit["nazev"])
+    elif name == "Globálni poškození":
+        unit["schopnosti"]["sebevrazedna"] = "1"
+    elif name == "Nepředvídatelnost":
+        unit["schopnosti"]["nepredvidatelnost"] = "1"
+    elif name == "Konstrukce":
+        unit["schopnosti"]["konstrukce"] = "1"
+    elif name == "Síla goblinů":
+        unit["schopnosti"]["silaGoblinu"] = "1"
+    elif name == "Dezorientace":
+        unit["schopnosti"]["magieEternanu"] = "2"
+    elif name == "Blokování":
+        block_percentage = get_block_percentage(description)
+        unit["schopnosti"]["block"] = block_percentage
+    elif name == "Tvrzená kůže":
+        unit["schopnosti"]["tvrzenaKuze"] = "1"
+    elif name == "Rozložení":
+        unit["schopnosti"]["rozlozeni"] = "1"
+    elif name == "Kanibalizmus":
+        # TODO vyresit jak stanovit hodnoty - simulator tvrdi upir 15 ghul 5, prozatim natvrdo 5
+        unit["schopnosti"]["kanibalizmus"] = "5"
+    elif name == "Létání":
+        unit["schopnosti"]["letani"] = "1"
 
 
 
@@ -142,3 +162,6 @@ def get_resurrection_chance(description: str) -> str:
 
 def get_toxic_dmg(description: str) -> str:
     return description.split(" o ")[1].strip()
+
+def get_block_percentage(description: str) -> str:
+    return description.split("zablokuje ")[1].split("%")[0].strip()
