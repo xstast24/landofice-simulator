@@ -32,11 +32,24 @@ def parse_ability(unit: dict, ability: str) -> None:
     elif name == "Neživý":
         unit["stav"] = unit_states["inanimate"]
     elif name == "Ohnivý štít":
-        shield_damage = get_fire_shield_damage(description)
+        shield_damage = get_fire_shield_dmg(description)
         unit["schopnosti"]["ohnivyStit"] = shield_damage
     elif name == "Ledový štít":
         shield = get_ice_shield_slowdown(description)
         unit["schopnosti"]["ledovyStit"] = shield
+    elif name == "Jed":
+        poison_dmg = get_poison_dmg(description)
+        unit["schopnosti"]["jedovyUtok"] = poison_dmg
+    elif name == "Svatý útok":
+        holy_dmg = get_holy_dmg(description)
+        unit["schopnosti"]["svatyUtok"] = holy_dmg
+    elif name == "Drtivý útok":
+        crush_dmg = get_crush_dmg(description)
+        unit["schopnosti"]["drtivyUtok"] = crush_dmg
+    elif name == "Sabotaz":
+        unit["schopnosti"]["sabotaz"] = "1"
+    elif name == "Slayer":
+        unit["schopnosti"]["slayer"] = "1"
     elif name == "Steč":
         charge_dmg = get_charge_dmg(description)
         unit["schopnosti"]["stec"] = charge_dmg
@@ -54,8 +67,17 @@ def get_spell_resistance(description: str) -> str:
 def get_multi_attack(description: str) -> str:
     return description.split("útočí ")[1].split(" x ")[0].strip()
 
-def get_fire_shield_damage(description: str) -> str:
+def get_fire_shield_dmg(description: str) -> str:
     return description.split(" poškození")[0].split(" protivník ")[1].strip()
 
 def get_ice_shield_slowdown(description: str) -> str:
     return description.split(" o ")[1].split("%")[0].strip()
+
+def get_poison_dmg(description: str) -> str:
+    return description.split("+")[1].split("%")[0].strip()
+
+def get_holy_dmg(description: str) -> str:
+    return description.split("+")[1].split("%")[0].strip()
+
+def get_crush_dmg(description: str) -> str:
+    return description.split("+")[1].split("%")[0].strip()
