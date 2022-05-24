@@ -8,7 +8,7 @@ if __name__ == "__main__":
         html_table = BeautifulSoup(data, "html.parser")
         table_rows = html_table.findAll("tr")
 
-        file = open("jednotky_id.txt", 'a', encoding="utf-8")
+        file = open("jednotky_id.txt", 'w', encoding="utf-8")
         new_data = ""
         for row in table_rows:
             row_length = len(row)

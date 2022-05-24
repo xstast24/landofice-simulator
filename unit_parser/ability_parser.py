@@ -4,6 +4,47 @@ unit_states = {
     "inanimate": "3"
 }
 
+summon_unit_table = {      # taken from loi simulator
+    "Arcimág ohně": "7",
+    "Plamenný démon mág": "7",
+    "Plamenný démon arcimág": "17",
+    "Démon Bojový Mág Temnoty": "17",
+    "Následovník démonů - Kacíř": "12",
+    "Dh Ratu řečený Posel ohně": "17",
+    "Ragnarokk, prokletý wurm": "242",
+    "Eternan vyvolávač": "51",
+    "Zasvěcenec boha ledu": "78",
+    "Magmatický golem": "89",
+    "Flamekeeper": "17",
+    "Flamekeeper Lord": "95",
+    "Magmatický obr": "999",
+    "Soulkeeper": "107",
+    "Nemrtvý Druid": "192",
+    "Zvěstovatel soudného dne": "17",
+    "Nemrtvý ohnivý kouzelník": "7",
+    "Goblin Pyroman": "7",
+    "Gobliní Vzducholoď": "130",
+    "Gobliní patriarcha": "7",
+    "Rah Atrog řečený Vyvolávač": "95",
+    "Vrchní knežka Enakra": "95",
+    "Vulkánův generál": "999",
+    "Vulkán bůh ohně": "998",
+    "Druid": "242",
+    "Pán vod": "264",
+    "Veledruid": "66",
+    "Šaman Ledu": "509",
+    "Anděl věčného ohně": "650",
+    "Gobliní Hybridní vzducholoď": "1300",
+    "Gobliní Vyztužená vzducholoď": "13000",
+    "Železnej kněz": "663",
+    "Æthrův šaman Ledu": "509",
+    "Aethrův šaman Ledu": "509",
+    "Soulkeeper věčné Temnoty": "107",
+    "Stínový mág": "709",
+    "Stínový arcimág": "710",
+    "Zlobří Šaman": "902"
+}
+
 def set_abilities(unit: dict, abilities: str) -> None:
     for ability in abilities:
         parse_ability(unit, ability)
@@ -53,6 +94,20 @@ def parse_ability(unit: dict, ability: str) -> None:
     elif name == "Steč":
         charge_dmg = get_charge_dmg(description)
         unit["schopnosti"]["stec"] = charge_dmg
+    elif name == "Temný křik":
+        unit["schopnosti"]["temnykrik"] = "1"
+    elif name == "Vzkříšení":
+        resurrection_chance = get_resurrection_chance(description)
+        unit["schopnosti"]["vzkryseni"] = resurrection_chance
+    elif name == "Toxicita":
+        toxic_dmg = get_toxic_dmg(description)
+        unit["schopnosti"]["toxickyStit"] = toxic_dmg
+    elif name == "Síť":
+        unit["schopnosti"]["sit"] = "1"
+    elif name == "Gobliní výsadek":
+        unit["schopnosti"]["vyvolavaJednotku"] = summon_unit_table.get(unit["nazev"])
+
+
 
 
 def get_charge_dmg(description: str) -> str:
@@ -81,3 +136,9 @@ def get_holy_dmg(description: str) -> str:
 
 def get_crush_dmg(description: str) -> str:
     return description.split("+")[1].split("%")[0].strip()
+
+def get_resurrection_chance(description: str) -> str:
+    return description.split("zde ")[1].split("%")[0].strip()
+
+def get_toxic_dmg(description: str) -> str:
+    return description.split(" o ")[1].strip()
