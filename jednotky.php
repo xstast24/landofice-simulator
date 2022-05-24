@@ -106,7 +106,7 @@ foreach ($jednotka->schopnosti->schopnost as $schopnost){
 	elseif($nazevSchopnosti=="magieEternanu" and $hodnotaSchopnosti==1){echo "<img src='images/neni.gif' alt='Eternanská magie 1' title='Eternanská magie 1'> ";}
 	elseif($nazevSchopnosti=="magieEternanu" and $hodnotaSchopnosti==2){echo "<img src='images/neni.gif' alt='Eternanská magie 2' title='Eternanská magie 2'> ";}	
 	elseif($nazevSchopnosti=="staze"){echo "<img src='images/neni.gif' alt='Prastará magie' title='Prastará magie'> ";}
-	elseif($nazevSchopnosti=="block"){echo "<img src='images/neni.gif' alt='Block $hodnotaSchopnosti' title='Block - Jednotka má šanci $hodnotaSchopnosti%, že zablokuje nepřátelský útok.'> ";}
+	elseif($nazevSchopnosti=="block"){echo "<img src='images/block.jpg' alt='Block $hodnotaSchopnosti' title='Block - Jednotka má šanci $hodnotaSchopnosti%, že zablokuje nepřátelský útok.'> ";}
 	elseif($nazevSchopnosti=="vyvolavaJednotku" and $hodnotaSchopnosti==130){echo "<img src='images/goblini_vysadek.jpg' alt='Gobliní výsadek' title='Gobliní výsadek - Jednotka vyloží (počet*100) Gobliních paragánů.'> ";}
 	elseif($nazevSchopnosti=="vyvolavaJednotku" and $hodnotaSchopnosti==1300){echo "<img src='images/goblini_vysadek.jpg' alt='Gobliní výsadek' title='Gobliní výsadek - Jednotka vyloží (počet*200) Gobliních paragánů.'> ";}
 	elseif($nazevSchopnosti=="vyvolavaJednotku" and $hodnotaSchopnosti==13000){echo "<img src='images/goblini_vysadek.jpg' alt='Gobliní výsadek' title='Gobliní výsadek - Jednotka vyloží (počet*400) Gobliních paragánů.'> ";}
