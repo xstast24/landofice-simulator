@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+from ability_parser import set_abilities
 
 
 fraction_list = {       # taken from loi simulator
@@ -41,8 +42,6 @@ def extract_data_from_html_table(raw_data: str) -> list:
 
 def parse_html_row(row: str, fraction: str) -> dict:
     print("\n")
-    for r in row:
-        print(r)
     unit = {
         "id": row.select_one(":nth-child(2)").getText(),
         "nazev": row.select_one(":nth-child(3)").getText(),
@@ -70,11 +69,7 @@ def set_unit_abilities(unit:dict , magic: str, abilities:str) -> None:
     magic = magic.findAll("img")
     abilities = abilities.findAll("img")
 
-    for spell in magic:
-        pass
-
-    for ability in abilities:
-        pass
+    set_abilities(unit, abilities)
 
 
 def set_fraction(row: str) -> str:
@@ -83,6 +78,6 @@ def set_fraction(row: str) -> str:
 
 
 if __name__ == "__main__":
-    file_data = load_file("jednotky_test.html")
+    file_data = load_file("schopnosti_test.html")
 
     data = extract_data_from_html_table(file_data)
