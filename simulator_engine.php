@@ -1546,12 +1546,10 @@ return false;
 			$dmg = $this->pocet * (round(mt_rand(1, 10)) / 10);
 		}
 
-		//nova schpnost minotaura zablokovat uder
-		//nova schpnost minotaura zablokovat uder
+		//nova schpnost minotaura zablokovat cast poskozeni
 		if ($jednotka[$id_obrance]->schopnosti["block"] > 0) {
-			"Jednotce Minotaurus (Měděné pláty) se úspešne podařilo zablokovat 30% nepřátelského útoku (1,357).";
 			$blocked_dmg = round($dmg * ($jednotka[$id_obrance]->schopnosti['block'] / 100)); //block je cele cislo v procentech, e.g. block 30
-			echo "<span style='color:", $this->barva, "'>", $jednotka[$id_obrance]->nazev, " úspěšně zablokoval ", $jednotka[$id_obrance]->schopnosti['block'], "% nepřátelského útoku (", $blocked_dmg, ").<br>";
+			echo "<span style='color:gray'> Jednotce ", $jednotka[$id_obrance]->nazev, " se úspěšně podařilo zablokovat ", $jednotka[$id_obrance]->schopnosti['block'], "% nepřátelského útoku ($blocked_dmg).<br>";
 			$dmg -= $blocked_dmg;
 		}
 
