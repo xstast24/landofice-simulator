@@ -1520,55 +1520,43 @@ return false;
 		}
 
 
-
-	function vypocetDMG($bonus){
-
-		global $id_obrance; global $jednotka;global $aktualniKolo;
+	function vypocetDMG($bonus)
+	{
+		global $id_obrance;
+		global $jednotka;
+		global $aktualniKolo;
 
 		$damage = $this->dmg;
 
-		$damage += $damage*$bonus/100;
-		
-		//nova schpnost minotaura zablokovat uder
-		if($jednotka[$id_obrance]->schopnosti["block"] > 0 and mt_rand(1, 100) <= $jednotka[$id_obrance]->schopnosti["block"]) {
-			
-		echo "<span style='color:".$this->barva."'>".$jednotka[$id_obrance]->nazev." úspěšně zablokoval úder.<br>";
-		$dmg = 0;
-		return $dmg;
-		}
+		$damage += $damage * $bonus / 100;
 
-		if($this->schopnosti["stec"] > 0 and $aktualniKolo==3) $damage += $this->schopnosti["stec"];
+		if ($this->schopnosti["stec"] > 0 and $aktualniKolo == 3) $damage += $this->schopnosti["stec"];
 
-		if ($this->utk >= $jednotka[$id_obrance]->obr){
-
-			$dmg = $this->pocet * $damage *(1+(($this->utk - $jednotka[$id_obrance]->obr)/100)*4);
-
-			}
-
-		elseif($this->utk < $jednotka[$id_obrance]->obr and $this->schopnosti["slayer"] == 0){
-
-			$dmg = $this->pocet * $damage*(1+($this->utk - $jednotka[$id_obrance]->obr)/50);
-			
-
-			}
-
-		else{ //utoci jednotka se slayerem a utok je mensi nez obrana
+		if ($this->utk >= $jednotka[$id_obrance]->obr) {
+			$dmg = $this->pocet * $damage * (1 + (($this->utk - $jednotka[$id_obrance]->obr) / 100) * 4);
+		} elseif ($this->utk < $jednotka[$id_obrance]->obr and $this->schopnosti["slayer"] == 0) {
+			$dmg = $this->pocet * $damage * (1 + ($this->utk - $jednotka[$id_obrance]->obr) / 50);
+		} else { //utoci jednotka se slayerem a utok je mensi nez obrana
 
 			$dmg = $this->pocet * $damage;
-
-			}
-
-		if(($jednotka[$id_obrance]->obr - $this->utk)>=25 and $this->schopnosti["slayer"] == 0){
-
-//			$dmg = $this->pocet * 0.55;
-        $dmg = $this->pocet * (round(mt_rand(1,10))/10);
-
-			}
-
-		return round($dmg);
-
 		}
 
+		if (($jednotka[$id_obrance]->obr - $this->utk) >= 25 and $this->schopnosti["slayer"] == 0) {
+			//			$dmg = $this->pocet * 0.55;
+			$dmg = $this->pocet * (round(mt_rand(1, 10)) / 10);
+		}
+
+		//nova schpnost minotaura zablokovat uder
+		//nova schpnost minotaura zablokovat uder
+		if ($jednotka[$id_obrance]->schopnosti["block"] > 0) {
+			"Jednotce Minotaurus (Měděné pláty) se úspešne podařilo zablokovat 30% nepřátelského útoku (1,357).";
+			$blocked_dmg = round($dmg * ($jednotka[$id_obrance]->schopnosti['block'] / 100)); //block je cele cislo v procentech, e.g. block 30
+			echo "<span style='color:", $this->barva, "'>", $jednotka[$id_obrance]->nazev, " úspěšně zablokoval ", $jednotka[$id_obrance]->schopnosti['block'], "% nepřátelského útoku (", $blocked_dmg, ").<br>";
+			$dmg -= $blocked_dmg;
+		}
+
+		return round($dmg);
+	}
 
 
 	function zabitych($dmg){
