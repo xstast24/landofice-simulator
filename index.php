@@ -1,10 +1,12 @@
 ﻿<?php
+ini_set("display_errors", 1); //show PHP errors on the web if they happen
+
 $utocnik="1 x Agranat, řečený zloděj duší(Prokletá kouzelnická róba)
+3077 x Zombie(Gladius)
+3,077 x Zombie (Gladius)
 331 x Bažinný ent
 157 x Kostlivec
-3077 x Zombie
-21 x Stín
-11216 x Uvězněná duše";
+21 x Stín";
 $obrance="1 x Dehinator (Ohnivá zbroj)
 12 x Těžký katapult
 12 x Těžká balista
