@@ -4,7 +4,7 @@ unit_states = {
     "inanimate": "3"
 }
 
-summon_unit_table = {      # taken from loi simulator
+summon_unit_table = {  # taken from loi simulator
     "Arcimág ohně": "7",
     "Plamenný démon mág": "7",
     "Plamenný démon arcimág": "17",
@@ -43,11 +43,13 @@ summon_unit_table = {      # taken from loi simulator
     "Stínový mág": "709",
     "Stínový arcimág": "710",
     "Zlobří Šaman": "902"
-}   # TODO pridat vyvolavani posvatneho obra do simulatoru
+}  # TODO pridat vyvolavani posvatneho obra do simulatoru
+
 
 def set_abilities(unit: dict, abilities: str) -> None:
     for ability in abilities:
         set_ability(unit, ability)
+
 
 def set_ability(unit: dict, ability: str) -> None:
     name, description = ability['title'].split(" - ", 1)
@@ -128,47 +130,58 @@ def set_ability(unit: dict, ability: str) -> None:
         unit["schopnosti"]["letani"] = "1"
 
 
-
-
 def get_charge_dmg(description: str) -> str:
     return description.split(" do ")[0].split("kole ")[1].strip()
+
 
 def get_ice_resistance(description: str) -> str:
     return description.split(" má ")[1].split("%")[0].strip()
 
+
 def get_spell_resistance(description: str) -> str:
     return description.split(" má ")[1].split("%")[0].strip()
+
 
 def get_multi_attack(description: str) -> str:
     return description.split("útočí ")[1].split(" x ")[0].strip()
 
+
 def get_fire_shield_dmg(description: str) -> str:
     return description.split(" poškození")[0].split(" protivník ")[1].strip()
+
 
 def get_ice_shield_slowdown(description: str) -> str:
     return description.split(" o ")[1].split("%")[0].strip()
 
+
 def get_poison_dmg(description: str) -> str:
     return description.split("+")[1].split("%")[0].strip()
+
 
 def get_holy_dmg(description: str) -> str:
     return description.split("+")[1].split("%")[0].strip()
 
+
 def get_crush_dmg(description: str) -> str:
     return description.split("+")[1].split("%")[0].strip()
+
 
 def get_resurrection_chance(description: str) -> str:
     return description.split("zde ")[1].split("%")[0].strip()
 
+
 def get_toxic_dmg(description: str) -> str:
     return description.split(" o ")[1].strip()
+
 
 def get_block_percentage(description: str) -> str:
     return description.split("zablokuje ")[1].split("%")[0].strip()
 
+
 def set_magic(unit: dict, magic: str) -> None:
     for spell in magic:
         set_spell(unit, spell)
+
 
 def set_spell(unit: dict, spell: str) -> None:
     name, description = spell['title'].split(" - ", 1)
@@ -200,12 +213,13 @@ def set_spell(unit: dict, spell: str) -> None:
         level = name.split(" Světla ")[1].strip()
         name = "magieSvetla"
         unit["schopnosti"][name] = level
-    # TODO potom poresit chybejici magii prastarych
+        # TODO potom poresit chybejici magii prastarych
 
 
 def roman_to_arabic(roman_number: str):
-    roman_numbers = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000, 'IV': 4, 'IX': 9, 'XL': 40, 'XC': 90,
-             'CD': 400, 'CM': 900}
+    roman_numbers = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000, 'IV': 4, 'IX': 9, 'XL': 40,
+                     'XC': 90,
+                     'CD': 400, 'CM': 900}
     i = 0
     arabic_number = 0
     while i < len(roman_number):

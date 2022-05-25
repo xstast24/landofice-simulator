@@ -1,4 +1,4 @@
-def generate_units(unit_data: str, unit_file_path:str = "generovane_jednotky.xml"):
+def generate_units(unit_data: str, unit_file_path: str = "generovane_jednotky.xml"):
     xml_file = open(unit_file_path, 'w', encoding="utf-8")
     xml_file.write("<jednotky>\n")
 
@@ -27,11 +27,11 @@ def generate_unit(unit_data: dict) -> str:
 
     return unit_xml_string
 
+
 def generate_abilities(ability_data: dict) -> str:
     unit_xml_string = ""
 
     for key in ability_data.keys():
-
         unit_xml_string += f"\t\t\t<schopnost>\n"
 
         unit_xml_string += f"\t\t\t\t<nazev>{key}</nazev>\n"
@@ -40,4 +40,3 @@ def generate_abilities(ability_data: dict) -> str:
         unit_xml_string += f"\t\t\t</schopnost>\n"
 
     return unit_xml_string
-
