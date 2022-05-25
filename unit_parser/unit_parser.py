@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 from ability_parser import set_abilities, set_magic
+from unit_generator import generate_units
 
 
 fraction_list = {       # taken from loi simulator
@@ -36,6 +37,9 @@ def extract_data_from_html_table(raw_data: str) -> list:
             fraction = set_fraction(row)
         elif row_length == 16:
             unit_list.append(parse_html_row(row, fraction))
+
+    units_to_remove = ["nic", "není"]
+    unit_list = [unit if unit not in units_to_remove for unit in unit_list]
 
     return unit_list
 
@@ -81,3 +85,5 @@ if __name__ == "__main__":
     file_data = load_file("test_data/vsechny_jednotky.html")
 
     unit_data = extract_data_from_html_table(file_data)
+
+    generate_units(unit_data)
