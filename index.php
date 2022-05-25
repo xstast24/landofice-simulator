@@ -34,10 +34,10 @@ table td {padding: 1px; text-align: center;Vertical-align:top;color:black}
 #eventy input:hover{color:grey; text-decoration:underline; cursor:pointer}
 #eventy {margin:auto;width:1100px}
 #eventy td {color:white}
-#buton1 {height:15px;width:95%;background:white;margin:auto;border:2px gray outset}
-#buton1:hover {cursor:hand}
-#buton2 {height:15px;width:95%;background:gray;margin:auto;border:2px gray inset}
-#buton2:hover {cursor:hand}
+.selectionButtonActive {height:15px;width:95%;background:gray;margin:auto;border:2px gray inset}
+.selectionButtonActive:hover {cursor:hand}
+.selectionButtonInactive {height:15px;width:95%;background:white;margin:auto;border:2px gray outset}
+.selectionButtonInactive:hover {cursor:hand}
 table#form {color: white}
 table#form id {padding: 4px; color: white}
 </style>
@@ -45,7 +45,7 @@ table#form id {padding: 4px; color: white}
 <script type='text/javascript' src='wz_tooltip.js'></script>
 <div style='width:750px;margin:auto'>
 <table>
-<tr><td><div id='buton1' name='0' onClick='change(1)' style='border:2px #808080 outset'></div></td><td><div name='1' onClick='change(2)' id='buton2'></div></td></tr>
+<tr><td><div id='selectionButon1' class='selectionButtonInactive' onClick='selectButton(1)'></div></td><td><div class="selectionButtonActive" onClick='selectButton(2)' id='selectionButon2'>⬇</div></td></tr>
 <tr>
 <td><textarea name='ut' id='ut' rows=10 cols=50><?php echo $utocnik ?></textarea></td>
 <td><textarea name='ob' id='ob' rows=10 cols=50><?php echo $obrance ?></textarea></td>
