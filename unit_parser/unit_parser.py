@@ -38,8 +38,8 @@ def extract_data_from_html_table(raw_data: str) -> list:
         elif row_length == 16:
             unit_list.append(parse_html_row(row, fraction))
 
-    units_to_remove = ["nic", "není"]
-    unit_list = [unit if unit not in units_to_remove for unit in unit_list]
+    units_to_remove = ["NIC", "Není"]
+    unit_list = [unit for unit in unit_list if unit["nazev"] not in units_to_remove]
 
     return unit_list
 
