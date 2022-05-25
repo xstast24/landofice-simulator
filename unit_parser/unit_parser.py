@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from ability_parser import set_abilities, set_magic
 from unit_generator import generate_units
+from missing_units import handle_missing_units
 
 fraction_list = {  # taken from loi simulator
     "Dralgar Imagar": "1",
@@ -38,7 +39,9 @@ def extract_data_from_html_table(raw_data: str) -> list:
         elif row_length == 16:
             unit_list.append(parse_html_row(row, fraction))
 
-    units_to_remove = ["NIC", "Není"]
+    unit_list = handle_missing_units(unit_list)
+
+    units_to_remove = ["NIC", "Není", "SMAZAT"]
     unit_list = [unit for unit in unit_list if unit["nazev"] not in units_to_remove]
 
     return unit_list
