@@ -52,7 +52,6 @@ function ajaxFunction() {
     }
 }
 
-
 function handleServerResponse() {
     if (xmlhttp.readyState == 4) {
         if (xmlhttp.status == 200) {
@@ -95,6 +94,7 @@ function selectButton(el) {
     }
 }
 
+
 function aktivniPole() {
     return document.getElementById("selectionButon1").getAttribute('class') === 'selectionButtonActive' ? document.getElementById('ut') : document.getElementById('ob');
 }
@@ -109,14 +109,14 @@ function pridej(obsah) {
 
 
 function ajaxFunction2(server) {
-    id = prompt("ID klanu:", "");
+    let id = prompt("ID klanu:", "");
 
     var getdate = new Date();  //Used to prevent caching during ajax call
 
     if (xmlhttp) {
         xmlhttp.open("POST", "download.php", true); //calling testing.php using POST method
 
-        xmlhttp.onreadystatechange = handleServerResponse2;
+        xmlhttp.onreadystatechange = putServerResponseIntoActiveArmyField;
 
         xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
@@ -125,28 +125,26 @@ function ajaxFunction2(server) {
 }
 
 
-function handleServerResponse2() {
+function putServerResponseIntoActiveArmyField() {
+    //put result (list of units) of the http request into the active army field (attacker/defender)
     if (xmlhttp.readyState == 4) {
         if (xmlhttp.status == 200) {
-            if (document.getElementById("selectionButon1").name == '0' || document.getElementById("selectionButon1").style.border == '2px outset #808080') document.getElementById("ob").value = xmlhttp.responseText;
-
-            else document.getElementById("ut").value = xmlhttp.responseText;
+            aktivniPole().value = xmlhttp.responseText;
         } else {
             alert("Error during AJAX call. Please try again");
         }
     }
 }
 
-
 function ajaxFunction3(el) {
-    id = prompt("Počet dobytí:", "");
+    let id = prompt("Počet dobytí:", "");
 
     var getdate = new Date();  //Used to prevent caching during ajax call
 
     if (xmlhttp) {
         xmlhttp.open("POST", "api.php", true); //calling testing.php using POST method
 
-        xmlhttp.onreadystatechange = handleServerResponse3;
+        xmlhttp.onreadystatechange = putServerResponseIntoActiveArmyField;
 
         xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
@@ -155,14 +153,14 @@ function ajaxFunction3(el) {
 }
 
 function ajaxFunction4(el) {
-    id = prompt("Zadej svoji sílu armády:", "");
+    let id = prompt("Zadej svoji sílu armády:", "");
 
     var getdate = new Date();  //Used to prevent caching during ajax call
 
     if (xmlhttp) {
         xmlhttp.open("POST", "api.php", true); //calling testing.php using POST method
 
-        xmlhttp.onreadystatechange = handleServerResponse3;
+        xmlhttp.onreadystatechange = putServerResponseIntoActiveArmyField;
 
         xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
@@ -171,23 +169,9 @@ function ajaxFunction4(el) {
 }
 
 
-function handleServerResponse3() {
-    if (xmlhttp.readyState == 4) {
-        if (xmlhttp.status == 200) {
-            if (document.getElementById("selectionButon1").name == '0' || document.getElementById("selectionButon1").style.border == '2px outset #808080') document.getElementById("ob").value = xmlhttp.responseText;
-
-            else document.getElementById("ut").value = xmlhttp.responseText;
-        } else {
-            alert("Error during AJAX call. Please try again");
-        }
-    }
-}
-
-
 function hraci(server) {
     ajaxFunction2(server);
 }
-
 
 function pleneni(el) {
     ajaxFunction3(el);
@@ -195,11 +179,4 @@ function pleneni(el) {
 
 function silaarmady(el) {
     ajaxFunction4(el);
-}
-
-
-function smaz(el) {
-    alert(el.value);
-
-    if (el.value == 'jednotky.xml') el.value = 'file://C:/';
 }
