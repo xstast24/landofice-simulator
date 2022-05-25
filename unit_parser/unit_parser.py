@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from ability_parser import set_abilities
+from ability_parser import set_abilities, set_magic
 
 
 fraction_list = {       # taken from loi simulator
@@ -41,7 +41,6 @@ def extract_data_from_html_table(raw_data: str) -> list:
 
 
 def parse_html_row(row: str, fraction: str) -> dict:
-    print("\n")
     unit = {
         "id": row.select_one(":nth-child(2)").getText(),
         "nazev": row.select_one(":nth-child(3)").getText(),
@@ -52,23 +51,24 @@ def parse_html_row(row: str, fraction: str) -> dict:
         "iniciativa": row.select_one(":nth-child(8)").getText(),
         "typUtoku": row.select_one(":nth-child(9)").getText(),
         "hodnota": row.select_one(":nth-child(10)").getText(),
-        "stav": "1",
+        "stav": "1",    # default value is living unit, will be modified later during processing unit abilities
         "frakce": fraction,
         "pocetUtoku": "1",
         "schopnosti": {}
     }
+
     magic = row.select_one(":nth-child(15)")
     abilities = row.select_one(":nth-child(16)")
-
     set_unit_abilities(unit, magic, abilities)
 
-    print("jednotka: ", unit)
+    return unit
 
 
 def set_unit_abilities(unit:dict , magic: str, abilities:str) -> None:
     magic = magic.findAll("img")
     abilities = abilities.findAll("img")
 
+    set_magic(unit, magic)
     set_abilities(unit, abilities)
 
 
@@ -78,6 +78,6 @@ def set_fraction(row: str) -> str:
 
 
 if __name__ == "__main__":
-    file_data = load_file("schopnosti_test.html")
+    file_data = load_file("test_data/vsechny_jednotky.html")
 
-    data = extract_data_from_html_table(file_data)
+    unit_data = extract_data_from_html_table(file_data)
