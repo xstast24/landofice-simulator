@@ -68,6 +68,7 @@ function handleServerResponse() {
 
 
 function zobrazit() {
+    // zobrazi seznam vsech eventu, kde si hrac muze vybrat
     if (document.getElementById("eventy").style.display == 'none') {document.getElementById("eventy").style.display = 'block';} else document.getElementById("eventy").style.display = 'none';
 }
 
@@ -108,6 +109,17 @@ function pridej(obsah) {
 }
 
 
+function putServerResponseIntoActiveArmyField() {
+    //put result (list of units) of the http request into the active army field (attacker/defender)
+    if (xmlhttp.readyState == 4) {
+        if (xmlhttp.status == 200) {
+            aktivniPole().value = xmlhttp.responseText;
+        } else {
+            alert("Error during AJAX call. Please try again");
+        }
+    }
+}
+
 function ajaxFunction2(server) {
     let id = prompt("ID klanu:", "");
 
@@ -121,18 +133,6 @@ function ajaxFunction2(server) {
         xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
         xmlhttp.send("id=" + id + "&server=" + server); //Posting txtname to PHP File
-    }
-}
-
-
-function putServerResponseIntoActiveArmyField() {
-    //put result (list of units) of the http request into the active army field (attacker/defender)
-    if (xmlhttp.readyState == 4) {
-        if (xmlhttp.status == 200) {
-            aktivniPole().value = xmlhttp.responseText;
-        } else {
-            alert("Error during AJAX call. Please try again");
-        }
     }
 }
 
