@@ -2,8 +2,7 @@ from bs4 import BeautifulSoup
 from ability_parser import set_abilities, set_magic
 from unit_generator import generate_units
 
-
-fraction_list = {       # taken from loi simulator
+fraction_list = {  # taken from loi simulator
     "Dralgar Imagar": "1",
     "Aether": "3",
     "Dhar": "5",
@@ -15,18 +14,19 @@ fraction_list = {       # taken from loi simulator
     "Demoni": "10"
 }
 
+
 def load_file(file_path: str = "LoI-jednotky.html", encoding: str = "utf-8") -> str:
     with open(file_path, "r", encoding=encoding) as units_file:
         data = units_file.read()
 
     return data
 
+
 def extract_data_from_html_table(raw_data: str) -> list:
     unit_list = []
     fraction = "0"
     html_table = BeautifulSoup(raw_data, "html.parser")
     table_rows = html_table.findAll("tr")
-
 
     for row in table_rows:
         row_length = len(row)
@@ -55,7 +55,7 @@ def parse_html_row(row: str, fraction: str) -> dict:
         "iniciativa": row.select_one(":nth-child(8)").getText(),
         "typUtoku": row.select_one(":nth-child(9)").getText(),
         "hodnota": row.select_one(":nth-child(10)").getText(),
-        "stav": "1",    # default value is living unit, will be modified later during processing unit abilities
+        "stav": "1",  # default value is living unit, will be modified later during processing unit abilities
         "frakce": fraction,
         "pocetUtoku": "1",
         "schopnosti": {}
@@ -68,7 +68,7 @@ def parse_html_row(row: str, fraction: str) -> dict:
     return unit
 
 
-def set_unit_abilities(unit:dict , magic: str, abilities:str) -> None:
+def set_unit_abilities(unit: dict, magic: str, abilities: str) -> None:
     magic = magic.findAll("img")
     abilities = abilities.findAll("img")
 
