@@ -76,13 +76,13 @@ elseif ($zam == 3){
 
 $plan += 1;
 
-echo ($plan * 5000) . " x Zombie\n";
+echo ($plan * 1000) . " x Zombie\n";
 
-echo ($plan * 250) . " x Stín\n";
+echo ($plan * 50) . " x Stín\n";
 
-echo ($plan * 5000) . " x Kostlivec\n";
+echo ($plan * 1000) . " x Kostlivec\n";
 
-echo ($plan * 5000) . " x Uvězněná duše\n";
+echo ($plan * 1000) . " x Uvězněná duše\n";
 
 }
 
