@@ -1914,7 +1914,7 @@
 	</jednotka>
 	<jednotka>
 		<id>100</id>
-		<nazev>Nemrtví rytíř</nazev>
+		<nazev>Nemrtvý rytíř</nazev>
 		<damage>32</damage>
 		<utok>18</utok>
 		<obrana>16</obrana>
@@ -2478,7 +2478,7 @@
 	</jednotka>
 	<jednotka>
 		<id>126</id>
-		<nazev>Gobliní pojízdná bomba </nazev>
+		<nazev>Gobliní pojízdná bomba</nazev>
 		<damage>10000</damage>
 		<utok>30</utok>
 		<obrana>5</obrana>
@@ -2991,26 +2991,6 @@
 		</schopnosti>
 	</jednotka>
 	<jednotka>
-		<id>151</id>
-		<nazev>Težký pěšák starého impéria</nazev>
-		<damage>12</damage>
-		<utok>12</utok>
-		<obrana>9</obrana>
-		<zivoty>30</zivoty>
-		<iniciativa>5</iniciativa>
-		<hodnota>40</hodnota>
-		<typUtoku>1</typUtoku>
-		<stav>1</stav>
-		<pocetUtoku>1</pocetUtoku>
-		<frakce>0</frakce>
-		<schopnosti>
-			<schopnost>
-				<nazev>stec</nazev>
-				<hodnota>15</hodnota>
-			</schopnost>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
 		<id>152</id>
 		<nazev>Kapitán těžkých pěšáků starého impéria</nazev>
 		<damage>9</damage>
@@ -3497,7 +3477,7 @@
 	</jednotka>
 	<jednotka>
 		<id>183</id>
-		<nazev>Master Lovec</nazev>
+		<nazev>Mistr Lovec</nazev>
 		<damage>9</damage>
 		<utok>11</utok>
 		<obrana>3</obrana>
@@ -5244,30 +5224,6 @@
 		</schopnosti>
 	</jednotka>
 	<jednotka>
-		<id>504</id>
-		<nazev>Sestra ledu</nazev>
-		<damage>25</damage>
-		<utok>12</utok>
-		<obrana>8</obrana>
-		<zivoty>60</zivoty>
-		<iniciativa>9</iniciativa>
-		<hodnota>200</hodnota>
-		<typUtoku>2</typUtoku>
-		<stav>1</stav>
-		<pocetUtoku>1</pocetUtoku>
-		<frakce>3</frakce>
-		<schopnosti>
-			<schopnost>
-				<nazev>stec</nazev>
-				<hodnota>50</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>slayer</nazev>
-				<hodnota>1</hodnota>
-			</schopnost>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
 		<id>505</id>
 		<nazev>Sněžný vlk</nazev>
 		<damage>15</damage>
@@ -5469,7 +5425,7 @@
 	</jednotka>
 	<jednotka>
 		<id>603</id>
-		<nazev>Topázový válečník</nazev>
+		<nazev>Topazový válečník</nazev>
 		<damage>16</damage>
 		<utok>13</utok>
 		<obrana>7</obrana>
@@ -5757,7 +5713,7 @@
 	</jednotka>
 	<jednotka>
 		<id>614</id>
-		<nazev>Elfí kopijník</nazev>
+		<nazev>Elfí kopiník</nazev>
 		<damage>14</damage>
 		<utok>10</utok>
 		<obrana>4</obrana>
@@ -5777,7 +5733,7 @@
 	</jednotka>
 	<jednotka>
 		<id>615</id>
-		<nazev>Elfí kopijník na obřím pavoukovi</nazev>
+		<nazev>Elfí kopiník na obřím pavoukovi</nazev>
 		<damage>140</damage>
 		<utok>12</utok>
 		<obrana>8</obrana>
@@ -6063,21 +6019,6 @@
 		</schopnosti>
 	</jednotka>
 	<jednotka>
-		<id>630</id>
-		<nazev>Odpadlík</nazev>
-		<damage>3</damage>
-		<utok>4</utok>
-		<obrana>2</obrana>
-		<zivoty>6</zivoty>
-		<iniciativa>4</iniciativa>
-		<hodnota>2</hodnota>
-		<typUtoku>1</typUtoku>
-		<stav>1</stav>
-		<pocetUtoku>1</pocetUtoku>
-		<frakce>0</frakce>
-		<schopnosti/>
-	</jednotka>
-	<jednotka>
 		<id>631</id>
 		<nazev>Poloautomatická socha</nazev>
 		<damage>2</damage>
@@ -6093,28 +6034,8 @@
 		<schopnosti/>
 	</jednotka>
 	<jednotka>
-		<id>633</id>
-		<nazev>Voják předsunuté hlídky</nazev>
-		<damage>8</damage>
-		<utok>11</utok>
-		<obrana>7</obrana>
-		<zivoty>20</zivoty>
-		<iniciativa>6</iniciativa>
-		<hodnota>25</hodnota>
-		<typUtoku>1</typUtoku>
-		<stav>1</stav>
-		<pocetUtoku>1</pocetUtoku>
-		<frakce>0</frakce>
-		<schopnosti>
-			<schopnost>
-				<nazev>stec</nazev>
-				<hodnota>16</hodnota>
-			</schopnost>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
 		<id>634</id>
-		<nazev>Železnej býk</nazev>
+		<nazev>Železný býk</nazev>
 		<damage>36</damage>
 		<utok>16</utok>
 		<obrana>12</obrana>
@@ -6164,7 +6085,7 @@
 	</jednotka>
 	<jednotka>
 		<id>637</id>
-		<nazev>Železnej pavouček</nazev>
+		<nazev>Železný pavouček</nazev>
 		<damage>5</damage>
 		<utok>3</utok>
 		<obrana>1</obrana>
@@ -6179,7 +6100,7 @@
 	</jednotka>
 	<jednotka>
 		<id>638</id>
-		<nazev>Železnej škorpion</nazev>
+		<nazev>Železný škopion</nazev>
 		<damage>22</damage>
 		<utok>10</utok>
 		<obrana>8</obrana>
@@ -6699,7 +6620,7 @@
 	</jednotka>
 	<jednotka>
 		<id>663</id>
-		<nazev>Recyklovanej kočkodlak</nazev>
+		<nazev>Recyklovaný kočkodlak</nazev>
 		<damage>40</damage>
 		<utok>12</utok>
 		<obrana>7</obrana>
@@ -6714,7 +6635,7 @@
 	</jednotka>
 	<jednotka>
 		<id>664</id>
-		<nazev>Železnej kněz</nazev>
+		<nazev>Železný kněz</nazev>
 		<damage>8</damage>
 		<utok>5</utok>
 		<obrana>5</obrana>
@@ -6738,7 +6659,7 @@
 	</jednotka>
 	<jednotka>
 		<id>665</id>
-		<nazev>Kamennej chrlič</nazev>
+		<nazev>Kamenný chrlič</nazev>
 		<damage>30</damage>
 		<utok>12</utok>
 		<obrana>9</obrana>

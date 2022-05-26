@@ -43,7 +43,7 @@ def extract_data_from_html_table(raw_data: str) -> list:
 
     units_to_remove = ["NIC", "Není", "SMAZAT"]
     unit_list = [unit for unit in unit_list if unit["nazev"] not in units_to_remove]
-
+    # TODO aplikace viceutoku
     return unit_list
 
 
