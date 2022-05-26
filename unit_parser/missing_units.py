@@ -1,3 +1,8 @@
+"""
+Not only for missing units, but for any other units that need manual insertion or correction
+manually inserted unit takes priority if this unit has been auto-generated
+"""
+
 missing_units = [
     {
         "id": "",
