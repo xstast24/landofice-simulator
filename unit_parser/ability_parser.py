@@ -36,7 +36,7 @@ summon_unit_table = {  # taken from loi simulator
     "Anděl věčného ohně": "650",
     "Gobliní Hybridní vzducholoď": "1300",
     "Gobliní Vyztužená vzducholoď": "13000",
-    "Železnej kněz": "663",
+    "Železný kněz": "663",
     "Æthrův šaman Ledu": "509",
     "Aethrův šaman Ledu": "509",
     "Soulkeeper věčné Temnoty": "107",
