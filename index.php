@@ -149,7 +149,7 @@ table#form id {padding: 4px; color: white}
 
 <b>Plenění</b><br><br>
 
-<input value='Svobodné město' type=button onclick='pole("1 x Kamenná hradba\n17 x Katapult\n5 x Těžký katapult\n20 x Balista\n7 x Těžká balista\n2745 x Městští kušníci\n197 x Osadník s lukem\n17 x Potulný Kouzelník\n11 x Master Lovec")'><br>
+<input value='Svobodné město' type=button onclick='pole("1 x Kamenná hradba\n17 x Katapult\n5 x Těžký katapult\n20 x Balista\n7 x Těžká balista\n2745 x Městští kušníci\n197 x Osadník s lukem\n17 x Potulný Kouzelník\n11 x Mistr Lovec")'><br>
 
 <input value='Obři zla' type=button onclick='pole("50 x Obr lidožrout\n20 x Prokletý Obr\n30 x Hnijící Nemrtvý Obr\n20 x Ohnivý Obr")'><br>
 
