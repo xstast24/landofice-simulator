@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from ability_parser import set_abilities, set_magic
 from unit_generator import generate_units
 from missing_units import handle_missing_units
+import sys
 
 fraction_list = {  # taken from loi simulator
     "Dralgar Imagar": "1",
@@ -85,7 +86,11 @@ def set_fraction(row: str) -> str:
 
 
 if __name__ == "__main__":
-    file_data = load_file("test_data/vsechny_jednotky.html")
+    file_path = "test_data/vsechny_jednotky.html"
+    if len(sys.argv) == 2:
+        file_path = sys.argv[1]
+
+    file_data = load_file(file_path)
 
     unit_data = extract_data_from_html_table(file_data)
 
