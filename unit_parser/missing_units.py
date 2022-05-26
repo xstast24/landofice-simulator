@@ -356,7 +356,7 @@ missing_units = [
         }
     },
     {
-        "id": "262",
+        "id": "999262",
         "nazev": "Temná sépie",
         "utok": "38",
         "obrana": "22",
