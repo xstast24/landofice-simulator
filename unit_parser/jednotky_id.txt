@@ -1,0 +1,371 @@
+Ozbrojený vesničan : 1
+Kovář : 2
+Vesničan : 3
+Velitel osady : 4
+Katapult : 5
+Osadník s lukem : 6
+Žebrák : 7
+Otrok s kopím : 10
+Otrok s oštěpy : 11
+Otrok štítonoš : 12
+Těžký katapult : 13
+Městská pěchota : 14
+Městští kušníci : 15
+Starostova ochranka : 16
+Starosta : 17
+Balista : 18
+Těžká balista : 19
+Místodržící : 20
+Odpadlík : 21
+Renegád : 22
+Mistr Lovec : 23
+Potulný Kouzelník : 24
+Archeolog : 25
+Starý Archeolog : 26
+Voják předsunuté hlídky : 27
+Otrokář : 28
+Elfí lučištník : 100
+Elfí elitní lučištník : 101
+Elfí kopiník : 105
+Elfí kopiník na obřím pavoukovi : 106
+Elfí elitní kopiník : 107
+Druid : 110
+Veledruid : 111
+Zelený lesní pavouk : 112
+Červený lesní pavouk : 113
+Černý lesní pavouk : 114
+Zlatý lesní pavouk : 115
+Obří zelený pavouk : 116
+Obří červený pavouk : 117
+Obří černý pavouk : 118
+Lesní obr : 120
+Lesní Bizon : 121
+Lesní Troll : 122
+Horský obr : 123
+Prastarý Horský obr : 124
+Prastarý Lesní Troll : 125
+Bílí Lesní Bizon : 126
+Wurm : 130
+Lesní obr jezdící na Posvátném Wurmovi : 131
+Horský Wurm : 132
+Prastarý Horský Wurm : 133
+Jednorožec : 135
+Posvátný jednorožec : 136
+Ent : 190
+Starodávný Ent : 191
+Bílý pavouk : 192
+Elfí hraničář : 193
+Kentaur : 194
+Vyznavač boha ledu : 200
+Zasvěcenec boha ledu : 201
+Æthrův věrný : 202
+Akolyta boha ledu : 203
+Mistr boha ledu : 207
+Ledový Přízrak : 210
+Starodávný Ledový Přízrak : 211
+Ledový Elementál : 212
+Starodávny Ledový Elementál : 213
+Ledový válečník : 214
+Sestra Ledu : 215
+Posvátny Ledový Elementál : 216
+Posvátny ledový válečník : 217
+Ledový obr : 220
+Starodávný ledový obr : 221
+Šaman Ledu : 222
+Æthrův šaman Ledu : 223
+Ledová hydra : 230
+Starodávná ledová hydra : 231
+Ledová hvězda : 232
+Æthrova ledová hvězda : 233
+Posvátna Ledová hydra : 234
+Æthrův ledový válečník : 290
+Mág ledu : 291
+Ledová hradba : 292
+Velemág Ledu : 293
+Snežný obr : 294
+Sněžný vlk : 295
+Ledový vlk : 296
+Arcimág ledu : 297
+Oživlé bahno : 300
+Toxické oživlé bahno : 301
+Bahenní Golem : 302
+Toxický Bahenní Golem : 303
+Kamenný Válečník : 305
+Mramorový Válečník : 306
+Onyxový Válečník : 307
+Topazový Válečník : 308
+Kamenný Golem : 310
+Mramorový golem : 311
+Onyxový Golem : 312
+Topazový Golem : 313
+Bahenní Ještěr : 315
+Toxický Bahenní Ještěr : 316
+Kamenožrout : 320
+Mramorožrout : 321
+Onyxožrout : 322
+Topazožrout : 323
+Minotaurus : 325
+Toxický Minotaurus : 326
+Obrněný Minotaurus : 327
+Obrněný Toxický Minotaurus : 328
+Mág země : 330
+Velemág země : 331
+Bahenní Had : 335
+Toxický Bahenní Had : 336
+Bahenní Brouk : 350
+Toxický Bahenní Brouk : 351
+Minotauří Král Honu : 375
+Minotauří Toxický Král Honu : 376
+Kamenný Kraken : 390
+Bahenní Ještěr s kuší : 391
+Toxický Bahenní Ještěr s kuší : 392
+Inkvizitor : 410
+Exorcista : 420
+Paladin Světla : 430
+Zombie : 1000
+NIC : 1001
+Dreaddův přívrženec : 1002
+Lich : 1010
+Arcilich : 1011
+Prokletý kněz : 1012
+Prokletý kněz věčné Temnoty : 1013
+Stín : 1020
+NIC : 1021
+NIC : 1022
+Černý rytíř : 1023
+Temný rytíř : 1024
+Rytíř věčné Temnoty : 1025
+Temný přízrak : 1030
+Soulkeeper : 1032
+Soulkeeper věčné Temnoty : 1033
+Nekromant : 1034
+Upír : 1089
+Kostlivec : 1090
+Dreaddův Vyvolený : 1091
+Uvězněná duše : 1092
+Nemrtvý Druid : 1093
+Nemrtvý ohnivý kouzelník : 1094
+Nemrtvý ledový kouzelník : 1095
+Zvěstovatel soudného dne : 1096
+Obří kostlivec : 1097
+Prokletý ent : 1098
+Ghúl : 1099
+Mág ohně : 1100
+Arcimág ohně : 1101
+Stínový medvěd : 1105
+Stínový ohnivý medvěd : 1106
+Ohnivý golem : 1110
+Lávový golem : 1111
+Magmatický golem : 1112
+Stínová valkýra : 1115
+Stínová ohnivá valkýra : 1116
+Ohnivý Fénix : 1120
+Ledový Fénix : 1121
+Anděl věčného ohně : 1122
+Stínový mág : 1125
+Stínový arcimág : 1126
+Flamekeeper : 1130
+Stínový drak : 1135
+Stínový ohnivý drak : 1136
+Ohnivý Služebník : 1190
+Efreet : 1191
+Flamekeeper Lord : 1192
+Magmatický Obr : 1193
+Stínový ohař : 1194
+Stínová bestie : 1195
+Akolyta věčného ohně : 1196
+Efreet šaman : 1197
+Stínový Efreet : 1198
+Temný Elf : 1202
+Velitel Temných Elfů : 1203
+Goblin : 2000
+Goblin s Prakem : 2001
+Hobgoblin : 2005
+Goblin Fanatik : 2010
+Gobliní pojízdná bomba : 2011
+Goblin na vlkovi : 2015
+Goblin na medvědovi : 2016
+Pán šelem : 2017
+Goblin Pyroman : 2020
+Zlobr : 2025
+Zlobří Šaman : 2026
+Gobliní Vzducholoď : 2030
+Goblin Paragán : 2031
+Gobliní Exterminátor : 2032
+Gobliní Sabotér : 2033
+Gobliní Hrdina : 2034
+Gobliní Patriarcha : 2035
+Gobliní Hybridní Vzducholoď : 2036
+Gobliní Vyztužená Vzducholoď : 2037
+Duše goblina : 2090
+Vlkodlak : 2100
+Sněhobílý Vlkodlak : 2101
+Kancodlak : 2102
+Sněhobílý Kancodlak : 2103
+Medvědodlak : 2104
+Sněhobílý Mědvědodlak : 2105
+Mamutodlak : 2110
+Sněhobílý Mamutodlak : 2111
+Vrchní knežka Enakra : 2292
+Ardor strážce Enakry : 2293
+Válečník : 2300
+Svatý válečník : 2302
+Střelec : 2310
+Elitní střelec : 2312
+Mnich : 2320
+Zasvěcenec světla : 2322
+Křižák : 2330
+Paladin : 2332
+Světlonoš : 2390
+Ascendancin válečník : 2400
+Klerik : 2410
+Převor : 2420
+Preascended : 2430
+Ascended : 2490
+Barbar : 3000
+Náčelník barbarů : 3001
+Barbar na koni : 3002
+Barbar lučištník : 3003
+Trpaslík se sekerou : 3010
+Trpaslík s kuší : 3011
+Trpaslík kapitán : 3012
+Trpaslík těžké pěchoty : 3013
+Trpasličí legionář : 3014
+Trpaslík : 3015
+Trpasličí past : 3016
+Elitní trpaslík s kuší : 3017
+Trpasličí opevnění : 3018
+Bandita : 3020
+Bandita s lukem : 3021
+Bandita velitel : 3022
+Gnóm s kuší : 3030
+Osedlaný Mamut s Gnomí Posádkou : 3031
+Obr lidožrout : 3040
+Prokletý Obr : 3041
+Hnijící Nemrtvý Obr : 3042
+Ohnivý Obr : 3043
+Kamenný Obr : 3044
+Nižší ohnivý splozenec : 3100
+Pěšák starého impéria : 3200
+Kapitán pěšáků starého impéria : 3201
+Plukovník pěšaků starého impéria : 3202
+Těžký pěšák starého impéria : 3210
+Kapitán těžkých pěšáků starého impéria : 3211
+Plukovník těžkých pěšaků starého impéria : 3212
+Rytíř starého impéria : 3220
+Kapitán rytířů starého impéria : 3221
+Generál starého impéria : 3230
+Střelec starého impéria : 3240
+Kapitán střelců starého impéria : 3241
+Elitní střelec starého impéria : 3242
+Kapitán elitních střelců starého impéria : 3243
+Král Therysus : 3250
+Therysusova elitní stráž : 3251
+Medůza : 3300
+Kamenná socha : 3301
+Není : 3302
+Bažinný ent : 3340
+Dehinator : 3400
+Zeď Temné pevnosti : 3401
+Prokletý Mág : 3402
+Prokletý válečník : 3403
+Dehinatorova ochranka : 3404
+Ledový král : 3410
+Ledový král : 3411
+Zeď pokrytá slizem : 3419
+Mucus, král Toxických elementálů : 3420
+Královna Medůz : 3500
+Temný mág : 3501
+Vyšší Temný Mág : 3502
+Zeď Prokleté citadely : 3503
+Černý vlk : 3517
+Šedý vlk : 3518
+Stínový lovec : 3519
+Král vlk : 3520
+Duch vlka : 3521
+Eternan vyvolávač : 3600
+Eternan mág : 3601
+Eternan dohlížitel : 3602
+Energetický služebník : 3630
+Zmutovaný Wurm : 3700
+Padlý válečník : 3800
+Ohnivý Elementál : 3900
+Vzdušný Elementál : 3901
+Vodní Elementál : 3902
+Zemní Elementál : 3903
+Toxický Elementál Obránce : 3910
+Toxický Elementál Útočník : 3911
+Toxická Elementární Bublina : 3912
+Hnijící vesničan : 3950
+Meteorit : 4000
+Ohnivá koule : 4001
+Ledová koule : 4002
+Rozžhavené magma : 4003
+Ohnivý déšť : 4004
+Kamenná hradba : 4100
+Kamenná věž : 4101
+Věž s balistou : 4102
+Ohnivý démon : 5000
+Plamenný démon : 5001
+Plamenný démon s bičem : 5002
+Plamenný démon mág : 5003
+Plamenný démon arcimág : 5004
+Následovník démonů - Lidský Odpadlík : 5010
+Následovník démonů - Zasvěcenec : 5011
+Následovník démonů - Vyšší Zasvěcenec : 5012
+Následovník démonů - Berzeker : 5013
+Následovník démonů - Kacíř : 5014
+Následovník démonů - Prokletý Berzeker : 5015
+Démon Jezdec : 5020
+Démon Těžký Jezdec : 5021
+Démon Křižák : 5030
+Démon Těžký Křižák : 5031
+Démon Válečník Temnoty : 5032
+Démon Bojový Mág Temnoty : 5033
+Démon Kněz Krvavého Měsíce : 5040
+Démon Mág Krvavého Měsíce : 5041
+Ohnivý imp : 5050
+Stínový válečník : 5060
+Stínový mág : 5062
+Stínový jezdec : 5064
+Stínový Obrnený jezdec : 5065
+Stínový obr : 5066
+Ohnivý přízrak : 5100
+Temný Lord Argon : 5500
+Dh Atrog řečený Válečník : 5501
+Dh Ratu řečený Posel ohně : 5502
+Dh Tog řečený Mág ohně : 5503
+Dh Atog řečený sběratel soch : 5504
+Ragnarokk, prokletý wurm : 5505
+Rah Atrog řečený Vyvolávač : 5506
+Anděl z Temnoty : 5507
+Ohnivý přízrak : 5550
+Agranat, řečený zloděj duší : 6000
+Velikonoční králíček : 9000
+Agresivní velikonoční kuřátko : 9001
+Nepoužitelný golem : 9002
+Skoropoužitelný golem : 9003
+Multinefunkční golem : 9004
+Neporazitelný válečník : 9005
+Růžové prasátko : 9006
+Sob, terrorista : 9007
+Sob, bojovník za práva sobů : 9008
+Sob, velitel sobího oddílu : 9009
+Červený gumový medvídek : 9010
+Zelený gumový medvídek : 9011
+Žlutý gumový medvídek : 9012
+Kyselý pavouk : 9013
+Kyselý červík : 9014
+Kapitán Gummibärchen : 9015
+Železný Golem : 9100
+Železný pavouček : 9101
+Poloautomatická socha : 9102
+Recyklovaný kočkodlak : 9103
+Obrněnej válečnej vůz : 9104
+Železný býk : 9105
+Železný škopion : 9120
+Kamenný chrlič : 9121
+Železný kněz : 9122
+Obrněnej vrhač oštěpů : 9130
+Železný orel - MK1 : 9140
+Colosus z temné ocele : 9150
