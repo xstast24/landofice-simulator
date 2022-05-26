@@ -4299,7 +4299,7 @@
 		<schopnosti>
 			<schopnost>
 				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>None</hodnota>
+				<hodnota>1300</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -4319,7 +4319,7 @@
 		<schopnosti>
 			<schopnost>
 				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>None</hodnota>
+				<hodnota>13000</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
