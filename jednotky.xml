@@ -4053,6 +4053,10 @@
 				<nazev>sebevrazedna</nazev>
 				<hodnota>1</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>viceutok</nazev>
+				<hodnota>2</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -6333,6 +6337,10 @@
 				<nazev>sebevrazedna</nazev>
 				<hodnota>1</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>viceutok</nazev>
+				<hodnota>2</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -6377,6 +6385,10 @@
 				<nazev>sebevrazedna</nazev>
 				<hodnota>1</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>viceutok</nazev>
+				<hodnota>3</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -6400,6 +6412,10 @@
 			<schopnost>
 				<nazev>sebevrazedna</nazev>
 				<hodnota>1</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>viceutok</nazev>
+				<hodnota>2</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -6425,6 +6441,10 @@
 				<nazev>sebevrazedna</nazev>
 				<hodnota>1</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>viceutok</nazev>
+				<hodnota>2</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -6448,6 +6468,10 @@
 			<schopnost>
 				<nazev>sebevrazedna</nazev>
 				<hodnota>1</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>viceutok</nazev>
+				<hodnota>2</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>

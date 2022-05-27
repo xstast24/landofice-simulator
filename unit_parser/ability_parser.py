@@ -230,3 +230,18 @@ def roman_to_arabic(roman_number: str):
             arabic_number += roman_numbers[roman_number[i]]
             i += 1
     return arabic_number
+
+def set_suicide_multi_attack(unit_list: list) -> None:
+    multi_attack_suicide_units = {
+        "Ohnivá koule": "2",
+        "Meteorit": "3",
+        "Ledová koule": "2",
+        "Rozžhavené magma": "2",
+        "Gobliní pojízdná bomba": "2",
+        "Toxická Elementární Bublina": "2",
+        "Vlna tsunami": "3",
+    }
+
+    for unit in unit_list:
+        if unit["nazev"] in multi_attack_suicide_units:
+            unit["schopnosti"]["viceutok"] = multi_attack_suicide_units.get(unit["nazev"])
