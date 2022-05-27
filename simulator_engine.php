@@ -821,7 +821,7 @@ class Jednotka {
 
 		$this->pocet -= $zabito;
 		
-		if ($this->isgoblin($this->ident)) $zabito_goblinu += $zabito; 
+		if ($this->isgoblin($this->frakce, $this->stav)) $zabito_goblinu += $zabito; 
 
 //		if($this->pocet<0) $this->pocet=0; //nadbytecna, uz se testuje vyse
 
@@ -848,7 +848,7 @@ class Jednotka {
 
 		$this->pocet -= $zabito;
 		
-		if ($this->isgoblin($this->ident)) $zabito_goblinu += $zabito; 
+		if ($this->isgoblin($this->frakce, $this->stav)) $zabito_goblinu += $zabito; 
 
 		echo "<span style='color:".$this->barva."'>Kolem jednotky ".$jednotka[$obrance]->toolNazev()." je toxický oblak, který zraňuje vše živé za ".prevod($dmg).", zahynulo ".prevod($zabito)." x ".$this->toolNazev()."</span><br>";
 
@@ -1000,13 +1000,11 @@ class Jednotka {
 
 		}
 
-function isgoblin($ident){  //identifikace rasa goblin
-
- if($ident == 245 /*Goblin*/ or $ident == 128 /*Goblin Fanatik*/ or $ident == 130 /*Goblin paragán*/ or $ident == 127 /*Goblin Pyroman*/ or $ident == 125 /*Goblin s Prakem*/ or $ident == 131 /*Gobliní exterminátor*/ or $ident == 133 /*Gobliní hrdina*/ or $ident == 134 /*Gobliní patriarcha*/ or $ident == 132 /*Gobliní sabotér*/ or $ident == 647 /*Goblin na vlkovi*/ or $ident == 648 /*Goblin na medvědovi*/ or $ident == 649 /*Zlobr*/ or $ident == 657 /*Hobgoblin*/ or $ident == 660 /*Pán šelem*/ or $ident == 901 /*Zlobří Šaman*/)
-return true;
-else
-return false;
-
+function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
+	if($frakce == 6 && $stav == 1)
+		return true;
+	else
+		return false;
 }
 
 
@@ -1021,7 +1019,7 @@ return false;
 
 		while($jednotka[$id]){
 		
-		if ($this->isgoblin($jednotka[$id]->ident)){   	
+		if ($this->isgoblin($jednotka[$id]->frakce, $jednotka[$id]->stav)){   	
 
 				$jednotka[$id]->dmg*=($posileni/100+1);
 
@@ -2216,11 +2214,14 @@ return false;
 				case "Goblin Paragán":		# Výsadek
 					switch($this->nazev){
 						case "Gobliní Vzducholoď":
-							$pocet_vyvolanych = $this->pocet * 100; break;
-						case "Gobliní Hybridní Vzducholoď":
-							$pocet_vyvolanych = $this->pocet * 200; break;
-						case "Gobliní Vyztužená Vzducholoď":
-							$pocet_vyvolanych = $this->pocet * 400; break;
+							$pocet_vyvolanych = $this->pocet * 100; 
+							break;
+						case "Gobliní Hybridní vzducholoď":
+							$pocet_vyvolanych = $this->pocet * 200; 
+							break;
+						case "Gobliní Vyztužená vzducholoď":
+							$pocet_vyvolanych = $this->pocet * 400; 
+							break;
 					}
 
 					if ($this->schopnosti["staze"] == 8)
@@ -2388,8 +2389,8 @@ return false;
 		$kill = $this->zabitych($dmg);
 		
 // pokud umrel goblin, zvednout citac zabitych goblinu
-   if ($this->isgoblin($jednotka[$obrance]->ident)) $zabito_goblinu += $kill;  
-		
+
+   if ($this->isgoblin($jednotka[$obrance]->frakce, $jednotka[$obrance]->stav)) $zabito_goblinu += $kill;  
 		$jednotka[$obrance]->obdrzela_dmg += $dmg;
 		
 		//kolik jednotka udělala v aktuálním kole dmg
@@ -2637,9 +2638,9 @@ while($aktualniKolo<=$pocetKol){
 			//Vyvolávání jednotek
 
       //vyvolání pouze v prvním kole
-			if ($aktualniKolo==1 and $jednotka[$id]->ident != 651 and $jednotka[$id]->ident != 664 and $jednotka[$id]->ident != 901) $jednotka[$id]->vyvolat(); //anděl vyvolává déšť až od 2. kola, kněží taky
+			if ($aktualniKolo==1 and $jednotka[$id]->nazev != "Anděl věčného ohně" and $jednotka[$id]->nazev != "Železný kněz" and $jednotka[$id]->nazev != "Zlobří Šaman") $jednotka[$id]->vyvolat(); //anděl vyvolává déšť až od 2. kola, kněží taky
 			//vyvolávání v ostatních kolech -energ. služebník, vulcanovo kouzlo, ohnivý dést, rec. kockodlak,duse goblina
-			if ($aktualniKolo!=1 and ($jednotka[$id]->schopnosti["vyvolavaJednotku"]==51 or $jednotka[$id]->schopnosti["vyvolavaJednotku"]==998 or $jednotka[$id]->schopnosti["vyvolavaJednotku"]==650 or $jednotka[$id]->schopnosti["vyvolavaJednotku"]==663)) $jednotka[$id]->vyvolat();
+			if ($aktualniKolo!=1 and ($jednotka[$id]->schopnosti["vyvolavaJednotku"] == "Energetický služebník" or $jednotka[$id]->schopnosti["vyvolavaJednotku"]=="998" or $jednotka[$id]->schopnosti["vyvolavaJednotku"]=="Ohnivý déšť" or $jednotka[$id]->schopnosti["vyvolavaJednotku"]=="Duše goblina")) $jednotka[$id]->vyvolat();
 			
 
 

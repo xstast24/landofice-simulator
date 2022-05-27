@@ -184,6 +184,8 @@ def set_spell(unit: dict, spell: str) -> None:
             unit["schopnosti"]["vyvolavaJednotku"] = "Uvězněná duše"
         elif level == "7":
             unit["schopnosti"]["vyvolavaJednotku"] = "Prokletý ent"
+        elif level == "13":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Duše goblina"
     elif "Magie Ohně" in name:
         level = str(roman_to_arabic(name.split(" Ohně ")[1].strip()))
         name = "magieOhne"
