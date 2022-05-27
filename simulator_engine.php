@@ -2067,6 +2067,7 @@ return false;
 				# TODO vyvolani sopky
 				# TODO pridat vyvolavani posvatneho obra do simulatoru
 				# TODO predelat spravne pocty podle jednotky
+				# TODO konstrukce
 				case "Ent":					# Magie Lesa 1
 					$pocet_vyvolanych = floor($this->celkem_zivotu / 180);
 					if($this->schopnosti["staze"] == 5){
@@ -2684,7 +2685,7 @@ while($aktualniKolo<=$pocetKol){
 
 			//Může jednotka provést útok v tomto kole ?
 
-			IF (($aktualniKolo == 1 and ($jednotka[$id]->typ == 4 or $jednotka[$id]->typ == 3)) or ($aktualniKolo == 2 and ($jednotka[$id]->typ == 4 or $jednotka[$id]->typ == 3 or $jednotka[$id]->typ == 2)) or (($aktualniKolo == 3 or $aktualniKolo == 4 or $aktualniKolo == 5) and ($jednotka[$id	]->typ == 4 or $jednotka[$id]->typ == 1 or $jednotka[$id]->typ == 2))){
+			IF (($aktualniKolo == 1 and ($jednotka[$id]->typUtoku == 4 or $jednotka[$id]->typUtoku == 3)) or ($aktualniKolo == 2 and ($jednotka[$id]->typUtoku == 4 or $jednotka[$id]->typUtoku == 3 or $jednotka[$id]->typUtoku == 2)) or (($aktualniKolo == 3 or $aktualniKolo == 4 or $aktualniKolo == 5) and ($jednotka[$id]->typUtoku == 4 or $jednotka[$id]->typUtoku == 1 or $jednotka[$id]->typUtoku == 2))){
 
 
 
@@ -2776,11 +2777,11 @@ while($aktualniKolo<=$pocetKol){
 
 
 
-								if($jednotka[$id_obrance]->schopnosti["ohnivyStit"]>0 and $jednotka[$id]->schopnosti["imunitaOhen"]!=1 and $jednotka[$id]->schopnosti["ohnivyStit"]=="" and $jednotka[$id]->typ==1) $jednotka[$id]->ohnivyStit($id_obrance, $zabito);
+								if($jednotka[$id_obrance]->schopnosti["ohnivyStit"]>0 and $jednotka[$id]->schopnosti["imunitaOhen"]!=1 and $jednotka[$id]->schopnosti["ohnivyStit"]=="" and $jednotka[$id]->typUtoku==1) $jednotka[$id]->ohnivyStit($id_obrance, $zabito);
 
-								if($jednotka[$id_obrance]->schopnosti["toxickyStit"]>0 and $jednotka[$id]->schopnosti["toxickyStit"]=="" and $jednotka[$id]->typ==1 and $jednotka[$id]->stav==1) $jednotka[$id]->toxickyStit($id_obrance, $zabito);
+								if($jednotka[$id_obrance]->schopnosti["toxickyStit"]>0 and $jednotka[$id]->schopnosti["toxickyStit"]=="" and $jednotka[$id]->typUtoku==1 and $jednotka[$id]->stav==1) $jednotka[$id]->toxickyStit($id_obrance, $zabito);
 
-								if($jednotka[$id_obrance]->schopnosti["ledovyStit"]>0 and $jednotka[$id]->schopnosti["ledovyStit"]=="" and $jednotka[$id]->typ==1) $jednotka[$id]->ledovyStit($id_obrance);
+								if($jednotka[$id_obrance]->schopnosti["ledovyStit"]>0 and $jednotka[$id]->schopnosti["ledovyStit"]=="" and $jednotka[$id]->typUtoku==1) $jednotka[$id]->ledovyStit($id_obrance);
 
 								if($zabito>0 and $jednotka[$id_obrance]->schopnosti["vzkryseni"]) $jednotka[$id_obrance]->vzkryseni($zabito);
 
