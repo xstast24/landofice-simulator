@@ -2263,9 +2263,9 @@ return false;
 					break;
 				
 				# TODO tohle asi bude reprezentovat meteorit a ohnivou bouri - checknout ve starych jednotkach pred generovanim jake maji hodnoty - specificky magmaticky obr a buh ohne
-				case 998: $special=2;$pocet_vyvolanych=1;break;
+				case "998": $special=2;$pocet_vyvolanych=1;break;
 
-				case 999: $special=1;$pocet_vyvolanych=1;break;
+				case "999": $special=1;$pocet_vyvolanych=1;break;
 
 				}
 

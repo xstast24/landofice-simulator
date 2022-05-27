@@ -7942,7 +7942,7 @@
 				<hodnota>10000</hodnota>
 			</schopnost>
 			<schopnost>
-				<nazev>vyvolaJednotku</nazev>
+				<nazev>vyvolavaJednotku</nazev>
 				<hodnota>999</hodnota>
 			</schopnost>
 		</schopnosti>
@@ -8034,8 +8034,8 @@
 				<hodnota>1</hodnota>
 			</schopnost>
 			<schopnost>
-				<nazev>vyvolaJednotku</nazev>
-				<hodnota>264</hodnota>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Vlna tsunami</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -8174,8 +8174,8 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolaJednotku</nazev>
-				<hodnota>509</hodnota>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ledová hradba</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>magieLedu</nazev>
