@@ -86,7 +86,7 @@ if(!$xml = simplexml_load_file($cesta)) die("<span style='color:red'>Soubor se s
 
 class Jednotka {
 
-	var $id, $ident, $nazev, $pocet, $dmg, $utk, $obr, $ziv, $ini, $hod, $typ, $stav, $pocetUtoku, $frakce, $schopnosti, $celkz, $obdrzela_dmg, $poc_celkz, $zkl_ini, $nahoda, $strana, $bojovala, $barva, $art, $popis_artu;
+	var $id, $ident, $nazev, $pocet, $dmg, $utk, $obr, $ziv, $ini, $hod, $typ, $stav, $pocetUtoku, $frakce, $schopnosti, $celkem_zivotu, $obdrzela_dmg, $poc_celkem_zivotu, $zkl_ini, $nahoda, $strana, $bojovala, $barva, $art, $popis_artu;
 
 
 
@@ -128,9 +128,9 @@ class Jednotka {
 
 				$this->ziv = $jednotka->zivoty * 1;
 
-				$this->celkz = $jednotka->zivoty * $pocet * 1;
+				$this->celkem_zivotu = $jednotka->zivoty * $pocet * 1;
 				
-				$this->poc_celkz = $jednotka->zivoty * $pocet * 1;
+				$this->poc_celkem_zivotu = $jednotka->zivoty * $pocet * 1;
 				
 				$this->obdrzela_dmg = 0;
 				
@@ -150,7 +150,7 @@ class Jednotka {
 
 				$this->hod = $jednotka->hodnota * 1;
 
-				$this->typ = $jednotka->typUtoku * 1;
+				$this->typUtoku = $jednotka->typUtoku * 1;
 
 				#stav 1 - zivy, 2 - nemrtvy, 3 - nezivy
 				$this->stav = $jednotka->stav * 1;
@@ -164,7 +164,7 @@ class Jednotka {
 
 					$nazevSchopnosti = trim($schopnost->nazev);
 
-					$hodnotaSchopnosti = $schopnost->hodnota * 1;
+					$hodnotaSchopnosti = $schopnost->hodnota;
 
 					$schopnosti[$nazevSchopnosti] = $hodnotaSchopnosti;
 
@@ -176,212 +176,627 @@ class Jednotka {
 
 			}
 
-		if($this->celkz=="") die("<span style='color:red'>Neznám jednotku ".$this->nazev."</span>");
+		if($this->celkem_zivotu=="") die("<span style='color:red'>Neznám jednotku ".$this->nazev."</span>");
 
 		switch($art){
 
-			case "Prapor stínů": if($this->stav == 2) {$this->utk++;$this->obr++;}$popis = "Nemrtvá jednotka získá +1 do útoku a obrany.";break;
+			case "Prapor stínů": 
+				if($this->stav == 2){
+					$this->utk++; 
+					$this->obr++;
+				}
+				
+				$popis = "Nemrtvá jednotka získá +1 do útoku a obrany.";
+				break;
 
-			case "Amulet velitele": if($this->stav == 1) {$this->ini++;}$popis = "Nenemrtvá a Neneživá jednotka získa +1 do iniciativi.";break;
+			case "Amulet velitele": 
+				if($this->stav == 1)
+					$this->ini++;
+				
+				$popis = "Nenemrtvá a Neneživá jednotka získa +1 do iniciativy.";
+				break;
 
-			case "Pírko z anděla": if($this->stav == 1) {$this->ziv+=2;}$popis = "Nenemrtvá a Neneživá jednotka získá +2 do životů.";break;
+			case "Pírko z anděla": 
+				if($this->stav == 1)
+					$this->ziv += 2;
+				$popis = "Nenemrtvá a Neneživá jednotka získá +2 do životů.";
+				
+				break;
 
-			case "Popel padlých válečníků": $this->schopnosti["imunitaOhen"]=1;$popis = "Unikátní jednotka je imunní proti ohnivému štítu.";break;
+			case "Pírka z anděla": 
+				if($this->stav == 1)
+					$this->ziv += 7;
 
-			case "Totem krve": if($this->typ == 1) {$this->dmg++;$this->ziv--;}$popis = "Jednotka s druhem útoku 1 získá +1 do damage a -1 od životů.";break;
+				$popis = "Nenemrtvá a Neneživá jednotka získá +7 do životů.";
+				break;	
 
-			case "Prapor starého druidského cechu": if($this->schopnosti["vyvolavaJednotku"] == 242){$this->schopnosti["vyvolavaJednotku"]=66;$popis = "Druidové přivolávají místo Entů Starodávné Enty.";}else if ($this->nazev == "Veledruid"){$this->schopnosti["staze"]=50;$popis = "Veledruidové vyvolávají o 50% více Starodávných entů.";}break;
+			case "Popel padlých válečníků": 
+				$this->schopnosti["imunitaOhen"] = 1;
+				$popis = "Unikátní jednotka je imunní proti ohnivému štítu.";
+				break;
+
+			case "Totem krve": 
+				if($this->typUtoku == 1){
+					$this->dmg++;
+					$this->ziv--;
+				}
+				
+				$popis = "Jednotka s druhem útoku 1 získá +1 do damage a -1 od životů.";
+				break;
+
+			case "Prapor starého druidského cechu": 
+				if($this->nazev == "Druid"){
+					$this->schopnosti["vyvolavaJednotku"] = "Starodávný Ent";
+					$popis = "Druidové přivolávají místo Entů Starodávné Enty.";
+				}else if ($this->nazev == "Veledruid"){
+					$this->schopnosti["staze"] = 50;
+					$popis = "Veledruidové vyvolávají o 50% více Starodávných entů.";
+				}
+				break;
 			
-			case "Kostěná flétna": if($this->nazev == "Lich" or $this->nazev == "Arcilich"){$this->schopnosti["staze"]=6;$popis = "Lichové vyvolávají o 50% více kostlivců, Arcilichové vyvolávají o 50% více upírů.";}break;
+			case "Kostěná flétna": 
+				if($this->nazev == "Lich" or $this->nazev == "Arcilich"){
+					$this->schopnosti["staze"] = 6;
+					$popis = "Lichové vyvolávají o 50% více kostlivců, Arcilichové vyvolávají o 50% více upírů.";
+				}
+				break;
 
-			case "Čepec vyvolávače počasí": if($this->typ == 2 or $this->typ == 3){if(($this->dmg*0.1)>2){$this->dmg*=1.1;}else{$this->dmg+=2;}$popis = "Střelecká jednotka s druhem útoku 2 nebo 3 získá +10% do poškození (minimálně však 2).";}break;
+			case "Čepec vyvolávače počasí": 
+				if($this->typUtoku == 2 or $this->typUtoku == 3){
+					if(($this->dmg * 0.1) > 2){
+						$this->dmg *= 1.1;
+					}
+					else{
+						$this->dmg += 2;
+					}
+					$popis = "Střelecká jednotka s druhem útoku 2 nebo 3 získá +10% do poškození (minimálně však 2).";
+				}
+				break;
 
-			case "Kalich ohně": $this->schopnosti["ohnivyStit"]=1;$popis = "Jednotka získá ohnivý štít 1.";break;
+			case "Kalich ohně": 
+				$this->schopnosti["ohnivyStit"] = 1;
+				$popis = "Jednotka získá ohnivý štít 1.";
+				break;
 
-			case "Hůlka ohně": $this->schopnosti["ohnivyStit"]=2;$popis = "Jednotka získá ohnivý štít 2.";break;
+			case "Hůlka ohně": 
+				$this->schopnosti["ohnivyStit"] = 2;
+				$popis = "Jednotka získá ohnivý štít 2.";
+				break;
 
-			case "Hůl ohně": $this->schopnosti["magieOhne"]=1;$this->schopnosti["vyvolavaJednotku"]=7;$popis = "Unikátní jednotka se naučí magii ohně 1.";break;
+			case "Hůl ohně": 
+				$this->schopnosti["magieOhne"] = 1;
+				$this->schopnosti["vyvolavaJednotku"] = "Ohnivá koule";
+				$popis = "Unikátní jednotka se naučí magii ohně 1.";
+				break;
 
-			case "Dráp draka": $this->dmg*=2;$popis = "Unikátní jednotka získá +100% do damage.";break;
+			case "Dráp draka": 
+				$this->dmg *= 2;
+				$popis = "Unikátní jednotka získá +100% do damage.";
+				break;
 
-			case "Kostěná hůl": $this->schopnosti["magieSmrti"]=1;$popis = "Unikátní jednotka se naučí magii smrti 1.";break;
+			case "Kostěná hůl": 
+				$this->schopnosti["magieSmrti"] = 1;
+				$popis = "Unikátní jednotka se naučí magii smrti 1.";
+				break;
 
-			case "Ohnivá zbroj": $this->schopnosti["ohnivyStit"]=$this->dmg*2;$this->obr+=5;$popis = "Unikátní jednotka získá +5 do obrany a ohnivý štít rovnající se 2 násobku jeho damage.";break;
+			case "Ohnivá zbroj": 
+				$this->schopnosti["ohnivyStit"] = $this->dmg * 2;
+				$this->obr += 5;
+				$popis = "Unikátní jednotka získá +5 do obrany a ohnivý štít rovnající se 2 násobku jeho damage.";
+				break;
 
-			case "Ledová čepel": $this->schopnosti["magieLedu"]=1;$popis = "Unikátní jednotka se naučí magii ledu 1.";break;
+			case "Ledová čepel": 
+				$this->schopnosti["magieLedu"] = 1;
+				$popis = "Unikátní jednotka se naučí magii ledu 1.";
+				break;
 
-			case "Plášť slabosti": $this->ziv=1;$popis = "Unikátní jednotce klesne počet životů na 1.";break;
+			case "Plášť slabosti": 
+				$this->ziv = 1;
+				$popis = "Unikátní jednotce klesne počet životů na 1.";
+				break;
 
-			case "Prapor světla": $this->schopnosti["stec"]+=0.5*$this->dmg;if($this->frakce==7){$this->utk*=1.5;$this->ini*=1.3;}$popis = "Nenemrtvá jednotka získá 50% damage do steče, pokud je Crinisina získává navíc 50% do útoku a 30% do iniciativy.";break;
+			case "Prapor světla": 
+				$this->schopnosti["stec"] += 0.5 * $this->dmg;
+				if($this->frakce == 7){
+					$this->utk *= 1.5;
+					$this->ini *= 1.3;
+				}
+				
+				$popis = "Nenemrtvá jednotka získá 50% damage do steče, pokud je Crinisina získává navíc 50% do útoku a 30% do iniciativy.";
+				break;
 
-			case "Prapor krve": if($this->stav == 1) {if($this->schopnosti["stec"]>0){$this->schopnosti["stec"]*=3;$this->obr=1;} else $this->schopnosti["stec"]=$this->dmg*2;$this->obr=1;}$popis = "Nenemrtvá a neneživá jednotka získá +200% damage do steče, ale jeji obrana klesne na 1.";break;
+			case "Prapor krve": 
+				if($this->stav == 1){
+					if($this->schopnosti["stec"]>0){
+						$this->schopnosti["stec"] *= 3;
+						$this->obr = 1;
+					} 
+					else 
+						$this->schopnosti["stec"] = $this->dmg * 2;
+					$this->obr=1;
+				}
 
-			case "Hole silového pole": $this->obr+=30;$popis = "Unikátní jednotka záská +30 do obrany.";break;
+				$popis = "Nenemrtvá a neneživá jednotka získá +200% damage do steče, ale jeji obrana klesne na 1.";
+				break;
 
-			case "Slonovinový luk": $this->typ=2;$popis = "Unikátní jednotce je změněn druh útoku na 2.";break;
+			case "Hole silového pole": 
+				$this->obr += 30;
+				$popis = "Unikátní jednotka záská +30 do obrany.";
+				break;
 
-			case "Meč paladina": $this->utk+=10;$this->dmg+=7;$this->schopnosti["magieSvetla"]=1;$popis = "Unikátní jednotka získá +10 do útoku a +7 do damage, zároveň se naučí magii světla 1.";break;
+			case "Slonovinový luk": 
+				$this->typUtoku = 2;
+				$popis = "Unikátní jednotce je změněn druh útoku na 2.";
+				break;
 
-			case "Druidský Rituál": if($this->nazev == "Druid" or $this->nazev == "Nemrtvý druid"){$this->schopnosti["staze"]=5;$popis = "Druidové vyvolávají o 50% více Entů.";}break;
+			case "Meč paladina": 
+				$this->utk += 10;
+				$this->dmg += 7;
+				$this->schopnosti["magieSvetla"] = 1;
+				$popis = "Unikátní jednotka získá +10 do útoku a +7 do damage, zároveň se naučí magii světla 1.";
+				break;
 
-			case "Hůlka ledu": $this->schopnosti["magieLedu"]=1;$popis = "Jednotka se naučí magii ledu 1.";break;
+			case "Druidský Rituál": 
+				if($this->nazev == "Druid" or $this->nazev == "Nemrtvý druid"){
+					$this->schopnosti["staze"] = 5;
+					$popis = "Druidové vyvolávají o 50% více Entů.";
+				}
+				break;
 
-			case "Prsten strážce": $this->obr+=20;$this->schopnosti["imunitaOhen"]=1;$popis = "Unikátní jednotka získa +20 do obrany a je imuní vůči ohnivému štítu a bleskům.";break;
+			case "Hůlka ledu": 
+				$this->schopnosti["magieLedu"]=1;
+				$popis = "Jednotka se naučí magii ledu 1.";
+				break;
 
-			case "Helma ledového válečníka": $this->obr+=5;$this->schopnosti["imunitaOhen"]=1;$this->schopnosti["magieLedu"]=2;$popis = "Unikátní jednotka získa +5 do obrany, je imuní vůči ohnivému štítu, naučí se magii ledu 2.";break;
+			case "Prsten strážce": 
+				$this->obr += 20;
+				$this->schopnosti["imunitaOhen"] = 1;
+				$popis = "Unikátní jednotka získa +20 do obrany a je imuní vůči ohnivému štítu a bleskům.";
+				break;
 
-			case "Boty rychlosti": $this->ini+=5;$popis = "Unikátní jednotka získa +5 do inciativy.";break;
+			case "Helma ledového válečníka": 
+				$this->obr += 5;
+				$this->schopnosti["imunitaOhen"] = 1;
+				$this->schopnosti["magieLedu"] = 2;
+				$popis = "Unikátní jednotka získa +5 do obrany, je imuní vůči ohnivému štítu, naučí se magii ledu 2.";
+				break;
 
-			case "Prapor krvavého šílenství": $this->schopnosti["dav"]=1;$popis = "Jednotka se naučí schopnost dav.";break;
+			case "Boty rychlosti": 
+				$this->ini += 5;
+				$popis = "Unikátní jednotka získa +5 do inciativy.";
+				break;
 
-			case "Ohnivá róba": $this->schopnosti["magieOhne"]=3;$this->schopnosti["ohnivyStit"]=500;$this->schopnosti["vyvolavaJednotku"]=17;$popis = "Unikátní jednotka se naučí magii ohně 3 a získá ohnivý štít 500.";break;
+			case "Prapor krvavého šílenství": 
+				$this->schopnosti["dav"] = 1;
+				$popis = "Jednotka se naučí schopnost dav.";
+				break;
 
-			case "Ohnivý bič": $this->schopnosti["magieOhne"]=1;$this->schopnosti["ohnivyStit"]=700;$this->schopnosti["vyvolavaJednotku"]=7;$popis = "Unikátní jednotka se naučí magii ohně 1 a získá ohnivý štít 750.";break;
+			case "Ohnivá róba": 
+				$this->schopnosti["magieOhne"] = 3;
+				$this->schopnosti["ohnivyStit"] = 500;
+				$this->schopnosti["vyvolavaJednotku"] = "Meteorit";
+				$popis = "Unikátní jednotka se naučí magii ohně 3 a získá ohnivý štít 500.";
+				break;
 
-			case "Arianin svazek ohnivého mistrovství": $this->schopnosti["magieOhne"]=4;$this->schopnosti["ohnivyStit"]=1000;$this->schopnosti["vyvolavaJednotku"]=95;$popis = "Legendární jednotka se naučí magii ohně 4 a získá ohnivý štít 1000.";break;
+			case "Ohnivý bič": 
+				$this->schopnosti["magieOhne"] = 1;
+				$this->schopnosti["ohnivyStit"] = 700;
+				$this->schopnosti["vyvolavaJednotku"] = "Ohnivá koule";
+				$popis = "Unikátní jednotka se naučí magii ohně 1 a získá ohnivý štít 750.";
+				break;
 
-			case "Měděné pláty": $this->obr+=1;$popis = "Jednotka získá +1 do obrany.";break;
+			case "Arianin svazek ohnivého mistrovství": 
+				$this->schopnosti["magieOhne"] = 4;
+				$this->schopnosti["ohnivyStit"] = 1000;
+				$this->schopnosti["vyvolavaJednotku"] = "Ohnivý přízrak";
+				$popis = "Legendární jednotka se naučí magii ohně 4 a získá ohnivý štít 1000.";
+				break;
 
-			case "Broznové pláty": $this->obr+=2;$popis = "Jednotka získá +2 do obrany.";break;
+			case "Měděné pláty": 
+				$this->obr += 1;
+				$popis = "Jednotka získá +1 do obrany.";
+				break;
 
-			case "Železné pláty": $this->obr+=4;$this->ini-=1;$popis = "Jednotka získá +4 do obrany, ale její iniciativa klesne o 1.";break;
+			case "Bronzové pláty": 
+				$this->obr += 2;
+				$popis = "Jednotka získá +2 do obrany.";
+				break;
 
-			case "Ocelové pláty": $this->obr+=6;$this->ini-=1;$popis = "Jednotka získá +6 do obrany, ale její iniciativa klesne o 1.";break;
+			case "Železné pláty": 
+				$this->obr += 4;
+				$this->ini -= 1;
+				$popis = "Jednotka získá +4 do obrany, ale její iniciativa klesne o 1.";
+				break;
 
-			case "Tvrzené ocelové pláty": $this->obr+=8;$this->ini-=1;$popis = "Jednotka získá +8 do obrany, ale její iniciativa klesne o 1.";break;
+			case "Ocelové pláty": 
+				$this->obr += 6;
+				$this->ini -= 1;
+				$popis = "Jednotka získá +6 do obrany, ale její iniciativa klesne o 1.";
+				break;
+
+			case "Tvrzené ocelové pláty": 
+				$this->obr += 8;
+				$this->ini -= 1;
+				$popis = "Jednotka získá +8 do obrany, ale její iniciativa klesne o 1.";
+				break;
 			
-			case "Pláty z Temné ocele": $this->obr+=11;$this->ini-=2;$popis = "Jednotka získá +11 do obrany, ale její iniciativa klesne o 2.";break;
+			case "Pláty z Temné ocele": 
+				$this->obr += 11;
+				$this->ini -= 2;
+				$popis = "Jednotka získá +11 do obrany, ale její iniciativa klesne o 2.";
+				break;
 
-			case "Maska Královny medůz": $this->schopnosti["magieSmrti"]=3;$this->schopnosti["magieZeme"]=1;$popis = "Legendární jednotka získá Magii země 1 a Magii smrti 3.";break;
+			case "Maska Královny medůz": 
+				$this->schopnosti["magieSmrti"] = 3;
+				$this->schopnosti["magieZeme"] = 1;
+				$popis = "Legendární jednotka získá Magii země 1 a Magii smrti 3.";
+				break;
 
-case "Kouzelnická róba": $this->schopnosti["imunitaOhen"]=1;$this->obr++;$popis = "Jednotka získá +1 do obrany a je imuní vůči ohnivému štítu.";break;
+			case "Kouzelnická róba": 
+				$this->schopnosti["imunitaOhen"] = 1;
+				$this->obr++;
+				$popis = "Jednotka získá +1 do obrany a je imuní vůči ohnivému štítu.";
+				break;
 
-			case "Prokletá kouzelnická róba": if($this->schopnosti["magieSmrti"]>0){$this->schopnosti["imunitaOhen"]=1;$this->obr+=3;$popis = "Jednotka s Magí smrti získá +3 do obrany a je imuní vůči ohnivému štítu.";}break;
+			case "Prokletá kouzelnická róba": 
+				if($this->schopnosti["magieSmrti"] > 0){
+					$this->schopnosti["imunitaOhen"] = 1;
+					$this->obr += 3;
+					$popis = "Jednotka s Magí smrti získá +3 do obrany a je imuní vůči ohnivému štítu.";
+				}
+				break;
 
-			case "Prapor berzekra": $this->schopnosti["dav"]=1;$this->ini+=2;$this->obr*=0.75;$this->utk*=1.2;$popis = "Jednotka získa +2 do iniciativy, -25% do obrany, +20% do utoku a naučí se dav.";break;
+			case "Prapor berzekra": 
+				$this->schopnosti["dav"] = 1;
+				$this->ini += 2;
+				$this->obr *= 0.75;
+				$this->utk *= 1.2;
+				$popis = "Jednotka získa +2 do iniciativy, -25% do obrany, +20% do utoku a naučí se dav.";
+				break;
 
-			case "Aetherův ledový prapor": $this->schopnosti["magieLedu"]=1;if($this->frakce==3){$this->ini+=3;$this->schopnosti["magieLedu"]=2;}$popis = "Jednotka získá schopnost Magie Ledu 1, Aethrova jednotka získa schopnost Magie Ledu 2 a navíc +3 do iniciativy";break;
+			case "Aetherův ledový prapor": 
+				$this->schopnosti["magieLedu"] = 1;
+				if($this->frakce == 3){
+					$this->ini += 3;
+					$this->schopnosti["magieLedu"] = 2;
+				}
+
+				$popis = "Jednotka získá schopnost Magie Ledu 1, Aethrova jednotka získa schopnost Magie Ledu 2 a navíc +3 do iniciativy";
+				break;
 			
-	case "Ætherův ledový prapor": $this->schopnosti["magieLedu"]=1;if($this->frakce==3){$this->ini+=3;$this->schopnosti["magieLedu"]=2;}$popis = "Jednotka získá schopnost Magie Ledu 1, Aethrova jednotka získa schopnost Magie Ledu 2 a navíc +3 do iniciativy";break;			
+			case "Ætherův ledový prapor": 
+				$this->schopnosti["magieLedu"] = 1;
+				if($this->frakce == 3){
+					$this->ini += 3;
+					$this->schopnosti["magieLedu"] = 2;
+				}
 
-	case "Vulkánův ohnivý prapor": if($this->schopnosti["ohnivyStit"]>0){
-			if($this->frakce==2)$this->schopnosti["ohnivyStit"]+=$this->dmg;
-			$this->schopnosti["ohnivyStit"]+=1;
-			} else $this->schopnosti["ohnivyStit"] = 1;
-			if($this->schopnosti["magieOhne"]>0 and $this->frakce==2){$this->schopnosti["posileniOhen"]=1;} $popis = "Jednotka získá ohnivý štít +1 pokud je Vulkánova získá další bonus rovnající se hodnotě její damage do ohnivého štítu a posílení vlastní Magie Ohně.";break;
+				$popis = "Jednotka získá schopnost Magie Ledu 1, Aethrova jednotka získa schopnost Magie Ledu 2 a navíc +3 do iniciativy";
+				break;			
 
-			case "Dharova kamenná standarta": $this->obr+=4;if($this->frakce==5){$this->obr+=6;}$popis = "Jednotka dostane +4 do obrany pokud je Dharova získá dalších +6.";break;
+			case "Vulkánův ohnivý prapor": 
+				if($this->schopnosti["ohnivyStit"]>0){
+					if($this->frakce==2)
+						$this->schopnosti["ohnivyStit"] += $this->dmg;
 
-			case "Dralgarův Totem života": if($this->frakce==1){$this->ziv*=1.5;} else $this->ziv*=1.15; $popis = "Jednotka získá +15% do životů, pokud je Dralgarova získá dalších +35%.";break;
+					$this->schopnosti["ohnivyStit"] += 1;
+				} 
+				else 
+					$this->schopnosti["ohnivyStit"] = 1;
+					
+				if($this->schopnosti["magieOhne"]>0 and $this->frakce==2)
+					$this->schopnosti["posileniOhen"]=1;
+				
+				$popis = "Jednotka získá ohnivý štít +1 pokud je Vulkánova získá další bonus rovnající se hodnotě její damage do ohnivého štítu a posílení vlastní Magie Ohně.";
+				break;
 
-			case "Dreaddův prapor smrti": $this->obr+=2;$this->utk+=2;if($this->frakce==4){$this->obr+=4;$this->utk+=4;}$popis = "Jednotka získá +2 do útoku a obrany pokud je Dreaddova získá dalších +4 do útoku a obrany.";break;
+			case "Dharova kamenná standarta": 
+				$this->obr += 4;
+				if($this->frakce == 5)
+					$this->obr += 6;
 
-			case "Ghorova standarta s nabodnutou hlavou démona": if($this->frakce==6){$this->dmg*=1.35;} else $this->dmg*=1.15;$popis = "Jednotka získá +15% do damage pokud je Ghorova získá dalších +35%.";break;
+				$popis = "Jednotka dostane +4 do obrany pokud je Dharova získá dalších +6.";
+				break;
 
-			case "Dehinatorův meč": $this->schopnosti["magieSmrti"]=3;$this->schopnosti["imunitaOhen"]=1;$this->schopnosti["exterminace"]=1;$this->dmg*=3;$popis = "Legendární Dehinatorova zbraň. Legendární jednotka získá Imunitu proti ohni, Magii Smrti 3, Exterminaci a její damage je zvýšen o 200%.";break;
+			case "Dralgarův Totem života": 
+				if($this->frakce==1)
+					$this->ziv*=1.5;
+				else 
+					$this->ziv*=1.15; 
+				$popis = "Jednotka získá +15% do životů, pokud je Dralgarova získá dalších +35%.";
+				break;
 
-			case "Srdce prokletého wurma Ragnarokka": $this->obr+=5;$this->utk+=5;$this->dmg*=1.5;$this->ziv*=1.5;$popis = "Nabito temnou magií z vesmíru Diabolus, poskytuje jednotce +5 útok, +5 obrana, +50% damage a +50% životů.";break;
+			case "Dreaddův prapor smrti": 
+				$this->obr += 2;
+				$this->utk += 2;
+				if($this->frakce == 4){
+					$this->obr += 4;
+					$this->utk += 4;
+				}
+				
+				$popis = "Jednotka získá +2 do útoku a obrany pokud je Dreaddova získá dalších +4 do útoku a obrany.";
+				break;
 
-			case "Jedovaté střely": if($this->typ == 2){
-        if ($this->schopnosti["jedovyUtok"] != 0) $this->schopnosti["jedovyUtok"]+=10;
-        else $this->schopnosti["jedovyUtok"]=10;
-      }$popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti živím cílům.";break;
+			case "Ghorova standarta s nabodnutou hlavou démona": 
+				if($this->frakce == 6)
+					$this->dmg *= 1.35;
+				else 
+					$this->dmg *= 1.15;
+				
+				$popis = "Jednotka získá +15% do damage pokud je Ghorova získá dalších +35%.";
+				break;
 
-			case "Drtivé střely": if($this->typ == 2){
-        if ($this->schopnosti["drtivyUtok"] != 0) $this->schopnosti["drtivyUtok"]+=10;
-        else $this->schopnosti["drtivyUtok"]=10;
-			}$popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti neživím cílům.";break;
+			case "Dehinatorův meč": 
+				$this->schopnosti["magieSmrti"] = 3;
+				$this->schopnosti["imunitaOhen"] = 1;
+				$this->schopnosti["exterminace"] = 1;
+				$this->dmg *= 3;
+				$popis = "Legendární Dehinatorova zbraň. Legendární jednotka získá Imunitu proti ohni, Magii Smrti 3, Exterminaci a její damage je zvýšen o 200%.";
+				break;
 
-			case "Posvěcené střely": if($this->typ == 2){
-        if ($this->schopnosti["svatyUtok"] != 0) $this->schopnosti["svatyUtok"]+=10;
-        else $this->schopnosti["svatyUtok"]=10;
-			}$popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti nemrtvým cílům.";break;
+			case "Srdce prokletého wurma Ragnarokka": 
+				$this->obr += 5;
+				$this->utk += 5;
+				$this->dmg *= 1.5;
+				$this->ziv *= 1.5;
+				$popis = "Nabito temnou magií z vesmíru Diabolus, poskytuje jednotce +5 útok, +5 obrana, +50% damage a +50% životů.";
+				break;
 
-			case "Svazek ledového mistrovství": $this->schopnosti["magieLedu"]=3;$this->schopnosti["ledovyStit"]=30;$popis = "Unikátní jednotka se naučí magii ledu 3 a ledový štít 30%.";break;
+			case "Jedovaté střely": 
+				if($this->typUtoku == 2){
+        			if ($this->schopnosti["jedovyUtok"] != 0) 
+						$this->schopnosti["jedovyUtok"] += 10;
+        			else 
+						$this->schopnosti["jedovyUtok"] = 10;
+      			}
+				  
+				$popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti živým cílům.";
+				break;
 
-			case "Ledová róba": $this->schopnosti["imunitaOhen"]=1;$this->schopnosti["ledovyStit"]=10;$popis = "Unikátní jednotka se naučí ledový štít 10% a je imuní proti ohnivému štítu.";break;
+			case "Drtivé střely": 
+				if($this->typUtoku == 2){
+        			if ($this->schopnosti["drtivyUtok"] != 0) 
+						$this->schopnosti["drtivyUtok"] += 10;
+        			else 
+						$this->schopnosti["drtivyUtok"] = 10;
+				}
+					
+				$popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti neživým cílům.";
+				break;
 
-			case "Aethrova róba moci": $this->schopnosti["imunitaOhen"]=1;$this->schopnosti["ledovyStit"]=80;$this->schopnosti["magieLedu"]=4;$this->obr+=42;$popis = "Unikátní jednotka získá +42 do obrany, ledový štít 80%, imunitu proti ohnivému štítu a naučí se Magii ledu 4 &#8211; Aethrův dotek.";break;
+			case "Posvěcené střely": 
+				if($this->typUtoku == 2){
+        			if ($this->schopnosti["svatyUtok"] != 0) 
+						$this->schopnosti["svatyUtok"] += 10;
+        			else 
+						$this->schopnosti["svatyUtok"] = 10;
+				}
+				
+				$popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti nemrtvým cílům.";
+				break;
 
-			case "Obranná palisáda": $this->obr+=20;$this->ini=0;$popis = "Jednotka se skryje za obrannou palisádu. Získá +20 do obrany, ale její iniciativa klesne na 0.";break;
+			case "Svazek ledového mistrovství": 
+				$this->schopnosti["magieLedu"] = 3;
+				$this->schopnosti["ledovyStit"] = 30;
+				$popis = "Unikátní jednotka se naučí magii ledu 3 a ledový štít 30%.";
+				break;
 
-			case "Válečné bubny": if($this->typ == 1 and $this->stav == 1){$this->ini++;$this->utk++;$this->obr=-1;}$popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti živím cílům.";break;
+			case "Ledová róba": 
+				$this->schopnosti["imunitaOhen"] = 1;
+				$this->schopnosti["ledovyStit"] = 10;
+				$popis = "Unikátní jednotka se naučí ledový štít 10% a je imuní proti ohnivému štítu.";
+				break;
 
-			case "Plán bojiště": if($this->typ == 2 or $this->typ == 3){$this->ini++;$this->utk*=1.2;}$popis = "Není nad to vědět, kam střílet. +20% do útoku, +1 do iniciativy pro jednotky s druhem útoku 2 a 3.";break;
+			case "Aethrova róba moci": 
+				$this->schopnosti["imunitaOhen"] = 1;
+				$this->schopnosti["ledovyStit"] = 80;
+				$this->schopnosti["magieLedu"] = 4;
+				$this->obr += 42;
+				$popis = "Unikátní jednotka získá +42 do obrany, ledový štít 80%, imunitu proti ohnivému štítu a naučí se Magii ledu 4 &#8211; Aethrův dotek.";
+				break;
 
-			case "Ohnivá palisáda": $this->obr-=1;$this->ini=0;$this->schopnosti["ohnivyStit"]=3;$popis = "Kdo chce na nás zaútočit musí proběhnout ohněm. Jednotka získá -1 do obrany, iniciativa je snížena na 0 a získá ohnivý štít 3.";break;
+			case "Obranná palisáda": 
+				$this->obr += 20;
+				$this->ini = 0;
+				$popis = "Jednotka se skryje za obrannou palisádu. Získá +20 do obrany, ale její iniciativa klesne na 0.";
+				break;
 
-			case "Dalekohled": if($this->typ == 2 or $this->typ == 3){$this->ini-=1;$this->utk+=3;}$popis = "Proč jednou při střelbě nezamířit? Jednotka získá -1 do ini, +3 do útoku. Pouze pro jednotky s druhem útoku 2 a 3.";break;
+			case "Válečné bubny": 
+				if($this->typUtoku == 1 and $this->stav == 1){
+					$this->ini++;
+					$this->utk++;
+					$this->obr -= 1;
+				}
+				$popis = "Válečné bubny posílí armádu. +1 iniciativa, +1 útok, -1 obrana. Pouze pro živé jednotky s druhem útoku 1";
+				break;
 
-			case "Plášť Mucuse, krále toxických elementálů": $this->utk*=1.2;$this->ini++;$this->dmg*=1.25;$popis = "Plášť legendárního krále toxických elementálů, požene tvé jednotky do útoku. +20% do útoku, +1 inic, +25% do damage.";break;
+			case "Plán bojiště": 
+				if($this->typUtoku == 2 or $this->typUtoku == 3){
+					$this->ini++;
+					$this->utk *= 1.2;
+				}
+				
+				$popis = "Není nad to vědět, kam střílet. +20% do útoku, +1 do iniciativy pro jednotky s druhem útoku 2 a 3.";
+				break;
 
-			case "Posvátný popel": if($this->schopnosti["vzkryseni"]>0){$this->schopnosti["vzkryseni"]+=10;} $popis = "Jednotky se schopností vzkříšení mají zvýšenou šanci na znovuvzkříšení o 10%.";break;
+			case "Ohnivá palisáda": 
+				$this->obr -= 1;
+				$this->ini = 0;
+				$this->schopnosti["ohnivyStit"] = 3;
+				$popis = "Kdo chce na nás zaútočit musí proběhnout ohněm. Jednotka získá -1 do obrany, iniciativa je snížena na 0 a získá ohnivý štít 3.";
+				break;
 
-			case "Amulet věznitele": if($this->schopnosti["magieSmrti"]==5){$this->schopnosti["staze"]=7;}$popis = "Jednotka s magii smrti 5 vyvolá o 25% více uvěznených duší.";break;
+			case "Dalekohled": 
+				if($this->typUtoku == 2 or $this->typUtoku == 3){
+					$this->ini -= 1;
+					$this->utk += 3;
+				}
+				
+				$popis = "Proč jednou při střelbě nezamířit? Jednotka získá -1 do ini, +3 do útoku. Pouze pro jednotky s druhem útoku 2 a 3.";
+				break;
 
-			case "Santova čepice": $this->schopnosti["imunitaOhen"]=1;$popis = "Štastné a veselé Vánoce.";break;
+			case "Plášť Mucuse, krále toxických elementálů": 
+				$this->utk *= 1.2;
+				$this->ini++;
+				$this->dmg *= 1.25;
+				$popis = "Plášť legendárního krále toxických elementálů, požene tvé jednotky do útoku. +20% do útoku, +1 inic, +25% do damage.";
+				break;
+
+			case "Posvátný popel": 
+				if($this->schopnosti["vzkryseni"] > 0)
+					$this->schopnosti["vzkryseni"] += 10;
+				
+				$popis = "Jednotky se schopností vzkříšení mají zvýšenou šanci na znovuvzkříšení o 10%.";
+				break;
+
+			case "Amulet věznitele": 
+				if($this->schopnosti["magieSmrti"] == 5)
+					$this->schopnosti["staze"] = 7;
+				
+				$popis = "Jednotka s magii smrti 5 vyvolá o 25% více uvěznených duší.";
+				break;
+
+			case "Santova čepice": 
+				$this->schopnosti["imunitaOhen"] = 1;
+				$popis = "Štastné a veselé Vánoce.";
+				break;
 			
-			case "Bronzový meč": $this->utk+=1;$popis = "Jednotka získá +1 do útoku.";break;
+			case "Bronzový meč": 
+				$this->utk += 1;
+				$popis = "Jednotka získá +1 do útoku.";
+				break;
 			
-			case "Gladius": $this->utk+=2;$popis = "Jednotka získá +2 do útoku.";break;
+			case "Gladius": 
+				$this->utk += 2;
+				$popis = "Jednotka získá +2 do útoku.";
+				break;
 			
-			case "Rytířský jednoruční meč": $this->utk+=4;$popis = "Jednotka získá +4 do útoku.";break;
+			case "Rytířský jednoruční meč": 
+				$this->utk += 4;
+				$popis = "Jednotka získá +4 do útoku.";
+				break;
 			
-			case "Bastard": $this->utk+=7;$this->obr-=2;$popis = "Jednotka získá +7 do útoku, ale její obrana klesne o 2.";break;
+			case "Bastard": 
+				$this->utk += 7;
+				$this->obr -= 2;
+				$popis = "Jednotka získá +7 do útoku, ale její obrana klesne o 2.";
+				break;
 
-      case "Težká bojová sekyra": $this->utk+=10;$this->obr-=3;$popis = "Jednotka získá +10 do útoku, ale její obrana klesne o 3.";break;
+      		case "Težká bojová sekyra": 
+				$this->utk += 10;
+				$this->obr -= 3;
+				$popis = "Jednotka získá +10 do útoku, ale její obrana klesne o 3.";
+				break;
       
-      case "Katana z Temné ocele": $this->utk+=8;$this->ini+=1;$popis = "Jednotka získá +8 do útoku a +1 do inicitivy.";break;
+      		case "Katana z Temné ocele": 
+				$this->utk += 8;
+				$this->ini += 1;
+				$popis = "Jednotka získá +8 do útoku a +1 do inicitivy.";
+				break;
       
-      case "Drtič lebek": $this->utk+=3;$this->ini-=1;$this->schopnosti["slayer"]=1;$popis = "Řemdih s kovovými koulemi. Jednotka získá +3 do útoku, -1 do inicitívy a naučí se schopnost slayer.";break;
+      		case "Drtič lebek": 
+				$this->utk += 3;
+				$this->ini -= 1;
+				$this->schopnosti["slayer"] = 1;
+				$popis = "Řemdih s kovovými koulemi. Jednotka získá +3 do útoku, -1 do inicitívy a naučí se schopnost slayer.";
+				break;
       
-      case "Kopí hlupáků": $this->schopnosti["exterminace"]=1;$popis = "Unikátní jednotka získa schopnost exterminace.";break;
+      		case "Kopí hlupáků": 
+				$this->schopnosti["exterminace"] = 1;
+				$popis = "Unikátní jednotka získa schopnost exterminace.";
+				break;
 
-      case "Excalibur": $this->utk+=15;$this->obr+=10;$this->ini+=5;$popis = "Unikátní jednotka získá +15 do útoku, +10 do obrany a +5 do inicitivy.";break;
+      		case "Excalibur": 
+				$this->utk += 15;
+				$this->obr += 10;
+				$this->ini += 5;
+				$popis = "Unikátní jednotka získá +15 do útoku, +10 do obrany a +5 do inicitivy.";
+				break;
       
-      case "Ohnivá dračí zbroj": $this->schopnosti["magieOhne"]=7;$this->schopnosti["vyvolavaJednotku"]=645;$this->obr+=5;$this->dmg*=4;$popis = "Unikátní jednotka získá +300% do poškození, +5 do obrany a naučí se Magii ohně 7";break;//vyvolá stínové draky
+      		case "Ohnivá dračí zbroj": 
+				$this->schopnosti["magieOhne"] = 7;
+				$this->schopnosti["vyvolavaJednotku"] = "Stínový drak";
+				$this->obr += 5;
+				$this->dmg *= 4;
+				$popis = "Unikátní jednotka získá +300% do poškození, +5 do obrany a naučí se Magii ohně 7";
+				break;
       
-      case "Prsten Života": $this->schopnosti["magieLesa"]=2;$this->schopnosti["vyvolavaJednotku"]=68;$popis = "Unikátní jednotka získá Magii lesa 2";break;
-      
-     	case "Pírka z anděla": if($this->stav == 1) {$this->ziv+=7;}$popis = "Nenemrtvá a Neneživá jednotka získá +7 do životů.";break;
+      		case "Prsten Života": 
+				$this->schopnosti["magieLesa"] = 2;
+				$this->schopnosti["vyvolavaJednotku"] = "Wurm";
+				$popis = "Unikátní jednotka získá Magii lesa 2";
+				break;
      	
-     	case "Maska Medůzy": $this->schopnosti["magieZeme"]=1;$popis = "Unikátní jednotka získá Magii země 1";break;
+     		case "Maska Medůzy": 
+				$this->schopnosti["magieZeme"] = 1;
+				$popis = "Unikátní jednotka získá Magii země 1";
+				break;
      	
-     	case "Amulet Beznaděje": $this->schopnosti["magieSmrti"]=3;$popis = "Unikátní jednotka získá Magii smrti 3";break;
+     		case "Amulet Beznaděje": 
+				$this->schopnosti["magieSmrti"] = 3;
+				$popis = "Unikátní jednotka získá Magii smrti 3";
+				break;
      	
-     	case "Tutsumasa, Ledová dračí čepel": $this->schopnosti["magieLedu"]=2;$this->dmg*=4;$popis = "Unikátní jednotka získá +300% do damage a naučí se Magii ledu 2";break;
+     		case "Tutsumasa, Ledová dračí čepel": 
+				$this->schopnosti["magieLedu"] = 2;
+				$this->dmg *= 4;
+				$popis = "Unikátní jednotka získá +300% do damage a naučí se Magii ledu 2";
+				break;
      	
-     	case "Kostěná dračí hůl": $this->schopnosti["magieSmrti"]=5;$this->schopnosti["vyvolavaJednotku"]=107;$this->dmg*=4;$popis = "Unikátní jednotka získá +300% do damage a naučí se Magii smrti 5";break;
+     		case "Kostěná dračí hůl": 
+				$this->schopnosti["magieSmrti"] = 5;
+				$this->schopnosti["vyvolavaJednotku"] = "Uvězněná duše";
+				$this->dmg *= 4;
+				$popis = "Unikátní jednotka získá +300% do damage a naučí se Magii smrti 5";
+				break;
      	
 			case "Rukavice drtivé síly":
-        if ($this->schopnosti["drtivyUtok"] != 0) $this->schopnosti["drtivyUtok"]+=100;
-        else $this->schopnosti["drtivyUtok"]=100;
-			$popis = "JJednotka získá +100% do poškození proti neživým cílům.";break;
+        		if ($this->schopnosti["drtivyUtok"] != 0) 
+					$this->schopnosti["drtivyUtok"] += 100;
+        		else 
+					$this->schopnosti["drtivyUtok"]=100;
+				
+				$popis = "JJednotka získá +100% do poškození proti neživým cílům.";
+				break;
 
 			case "Rukavice posvěcení":
-        if ($this->schopnosti["svatyUtok"] != 0) $this->schopnosti["svatyUtok"]+=100;
-        else $this->schopnosti["svatyUtok"]=100;
-			$popis = "Jednotka získá +100% do poškození proti nemrtvým cílům.";break;
+        		if ($this->schopnosti["svatyUtok"] != 0) 
+					$this->schopnosti["svatyUtok"] += 100;
+        		else 
+					$this->schopnosti["svatyUtok"] = 100;
+				
+				$popis = "Jednotka získá +100% do poškození proti nemrtvým cílům.";
+				break;
 			
-			case "Mágova róba moci": $this->schopnosti["posileni"]=10;$popis = "Posílí přivolávací a vyvolávací magii jednotky o 10%.";break;
+			case "Mágova róba moci": 
+				$this->schopnosti["posileni"] = 10;
+				$popis = "Posílí přivolávací a vyvolávací magii jednotky o 10%.";
+				break;
 			
-			case "Velemágova róba moci": $this->schopnosti["posileni"]=50;$popis = "Posílí přivolávací a vyvolávací magií jednotky o 50%.	";break;
+			case "Velemágova róba moci": 
+				$this->schopnosti["posileni"] = 50;
+				$popis = "Posílí přivolávací a vyvolávací magií jednotky o 50%.	";
+				break;
 			
-			case "Gnomí vozík": $this->dmg*=1.15;$this->obr+=1;
-                          if($this->nazev == "Gobliní vzducholoď" or $this->nazev == "Gobliní Hybridní vzducholoď" or $this->nazev == "Gobliní Vyztužená vzducholoď")
-                          {$this->schopnosti["staze"]=8;}
-                          $popis = "Jednotka získa +15% do poškození a +1 do obrany. Gobliní vzducholodě získávají navíc +50% na množství paragánů.";break;
+			case "Gnomí vozík": 
+				$this->dmg *= 1.15;
+				$this->obr += 1;
+                if($this->nazev == "Gobliní vzducholoď" or $this->nazev == "Gobliní Hybridní vzducholoď" or $this->nazev == "Gobliní Vyztužená vzducholoď")
+                    $this->schopnosti["staze"] = 8;
+                
+				$popis = "Jednotka získa +15% do poškození a +1 do obrany. Gobliní vzducholodě získávají navíc +50% na množství paragánů.";
+				break;
 
-			}
+		}
 
-		$this->celkz = $this->ziv * $this->pocet;
-		$this->poc_celkz = $this->ziv * $this->pocet;
+		$this->celkem_zivotu = $this->ziv * $this->pocet;
+		$this->poc_celkem_zivotu = $this->ziv * $this->pocet;
 
 		$this->popis_artu = $popis;
 
 		$this->zaokrouhlit();
 
-		}
+	}
 
 
 
@@ -396,13 +811,13 @@ case "Kouzelnická róba": $this->schopnosti["imunitaOhen"]=1;$this->obr++;$popi
 
 		$dmg = $jednotka[$obrance]->schopnosti["ohnivyStit"]*($jednotka[$obrance]->pocet+$kill);
 
-		$pocet_ziv = $this->celkz - $dmg;
+		$pocet_ziv = $this->celkem_zivotu - $dmg;
 
-		$zabito = ceil($this->celkz/$this->ziv) - ceil($pocet_ziv/$this->ziv);
+		$zabito = ceil($this->celkem_zivotu/$this->ziv) - ceil($pocet_ziv/$this->ziv);
 
 		if($zabito>$this->pocet) $zabito = $this->pocet;
 
-		$this->celkz -= $dmg;
+		$this->celkem_zivotu -= $dmg;
 
 		$this->pocet -= $zabito;
 		
@@ -423,13 +838,13 @@ case "Kouzelnická róba": $this->schopnosti["imunitaOhen"]=1;$this->obr++;$popi
 
 		$dmg = $jednotka[$obrance]->schopnosti["toxickyStit"]*($jednotka[$obrance]->pocet+$kill);
 
-		$pocet_ziv = $this->celkz - $dmg;
+		$pocet_ziv = $this->celkem_zivotu - $dmg;
 
-		$zabito = ceil($this->celkz/$this->ziv) - ceil($pocet_ziv/$this->ziv);
+		$zabito = ceil($this->celkem_zivotu/$this->ziv) - ceil($pocet_ziv/$this->ziv);
 
 		if($zabito>$this->pocet) $zabito = $this->pocet;
 		
-		$this->celkz -= $dmg;
+		$this->celkem_zivotu -= $dmg;
 
 		$this->pocet -= $zabito;
 		
@@ -489,7 +904,7 @@ case "Kouzelnická róba": $this->schopnosti["imunitaOhen"]=1;$this->obr++;$popi
 
 		$this->pocet=0;
 
-		$this->celkz=-1;
+		$this->celkem_zivotu=-1;
 
 		echo "<span style='color:".$this->barva."'>Mohutná exploze poničila vše. Po jednotce ".$this->jmenoArt()." nezbylo skoro nic!</span><br>";
 
@@ -507,7 +922,7 @@ case "Kouzelnická róba": $this->schopnosti["imunitaOhen"]=1;$this->obr++;$popi
 
 		$jednotka[$obrance]->pocet -= $kill;
 
-		$jednotka[$obrance]->celkz -= $kill*$jednotka[$obrance]->ziv;
+		$jednotka[$obrance]->celkem_zivotu -= $kill*$jednotka[$obrance]->ziv;
 
 		echo "<span style='color:red'>".$this->pocetJmenoArt()." chladnokrevně zabila ze zálohy ".prevod($kill)." x ".$jednotka[$obrance]->jmenoArt()."! Zůstává ".$jednotka[$obrance]->pocetJmenoArt()."</span><br>";
 
@@ -632,9 +1047,9 @@ return false;
 
 			$this->pocet += $kill;
 
-			$this->celkz += $kill*$this->ziv;
+			$this->celkem_zivotu += $kill*$this->ziv;
 
-			if($this->celkz<=0) $this->celkz = $kill*$this->ziv;
+			if($this->celkem_zivotu<=0) $this->celkem_zivotu = $kill*$this->ziv;
 
 			echo "<span style='color:gray'>$kill x ".$this->jmenoArt()." znovu povstal!</span><br>";
 
@@ -653,25 +1068,25 @@ return false;
         
        if ($this->ident == 684 /*Ghúl*/) {
 			
-          if(($this->celkz + $vyleceno_ghul) > $this->poc_celkz) $vyleceno_ghul = $this->poc_celkz - $this->celkz;  
+          if(($this->celkem_zivotu + $vyleceno_ghul) > $this->poc_celkem_zivotu) $vyleceno_ghul = $this->poc_celkem_zivotu - $this->celkem_zivotu;  
        			
-          $this->celkz = $this->celkz + $vyleceno_ghul;
+          $this->celkem_zivotu = $this->celkem_zivotu + $vyleceno_ghul;
           $this->obdrzela_dmg -= $vyleceno_ghul;
           $vyleceno = $vyleceno_ghul;
         }
         
         if ($this->ident == 685 /*Upír*/) {
 			
-          if(($this->celkz + $vyleceno_upir) > $this->poc_celkz) $vyleceno_upir = $this->poc_celkz - $this->celkz;  
+          if(($this->celkem_zivotu + $vyleceno_upir) > $this->poc_celkem_zivotu) $vyleceno_upir = $this->poc_celkem_zivotu - $this->celkem_zivotu;  
        			
-          $this->celkz = $this->celkz + $vyleceno_upir;
+          $this->celkem_zivotu = $this->celkem_zivotu + $vyleceno_upir;
           $this->obdrzela_dmg -= $vyleceno_upir;
           $vyleceno = $vyleceno_upir;
         }
         
         
         //dopočítání celkového počtu jednotek ve stacku po oživení.
-        $pom = ceil($this->celkz/$this->ziv);
+        $pom = ceil($this->celkem_zivotu/$this->ziv);
         $pom2 = $this->pocet; //původní počet před vyléčením
         $this->pocet = $pom;
         
@@ -750,13 +1165,13 @@ return false;
 		$jednotka[$obrance]->ziv -= $this->pocet;
 		if ($jednotka[$obrance]->ziv < 1) { 
         $jednotka[$obrance]->ziv = 1;
-		    $jednotka[$obrance]->celkz = $jednotka[$obrance]->pocet;
-		    $jednotka[$obrance]->poc_celkz = $jednotka[$obrance]->pocet;
+		    $jednotka[$obrance]->celkem_zivotu = $jednotka[$obrance]->pocet;
+		    $jednotka[$obrance]->poc_celkem_zivotu = $jednotka[$obrance]->pocet;
 		} else
 		//sníží se tak celkový počet životů jednotky
-		$jednotka[$obrance]->celkz -= ($jednotka[$obrance]->pocet*$this->pocet);
+		$jednotka[$obrance]->celkem_zivotu -= ($jednotka[$obrance]->pocet*$this->pocet);
 		//včetně počátečního počtu životů pro maximální uzdravení např. jednorožcem
-		$jednotka[$obrance]->poc_celkz -= ($jednotka[$obrance]->pocet*$this->pocet);
+		$jednotka[$obrance]->poc_celkem_zivotu -= ($jednotka[$obrance]->pocet*$this->pocet);
 		
 //  $jednotka[$obrance]->zaokrouhlit();
 
@@ -777,7 +1192,7 @@ return false;
 
 		$jednotka[$obrance]->pocet -= $kill;
 
-		$jednotka[$obrance]->celkz -= $kill*$jednotka[$obrance]->ziv;
+		$jednotka[$obrance]->celkem_zivotu -= $kill*$jednotka[$obrance]->ziv;
 
 		echo "<span style='color:red'>".$this->pocetJmenoArt()." proměnil ".prevod($kill)." jednotek ".$jednotka[$obrance]->jmenoArt()." na kámen! Zůstává ".$jednotka[$obrance]->pocetJmenoArt()."</span><br>";
 
@@ -825,7 +1240,7 @@ return false;
 
 		$jednotka[$obrance]->pocet -= $kill;
 
-		$jednotka[$obrance]->celkz -= $kill*$jednotka[$obrance]->ziv;
+		$jednotka[$obrance]->celkem_zivotu -= $kill*$jednotka[$obrance]->ziv;
 
 		echo "<span style='color:#778899'>Oslníví paprsek, který vyslal ".$this->pocetJmenoArt()." proměnil ".prevod($kill)." nemrtvých ".$jednotka[$obrance]->jmenoArt()." v prách! Zůstává ".$jednotka[$obrance]->pocetJmenoArt()."</span><br>";
 
@@ -1002,16 +1417,16 @@ return false;
 	  
 	  	$id = $poradi[$a][id];
 
-			if($jednotka[$id]->strana==$this->strana and $jednotka[$id]->celkz > 0 and $jednotka[$id]->id != $this->id and $jednotka[$id]->celkz < $jednotka[$id]->poc_celkz){//jednotka nemůže léčit sama sebe
+			if($jednotka[$id]->strana==$this->strana and $jednotka[$id]->celkem_zivotu > 0 and $jednotka[$id]->id != $this->id and $jednotka[$id]->celkem_zivotu < $jednotka[$id]->poc_celkem_zivotu){//jednotka nemůže léčit sama sebe
 			
-        $vyleceno = round($this->celkz/2);
+        $vyleceno = round($this->celkem_zivotu/2);
 			
-			 if(($jednotka[$id]->celkz + $vyleceno) > $jednotka[$id]->poc_celkz) $vyleceno = $jednotka[$id]->poc_celkz - $jednotka[$id]->celkz;  
+			 if(($jednotka[$id]->celkem_zivotu + $vyleceno) > $jednotka[$id]->poc_celkem_zivotu) $vyleceno = $jednotka[$id]->poc_celkem_zivotu - $jednotka[$id]->celkem_zivotu;  
        			
-        $jednotka[$id]->celkz = $jednotka[$id]->celkz + $vyleceno;
+        $jednotka[$id]->celkem_zivotu = $jednotka[$id]->celkem_zivotu + $vyleceno;
         $jednotka[$id]->obdrzela_dmg -= $vyleceno;
         
-        $pom = ceil($jednotka[$id]->celkz/$jednotka[$id]->ziv);
+        $pom = ceil($jednotka[$id]->celkem_zivotu/$jednotka[$id]->ziv);
         $pom2 = $jednotka[$id]->pocet; //původní počet před vyléčením
         $jednotka[$id]->pocet = $pom;
         
@@ -1052,16 +1467,16 @@ return false;
 	  
 	  	$id = $poradi[$a][id];
 
-			if($jednotka[$id]->strana==$this->strana and $jednotka[$id]->celkz > 0 and $jednotka[$id]->id != $this->id and $jednotka[$id]->celkz < $jednotka[$id]->poc_celkz){//jednotka nemůže léčit sama sebe
+			if($jednotka[$id]->strana==$this->strana and $jednotka[$id]->celkem_zivotu > 0 and $jednotka[$id]->id != $this->id and $jednotka[$id]->celkem_zivotu < $jednotka[$id]->poc_celkem_zivotu){//jednotka nemůže léčit sama sebe
 			
-        $vyleceno = max(round($jednotka[$id]->poc_celkz*0.1*$this->pocet),1000);
+        $vyleceno = max(round($jednotka[$id]->poc_celkem_zivotu*0.1*$this->pocet),1000);
 			
-			 if(($jednotka[$id]->celkz + $vyleceno) > $jednotka[$id]->poc_celkz) $vyleceno = $jednotka[$id]->poc_celkz - $jednotka[$id]->celkz;  
+			 if(($jednotka[$id]->celkem_zivotu + $vyleceno) > $jednotka[$id]->poc_celkem_zivotu) $vyleceno = $jednotka[$id]->poc_celkem_zivotu - $jednotka[$id]->celkem_zivotu;  
        			
-        $jednotka[$id]->celkz = $jednotka[$id]->celkz + $vyleceno;
+        $jednotka[$id]->celkem_zivotu = $jednotka[$id]->celkem_zivotu + $vyleceno;
         $jednotka[$id]->obdrzela_dmg -= $vyleceno;
         
-        $pom = ceil($jednotka[$id]->celkz/$jednotka[$id]->ziv);
+        $pom = ceil($jednotka[$id]->celkem_zivotu/$jednotka[$id]->ziv);
         $pom2 = $jednotka[$id]->pocet; //původní počet před vyléčením
         $jednotka[$id]->pocet = $pom;
         
@@ -1102,13 +1517,13 @@ return false;
 	  
 	  	$id = $poradi[$a][id];
 
-			if($jednotka[$id]->strana!=$this->strana and $jednotka[$id]->celkz > 0 ){//vytvoří se kopie živé nepřátelské jednotky
+			if($jednotka[$id]->strana!=$this->strana and $jednotka[$id]->celkem_zivotu > 0 ){//vytvoří se kopie živé nepřátelské jednotky
 			
         $index=count($jednotka);
         
         $nahoda = mt_rand(10,36)/10;
         //vyvola nejméně jednu jednotku nebo v rozmezi 50-600 hodnoty jednotky za kazdy svuj zivot 
-        $vyvola = round((($this->celkz * $nahoda))/$jednotka[$id]->hod);
+        $vyvola = round((($this->celkem_zivotu * $nahoda))/$jednotka[$id]->hod);
        
        //pokud má sílu k vyvolání nejsilnější jednotky, jinak bude zkoušet vyvolat druhou nejsilnější
        if ($vyvola != 0) {
@@ -1139,8 +1554,8 @@ return false;
         echo "<span style='color:".$this->barva."'>Jednotka ".$this->pocet." x ".$this->toolNazev()." započala krvavý rituál pro vyvolání stínové magie a stvořila celkem ".$vyvola." x ".$jednotka[$index]->toolNazev()."</span><br><br>";
         
         $this->pocet = round($this->pocet/2);
-        $this->celkz = $this->ziv * $this->pocet;
-        $this->obdrzela_dmg = $this->poc_celkz - $this->celkz;
+        $this->celkem_zivotu = $this->ziv * $this->pocet;
+        $this->obdrzela_dmg = $this->poc_celkem_zivotu - $this->celkem_zivotu;
         
         break;
         }
@@ -1271,7 +1686,7 @@ return false;
 
 		$jednotka[$obrance]->pocet -= $kill;
 
-		$jednotka[$obrance]->celkz -= $kill*$jednotka[$obrance]->ziv;
+		$jednotka[$obrance]->celkem_zivotu -= $kill*$jednotka[$obrance]->ziv;
 
 		echo "<span style='color:red'>".$this->pocetJmenoArt()." stáhl pod hladinu ".prevod($kill)." x ".$jednotka[$obrance]->jmenoArt()."! Zůstává ".$jednotka[$obrance]->pocetJmenoArt()."</span><br>";
 
@@ -1313,7 +1728,7 @@ return false;
 
 	function toolNazev(){
 
-	    $text = "<table><tr><td>Damage</td><td>" . prevod($this->dmg) . "</td><td>Útok</td><td>" . prevod($this->utk) . "</td></tr><tr><td>Obrana</td><td>" . prevod($this->obr) . "</td><td>Životy</td><td>" . prevod($this->ziv) . "</td></tr><tr><td>Iniciativa</td><td>" . prevod($this->ini) . "</td><td>Hodnota</td><td>" . prevod($this->hod) . "</td></tr><tr><td>Typ útoku</td><td>" . prevod($this->typ) . "</td><td>Stav</td><td>";
+	    $text = "<table><tr><td>Damage</td><td>" . prevod($this->dmg) . "</td><td>Útok</td><td>" . prevod($this->utk) . "</td></tr><tr><td>Obrana</td><td>" . prevod($this->obr) . "</td><td>Životy</td><td>" . prevod($this->ziv) . "</td></tr><tr><td>Iniciativa</td><td>" . prevod($this->ini) . "</td><td>Hodnota</td><td>" . prevod($this->hod) . "</td></tr><tr><td>Typ útoku</td><td>" . prevod($this->typUtoku) . "</td><td>Stav</td><td>";
 
 		if($this->stav == 1){$text .= "Živá";}
 
@@ -1489,7 +1904,7 @@ return false;
 
 		$this->ziv=round($this->ziv);
 
-		//$this->celkz=$this->ziv*$this->pocet;
+		//$this->celkem_zivotu=$this->ziv*$this->pocet;
 
 		$this->dmg=round($this->dmg);
 
@@ -1561,9 +1976,9 @@ return false;
 
 	global $id_obrance; global $jednotka;
 
-		$jednotka[$id_obrance]->celkz -= $dmg;
+		$jednotka[$id_obrance]->celkem_zivotu -= $dmg;
 
-		$kill = $jednotka[$id_obrance]->pocet - ceil($jednotka[$id_obrance]->celkz / $jednotka[$id_obrance]->ziv);
+		$kill = $jednotka[$id_obrance]->pocet - ceil($jednotka[$id_obrance]->celkem_zivotu / $jednotka[$id_obrance]->ziv);
 
         if ($kill > $jednotka[$id_obrance]->pocet){
 
@@ -1611,29 +2026,29 @@ return false;
 			
 			$random = mt_rand(0, 100);
 
-			if($this->schopnosti["magieSmrti"]==6 and $jednotka[$obr]->stav==1 and $jednotka[$obr]->schopnosti["magieOhne"]==1) $jednotka_naz = "Nemrtvý ohnivý kouzelník";
+			if($this->schopnosti["magieSmrti"]==6 and $jednotka[$obr]->stav==1 and $jednotka[$obr]->schopnosti["magieOhne"]==1) $jednotka_nazev = "Nemrtvý ohnivý kouzelník";
 
-			elseif($this->schopnosti["magieSmrti"]==6 and $jednotka[$obr]->stav==1 and $jednotka[$obr]->schopnosti["magieOhne"]==3) $jednotka_naz = "Zvěstovatel soudného dne";
+			elseif($this->schopnosti["magieSmrti"]==6 and $jednotka[$obr]->stav==1 and $jednotka[$obr]->schopnosti["magieOhne"]==3) $jednotka_nazev = "Zvěstovatel soudného dne";
 
-			elseif($this->schopnosti["magieSmrti"]==6 and $jednotka[$obr]->stav==1 and $jednotka[$obr]->schopnosti["magieLedu"]>0) $jednotka_naz = "Nemrtvý ledový kouzelník";
+			elseif($this->schopnosti["magieSmrti"]==6 and $jednotka[$obr]->stav==1 and $jednotka[$obr]->schopnosti["magieLedu"]>0) $jednotka_nazev = "Nemrtvý ledový kouzelník";
 
-			elseif($this->schopnosti["magieSmrti"]==6 and $jednotka[$obr]->stav==1 and $jednotka[$obr]->schopnosti["magieLesa"]>0) $jednotka_naz = "Nemrtvý Druid";
+			elseif($this->schopnosti["magieSmrti"]==6 and $jednotka[$obr]->stav==1 and $jednotka[$obr]->schopnosti["magieLesa"]>0) $jednotka_nazev = "Nemrtvý Druid";
 
-			elseif($this->schopnosti["magieSmrti"]==6 and $jednotka[$obr]->stav==1 and ($jednotka[$obr]->ziv>=10000 OR $jednotka[$obr]->nazev == "ledový obr"OR $jednotka[$obr]->nazev == "prokletý obr")) $jednotka_naz = "Obří kostlivec";
+			elseif($this->schopnosti["magieSmrti"]==6 and $jednotka[$obr]->stav==1 and ($jednotka[$obr]->ziv>=10000 OR $jednotka[$obr]->nazev == "ledový obr"OR $jednotka[$obr]->nazev == "prokletý obr")) $jednotka_nazev = "Obří kostlivec";
 
-			elseif($this->schopnosti["magieSmrti"]==6 and $jednotka[$obr]->stav==1 and $random<=80) $jednotka_naz = "Lich";
+			elseif($this->schopnosti["magieSmrti"]==6 and $jednotka[$obr]->stav==1 and $random<=80) $jednotka_nazev = "Lich";
 	
-			elseif($this->schopnosti["magieSmrti"]==9 and $jednotka[$obr]->stav==1) $jednotka_naz = "Ghúl";   
+			elseif($this->schopnosti["magieSmrti"]==9 and $jednotka[$obr]->stav==1) $jednotka_nazev = "Ghúl";   
 			
-			elseif($this->schopnosti["magieSmrti"]==12 and $jednotka[$obr]->stav==1) $jednotka_naz = "Upír";     
+			elseif($this->schopnosti["magieSmrti"]==12 and $jednotka[$obr]->stav==1) $jednotka_nazev = "Upír";     
 			
-			elseif($jednotka[$obr]->stav==1)$jednotka_naz = "Kostlivec";
+			elseif($jednotka[$obr]->stav==1)$jednotka_nazev = "Kostlivec";
 
 			else $pocet_vyvolanych=0;
 
 
 
-			if($pocet_vyvolanych>0){$index=count($jednotka);$jednotka[$index] = new Jednotka($index, $jednotka_naz, $pocet_vyvolanych, $this->strana, 1, $this->barva, "");
+			if($pocet_vyvolanych>0){$index=count($jednotka);$jednotka[$index] = new Jednotka($index, $jednotka_nazev, $pocet_vyvolanych, $this->strana, 1, $this->barva, "");
 			global $global_hodnota;
 			$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($pocet_vyvolanych*$jednotka[$index]->hod);	
 
@@ -1643,106 +2058,211 @@ return false;
 
 
 		function vyvolat(){
+			global $jednotka;$special=0;
+    		global $zabito_goblinu;
 
-		global $jednotka;$special=0;
-    global $zabito_goblinu;
+			$od = "Jednotka"; $co = "přivolala celkem"; $jak="";
+			$jednotka_nazev = $this->schopnosti["vyvolavaJednotku"];
+			switch($jednotka_nazev){
+				# TODO vyvolani sopky
+				# TODO pridat vyvolavani posvatneho obra do simulatoru
+				# TODO predelat spravne pocty podle jednotky
+				case "Ent":					# Magie Lesa 1
+					$pocet_vyvolanych = floor($this->celkem_zivotu / 180);
+					if($this->schopnosti["staze"] == 5){
+						$pocet_vyvolanych = round($pocet_vyvolanych * 1.5);
+					}
+					break;
 
-			$od = "Jednotka"; $co = "přivolala celkem";$jak="";
+				case "Wurm":				# Magie Lesa 2
+					$pocet_vyvolanych= mt_rand(1,6);
+					break;
 
-			switch($this->schopnosti["vyvolavaJednotku"]){
+				case "Starodávný Ent":		# Magie Lesa 3
+					$pocet_vyvolanych = round($this->celkem_zivotu / 169);
+					if($this->schopnosti["staze"] == 50){
+						$pocet_vyvolanych=round($pocet_vyvolanych * 1.5);
+					}
+					break;
 
-				case 242: $jednotka_naz = "Ent";$pocet_vyvolanych = floor($this->celkz/180);if($this->schopnosti["staze"]==5){$pocet_vyvolanych=round($pocet_vyvolanych*1.5);}break;
+				case "Kentaur":				# Magie Lesa 6
+					break;	# TODO
 
-				case 66: $jednotka_naz = "Starodávný Ent";$pocet_vyvolanych = round($this->celkz/169);if($this->schopnosti["staze"]==50){$pocet_vyvolanych=round($pocet_vyvolanych*1.5);}break;
+				case "Ledová koule":		# Magie Ledu 3
+					$od="Na rukou jednotky";
+					$co="se vytvořily malé ledové koule, za okamžik už letí";
+					$jak="!";
+					$pocet_vyvolanych = floor($this->pocet / 2);
+					break;
 
-				case 7: $jednotka_naz = "Ohnivá koule";if($this->schopnosti["posileniOhen"]==1) $pocet_vyvolanych = floor(($this->pocet/2)*1.5); else $pocet_vyvolanych = floor($this->pocet/2);$od="Na rukou jednotky";$co="se vytvořili malé ohnivé koule, za okamžik už letí";$jak=" proti nepříteli!";break;
+				case "Ledová hradba":		# Magie Ledu 6
+					$pocet_vyvolanych= floor($this->celkem_zivotu / 250);
+					break;
 
-				case 78: $jednotka_naz = "Ledová koule";$pocet_vyvolanych = floor($this->pocet/2);$od="Na rukou jednotky";$co="se vytvořili malé ledové koule, za okamžik už letí";$jak="!";break;
+				case "Ohnivá koule":		# Magie ohně 1
+					$pocet_vyvolanych = floor($this->pocet / 2);
 
-				case 264:$jednotka_naz = "Vlna tsunami";$pocet_vyvolanych = $this->pocet;$od="Z moře se řítí obrovská masa vody jednotka";break;
+					if($this->schopnosti["posileniOhen"] == 1)
+						$pocet_vyvolanych *= 1.5;
 
-				case 17:$jednotka_naz = "Meteorit";$poctar = $this->pocet;while($poctar > 0){$nahoda = unique_random(1,2,1);$pocet_vyvolanych += $nahoda[0];$poctar-=1;} if($this->schopnosti["posileniOhen"]==1){$pocet_vyvolanych = round(($pocet_vyvolanych/3)*1.5);} else $pocet_vyvolanych = round($pocet_vyvolanych/3);$od="Nebesa zabarvila rudá barva jednotka";break;
+					$od="Na rukou jednotky";
+					$co="se vytvořili malé ohnivé koule, za okamžik už letí";
+					$jak=" proti nepříteli!";
+					break;
+
+				case "Ohnivý imp":			# Magie ohně 2
+					$pocet_vyvolanych=round($this->pocet * 2);
+
+					if($this->schopnosti["posileniOhen"]==1)
+						$pocet_vyvolanych *= 1.5;
+					
+					break;
+
+				case "Meteorit":			# Magie ohně 3
+					$poctar = $this->pocet;
+
+					while($poctar > 0){
+						$nahoda = unique_random(1,2,1);
+						$pocet_vyvolanych += $nahoda[0];
+						$poctar-=1;
+					}
+
+					if($this->schopnosti["posileniOhen"]==1)
+						$pocet_vyvolanych = round(($pocet_vyvolanych / 3) * 1.5);
+					else
+						$pocet_vyvolanych = round($pocet_vyvolanych/3);
+					
+					$od="Nebesa zabarvila rudá barva jednotka";
+					break;
 				
-				case 95: $jednotka_naz = "Ohnivý přízrak"; $pocet_vyvolanych=randround(max($this->pocet*0.5,1));if($this->schopnosti["posileniOhen"]==1) $pocet_vyvolanych = randround($pocet_vyvolanych*1.5);   $co="otevřela ohnivý průchod, kterým prošel"; break;
-				
-				case 650: $jednotka_naz = "Ohnivý déšť"; $poctar = $this->pocet;while($poctar > 0){$nahoda = mt_rand(30,120);$pocet_vyvolanych += $nahoda;$poctar-=1;} if($this->schopnosti["posileniOhen"]==1){$pocet_vyvolanych = round($pocet_vyvolanych * 1.5);} else $pocet_vyvolanych = round($pocet_vyvolanych);$od="Rudé mraky prostoupili Andela věčného ohne. Pak začala z nebe padat ohnivá smrt.";break;
+				case "Ohnivý přízrak":		# Magie ohně 4
+					$pocet_vyvolanych=randround(max($this->pocet * 0.5, 1));
 
-				case 130: $jednotka_naz = "Goblin Paragán"; $pocet_vyvolanych=$this->pocet*100;
-                                   if ($this->schopnosti["staze"]==8) $pocet_vyvolanych *= 1.5; $od = "Z"; $co = "vyskákalo";break;
-				
-				case 1300: $jednotka_naz = "Goblin Paragán"; $pocet_vyvolanych=$this->pocet*200;
-				                           if ($this->schopnosti["staze"]==8) $pocet_vyvolanych *= 1.5; $od = "Z"; $co = "vyskákalo";break;
-								
-				case 13000: $jednotka_naz = "Goblin Paragán"; $pocet_vyvolanych=$this->pocet*400;
-				                           if ($this->schopnosti["staze"]==8) $pocet_vyvolanych *= 1.5; $od = "Z"; $co = "vyskákalo";break;
+					if($this->schopnosti["posileniOhen"] == 1)
+						$pocet_vyvolanych = randround($pocet_vyvolanych * 1.5);
+					
+					$co="otevřela ohnivý průchod, kterým prošel";
+					break;
 
-				case 12: $jednotka_naz = "Ohnivý imp";if($this->schopnosti["posileniOhen"]==1){$pocet_vyvolanych=round(($this->pocet*2)*1.5);} else $pocet_vyvolanych=$this->pocet*2;break;
+				case "Rozžhavené magma":	# Magie ohně 5
+					$pocet_vyvolanych=$this->pocet;
 
-				case 107: $jednotka_naz = "Uvězněná duše";
-				           
-				           if($this->schopnosti["magieSmrti"]==5) {
-				             
-				             $poctar = $this->pocet;
-                      while($poctar > 0){
-                      
-                        $vyvolal = mt_rand(150,400);
-			                  $pocet_vyvolanych += $vyvolal ;
+					if($this->schopnosti["posileniOhen"] == 1)
+						$pocet_vyvolanych = round($pocet_vyvolanych * 1.5);
 
-			                  $poctar-=1;
-			                  }
-                      
-                      $od=""; $co="povolal";break;
-                  
-				          } else if ($this->schopnosti["magieSmrti"]==10) {
-				          	  
-				          	  $poctar = $this->pocet;
-                      while($poctar > 0){
-                      
-                        $vyvolal = mt_rand(300,800);
-			                  $pocet_vyvolanych += $vyvolal ;
+					$co = "vrhnul proti nepříteli";
+					$jak="!";
+					break;
 
-			                  $poctar-=1;
-			                  }
-                      
-                      $od=""; $co="povolal";break;
-				          
-				          }		
-				
+				case "Stínový drak":		# Magie ohně 7
+					$pocet_vyvolanych = mt_rand(0,3);
+					break;
 
-				case 89: $jednotka_naz = "Rozžhavené magma";if($this->schopnosti["posileniOhen"]==1){$pocet_vyvolanych=round($this->pocet*1.5);} else $pocet_vyvolanych=$this->pocet; $od=""; $co = "vrhnul proti nepříteli";$jak="!";break;
+				case "Stínový ohař":		# Magie ohně 8
+					$pocet_vyvolanych = floor($this->celkem_zivotu / mt_rand(20, 55));
 
-				case 51: $jednotka_naz = "Energetický služebník";$pocet_vyvolanych=$this->pocet*10;break;
+					if($this->schopnosti["posileniOhen"] == 1)
+						$pocet_vyvolanych = floor($pocet_vyvolanych * 1.5);
 
-				case 192: $jednotka_naz = "Prokletý Ent";$pocet_vyvolanych = floor($this->celkz/150);if($this->schopnosti["staze"]==5){$pocet_vyvolanych=round($pocet_vyvolanych*1.5);}break;
+					break;
+
+				case "Stínová bestie":		# Magie ohně 9
+					$pocet_vyvolanych = floor($this->celkem_zivotu / mt_rand(20, 55));
+
+					if($this->schopnosti["posileniOhen"] == 1)
+						$pocet_vyvolanych = floor($pocet_vyvolanych * 1.5);
+
+					break;
+
+				case "Ohnivý déšť":			# Magie ohně 10
+					$poctar = $this->pocet;
+					while($poctar > 0){
+						$nahoda = mt_rand(30, 120);
+						$pocet_vyvolanych += $nahoda;
+						$poctar -= 1;
+					}
+
+					if($this->schopnosti["posileniOhen"] == 1)
+						$pocet_vyvolanych * 1.5;
+					
+					$pocet_vyvolanych = round($pocet_vyvolanych);
+					$od="Rudé mraky prostoupili Andela věčného ohne. Pak začala z nebe padat ohnivá smrt.";
+					break;
 				
-				case 509: $jednotka_naz = "Ledová hradba";$pocet_vyvolanych= floor($this->celkz/250);break;
+				case "Uvězněná duše":
+					if($this->schopnosti["magieSmrti"] == 5)					# Magie Smrti 5
+						$vyvolal = mt_rand(150, 400);
+					else if ($this->schopnosti["magieSmrti"] == 10)				# Magie Smrti 10
+						$vyvolal = mt_rand(300, 800);
+					
+					$poctar = $this->pocet;
+					while($poctar > 0){
+						$pocet_vyvolanych += $vyvolal;
+						$poctar -= 1;
+					}
+
+					$od="";
+					$co="povolal";
+					break;
+
+				case "Prokletý ent":		# Magie Smrti 7
+					$pocet_vyvolanych = floor($this->celkem_zivotu / 150);
+					if($this->schopnosti["staze"] == 5)
+						$pocet_vyvolanych = round($pocet_vyvolanych * 1.5);
+					
+					break;
+
+				case "Goblin Paragán":		# Výsadek
+					switch($this->nazev){
+						case "Gobliní Vzducholoď":
+							$pocet_vyvolanych = $this->pocet * 100; break;
+						case "Gobliní Hybridní Vzducholoď":
+							$pocet_vyvolanych = $this->pocet * 200; break;
+						case "Gobliní Vyztužená Vzducholoď":
+							$pocet_vyvolanych = $this->pocet * 400; break;
+					}
+
+					if ($this->schopnosti["staze"] == 8)
+						$pocet_vyvolanych *= 1.5;
+
+					$od = "Z";
+					$co = "vyskákalo";
+					break;
 				
-				case 663: $jednotka_naz = "Recyklovanej kočkodlak";$pocet_vyvolanych= mt_rand($this->pocet,$this->pocet*2);break;
+				case "Duše goblina":		# Magie smrti 13
+					//počet duší, které zvládne povolat
+					$pocet_vyvolanych = ($this->celkem_zivotu * (0.95 + rand(0, 10) / 100)) / 10; // pocet zivotov/10 +/- 5%
+					//pokud má artefakt, muze jich povolat vic	
+					if($this->schopnosti["posileni"] > 0) $pocet_vyvolanych = randround(($pocet_vyvolanych * ($this->schopnosti["posileni"] + 100)) / 100);
+					//pokud muze povolat vice dusi nez bylo zabito goblinu	
+					if($pocet_vyvolanych > $zabito_goblinu) $pocet_vyvolanych = $zabito_goblinu;
+					//vyvolané duše odečíst od zabitých goblinů
+					if($pocet_vyvolanych > 0){
+						$zabito_goblinu -= $pocet_vyvolanych ;
+						$this->utk = round($this->utk / 2);
+						$this->obr = round($this->obr / 2);
+						$this->dmg = round($this->dmg / 2);
+					}
+
+					$od = "";
+					$co = " provedl rituál smrti. Celkem se jim povedlo vytrhnout ze spáru smrti";
+					$jak = " a poštvat je zpátky proti nepříteli.";
+					break;
+
+				case "Energetický služebník":			# Magie Prastarých 2
+					$pocet_vyvolanych = $this->pocet * 10;
+					break;
+
+				case "Recyklovaný kočkodlak":
+					$pocet_vyvolanych = mt_rand($this->pocet, $this->pocet * 2);
+					break;
+
+				case "Vlna tsunami":
+					$pocet_vyvolanych = $this->pocet;
+					$od = "Z moře se řítí obrovská masa vody jednotka";
+					break;
 				
-				case 645: $jednotka_naz = "Stínový drak";$pocet_vyvolanych= mt_rand(0,3);break;
-				
-				case 68: $jednotka_naz = "Wurm";$pocet_vyvolanych= mt_rand(1,6);break;
-				
-				case 709: $jednotka_naz = "Stínový ohař";if($this->schopnosti["posileniOhen"]==1) $pocet_vyvolanych = floor(($this->celkz/mt_rand(20,55))*1.5); else $pocet_vyvolanych = floor($this->celkz/mt_rand(20,55));break;
-				
-				case 710: $jednotka_naz = "Stínová bestie";if($this->schopnosti["posileniOhen"]==1) $pocet_vyvolanych = floor(($this->celkz/mt_rand(20,55))*1.5); else $pocet_vyvolanych = floor($this->celkz/mt_rand(20,55));break;
-				
-				case 902: $jednotka_naz = "Duše goblina";
-//počet duší, které zvládne povolat
-	$pocet_vyvolanych = ($this->celkz*(0.95+rand(0,10)/100)) / 10; // pocet zivotov/10 +/- 5%
-//pokud má artefakt, muze jich povolat vic	
-	if($this->schopnosti["posileni"] > 0) $pocet_vyvolanych = randround(($pocet_vyvolanych*($this->schopnosti["posileni"]+100))/100);
-//pokud muze povolat vice dusi nez bylo zabito goblinu	
-  if($pocet_vyvolanych > $zabito_goblinu) $pocet_vyvolanych = $zabito_goblinu;
-//vyvolané duše odečíst od zabitých goblinů
-  if($pocet_vyvolanych > 0){
-  $zabito_goblinu -= $pocet_vyvolanych ;
-  $this->utk  = round($this->utk/2);
-  $this->obr	= round($this->obr/2);
-  $this->dmg	= round($this->dmg/2);
-  }	
-  $od=""; $co=" provedl rituál smrti. Celkem se jim povedlo vytrhnout ze spáru smrti";$jak = " a poštvat je zpátky proti nepříteli.";break;
-				
+				# TODO tohle asi bude reprezentovat meteorit a ohnivou bouri - checknout ve starych jednotkach pred generovanim jake maji hodnoty - specificky magmaticky obr a buh ohne
 				case 998: $special=2;$pocet_vyvolanych=1;break;
 
 				case 999: $special=1;$pocet_vyvolanych=1;break;
@@ -1758,7 +2278,7 @@ return false;
 
 			echo "<span style='color:".$this->barva."'>";
 
-			$jednotka[$index] = new Jednotka($index, $jednotka_naz, $pocet_vyvolanych, $this->strana, 1, $this->barva, "");
+			$jednotka[$index] = new Jednotka($index, $jednotka_nazev, $pocet_vyvolanych, $this->strana, 1, $this->barva, "");
 			
 			//započítání do celkové hodnoty jednotek
 			global $global_hodnota;
@@ -1874,7 +2394,7 @@ return false;
 		//kolik jednotka udělala v aktuálním kole dmg
 		$this->udelala_dmg = $dmg;
 		
-		echo "<span style='color:".$this->barva."'>". $this->pocetJmenoArt() . " zmasakroval (".prevod($dmg).") ".prevod($kill)." x ".$jednotka[$obrance]->jmenoArt()." (".prevod($jednotka[$obrance]->celkz).")</span><br>";
+		echo "<span style='color:".$this->barva."'>". $this->pocetJmenoArt() . " zmasakroval (".prevod($dmg).") ".prevod($kill)." x ".$jednotka[$obrance]->jmenoArt()." (".prevod($jednotka[$obrance]->celkem_zivotu).")</span><br>";
 
 		if($this->schopnosti["magieSmrti"]==1 or $this->schopnosti["magieSmrti"]==6 or $this->schopnosti["magieSmrti"]==9) $this->nekromancer($kill, $obrance);
 		
@@ -1982,7 +2502,7 @@ function najit($nazevHodnoty, $hodnota){
 
 	while($a<count($jednotka)){
 
-		if($jednotka[$id]->$nazevHodnoty == $hodnota || $jednotka[$id]->celkz <= 0 ) {$a++;$id = $poradi[$a][id];}
+		if($jednotka[$id]->$nazevHodnoty == $hodnota || $jednotka[$id]->celkem_zivotu <= 0 ) {$a++;$id = $poradi[$a][id];}
 
 		else {$id = $poradi[$a][id];break;}
 
@@ -2040,7 +2560,7 @@ while($jednotka[$a]){
 
 	$poradi[$a][ini] = $jednotka[$a]->ini;
 
-	$poradi[$a][celkz] = $jednotka[$a]->celkz;
+	$poradi[$a][celkem_zivotu] = $jednotka[$a]->celkem_zivotu;
 
 	$poradi[$a][id] = $jednotka[$a]->id;
 
@@ -2104,7 +2624,7 @@ while($aktualniKolo<=$pocetKol){
       $aktualniUtok = 0;//počet útoků, které jednotka v tomto kole provedla
 
 			//Má jednotka kladný počet životů a současně to není hradba
-			if($jednotka[$id]->celkz>0 && ($jednotka[$id]->dmg>0 or $jednotka[$id]->stav!= 3)){
+			if($jednotka[$id]->celkem_zivotu>0 && ($jednotka[$id]->dmg>0 or $jednotka[$id]->stav!= 3)){
 
 
 
@@ -2116,7 +2636,7 @@ while($aktualniKolo<=$pocetKol){
 			//Vyvolávání jednotek
 
       //vyvolání pouze v prvním kole
-			if ($aktualniKolo==1 and $jednotka[$id]->schopnosti["vyvolavaJednotku"]>0 and $jednotka[$id]->ident != 651 and $jednotka[$id]->ident != 664 and $jednotka[$id]->ident != 901) $jednotka[$id]->vyvolat(); //anděl vyvolává déšť až od 2. kola, kněží taky
+			if ($aktualniKolo==1 and $jednotka[$id]->ident != 651 and $jednotka[$id]->ident != 664 and $jednotka[$id]->ident != 901) $jednotka[$id]->vyvolat(); //anděl vyvolává déšť až od 2. kola, kněží taky
 			//vyvolávání v ostatních kolech -energ. služebník, vulcanovo kouzlo, ohnivý dést, rec. kockodlak,duse goblina
 			if ($aktualniKolo!=1 and ($jednotka[$id]->schopnosti["vyvolavaJednotku"]==51 or $jednotka[$id]->schopnosti["vyvolavaJednotku"]==998 or $jednotka[$id]->schopnosti["vyvolavaJednotku"]==650 or $jednotka[$id]->schopnosti["vyvolavaJednotku"]==663)) $jednotka[$id]->vyvolat();
 			
@@ -2172,7 +2692,7 @@ while($aktualniKolo<=$pocetKol){
 
 //			  $aktualniUtok = 0;
 
-					while($aktualniUtok < $jednotka[$id]->pocetUtoku and $jednotka[$id]->celkz > 0){
+					while($aktualniUtok < $jednotka[$id]->pocetUtoku and $jednotka[$id]->celkem_zivotu > 0){
 					
 
 						$idx=0;
@@ -2181,7 +2701,7 @@ while($aktualniKolo<=$pocetKol){
 
 							$poradi[$idx][ini] = $jednotka[$idx]->ini;
 
-							$poradi[$idx][celkz] = $jednotka[$idx]->celkz;
+							$poradi[$idx][celkem_zivotu] = $jednotka[$idx]->celkem_zivotu;
 
 							$poradi[$idx][id] = $jednotka[$idx]->id;$idx++;
 
@@ -2190,7 +2710,7 @@ while($aktualniKolo<=$pocetKol){
 
 						//Seřadit obránce dle počtu životů
 
-						seradit("celkz");
+						seradit("celkem_zivotu");
 
 						$id_obrance = najit("strana", $opak_strany);
 
@@ -2213,7 +2733,7 @@ while($aktualniKolo<=$pocetKol){
 
 							//Je zde na koho útočit?
 
-							if($jednotka[$id_obrance]->celkz<=0){
+							if($jednotka[$id_obrance]->celkem_zivotu<=0){
 							
 							 //pokud jednotka má schopnost léčit, bude léčit i když nemá na koho útočit
                 if($jednotka[$id]->schopnosti["magieLesa"] == 4) $jednotka[$id]->magieLesa4();
@@ -2272,9 +2792,9 @@ while($aktualniKolo<=$pocetKol){
 
 								if($jednotka[$id]->schopnosti["magieSvetla"] == 1 and $jednotka[$id_obrance]->stav==2) $jednotka[$id]->magieSvetla1($id_obrance);
 								
-								if($jednotka[$id]->schopnosti["sebevrazedna"] and $jednotka[$id]->schopnosti["viceutok"]>1 and ( $jednotka[$id_obrance]->celkz<=0 or $jednotka[$id_obrance]->obdrzela_dmg >= $jednotka[$id_obrance]->poc_celkz )){
+								if($jednotka[$id]->schopnosti["sebevrazedna"] and $jednotka[$id]->schopnosti["viceutok"]>1 and ( $jednotka[$id_obrance]->celkem_zivotu<=0 or $jednotka[$id_obrance]->obdrzela_dmg >= $jednotka[$id_obrance]->poc_celkem_zivotu )){
 
-                  $jednotka[$id_obrance]->obdrzela_dmg = $jednotka[$id_obrance]->poc_celkz - $jednotka[$id_obrance]->celkz; //když meteorit zničí fenixe a ti se ozivi, musi se zase "vynulovat" obdrzena dmg
+                  $jednotka[$id_obrance]->obdrzela_dmg = $jednotka[$id_obrance]->poc_celkem_zivotu - $jednotka[$id_obrance]->celkem_zivotu; //když meteorit zničí fenixe a ti se ozivi, musi se zase "vynulovat" obdrzena dmg
                   
 									$aktualniUtok-=1;
 
@@ -2285,8 +2805,8 @@ while($aktualniKolo<=$pocetKol){
 								elseif($jednotka[$id]->schopnosti["sebevrazedna"]) $jednotka[$id]->finalniSebevrazda();
 
 								//pokud jednotka má schopnost léčit, bude léčit poté, co zaútočí (pokud je naživu)
-                  if($jednotka[$id]->schopnosti["magieLesa"] == 4 && $jednotka[$id]->celkz > 0) $jednotka[$id]->magieLesa4();
-                  if($jednotka[$id]->schopnosti["magieLesa"] == 5 && $jednotka[$id]->celkz > 0) $jednotka[$id]->magieLesa5();
+                  if($jednotka[$id]->schopnosti["magieLesa"] == 4 && $jednotka[$id]->celkem_zivotu > 0) $jednotka[$id]->magieLesa4();
+                  if($jednotka[$id]->schopnosti["magieLesa"] == 5 && $jednotka[$id]->celkem_zivotu > 0) $jednotka[$id]->magieLesa5();
 					
 								}//konec podmínky, kdy jednotka má na koho utocit
 								                         		
