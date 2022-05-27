@@ -4,47 +4,6 @@ unit_states = {
     "inanimate": "3"
 }
 
-summon_unit_table = {  # taken from loi simulator
-    "Arcimág ohně": "7",
-    "Plamenný démon mág": "7",
-    "Plamenný démon arcimág": "17",
-    "Démon Bojový Mág Temnoty": "17",
-    "Následovník démonů - Kacíř": "12",
-    "Dh Ratu řečený Posel ohně": "17",
-    "Ragnarokk, prokletý wurm": "242",
-    "Eternan vyvolávač": "51",
-    "Zasvěcenec boha ledu": "78",
-    "Magmatický golem": "89",
-    "Flamekeeper": "17",
-    "Flamekeeper Lord": "95",
-    "Magmatický obr": "999",
-    "Soulkeeper": "107",
-    "Nemrtvý Druid": "192",
-    "Zvěstovatel soudného dne": "17",
-    "Nemrtvý ohnivý kouzelník": "7",
-    "Goblin Pyroman": "7",
-    "Gobliní Vzducholoď": "130",
-    "Gobliní patriarcha": "7",
-    "Rah Atrog řečený Vyvolávač": "95",
-    "Vrchní knežka Enakra": "95",
-    "Vulkánův generál": "999",
-    "Vulkán bůh ohně": "998",
-    "Druid": "242",
-    "Pán vod": "264",
-    "Veledruid": "66",
-    "Šaman Ledu": "509",
-    "Anděl věčného ohně": "650",
-    "Gobliní Hybridní Vzducholoď": "1300",
-    "Gobliní Vyztužená Vzducholoď": "13000",
-    "Železný kněz": "663",
-    "Æthrův šaman Ledu": "509",
-    "Aethrův šaman Ledu": "509",
-    "Soulkeeper věčné Temnoty": "107",
-    "Stínový mág": "709",
-    "Stínový arcimág": "710",
-    "Zlobří Šaman": "902"
-}  # TODO pridat vyvolavani posvatneho obra do simulatoru
-
 
 def set_abilities(unit: dict, abilities: str) -> None:
     for ability in abilities:
@@ -105,7 +64,7 @@ def set_ability(unit: dict, ability: str) -> None:
     elif name == "Síť":
         unit["schopnosti"]["sit"] = "1"
     elif name == "Gobliní výsadek":
-        unit["schopnosti"]["vyvolavaJednotku"] = summon_unit_table.get(unit["nazev"])
+        unit["schopnosti"]["vyvolavaJednotku"] = "Goblin Paragán"
     elif name == "Globálni poškození":
         unit["schopnosti"]["sebevrazedna"] = "1"
     elif name == "Nepředvídatelnost":
@@ -128,6 +87,10 @@ def set_ability(unit: dict, ability: str) -> None:
         unit["schopnosti"]["kanibalizmus"] = "5"
     elif name == "Létání":
         unit["schopnosti"]["letani"] = "1"
+
+
+    if unit["nazev"] == "Eternan vyvolávač":    # fix for incomplete data provided in html table
+        unit["schopnosti"]["vyvolavaJednotku"] = "Energetický služebník"
 
 
 def get_charge_dmg(description: str) -> str:
@@ -186,17 +149,28 @@ def set_magic(unit: dict, magic: str) -> None:
 def set_spell(unit: dict, spell: str) -> None:
     name, description = spell['title'].split(" - ", 1)
 
-    if unit["nazev"] in summon_unit_table:
-        unit["schopnosti"]["vyvolavaJednotku"] = summon_unit_table.get(unit["nazev"])
-
     if "Magie Lesa" in name:
         level = name.split(" Lesa ")[1].strip()
         name = "magieLesa"
         unit["schopnosti"][name] = level
+
+        if level == "1":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Ent"
+        elif level == "2":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Wurm"
+        elif level == "3":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Starodávný Ent"
+        elif level == "6":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Kentaur"
     elif "Magie Ledu" in name:
         level = name.split(" Ledu ")[1].strip()
         name = "magieLedu"
         unit["schopnosti"][name] = level
+
+        if level == "3":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Ledová koule"
+        elif level == "6":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Ledová hradba"
     elif "Magie Země" in name:
         level = name.split(" Země ")[1].strip()
         name = "magieZeme"
@@ -205,10 +179,36 @@ def set_spell(unit: dict, spell: str) -> None:
         level = name.split(" Smrti ")[1].strip()
         name = "magieSmrti"
         unit["schopnosti"][name] = level
+
+        if level in ["5", "10"]:
+            unit["schopnosti"]["vyvolavaJednotku"] = "Uvězněná duše"
+        elif level == "7":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Prokletý ent"
+        elif level == "13":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Duše goblina"
     elif "Magie Ohně" in name:
-        level = roman_to_arabic(name.split(" Ohně ")[1].strip())
+        level = str(roman_to_arabic(name.split(" Ohně ")[1].strip()))
         name = "magieOhne"
-        unit["schopnosti"][name] = str(level)
+        unit["schopnosti"][name] = level
+
+        if level == "1":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Ohnivá koule"
+        elif level == "2":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Ohnivý imp"
+        elif level == "3":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Meteorit"
+        elif level == "4":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Ohnivý přízrak"
+        elif level == "5":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Rozžhavené magma"
+        elif level == "7":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Stínový drak"
+        elif level == "8":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Stínový ohař"
+        elif level == "9":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Stínová bestie"
+        elif level == "10":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Ohnivý déšť"
     elif "Magie Světla" in name:
         level = name.split(" Světla ")[1].strip()
         name = "magieSvetla"

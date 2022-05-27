@@ -550,12 +550,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>242</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieLesa</nazev>
 				<hodnota>1</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ent</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -574,12 +574,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>66</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieLesa</nazev>
 				<hodnota>3</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Starodávný Ent</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -906,6 +906,10 @@
 				<hodnota>6</hodnota>
 			</schopnost>
 			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Kentaur</hodnota>
+			</schopnost>
+			<schopnost>
 				<nazev>drtivyUtok</nazev>
 				<hodnota>100</hodnota>
 			</schopnost>
@@ -1126,12 +1130,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>78</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieLedu</nazev>
 				<hodnota>3</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ledová koule</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -1188,6 +1192,10 @@
 			<schopnost>
 				<nazev>magieLedu</nazev>
 				<hodnota>3</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ledová koule</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -1446,12 +1454,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>509</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieLedu</nazev>
 				<hodnota>6</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ledová hradba</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>slayer</nazev>
@@ -1474,12 +1482,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>509</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieLedu</nazev>
 				<hodnota>6</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ledová hradba</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>slayer</nazev>
@@ -2870,12 +2878,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>107</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieSmrti</nazev>
 				<hodnota>5</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Uvězněná duše</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -2894,12 +2902,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>107</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieSmrti</nazev>
 				<hodnota>10</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Uvězněná duše</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -3030,12 +3038,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>192</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieSmrti</nazev>
 				<hodnota>7</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Prokletý ent</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -3054,12 +3062,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>7</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieOhne</nazev>
 				<hodnota>1</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ohnivá koule</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>ohnivyStit</nazev>
@@ -3102,12 +3110,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>17</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieOhne</nazev>
 				<hodnota>3</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Meteorit</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>ohnivyStit</nazev>
@@ -3190,6 +3198,10 @@
 				<hodnota>1</hodnota>
 			</schopnost>
 			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ohnivá koule</hodnota>
+			</schopnost>
+			<schopnost>
 				<nazev>imunitaOhen</nazev>
 				<hodnota>1</hodnota>
 			</schopnost>
@@ -3218,12 +3230,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>7</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieOhne</nazev>
 				<hodnota>1</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ohnivá koule</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>imunitaOhen</nazev>
@@ -3358,12 +3370,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>89</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieOhne</nazev>
 				<hodnota>5</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Rozžhavené magma</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>imunitaOhen</nazev>
@@ -3510,12 +3522,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>650</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieOhne</nazev>
 				<hodnota>10</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ohnivý déšť</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>imunitaOhen</nazev>
@@ -3546,12 +3558,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>709</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieOhne</nazev>
 				<hodnota>8</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Stínový ohař</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>imunitaOhen</nazev>
@@ -3574,12 +3586,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>710</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieOhne</nazev>
 				<hodnota>9</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Stínová bestie</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>imunitaOhen</nazev>
@@ -3602,12 +3614,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>17</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieOhne</nazev>
 				<hodnota>3</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Meteorit</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>imunitaOhen</nazev>
@@ -4178,12 +4190,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>902</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieSmrti</nazev>
 				<hodnota>13</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Duše goblina</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -4203,7 +4215,7 @@
 		<schopnosti>
 			<schopnost>
 				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>130</hodnota>
+				<hodnota>Goblin Paragán</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -4315,7 +4327,7 @@
 		<schopnosti>
 			<schopnost>
 				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>1300</hodnota>
+				<hodnota>Goblin Paragán</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -4335,7 +4347,7 @@
 		<schopnosti>
 			<schopnost>
 				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>13000</hodnota>
+				<hodnota>Goblin Paragán</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -6126,12 +6138,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>51</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>imunitaOhen</nazev>
 				<hodnota>1</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Energetický služebník</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -6586,12 +6598,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>7</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieOhne</nazev>
 				<hodnota>1</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ohnivá koule</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>ohnivyStit</nazev>
@@ -6614,12 +6626,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>17</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieOhne</nazev>
 				<hodnota>3</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Meteorit</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>ohnivyStit</nazev>
@@ -6706,12 +6718,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>12</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieOhne</nazev>
 				<hodnota>2</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ohnivý imp</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -6838,16 +6850,16 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>17</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieSmrti</nazev>
 				<hodnota>3</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>magieOhne</nazev>
 				<hodnota>3</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Meteorit</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>ohnivyStit</nazev>
@@ -7066,12 +7078,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>17</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieOhne</nazev>
 				<hodnota>3</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Meteorit</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>imunitaOhen</nazev>
@@ -7134,12 +7146,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>242</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieLesa</nazev>
 				<hodnota>1</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ent</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>magieSmrti</nazev>
@@ -7162,16 +7174,16 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>95</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>magieSmrti</nazev>
 				<hodnota>3</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>magieOhne</nazev>
 				<hodnota>4</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ohnivý přízrak</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>magieZeme</nazev>
@@ -7934,7 +7946,7 @@
 				<hodnota>10000</hodnota>
 			</schopnost>
 			<schopnost>
-				<nazev>vyvolaJednotku</nazev>
+				<nazev>vyvolavaJednotku</nazev>
 				<hodnota>999</hodnota>
 			</schopnost>
 		</schopnosti>
@@ -8026,8 +8038,8 @@
 				<hodnota>1</hodnota>
 			</schopnost>
 			<schopnost>
-				<nazev>vyvolaJednotku</nazev>
-				<hodnota>264</hodnota>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Vlna tsunami</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -8166,8 +8178,8 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>vyvolaJednotku</nazev>
-				<hodnota>509</hodnota>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ledová hradba</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>magieLedu</nazev>

@@ -249,7 +249,7 @@ missing_units = [
             "magieOhne": "6",
             "magieSmrti": "3",
             "ohnivyStit": "10000",
-            "vyvolaJednotku": "999"
+            "vyvolavaJednotku": "999"
         }
     },
     {
@@ -320,7 +320,7 @@ missing_units = [
         "schopnosti": {
             "magieVody": "2",
             "imunitaOhen": "1",
-            "vyvolaJednotku": "264"
+            "vyvolavaJednotku": "Vlna tsunami"
         }
     },
     {
@@ -439,7 +439,7 @@ missing_units = [
         "frakce": "3",
         "pocetUtoku": "1",
         "schopnosti": {
-            "vyvolaJednotku": "509",
+            "vyvolavaJednotku": "Ledová hradba",
             "magieLedu": "6",
             "slayer": "1"
         }
