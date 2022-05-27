@@ -180,11 +180,28 @@ class Jednotka {
 
 		switch($art){
 
-			case "Prapor stínů": if($this->stav == 2) {$this->utk++;$this->obr++;}$popis = "Nemrtvá jednotka získá +1 do útoku a obrany.";break;
+			case "Prapor stínů": 
+				if($this->stav == 2){
+					$this->utk++; 
+					$this->obr++;
+				}
+				
+				$popis = "Nemrtvá jednotka získá +1 do útoku a obrany.";
+				break;
 
-			case "Amulet velitele": if($this->stav == 1) {$this->ini++;}$popis = "Nenemrtvá a Neneživá jednotka získa +1 do iniciativi.";break;
+			case "Amulet velitele": 
+				if($this->stav == 1)
+					$this->ini++;
+				
+				$popis = "Nenemrtvá a Neneživá jednotka získa +1 do iniciativy.";
+				break;
 
-			case "Pírko z anděla": if($this->stav == 1) {$this->ziv+=2;}$popis = "Nenemrtvá a Neneživá jednotka získá +2 do životů.";break;
+			case "Pírko z anděla": 
+				if($this->stav == 1)
+					$this->ziv += 2;
+				$popis = "Nenemrtvá a Neneživá jednotka získá +2 do životů.";
+				
+				break;
 
 			case "Popel padlých válečníků": $this->schopnosti["imunitaOhen"]=1;$popis = "Unikátní jednotka je imunní proti ohnivému štítu.";break;
 
@@ -254,7 +271,7 @@ class Jednotka {
 
 			case "Maska Královny medůz": $this->schopnosti["magieSmrti"]=3;$this->schopnosti["magieZeme"]=1;$popis = "Legendární jednotka získá Magii země 1 a Magii smrti 3.";break;
 
-case "Kouzelnická róba": $this->schopnosti["imunitaOhen"]=1;$this->obr++;$popis = "Jednotka získá +1 do obrany a je imuní vůči ohnivému štítu.";break;
+			case "Kouzelnická róba": $this->schopnosti["imunitaOhen"]=1;$this->obr++;$popis = "Jednotka získá +1 do obrany a je imuní vůči ohnivému štítu.";break;
 
 			case "Prokletá kouzelnická róba": if($this->schopnosti["magieSmrti"]>0){$this->schopnosti["imunitaOhen"]=1;$this->obr+=3;$popis = "Jednotka s Magí smrti získá +3 do obrany a je imuní vůči ohnivému štítu.";}break;
 
@@ -262,13 +279,13 @@ case "Kouzelnická róba": $this->schopnosti["imunitaOhen"]=1;$this->obr++;$popi
 
 			case "Aetherův ledový prapor": $this->schopnosti["magieLedu"]=1;if($this->frakce==3){$this->ini+=3;$this->schopnosti["magieLedu"]=2;}$popis = "Jednotka získá schopnost Magie Ledu 1, Aethrova jednotka získa schopnost Magie Ledu 2 a navíc +3 do iniciativy";break;
 			
-	case "Ætherův ledový prapor": $this->schopnosti["magieLedu"]=1;if($this->frakce==3){$this->ini+=3;$this->schopnosti["magieLedu"]=2;}$popis = "Jednotka získá schopnost Magie Ledu 1, Aethrova jednotka získa schopnost Magie Ledu 2 a navíc +3 do iniciativy";break;			
+			case "Ætherův ledový prapor": $this->schopnosti["magieLedu"]=1;if($this->frakce==3){$this->ini+=3;$this->schopnosti["magieLedu"]=2;}$popis = "Jednotka získá schopnost Magie Ledu 1, Aethrova jednotka získa schopnost Magie Ledu 2 a navíc +3 do iniciativy";break;			
 
-	case "Vulkánův ohnivý prapor": if($this->schopnosti["ohnivyStit"]>0){
-			if($this->frakce==2)$this->schopnosti["ohnivyStit"]+=$this->dmg;
-			$this->schopnosti["ohnivyStit"]+=1;
-			} else $this->schopnosti["ohnivyStit"] = 1;
-			if($this->schopnosti["magieOhne"]>0 and $this->frakce==2){$this->schopnosti["posileniOhen"]=1;} $popis = "Jednotka získá ohnivý štít +1 pokud je Vulkánova získá další bonus rovnající se hodnotě její damage do ohnivého štítu a posílení vlastní Magie Ohně.";break;
+			case "Vulkánův ohnivý prapor": if($this->schopnosti["ohnivyStit"]>0){
+				if($this->frakce==2)$this->schopnosti["ohnivyStit"]+=$this->dmg;
+				$this->schopnosti["ohnivyStit"]+=1;
+				} else $this->schopnosti["ohnivyStit"] = 1;
+				if($this->schopnosti["magieOhne"]>0 and $this->frakce==2){$this->schopnosti["posileniOhen"]=1;} $popis = "Jednotka získá ohnivý štít +1 pokud je Vulkánova získá další bonus rovnající se hodnotě její damage do ohnivého štítu a posílení vlastní Magie Ohně.";break;
 
 			case "Dharova kamenná standarta": $this->obr+=4;if($this->frakce==5){$this->obr+=6;}$popis = "Jednotka dostane +4 do obrany pokud je Dharova získá dalších +6.";break;
 
@@ -283,19 +300,19 @@ case "Kouzelnická róba": $this->schopnosti["imunitaOhen"]=1;$this->obr++;$popi
 			case "Srdce prokletého wurma Ragnarokka": $this->obr+=5;$this->utk+=5;$this->dmg*=1.5;$this->ziv*=1.5;$popis = "Nabito temnou magií z vesmíru Diabolus, poskytuje jednotce +5 útok, +5 obrana, +50% damage a +50% životů.";break;
 
 			case "Jedovaté střely": if($this->typ == 2){
-        if ($this->schopnosti["jedovyUtok"] != 0) $this->schopnosti["jedovyUtok"]+=10;
-        else $this->schopnosti["jedovyUtok"]=10;
-      }$popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti živím cílům.";break;
+        		if ($this->schopnosti["jedovyUtok"] != 0) $this->schopnosti["jedovyUtok"]+=10;
+        		else $this->schopnosti["jedovyUtok"]=10;
+      			}$popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti živím cílům.";break;
 
 			case "Drtivé střely": if($this->typ == 2){
-        if ($this->schopnosti["drtivyUtok"] != 0) $this->schopnosti["drtivyUtok"]+=10;
-        else $this->schopnosti["drtivyUtok"]=10;
-			}$popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti neživím cílům.";break;
+        		if ($this->schopnosti["drtivyUtok"] != 0) $this->schopnosti["drtivyUtok"]+=10;
+        		else $this->schopnosti["drtivyUtok"]=10;
+					}$popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti neživím cílům.";break;
 
 			case "Posvěcené střely": if($this->typ == 2){
-        if ($this->schopnosti["svatyUtok"] != 0) $this->schopnosti["svatyUtok"]+=10;
-        else $this->schopnosti["svatyUtok"]=10;
-			}$popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti nemrtvým cílům.";break;
+        		if ($this->schopnosti["svatyUtok"] != 0) $this->schopnosti["svatyUtok"]+=10;
+        		else $this->schopnosti["svatyUtok"]=10;
+					}$popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti nemrtvým cílům.";break;
 
 			case "Svazek ledového mistrovství": $this->schopnosti["magieLedu"]=3;$this->schopnosti["ledovyStit"]=30;$popis = "Unikátní jednotka se naučí magii ledu 3 a ledový štít 30%.";break;
 
@@ -329,39 +346,39 @@ case "Kouzelnická róba": $this->schopnosti["imunitaOhen"]=1;$this->obr++;$popi
 			
 			case "Bastard": $this->utk+=7;$this->obr-=2;$popis = "Jednotka získá +7 do útoku, ale její obrana klesne o 2.";break;
 
-      case "Težká bojová sekyra": $this->utk+=10;$this->obr-=3;$popis = "Jednotka získá +10 do útoku, ale její obrana klesne o 3.";break;
+      		case "Težká bojová sekyra": $this->utk+=10;$this->obr-=3;$popis = "Jednotka získá +10 do útoku, ale její obrana klesne o 3.";break;
       
-      case "Katana z Temné ocele": $this->utk+=8;$this->ini+=1;$popis = "Jednotka získá +8 do útoku a +1 do inicitivy.";break;
+      		case "Katana z Temné ocele": $this->utk+=8;$this->ini+=1;$popis = "Jednotka získá +8 do útoku a +1 do inicitivy.";break;
       
-      case "Drtič lebek": $this->utk+=3;$this->ini-=1;$this->schopnosti["slayer"]=1;$popis = "Řemdih s kovovými koulemi. Jednotka získá +3 do útoku, -1 do inicitívy a naučí se schopnost slayer.";break;
+      		case "Drtič lebek": $this->utk+=3;$this->ini-=1;$this->schopnosti["slayer"]=1;$popis = "Řemdih s kovovými koulemi. Jednotka získá +3 do útoku, -1 do inicitívy a naučí se schopnost slayer.";break;
       
-      case "Kopí hlupáků": $this->schopnosti["exterminace"]=1;$popis = "Unikátní jednotka získa schopnost exterminace.";break;
+      		case "Kopí hlupáků": $this->schopnosti["exterminace"]=1;$popis = "Unikátní jednotka získa schopnost exterminace.";break;
 
-      case "Excalibur": $this->utk+=15;$this->obr+=10;$this->ini+=5;$popis = "Unikátní jednotka získá +15 do útoku, +10 do obrany a +5 do inicitivy.";break;
+      		case "Excalibur": $this->utk+=15;$this->obr+=10;$this->ini+=5;$popis = "Unikátní jednotka získá +15 do útoku, +10 do obrany a +5 do inicitivy.";break;
       
-      case "Ohnivá dračí zbroj": $this->schopnosti["magieOhne"]=7;$this->schopnosti["vyvolavaJednotku"]=645;$this->obr+=5;$this->dmg*=4;$popis = "Unikátní jednotka získá +300% do poškození, +5 do obrany a naučí se Magii ohně 7";break;//vyvolá stínové draky
+      		case "Ohnivá dračí zbroj": $this->schopnosti["magieOhne"]=7;$this->schopnosti["vyvolavaJednotku"]=645;$this->obr+=5;$this->dmg*=4;$popis = "Unikátní jednotka získá +300% do poškození, +5 do obrany a naučí se Magii ohně 7";break;//vyvolá stínové draky
       
-      case "Prsten Života": $this->schopnosti["magieLesa"]=2;$this->schopnosti["vyvolavaJednotku"]=68;$popis = "Unikátní jednotka získá Magii lesa 2";break;
+      		case "Prsten Života": $this->schopnosti["magieLesa"]=2;$this->schopnosti["vyvolavaJednotku"]=68;$popis = "Unikátní jednotka získá Magii lesa 2";break;
       
-     	case "Pírka z anděla": if($this->stav == 1) {$this->ziv+=7;}$popis = "Nenemrtvá a Neneživá jednotka získá +7 do životů.";break;
+     		case "Pírka z anděla": if($this->stav == 1) {$this->ziv+=7;}$popis = "Nenemrtvá a Neneživá jednotka získá +7 do životů.";break;
      	
-     	case "Maska Medůzy": $this->schopnosti["magieZeme"]=1;$popis = "Unikátní jednotka získá Magii země 1";break;
+     		case "Maska Medůzy": $this->schopnosti["magieZeme"]=1;$popis = "Unikátní jednotka získá Magii země 1";break;
      	
-     	case "Amulet Beznaděje": $this->schopnosti["magieSmrti"]=3;$popis = "Unikátní jednotka získá Magii smrti 3";break;
+     		case "Amulet Beznaděje": $this->schopnosti["magieSmrti"]=3;$popis = "Unikátní jednotka získá Magii smrti 3";break;
      	
-     	case "Tutsumasa, Ledová dračí čepel": $this->schopnosti["magieLedu"]=2;$this->dmg*=4;$popis = "Unikátní jednotka získá +300% do damage a naučí se Magii ledu 2";break;
+     		case "Tutsumasa, Ledová dračí čepel": $this->schopnosti["magieLedu"]=2;$this->dmg*=4;$popis = "Unikátní jednotka získá +300% do damage a naučí se Magii ledu 2";break;
      	
-     	case "Kostěná dračí hůl": $this->schopnosti["magieSmrti"]=5;$this->schopnosti["vyvolavaJednotku"]=107;$this->dmg*=4;$popis = "Unikátní jednotka získá +300% do damage a naučí se Magii smrti 5";break;
+     		case "Kostěná dračí hůl": $this->schopnosti["magieSmrti"]=5;$this->schopnosti["vyvolavaJednotku"]=107;$this->dmg*=4;$popis = "Unikátní jednotka získá +300% do damage a naučí se Magii smrti 5";break;
      	
 			case "Rukavice drtivé síly":
-        if ($this->schopnosti["drtivyUtok"] != 0) $this->schopnosti["drtivyUtok"]+=100;
-        else $this->schopnosti["drtivyUtok"]=100;
-			$popis = "JJednotka získá +100% do poškození proti neživým cílům.";break;
+        		if ($this->schopnosti["drtivyUtok"] != 0) $this->schopnosti["drtivyUtok"]+=100;
+        		else $this->schopnosti["drtivyUtok"]=100;
+					$popis = "JJednotka získá +100% do poškození proti neživým cílům.";break;
 
 			case "Rukavice posvěcení":
-        if ($this->schopnosti["svatyUtok"] != 0) $this->schopnosti["svatyUtok"]+=100;
-        else $this->schopnosti["svatyUtok"]=100;
-			$popis = "Jednotka získá +100% do poškození proti nemrtvým cílům.";break;
+        		if ($this->schopnosti["svatyUtok"] != 0) $this->schopnosti["svatyUtok"]+=100;
+        		else $this->schopnosti["svatyUtok"]=100;
+					$popis = "Jednotka získá +100% do poškození proti nemrtvým cílům.";break;
 			
 			case "Mágova róba moci": $this->schopnosti["posileni"]=10;$popis = "Posílí přivolávací a vyvolávací magii jednotky o 10%.";break;
 			
@@ -1643,10 +1660,8 @@ return false;
 
 
 		function vyvolat(){
-
-		global $jednotka;$special=0;
-    	global $zabito_goblinu;
-	
+			global $jednotka;$special=0;
+    		global $zabito_goblinu;
 
 			$od = "Jednotka"; $co = "přivolala celkem"; $jak="";
 			$jednotka_nazev = $this->schopnosti["vyvolavaJednotku"];
