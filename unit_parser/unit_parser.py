@@ -16,6 +16,10 @@ fraction_list = {  # taken from loi simulator
     "Demoni": "10"
 }
 
+units_to_remove = ["NIC", "Není", "SMAZAT", "Agresivní velikonoční kuřátko", "Červený gumový medvídek",
+                   "Zelený gumový medvídek", "Žlutý gumový medvídek", "Kapitán Gummibärchen", "Velikonoční králíček",
+                   "Ohnivý Elementál", "Vzdušný Elementál", "Vodní Elementál", "Zemní Elementál"]
+
 
 def load_file(file_path: str = "LoI-jednotky.html", encoding: str = "utf-8") -> str:
     with open(file_path, "r", encoding=encoding) as units_file:
@@ -42,7 +46,6 @@ def extract_data_from_html_table(raw_data: str) -> list:
 
     unit_list = handle_missing_units(unit_list)
 
-    units_to_remove = ["NIC", "Není", "SMAZAT"]
     unit_list = [unit for unit in unit_list if unit["nazev"] not in units_to_remove]
     # TODO aplikace viceutoku
     return unit_list

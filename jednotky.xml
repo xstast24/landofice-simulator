@@ -2217,10 +2217,10 @@
 		<utok>16</utok>
 		<obrana>20</obrana>
 		<damage>300</damage>
-		<zivoty>3000</zivoty>
+		<zivoty>2500</zivoty>
 		<iniciativa>5</iniciativa>
 		<typUtoku>1</typUtoku>
-		<hodnota>2000</hodnota>
+		<hodnota>1500</hodnota>
 		<stav>1</stav>
 		<frakce>5</frakce>
 		<pocetUtoku>1</pocetUtoku>
@@ -2271,7 +2271,7 @@
 		<id>328</id>
 		<nazev>Obrněný Toxický Minotaurus</nazev>
 		<utok>16</utok>
-		<obrana>23</obrana>
+		<obrana>25</obrana>
 		<damage>400</damage>
 		<zivoty>3000</zivoty>
 		<iniciativa>4</iniciativa>
@@ -2283,7 +2283,7 @@
 		<schopnosti>
 			<schopnost>
 				<nazev>block</nazev>
-				<hodnota>60</hodnota>
+				<hodnota>50</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>tvrzenaKuze</nazev>
@@ -2291,7 +2291,7 @@
 			</schopnost>
 			<schopnost>
 				<nazev>toxickyStit</nazev>
-				<hodnota>20</hodnota>
+				<hodnota>30</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>jedovyUtok</nazev>
@@ -2487,7 +2487,7 @@
 			</schopnost>
 			<schopnost>
 				<nazev>toxickyStit</nazev>
-				<hodnota>20</hodnota>
+				<hodnota>30</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>jedovyUtok</nazev>
@@ -3964,18 +3964,18 @@
 		<nazev>Goblin</nazev>
 		<utok>4</utok>
 		<obrana>2</obrana>
-		<damage>5</damage>
-		<zivoty>5</zivoty>
-		<iniciativa>5</iniciativa>
+		<damage>4</damage>
+		<zivoty>4</zivoty>
+		<iniciativa>6</iniciativa>
 		<typUtoku>1</typUtoku>
-		<hodnota>7</hodnota>
+		<hodnota>3</hodnota>
 		<stav>1</stav>
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
 				<nazev>stec</nazev>
-				<hodnota>5</hodnota>
+				<hodnota>4</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -3984,11 +3984,11 @@
 		<nazev>Goblin s Prakem</nazev>
 		<utok>3</utok>
 		<obrana>2</obrana>
-		<damage>4</damage>
-		<zivoty>4</zivoty>
-		<iniciativa>4</iniciativa>
+		<damage>3</damage>
+		<zivoty>3</zivoty>
+		<iniciativa>5</iniciativa>
 		<typUtoku>2</typUtoku>
-		<hodnota>10</hodnota>
+		<hodnota>4</hodnota>
 		<stav>1</stav>
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
@@ -3998,20 +3998,20 @@
 	<jednotka>
 		<id>2005</id>
 		<nazev>Hobgoblin</nazev>
-		<utok>6</utok>
+		<utok>5</utok>
 		<obrana>3</obrana>
-		<damage>8</damage>
-		<zivoty>7</zivoty>
-		<iniciativa>5</iniciativa>
+		<damage>6</damage>
+		<zivoty>6</zivoty>
+		<iniciativa>6</iniciativa>
 		<typUtoku>1</typUtoku>
-		<hodnota>8</hodnota>
+		<hodnota>5</hodnota>
 		<stav>1</stav>
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
 				<nazev>stec</nazev>
-				<hodnota>8</hodnota>
+				<hodnota>6</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -4021,10 +4021,10 @@
 		<utok>20</utok>
 		<obrana>1</obrana>
 		<damage>200</damage>
-		<zivoty>5</zivoty>
-		<iniciativa>6</iniciativa>
+		<zivoty>4</zivoty>
+		<iniciativa>7</iniciativa>
 		<typUtoku>1</typUtoku>
-		<hodnota>50</hodnota>
+		<hodnota>10</hodnota>
 		<stav>1</stav>
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
@@ -4044,7 +4044,7 @@
 		<zivoty>50</zivoty>
 		<iniciativa>1</iniciativa>
 		<typUtoku>1</typUtoku>
-		<hodnota>500</hodnota>
+		<hodnota>100</hodnota>
 		<stav>3</stav>
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
@@ -4058,40 +4058,40 @@
 	<jednotka>
 		<id>2015</id>
 		<nazev>Goblin na vlkovi</nazev>
-		<utok>8</utok>
-		<obrana>4</obrana>
-		<damage>65</damage>
-		<zivoty>50</zivoty>
-		<iniciativa>9</iniciativa>
+		<utok>7</utok>
+		<obrana>3</obrana>
+		<damage>50</damage>
+		<zivoty>40</zivoty>
+		<iniciativa>10</iniciativa>
 		<typUtoku>1</typUtoku>
-		<hodnota>70</hodnota>
+		<hodnota>50</hodnota>
 		<stav>1</stav>
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
 				<nazev>stec</nazev>
-				<hodnota>65</hodnota>
+				<hodnota>50</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
 		<id>2016</id>
 		<nazev>Goblin na medvědovi</nazev>
-		<utok>10</utok>
-		<obrana>7</obrana>
-		<damage>100</damage>
-		<zivoty>100</zivoty>
-		<iniciativa>7</iniciativa>
+		<utok>8</utok>
+		<obrana>4</obrana>
+		<damage>80</damage>
+		<zivoty>80</zivoty>
+		<iniciativa>8</iniciativa>
 		<typUtoku>1</typUtoku>
-		<hodnota>100</hodnota>
+		<hodnota>80</hodnota>
 		<stav>1</stav>
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
 				<nazev>stec</nazev>
-				<hodnota>100</hodnota>
+				<hodnota>80</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -4118,41 +4118,57 @@
 	<jednotka>
 		<id>2020</id>
 		<nazev>Goblin Pyroman</nazev>
-		<utok>6</utok>
+		<utok>5</utok>
 		<obrana>4</obrana>
-		<damage>7</damage>
-		<zivoty>20</zivoty>
+		<damage>10</damage>
+		<zivoty>10</zivoty>
 		<iniciativa>3</iniciativa>
 		<typUtoku>2</typUtoku>
-		<hodnota>250</hodnota>
+		<hodnota>50</hodnota>
 		<stav>1</stav>
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>magieOhne</nazev>
+				<nazev>imunitaOhen</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2021</id>
+		<nazev>Goblin Pyroman Sapér</nazev>
+		<utok>5</utok>
+		<obrana>2</obrana>
+		<damage>10</damage>
+		<zivoty>20</zivoty>
+		<iniciativa>2</iniciativa>
+		<typUtoku>1</typUtoku>
+		<hodnota>1000</hodnota>
+		<stav>1</stav>
+		<frakce>6</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>konstrukce</nazev>
 				<hodnota>1</hodnota>
 			</schopnost>
 			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>Ohnivá koule</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>ohnivyStit</nazev>
-				<hodnota>10</hodnota>
+				<nazev>imunitaOhen</nazev>
+				<hodnota>1</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
 		<id>2025</id>
 		<nazev>Zlobr</nazev>
-		<utok>12</utok>
-		<obrana>8</obrana>
-		<damage>500</damage>
-		<zivoty>300</zivoty>
+		<utok>10</utok>
+		<obrana>7</obrana>
+		<damage>300</damage>
+		<zivoty>250</zivoty>
 		<iniciativa>2</iniciativa>
 		<typUtoku>1</typUtoku>
-		<hodnota>400</hodnota>
+		<hodnota>300</hodnota>
 		<stav>1</stav>
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
@@ -4162,13 +4178,13 @@
 	<jednotka>
 		<id>2026</id>
 		<nazev>Zlobří Šaman</nazev>
-		<utok>8</utok>
-		<obrana>5</obrana>
-		<damage>350</damage>
-		<zivoty>200</zivoty>
+		<utok>7</utok>
+		<obrana>4</obrana>
+		<damage>200</damage>
+		<zivoty>150</zivoty>
 		<iniciativa>1</iniciativa>
 		<typUtoku>2</typUtoku>
-		<hodnota>600</hodnota>
+		<hodnota>400</hodnota>
 		<stav>1</stav>
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
@@ -4347,6 +4363,114 @@
 		<schopnosti>
 			<schopnost>
 				<nazev>slayer</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2091</id>
+		<nazev>Gobliní dělo</nazev>
+		<utok>0</utok>
+		<obrana>0</obrana>
+		<damage>0</damage>
+		<zivoty>100</zivoty>
+		<iniciativa>0</iniciativa>
+		<typUtoku>3</typUtoku>
+		<hodnota>1</hodnota>
+		<stav>3</stav>
+		<frakce>6</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2092</id>
+		<nazev>Gobliní dělo nabité fanatikem</nazev>
+		<utok>0</utok>
+		<obrana>0</obrana>
+		<damage>0</damage>
+		<zivoty>100</zivoty>
+		<iniciativa>1</iniciativa>
+		<typUtoku>3</typUtoku>
+		<hodnota>1</hodnota>
+		<stav>3</stav>
+		<frakce>6</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2093</id>
+		<nazev>Gobliní dělo nabité bombou</nazev>
+		<utok>0</utok>
+		<obrana>0</obrana>
+		<damage>0</damage>
+		<zivoty>100</zivoty>
+		<iniciativa>1</iniciativa>
+		<typUtoku>3</typUtoku>
+		<hodnota>1</hodnota>
+		<stav>3</stav>
+		<frakce>6</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2094</id>
+		<nazev>Gobliní mina</nazev>
+		<utok>0</utok>
+		<obrana>0</obrana>
+		<damage>30</damage>
+		<zivoty>3</zivoty>
+		<iniciativa>0</iniciativa>
+		<typUtoku>1</typUtoku>
+		<hodnota>1</hodnota>
+		<stav>2</stav>
+		<frakce>6</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>slayer</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2095</id>
+		<nazev>Gobliní Letící Fanatik</nazev>
+		<utok>20</utok>
+		<obrana>1</obrana>
+		<damage>300</damage>
+		<zivoty>5</zivoty>
+		<iniciativa>7</iniciativa>
+		<typUtoku>2</typUtoku>
+		<hodnota>10</hodnota>
+		<stav>1</stav>
+		<frakce>6</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>sebevrazedna</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2096</id>
+		<nazev>Gobliní Letící Bomba</nazev>
+		<utok>30</utok>
+		<obrana>0</obrana>
+		<damage>15000</damage>
+		<zivoty>50</zivoty>
+		<iniciativa>1</iniciativa>
+		<typUtoku>2</typUtoku>
+		<hodnota>100</hodnota>
+		<stav>3</stav>
+		<frakce>6</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>sebevrazedna</nazev>
 				<hodnota>1</hodnota>
 			</schopnost>
 		</schopnosti>
@@ -6132,78 +6256,6 @@
 		</schopnosti>
 	</jednotka>
 	<jednotka>
-		<id>3900</id>
-		<nazev>Ohnivý Elementál</nazev>
-		<utok>16</utok>
-		<obrana>10</obrana>
-		<damage>40</damage>
-		<zivoty>100</zivoty>
-		<iniciativa>8</iniciativa>
-		<typUtoku>2</typUtoku>
-		<hodnota>1000</hodnota>
-		<stav>3</stav>
-		<frakce>0</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-			<schopnost>
-				<nazev>ohnivyStit</nazev>
-				<hodnota>10</hodnota>
-			</schopnost>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
-		<id>3901</id>
-		<nazev>Vzdušný Elementál</nazev>
-		<utok>12</utok>
-		<obrana>14</obrana>
-		<damage>30</damage>
-		<zivoty>100</zivoty>
-		<iniciativa>10</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>1000</hodnota>
-		<stav>3</stav>
-		<frakce>0</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
-		<id>3902</id>
-		<nazev>Vodní Elementál</nazev>
-		<utok>14</utok>
-		<obrana>12</obrana>
-		<damage>35</damage>
-		<zivoty>100</zivoty>
-		<iniciativa>6</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>1000</hodnota>
-		<stav>3</stav>
-		<frakce>0</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
-		<id>3903</id>
-		<nazev>Zemní Elementál</nazev>
-		<utok>10</utok>
-		<obrana>18</obrana>
-		<damage>30</damage>
-		<zivoty>100</zivoty>
-		<iniciativa>4</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>1000</hodnota>
-		<stav>3</stav>
-		<frakce>0</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-			<schopnost>
-				<nazev>magieZeme</nazev>
-				<hodnota>1</hodnota>
-			</schopnost>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
 		<id>3910</id>
 		<nazev>Toxický Elementál Obránce</nazev>
 		<utok>12</utok>
@@ -6306,7 +6358,7 @@
 		<obrana>0</obrana>
 		<damage>30000</damage>
 		<zivoty>1000</zivoty>
-		<iniciativa>18</iniciativa>
+		<iniciativa>11</iniciativa>
 		<typUtoku>1</typUtoku>
 		<hodnota>1</hodnota>
 		<stav>3</stav>
@@ -7204,38 +7256,6 @@
 		</schopnosti>
 	</jednotka>
 	<jednotka>
-		<id>9000</id>
-		<nazev>Velikonoční králíček</nazev>
-		<utok>22</utok>
-		<obrana>16</obrana>
-		<damage>1700</damage>
-		<zivoty>10000</zivoty>
-		<iniciativa>7</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>20000</hodnota>
-		<stav>1</stav>
-		<frakce>10</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
-		<id>9001</id>
-		<nazev>Agresivní velikonoční kuřátko</nazev>
-		<utok>20</utok>
-		<obrana>6</obrana>
-		<damage>2500</damage>
-		<zivoty>3000</zivoty>
-		<iniciativa>9</iniciativa>
-		<typUtoku>4</typUtoku>
-		<hodnota>1000</hodnota>
-		<stav>1</stav>
-		<frakce>10</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
 		<id>9002</id>
 		<nazev>Nepoužitelný golem</nazev>
 		<utok>0</utok>
@@ -7376,74 +7396,6 @@
 		</schopnosti>
 	</jednotka>
 	<jednotka>
-		<id>9010</id>
-		<nazev>Červený gumový medvídek</nazev>
-		<utok>10</utok>
-		<obrana>6</obrana>
-		<damage>30</damage>
-		<zivoty>50</zivoty>
-		<iniciativa>7</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>200</hodnota>
-		<stav>1</stav>
-		<frakce>10</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-			<schopnost>
-				<nazev>imunitaOhen</nazev>
-				<hodnota>1</hodnota>
-			</schopnost>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
-		<id>9011</id>
-		<nazev>Zelený gumový medvídek</nazev>
-		<utok>8</utok>
-		<obrana>8</obrana>
-		<damage>25</damage>
-		<zivoty>60</zivoty>
-		<iniciativa>8</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>200</hodnota>
-		<stav>1</stav>
-		<frakce>10</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-			<schopnost>
-				<nazev>magieLesa</nazev>
-				<hodnota>1</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>Ent</hodnota>
-			</schopnost>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
-		<id>9012</id>
-		<nazev>Žlutý gumový medvídek</nazev>
-		<utok>6</utok>
-		<obrana>10</obrana>
-		<damage>20</damage>
-		<zivoty>70</zivoty>
-		<iniciativa>5</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>200</hodnota>
-		<stav>1</stav>
-		<frakce>10</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-			<schopnost>
-				<nazev>magieOhne</nazev>
-				<hodnota>1</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>Ohnivá koule</hodnota>
-			</schopnost>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
 		<id>9013</id>
 		<nazev>Kyselý pavouk</nazev>
 		<utok>4</utok>
@@ -7480,30 +7432,6 @@
 			<schopnost>
 				<nazev>jedovyUtok</nazev>
 				<hodnota>100</hodnota>
-			</schopnost>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
-		<id>9015</id>
-		<nazev>Kapitán Gummibärchen</nazev>
-		<utok>18</utok>
-		<obrana>12</obrana>
-		<damage>72</damage>
-		<zivoty>172</zivoty>
-		<iniciativa>8</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>500</hodnota>
-		<stav>1</stav>
-		<frakce>10</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-			<schopnost>
-				<nazev>stec</nazev>
-				<hodnota>100</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>exterminace</nazev>
-				<hodnota>1</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
