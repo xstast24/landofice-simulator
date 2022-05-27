@@ -6248,78 +6248,6 @@
 		</schopnosti>
 	</jednotka>
 	<jednotka>
-		<id>3900</id>
-		<nazev>Ohnivý Elementál</nazev>
-		<utok>16</utok>
-		<obrana>10</obrana>
-		<damage>40</damage>
-		<zivoty>100</zivoty>
-		<iniciativa>8</iniciativa>
-		<typUtoku>2</typUtoku>
-		<hodnota>1000</hodnota>
-		<stav>3</stav>
-		<frakce>0</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-			<schopnost>
-				<nazev>ohnivyStit</nazev>
-				<hodnota>10</hodnota>
-			</schopnost>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
-		<id>3901</id>
-		<nazev>Vzdušný Elementál</nazev>
-		<utok>12</utok>
-		<obrana>14</obrana>
-		<damage>30</damage>
-		<zivoty>100</zivoty>
-		<iniciativa>10</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>1000</hodnota>
-		<stav>3</stav>
-		<frakce>0</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
-		<id>3902</id>
-		<nazev>Vodní Elementál</nazev>
-		<utok>14</utok>
-		<obrana>12</obrana>
-		<damage>35</damage>
-		<zivoty>100</zivoty>
-		<iniciativa>6</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>1000</hodnota>
-		<stav>3</stav>
-		<frakce>0</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
-		<id>3903</id>
-		<nazev>Zemní Elementál</nazev>
-		<utok>10</utok>
-		<obrana>18</obrana>
-		<damage>30</damage>
-		<zivoty>100</zivoty>
-		<iniciativa>4</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>1000</hodnota>
-		<stav>3</stav>
-		<frakce>0</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-			<schopnost>
-				<nazev>magieZeme</nazev>
-				<hodnota>1</hodnota>
-			</schopnost>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
 		<id>3910</id>
 		<nazev>Toxický Elementál Obránce</nazev>
 		<utok>12</utok>
@@ -7320,38 +7248,6 @@
 		</schopnosti>
 	</jednotka>
 	<jednotka>
-		<id>9000</id>
-		<nazev>Velikonoční králíček</nazev>
-		<utok>22</utok>
-		<obrana>16</obrana>
-		<damage>1700</damage>
-		<zivoty>10000</zivoty>
-		<iniciativa>7</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>20000</hodnota>
-		<stav>1</stav>
-		<frakce>10</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
-		<id>9001</id>
-		<nazev>Agresivní velikonoční kuřátko</nazev>
-		<utok>20</utok>
-		<obrana>6</obrana>
-		<damage>2500</damage>
-		<zivoty>3000</zivoty>
-		<iniciativa>9</iniciativa>
-		<typUtoku>4</typUtoku>
-		<hodnota>1000</hodnota>
-		<stav>1</stav>
-		<frakce>10</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
 		<id>9002</id>
 		<nazev>Nepoužitelný golem</nazev>
 		<utok>0</utok>
@@ -7492,66 +7388,6 @@
 		</schopnosti>
 	</jednotka>
 	<jednotka>
-		<id>9010</id>
-		<nazev>Červený gumový medvídek</nazev>
-		<utok>10</utok>
-		<obrana>6</obrana>
-		<damage>30</damage>
-		<zivoty>50</zivoty>
-		<iniciativa>7</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>200</hodnota>
-		<stav>1</stav>
-		<frakce>10</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-			<schopnost>
-				<nazev>imunitaOhen</nazev>
-				<hodnota>1</hodnota>
-			</schopnost>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
-		<id>9011</id>
-		<nazev>Zelený gumový medvídek</nazev>
-		<utok>8</utok>
-		<obrana>8</obrana>
-		<damage>25</damage>
-		<zivoty>60</zivoty>
-		<iniciativa>8</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>200</hodnota>
-		<stav>1</stav>
-		<frakce>10</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-			<schopnost>
-				<nazev>magieLesa</nazev>
-				<hodnota>1</hodnota>
-			</schopnost>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
-		<id>9012</id>
-		<nazev>Žlutý gumový medvídek</nazev>
-		<utok>6</utok>
-		<obrana>10</obrana>
-		<damage>20</damage>
-		<zivoty>70</zivoty>
-		<iniciativa>5</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>200</hodnota>
-		<stav>1</stav>
-		<frakce>10</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-			<schopnost>
-				<nazev>magieOhne</nazev>
-				<hodnota>1</hodnota>
-			</schopnost>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
 		<id>9013</id>
 		<nazev>Kyselý pavouk</nazev>
 		<utok>4</utok>
@@ -7588,30 +7424,6 @@
 			<schopnost>
 				<nazev>jedovyUtok</nazev>
 				<hodnota>100</hodnota>
-			</schopnost>
-		</schopnosti>
-	</jednotka>
-	<jednotka>
-		<id>9015</id>
-		<nazev>Kapitán Gummibärchen</nazev>
-		<utok>18</utok>
-		<obrana>12</obrana>
-		<damage>72</damage>
-		<zivoty>172</zivoty>
-		<iniciativa>8</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>500</hodnota>
-		<stav>1</stav>
-		<frakce>10</frakce>
-		<pocetUtoku>1</pocetUtoku>
-		<schopnosti>
-			<schopnost>
-				<nazev>stec</nazev>
-				<hodnota>100</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>exterminace</nazev>
-				<hodnota>1</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
