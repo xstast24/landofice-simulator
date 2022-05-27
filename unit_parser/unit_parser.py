@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-from ability_parser import set_abilities, set_magic
+from ability_parser import set_abilities, set_magic, set_suicide_multi_attack
 from unit_generator import generate_units
 from missing_units import handle_missing_units
 import sys
@@ -45,6 +45,7 @@ def extract_data_from_html_table(raw_data: str) -> list:
             unit_list.append(parse_html_row(row, fraction))
 
     unit_list = handle_missing_units(unit_list)
+    set_suicide_multi_attack(unit_list)
 
     unit_list = [unit for unit in unit_list if unit["nazev"] not in units_to_remove]
     # TODO aplikace viceutoku
