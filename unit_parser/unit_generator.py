@@ -1,4 +1,4 @@
-def generate_units(unit_data: str, unit_file_path: str = "../jednotky.xml"):
+def generate_units(unit_data: str, unit_file_path: str = "generovane_jednotky.xml"):
     xml_file = open(unit_file_path, 'w', encoding="utf-8")
     xml_file.write("<jednotky>\n")
 
