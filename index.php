@@ -309,14 +309,30 @@ table#form id {padding: 4px; color: white}
 <div id='result'></div>
 <div style='width: 600px; margin: auto'>
 <br>
-    <h4>Nevyžádané features (Bugy)</h4>
+    <h4>Bugy (Nevyžádané features)</h4>
     1. V LoI se iniciativa snižuje až na konci kola, zatímco v simulátoru okamžitě. S výjimkou případů, kdy iniciativa klesne na 0 a jednotka pak regulérně nezaútočí.
     Toto je ovšem bug k opravení na straně loi a ne v simulátoru :P<br>
-    V případě, že narazíte na jiné chyby, napište do issues na githubu simulátoru: https://github.com/xstast24/landofice-simulator
+    V případě, že narazíte na jiné chyby, dejte vědět (viz sekce Kontakty)
+    <br><br>
+    <h4>Nápady na vylepšení</h4>
+    1) Přidat odměny při výhře, 2) Hodnoty min/max armád eventů, 3) Tlačítko na 10x opakování simulace pro získání více možných výsledků,
+    4) Tlačítko pro simulaci např. celého plenění najednou, ať hráč vidí, kam dosáhne<br>
+    Pokud se chce kdokoliv podílet na vylepšování/údržbě simulátoru, je vítán (pište na fórum, kontakt níže)!!! ;-)
+    <br><br>
+    <h4>Kontakty</h4>
+    Chyby, nové eventy, nápady na vylepšení, pomoc a podobně pište na oficiální LoI fórum do sekce <a href="http://landofice.com/forum/viewtopic.php?f=6&t=470">Simulátor</a>.<br>
+    Můžete věci napřed probrat na herním chatu, ale tam to rychle zapadne, takže to vždy potom napište na fórum.
+    Pokud chcete mít jistotu, že se to dostane přímo k vývojářům, vytvořte "issue" přímo v <a href="https://github.com/xstast24/landofice-simulator">github repositáři simulátoru</a>
+    (jestli se stránka nenačte, tak nemáte přístup -> napište na fórum a přidáme vás).<br>
+    V případě věcí, které se stydíte řešit na fóru (např. velikost armády), můžete psát Botovi na herní mail FLLL@SEZNAM.CZ
+    (chodím tam ~1x za měsíc, kdybych dlouho neodpovídal, napište znovu, možná to zapadlo ve spamu).
     <br><br>
     <h4>Credits</h4>
-    1) původní autor<br>
-    2) Rip - dlouhou dobu vyvíjel a spravoval do 2021<br>
-    3) Bota a Healtonn - reinkarnace simulátoru 2022 a development; Hron a Nezmar - informace o jednotkách, herní zkušenosti
+    ❥Bota a ❥Healtonn <small>(reinkarnace simulátoru 2022 a development)</small>
+    ❥Hron <small>(informace o jednotkách, herní zkušenosti)</small>
+    ❥Nezmar <small>(údržba a vývoj LoI, herní info)</small>
+    ❥Rip <small>(dlouhou dobu udržoval a spravoval simulátor do 2021)</small>
+    ❥Původní autor <small>(kdo to byl, ať zvedne ruku)</small>
+    ❥Drago <small>(tvůrce LoI, ještě stále nám hostuje LoI)</small>
 <br><br>
 </div>
