@@ -2159,35 +2159,8 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 					break;
 
 				case "Sopka":				# Magie ohně 6
-					$magma = mt_rand(($this->pocet * 50), ($this->pocet * 250));
-					$koule = mt_rand(($this->pocet * 200), ($this->pocet * 1500));
-					$mete = mt_rand(($this->pocet * 2), ($this->pocet * 5));
-
-					if($this->schopnosti["posileniOhen"] == 1){
-						$magma = round($magma * 1.5);
-						$koule = round($koule * 1.5);
-						$mete = round($mete * 1.5);
-					}
-
-					if ($this->schopnosti["posileni_vyvolavani"] > 0){
-						$magma = round(($magma * ($this->schopnosti["posileni_vyvolavani"] + 100)) / 100);
-						$koule = round(($koule * ($this->schopnosti["posileni_vyvolavani"] + 100)) / 100);
-						$mete = round(($mete * ($this->schopnosti["posileni_vyvolavani"] + 100)) / 100);
-					}
-
-					global $global_hodnota;
-					$jednotka[$index] = new Jednotka($index, "Meteorit", $mete, $this->strana, 1, $this->barva, "");
-					$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($mete*$jednotka[$index]->hod);	
-
-					$jednotka[$index +1 ] = new Jednotka($index + 1, "Rozžhavené magma", $magma, $this->strana, 1, $this->barva, "");
-					$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($magma*$jednotka[$index + 1]->hod);	
-
-					$jednotka[$index + 2] = new Jednotka($index + 2, "Ohnivá koule", $koule, $this->strana, 1, $this->barva, "");
-			  		$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($koule*$jednotka[$index + 2]->hod);
-
-					echo "<span style='color:".$this->barva."'>Země se roztrhla. K nebesům letí žhavá lává, oheň a kusy skal. <b>" . $this->toolNazev() . 
-					"</b> vytvořil sopku!<br>Sopka vrhla k nebesům " . prevod($magma) . " x " . $jednotka[$index+1]->toolNazev(). ", " . 
-					prevod($mete) . " x ".$jednotka[$index]->toolNazev().", " . prevod($koule) . " x ".$jednotka[$index+2]->toolNazev()."</span><br><br>";
+					$special = 1;
+					$pocet_vyvolanych = 1;
 					break;
 
 				case "Stínový drak":		# Magie ohně 7
@@ -2301,10 +2274,8 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 					$od = "Z moře se řítí obrovská masa vody jednotka";
 					break;
 				
-				# TODO tohle asi bude reprezentovat meteorit a ohnivou bouri - checknout ve starych jednotkach pred generovanim jake maji hodnoty - specificky magmaticky obr a buh ohne
+				# TODO tohle asi bude reprezentovat ohnivou bouri - checknout ve starych jednotkach pred generovanim jake maji hodnoty buh ohne
 				case "998": $special=2;$pocet_vyvolanych=1;break;
-
-				case "999": $special=1;$pocet_vyvolanych=1;break;
 
 				}
 
@@ -2313,17 +2284,48 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 			if($special==0 and $pocet_vyvolanych>0){
 			
 			//posílení vyvolávací a přivolávací magie
-			 if($this->schopnosti["posileni_vyvolavani"] > 0 and $this->schopnosti["magieSmrti"] != 13) $pocet_vyvolanych = randround(($pocet_vyvolanych*($this->schopnosti["posileni_vyvolavani"]+100))/100);
+			if($this->schopnosti["posileni_vyvolavani"] > 0 and $this->schopnosti["magieSmrti"] != 13) $pocet_vyvolanych = randround(($pocet_vyvolanych*($this->schopnosti["posileni_vyvolavani"]+100))/100);
 
-			echo "<span style='color:".$this->barva."'>";
+				echo "<span style='color:".$this->barva."'>";
 
-			$jednotka[$index] = new Jednotka($index, $jednotka_nazev, $pocet_vyvolanych, $this->strana, 1, $this->barva, "");
+				$jednotka[$index] = new Jednotka($index, $jednotka_nazev, $pocet_vyvolanych, $this->strana, 1, $this->barva, "");
 			
-			//započítání do celkové hodnoty jednotek
-			global $global_hodnota;
-			$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($pocet_vyvolanych*$jednotka[$index]->hod);		
+				//započítání do celkové hodnoty jednotek
+				global $global_hodnota;
+				$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($pocet_vyvolanych*$jednotka[$index]->hod);		
 
-			echo "$od ". $this->pocetJmenoArt() . " $co $pocet_vyvolanych x ".$jednotka[$index]->toolNazev()."$jak</span><br>";
+				echo "$od ". $this->pocetJmenoArt() . " $co $pocet_vyvolanych x ".$jednotka[$index]->toolNazev()."$jak</span><br>";
+			}
+			else if($special == 1 and $pocet_vyvolanych > 0){	#ohendluj sopku
+				$magma = mt_rand(($this->pocet * 50), ($this->pocet * 250));
+					$koule = mt_rand(($this->pocet * 200), ($this->pocet * 1500));
+					$mete = mt_rand(($this->pocet * 2), ($this->pocet * 5));
+
+					if($this->schopnosti["posileniOhen"] == 1){
+						$magma = round($magma * 1.5);
+						$koule = round($koule * 1.5);
+						$mete = round($mete * 1.5);
+					}
+
+					if ($this->schopnosti["posileni_vyvolavani"] > 0){
+						$magma = round(($magma * ($this->schopnosti["posileni_vyvolavani"] + 100)) / 100);
+						$koule = round(($koule * ($this->schopnosti["posileni_vyvolavani"] + 100)) / 100);
+						$mete = round(($mete * ($this->schopnosti["posileni_vyvolavani"] + 100)) / 100);
+					}
+
+					global $global_hodnota;
+					$jednotka[$index] = new Jednotka($index, "Meteorit", $mete, $this->strana, 1, $this->barva, "");
+					$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($mete*$jednotka[$index]->hod);	
+
+					$jednotka[$index +1 ] = new Jednotka($index + 1, "Rozžhavené magma", $magma, $this->strana, 1, $this->barva, "");
+					$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($magma*$jednotka[$index + 1]->hod);	
+
+					$jednotka[$index + 2] = new Jednotka($index + 2, "Ohnivá koule", $koule, $this->strana, 1, $this->barva, "");
+			  		$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($koule*$jednotka[$index + 2]->hod);
+
+					echo "<span style='color:".$this->barva."'>Země se roztrhla. K nebesům letí žhavá lává, oheň a kusy skal. <b>" . $this->toolNazev() . 
+					"</b> vytvořil sopku!<br>Sopka vrhla k nebesům " . prevod($magma) . " x " . $jednotka[$index+1]->toolNazev(). ", " . 
+					prevod($mete) . " x ".$jednotka[$index]->toolNazev().", " . prevod($koule) . " x ".$jednotka[$index+2]->toolNazev()."</span><br><br>";
 			}
 
 			elseif($pocet_vyvolanych>0 and $special==2){
