@@ -1,4 +1,4 @@
-.idea/
+.idea
 *.pyc
 unit_parser/generovane_jednotky.xml
 unit_parser/LoI-jednotky.html
