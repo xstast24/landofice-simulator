@@ -1397,48 +1397,69 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 		$poradi="";
 		
 		while($jednotka[$id]){
-
 			if($jednotka[$id]->strana==$this->strana){
-			$poradi[$id][obdrzela_dmg] = $jednotka[$id]->obdrzela_dmg;
-			$poradi[$id][id] = $jednotka[$id]->id;
-
+				$poradi[$id][obdrzela_dmg] = $jednotka[$id]->obdrzela_dmg;
+				$poradi[$id][id] = $jednotka[$id]->id;
 			}
-		$id++;
+			$id++;
 		}
 		
 		seradit("obdrzela_dmg");  //seřadí podle dmg, kterou jednotka obdržela
-
-		
 		$a=0;
 		$vyleceno;
-	  while($a<count($jednotka)){
-	  
-	  	$id = $poradi[$a][id];
 
-			if($jednotka[$id]->strana==$this->strana and $jednotka[$id]->celkem_zivotu > 0 and $jednotka[$id]->id != $this->id and $jednotka[$id]->celkem_zivotu < $jednotka[$id]->poc_celkem_zivotu){//jednotka nemůže léčit sama sebe
+	  	while($a<count($jednotka)){
+	  		$id = $poradi[$a][id];
+
+			if($jednotka[$id]->strana==$this->strana and $jednotka[$id]->celkem_zivotu > 0 and $jednotka[$id]->id != $this->id and 
+			   $jednotka[$id]->celkem_zivotu < $jednotka[$id]->poc_celkem_zivotu){//jednotka nemůže léčit sama sebe
+				$koeficient_pocet = 0;
+				$koeficient_zivoty = 0;
+
+				if($jednotka[$id]->ziv <= 100){
+					$koeficient_pocet = 0.05;
+					$koeficient_zivoty = 1 / 2;
+				} 
+				else if ($jednotka[$id]->ziv <= 500){
+					$koeficient_pocet = 0.1;
+					$koeficient_zivoty = 2 / 3;
+				}
+				else if ($jednotka[$id]->ziv <= 1000){
+					$koeficient_pocet = 0.2;
+					$koeficient_zivoty = 1;
+				}
+				else if ($jednotka[$id]->ziv <= 2000){
+					$koeficient_pocet = 0.4;
+					$koeficient_zivoty = 3 / 2;
+				}
+				else{
+					$koeficient_pocet = 0.8;
+					$koeficient_zivoty = 2;
+				}
+				
+        		$vyleceno = round($this->pocet * $this->ziv * $koeficient_zivoty  * pow($this->pocet, $koeficient_pocet));
+				if(($jednotka[$id]->celkem_zivotu + $vyleceno) > $jednotka[$id]->poc_celkem_zivotu) 
+					$vyleceno = $jednotka[$id]->poc_celkem_zivotu - $jednotka[$id]->celkem_zivotu;  
 			
-        $vyleceno = round($this->celkem_zivotu/2);
+        		$jednotka[$id]->celkem_zivotu = $jednotka[$id]->celkem_zivotu + $vyleceno;
+        		$jednotka[$id]->obdrzela_dmg -= $vyleceno;
 			
-			 if(($jednotka[$id]->celkem_zivotu + $vyleceno) > $jednotka[$id]->poc_celkem_zivotu) $vyleceno = $jednotka[$id]->poc_celkem_zivotu - $jednotka[$id]->celkem_zivotu;  
-       			
-        $jednotka[$id]->celkem_zivotu = $jednotka[$id]->celkem_zivotu + $vyleceno;
-        $jednotka[$id]->obdrzela_dmg -= $vyleceno;
-        
-        $pom = ceil($jednotka[$id]->celkem_zivotu/$jednotka[$id]->ziv);
-        $pom2 = $jednotka[$id]->pocet; //původní počet před vyléčením
-        $jednotka[$id]->pocet = $pom;
-        
-        if ($vyleceno != 0) {
-        echo "<span style='color:#778899'>Jednotka ".$this->pocet." x ".$this->toolNazev()." vyléčila ".($pom-$pom2)." x ".$jednotka[$id]->toolNazev()." (celkem vyléčeno: ".$vyleceno." životů)</span><br>";
-        break;
-        }
-        
+        		$pom = ceil($jednotka[$id]->celkem_zivotu/$jednotka[$id]->ziv);
+        		$pom2 = $jednotka[$id]->pocet; //původní počet před vyléčením
+        		$jednotka[$id]->pocet = $pom;
+			
+        		if ($vyleceno != 0) {
+        			echo "<span style='color:#778899'>Jednotka " . $this->pocet . " x " . $this->toolNazev() . 
+					" vyléčila " . ($pom-$pom2) . " x " . $jednotka[$id]->toolNazev() . " (celkem vyléčeno: " . $vyleceno . " životů)</span><br>";
+        			break;
+        		}
+			
 			}
-		$a++;
-		
+
+			$a++;
 		}
 
-		}
+	}
 
 	function magieLesa5(){
 	
@@ -2090,7 +2111,7 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 					$od="Na rukou jednotky";
 					$co="se vytvořily malé ledové koule, za okamžik už letí";
 					$jak="!";
-					$pocet_vyvolanych = floor($this->pocet / 2);
+					$pocet_vyvolanych = floor($this->pocet * (0.97 + rand(0, 10) / 100) / 2);
 					break;
 
 				case "Ledová hradba":		# Magie Ledu 6
@@ -2099,11 +2120,11 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 
 				case "Ohnivá koule":		# Magie ohně 1
 					if($this->nazev == "Mág ohně")
-						$pocet_vyvolanych = floor($this->pocet * (0.90 + rand(0, 20) / 100) / 4);
+						$pocet_vyvolanych = floor($this->pocet * (0.91 + rand(0, 20) / 100) / 4);
 					else if($this->nazev == "Arcimág ohně")	
-						$pocet_vyvolanych = floor($this->pocet * (0.95 + rand(0, 10) / 100));
+						$pocet_vyvolanych = floor($this->pocet * (0.97 + rand(0, 10) / 100));
 					else
-						$pocet_vyvolanych = floor($this->pocet * (0.95 + rand(0, 10) / 100) / 2);
+						$pocet_vyvolanych = floor($this->pocet * (0.97 + rand(0, 10) / 100) / 2);
 
 					if($this->schopnosti["posileniOhen"] == 1)
 						$pocet_vyvolanych *= 1.5;
