@@ -2062,7 +2062,6 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 			$od = "Jednotka"; $co = "přivolala celkem"; $jak="";
 			$jednotka_nazev = $this->schopnosti["vyvolavaJednotku"];
 			switch($jednotka_nazev){
-				# TODO vyvolani sopky
 				# TODO pridat vyvolavani posvatneho obra do simulatoru
 				# TODO predelat spravne pocty podle jednotky
 				# TODO konstrukce
@@ -2277,12 +2276,11 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 				# TODO tohle asi bude reprezentovat ohnivou bouri - checknout ve starych jednotkach pred generovanim jake maji hodnoty buh ohne
 				case "998": $special=2;$pocet_vyvolanych=1;break;
 
-				}
+			}	// konec switche na vyvolavani
 
 			$index=count($jednotka);
 
 			if($special==0 and $pocet_vyvolanych>0){
-			
 			//posílení vyvolávací a přivolávací magie
 			if($this->schopnosti["posileni_vyvolavani"] > 0 and $this->schopnosti["magieSmrti"] != 13) $pocet_vyvolanych = randround(($pocet_vyvolanych*($this->schopnosti["posileni_vyvolavani"]+100))/100);
 
@@ -2353,9 +2351,9 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 
 				echo "<span style='color:".$this->barva."'>Rudá mračna zkázy zakryla celé bojiště. Z nebes se řítí žhavá lává, oheň a kusy skal. <b>".$this->toolNazev()."</b> vytvořil ohnivou bouři!<br>Ohnivá bouře vrhla na nepřítele " . prevod($magma) . " x ".$jednotka[$index+1]->toolNazev().", " . prevod($mete) . " x ".$jednotka[$index]->toolNazev().", " . prevod($koule) . " x ".$jednotka[$index+2]->toolNazev()."</span><br><br>";
 
-				}
-
 			}
+
+		}	// konec funkce vyvolat
 
 
 
