@@ -3774,6 +3774,10 @@
 				<hodnota>6</hodnota>
 			</schopnost>
 			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Sopka</hodnota>
+			</schopnost>
+			<schopnost>
 				<nazev>imunitaOhen</nazev>
 				<hodnota>1</hodnota>
 			</schopnost>
