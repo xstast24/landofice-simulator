@@ -201,6 +201,8 @@ def set_spell(unit: dict, spell: str) -> None:
             unit["schopnosti"]["vyvolavaJednotku"] = "Ohnivý přízrak"
         elif level == "5":
             unit["schopnosti"]["vyvolavaJednotku"] = "Rozžhavené magma"
+        elif level == "6":
+            unit["schopnosti"]["vyvolavaJednotku"] = "Sopka"
         elif level == "7":
             unit["schopnosti"]["vyvolavaJednotku"] = "Stínový drak"
         elif level == "8":

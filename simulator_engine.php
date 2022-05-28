@@ -769,12 +769,12 @@ class Jednotka {
 				break;
 			
 			case "Mágova róba moci": 
-				$this->schopnosti["posileni"] = 10;
+				$this->schopnosti["posileni_vyvolavani"] = 10;
 				$popis = "Posílí přivolávací a vyvolávací magii jednotky o 10%.";
 				break;
 			
 			case "Velemágova róba moci": 
-				$this->schopnosti["posileni"] = 50;
+				$this->schopnosti["posileni_vyvolavani"] = 50;
 				$popis = "Posílí přivolávací a vyvolávací magií jednotky o 50%.	";
 				break;
 			
@@ -1397,48 +1397,69 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 		$poradi="";
 		
 		while($jednotka[$id]){
-
 			if($jednotka[$id]->strana==$this->strana){
-			$poradi[$id][obdrzela_dmg] = $jednotka[$id]->obdrzela_dmg;
-			$poradi[$id][id] = $jednotka[$id]->id;
-
+				$poradi[$id][obdrzela_dmg] = $jednotka[$id]->obdrzela_dmg;
+				$poradi[$id][id] = $jednotka[$id]->id;
 			}
-		$id++;
+			$id++;
 		}
 		
 		seradit("obdrzela_dmg");  //seřadí podle dmg, kterou jednotka obdržela
-
-		
 		$a=0;
 		$vyleceno;
-	  while($a<count($jednotka)){
-	  
-	  	$id = $poradi[$a][id];
 
-			if($jednotka[$id]->strana==$this->strana and $jednotka[$id]->celkem_zivotu > 0 and $jednotka[$id]->id != $this->id and $jednotka[$id]->celkem_zivotu < $jednotka[$id]->poc_celkem_zivotu){//jednotka nemůže léčit sama sebe
+	  	while($a<count($jednotka)){
+	  		$id = $poradi[$a][id];
+
+			if($jednotka[$id]->strana==$this->strana and $jednotka[$id]->celkem_zivotu > 0 and $jednotka[$id]->id != $this->id and 
+			   $jednotka[$id]->celkem_zivotu < $jednotka[$id]->poc_celkem_zivotu){//jednotka nemůže léčit sama sebe
+				$koeficient_pocet = 0;
+				$koeficient_zivoty = 0;
+
+				if($jednotka[$id]->ziv <= 100){
+					$koeficient_pocet = 0.05;
+					$koeficient_zivoty = 1 / 2;
+				} 
+				else if ($jednotka[$id]->ziv <= 500){
+					$koeficient_pocet = 0.1;
+					$koeficient_zivoty = 2 / 3;
+				}
+				else if ($jednotka[$id]->ziv <= 1000){
+					$koeficient_pocet = 0.2;
+					$koeficient_zivoty = 1;
+				}
+				else if ($jednotka[$id]->ziv <= 2000){
+					$koeficient_pocet = 0.4;
+					$koeficient_zivoty = 3 / 2;
+				}
+				else{
+					$koeficient_pocet = 0.8;
+					$koeficient_zivoty = 2;
+				}
+				
+        		$vyleceno = round($this->pocet * $this->ziv * $koeficient_zivoty  * pow($this->pocet, $koeficient_pocet));
+				if(($jednotka[$id]->celkem_zivotu + $vyleceno) > $jednotka[$id]->poc_celkem_zivotu) 
+					$vyleceno = $jednotka[$id]->poc_celkem_zivotu - $jednotka[$id]->celkem_zivotu;  
 			
-        $vyleceno = round($this->celkem_zivotu/2);
+        		$jednotka[$id]->celkem_zivotu = $jednotka[$id]->celkem_zivotu + $vyleceno;
+        		$jednotka[$id]->obdrzela_dmg -= $vyleceno;
 			
-			 if(($jednotka[$id]->celkem_zivotu + $vyleceno) > $jednotka[$id]->poc_celkem_zivotu) $vyleceno = $jednotka[$id]->poc_celkem_zivotu - $jednotka[$id]->celkem_zivotu;  
-       			
-        $jednotka[$id]->celkem_zivotu = $jednotka[$id]->celkem_zivotu + $vyleceno;
-        $jednotka[$id]->obdrzela_dmg -= $vyleceno;
-        
-        $pom = ceil($jednotka[$id]->celkem_zivotu/$jednotka[$id]->ziv);
-        $pom2 = $jednotka[$id]->pocet; //původní počet před vyléčením
-        $jednotka[$id]->pocet = $pom;
-        
-        if ($vyleceno != 0) {
-        echo "<span style='color:#778899'>Jednotka ".$this->pocet." x ".$this->toolNazev()." vyléčila ".($pom-$pom2)." x ".$jednotka[$id]->toolNazev()." (celkem vyléčeno: ".$vyleceno." životů)</span><br>";
-        break;
-        }
-        
+        		$pom = ceil($jednotka[$id]->celkem_zivotu/$jednotka[$id]->ziv);
+        		$pom2 = $jednotka[$id]->pocet; //původní počet před vyléčením
+        		$jednotka[$id]->pocet = $pom;
+			
+        		if ($vyleceno != 0) {
+        			echo "<span style='color:#778899'>Jednotka " . $this->pocet . " x " . $this->toolNazev() . 
+					" vyléčila " . ($pom-$pom2) . " x " . $jednotka[$id]->toolNazev() . " (celkem vyléčeno: " . $vyleceno . " životů)</span><br>";
+        			break;
+        		}
+			
 			}
-		$a++;
-		
+
+			$a++;
 		}
 
-		}
+	}
 
 	function magieLesa5(){
 	
@@ -2062,7 +2083,6 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 			$od = "Jednotka"; $co = "přivolala celkem"; $jak="";
 			$jednotka_nazev = $this->schopnosti["vyvolavaJednotku"];
 			switch($jednotka_nazev){
-				# TODO vyvolani sopky
 				# TODO pridat vyvolavani posvatneho obra do simulatoru
 				# TODO predelat spravne pocty podle jednotky
 				# TODO konstrukce
@@ -2091,7 +2111,7 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 					$od="Na rukou jednotky";
 					$co="se vytvořily malé ledové koule, za okamžik už letí";
 					$jak="!";
-					$pocet_vyvolanych = floor($this->pocet / 2);
+					$pocet_vyvolanych = floor($this->pocet * (0.97 + rand(0, 10) / 100) / 2);
 					break;
 
 				case "Ledová hradba":		# Magie Ledu 6
@@ -2099,7 +2119,12 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 					break;
 
 				case "Ohnivá koule":		# Magie ohně 1
-					$pocet_vyvolanych = floor($this->pocet / 2);
+					if($this->nazev == "Mág ohně")
+						$pocet_vyvolanych = floor($this->pocet * (0.91 + rand(0, 20) / 100) / 4);
+					else if($this->nazev == "Arcimág ohně")	
+						$pocet_vyvolanych = floor($this->pocet * (0.97 + rand(0, 10) / 100));
+					else
+						$pocet_vyvolanych = floor($this->pocet * (0.97 + rand(0, 10) / 100) / 2);
 
 					if($this->schopnosti["posileniOhen"] == 1)
 						$pocet_vyvolanych *= 1.5;
@@ -2118,18 +2143,10 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 					break;
 
 				case "Meteorit":			# Magie ohně 3
-					$poctar = $this->pocet;
-
-					while($poctar > 0){
-						$nahoda = unique_random(1,2,1);
-						$pocet_vyvolanych += $nahoda[0];
-						$poctar-=1;
-					}
+					$pocet_vyvolanych = randround($this->pocet / 2);
 
 					if($this->schopnosti["posileniOhen"]==1)
-						$pocet_vyvolanych = round(($pocet_vyvolanych / 3) * 1.5);
-					else
-						$pocet_vyvolanych = round($pocet_vyvolanych/3);
+						$pocet_vyvolanych = randround($pocet_vyvolanych * 1.5);
 					
 					$od="Nebesa zabarvila rudá barva jednotka";
 					break;
@@ -2151,6 +2168,11 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 
 					$co = "vrhnul proti nepříteli";
 					$jak="!";
+					break;
+
+				case "Sopka":				# Magie ohně 6
+					$special = 1;
+					$pocet_vyvolanych = 1;
 					break;
 
 				case "Stínový drak":		# Magie ohně 7
@@ -2235,7 +2257,7 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 					//počet duší, které zvládne povolat
 					$pocet_vyvolanych = ($this->celkem_zivotu * (0.95 + rand(0, 10) / 100)) / 10; // pocet zivotov/10 +/- 5%
 					//pokud má artefakt, muze jich povolat vic	
-					if($this->schopnosti["posileni"] > 0) $pocet_vyvolanych = randround(($pocet_vyvolanych * ($this->schopnosti["posileni"] + 100)) / 100);
+					if($this->schopnosti["posileni_vyvolavani"] > 0) $pocet_vyvolanych = randround(($pocet_vyvolanych * ($this->schopnosti["posileni_vyvolavani"] + 100)) / 100);
 					//pokud muze povolat vice dusi nez bylo zabito goblinu	
 					if($pocet_vyvolanych > $zabito_goblinu) $pocet_vyvolanych = $zabito_goblinu;
 					//vyvolané duše odečíst od zabitých goblinů
@@ -2264,74 +2286,72 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 					$od = "Z moře se řítí obrovská masa vody jednotka";
 					break;
 				
-				# TODO tohle asi bude reprezentovat meteorit a ohnivou bouri - checknout ve starych jednotkach pred generovanim jake maji hodnoty - specificky magmaticky obr a buh ohne
+				# TODO tohle asi bude reprezentovat ohnivou bouri - checknout ve starych jednotkach pred generovanim jake maji hodnoty buh ohne
 				case "998": $special=2;$pocet_vyvolanych=1;break;
 
-				case "999": $special=1;$pocet_vyvolanych=1;break;
-
-				}
+			}	// konec switche na vyvolavani
 
 			$index=count($jednotka);
 
 			if($special==0 and $pocet_vyvolanych>0){
-			
 			//posílení vyvolávací a přivolávací magie
-			 if($this->schopnosti["posileni"] > 0 and $this->schopnosti["magieSmrti"] != 13) $pocet_vyvolanych = randround(($pocet_vyvolanych*($this->schopnosti["posileni"]+100))/100);
+			if($this->schopnosti["posileni_vyvolavani"] > 0 and $this->schopnosti["magieSmrti"] != 13) $pocet_vyvolanych = randround(($pocet_vyvolanych*($this->schopnosti["posileni_vyvolavani"]+100))/100);
 
-			echo "<span style='color:".$this->barva."'>";
+				echo "<span style='color:".$this->barva."'>";
 
-			$jednotka[$index] = new Jednotka($index, $jednotka_nazev, $pocet_vyvolanych, $this->strana, 1, $this->barva, "");
+				$jednotka[$index] = new Jednotka($index, $jednotka_nazev, $pocet_vyvolanych, $this->strana, 1, $this->barva, "");
 			
-			//započítání do celkové hodnoty jednotek
-			global $global_hodnota;
-			$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($pocet_vyvolanych*$jednotka[$index]->hod);		
+				//započítání do celkové hodnoty jednotek
+				global $global_hodnota;
+				$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($pocet_vyvolanych*$jednotka[$index]->hod);		
 
-			echo "$od ". $this->pocetJmenoArt() . " $co $pocet_vyvolanych x ".$jednotka[$index]->toolNazev()."$jak</span><br>";}
+				echo "$od ". $this->pocetJmenoArt() . " $co $pocet_vyvolanych x ".$jednotka[$index]->toolNazev()."$jak</span><br>";
+			}
+			else if($special == 1 and $pocet_vyvolanych > 0){	#ohendluj sopku
+				$magma = mt_rand(($this->pocet * 50), ($this->pocet * 250));
+				$koule = mt_rand(($this->pocet * 200), ($this->pocet * 1500));
+				$mete = mt_rand(($this->pocet * 2), ($this->pocet * 5));
 
-			elseif($pocet_vyvolanych>0 and $special==1){
+				if($this->schopnosti["posileniOhen"] == 1){
+					$magma = round($magma * 1.5);
+					$koule = round($koule * 1.5);
+					$mete = round($mete * 1.5);
+				}
 
-				$magma = mt_rand(($this->pocet*50),($this->pocet*250));
-				if($this->schopnosti["posileniOhen"]==1) $magma=round($magma*1.5);
-				if ($this->schopnosti["posileni"] > 0) $magma = round(($magma*($this->schopnosti["posileni"]+100))/100);
+				if ($this->schopnosti["posileni_vyvolavani"] > 0){
+					$magma = round(($magma * ($this->schopnosti["posileni_vyvolavani"] + 100)) / 100);
+					$koule = round(($koule * ($this->schopnosti["posileni_vyvolavani"] + 100)) / 100);
+					$mete = round(($mete * ($this->schopnosti["posileni_vyvolavani"] + 100)) / 100);
+				}
 
-				$gule = mt_rand(($this->pocet*200),($this->pocet*1500));
-				if($this->schopnosti["posileniOhen"]==1) $gule=round($gule*1.5);
-				if ($this->schopnosti["posileni"] > 0) $gule = round(($gule*($this->schopnosti["posileni"]+100))/100);
-
-				$mete = mt_rand(($this->pocet*2),($this->pocet*5));
-				if($this->schopnosti["posileniOhen"]==1) $mete=round($mete*1.5);
-				if ($this->schopnosti["posileni"] > 0) $mete = round(($mete*($this->schopnosti["posileni"]+100))/100);
-
-			global $global_hodnota;
-	
+				global $global_hodnota;
 				$jednotka[$index] = new Jednotka($index, "Meteorit", $mete, $this->strana, 1, $this->barva, "");
 				$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($mete*$jednotka[$index]->hod);	
 
-				$jednotka[$index+1] = new Jednotka($index+1, "Rozžhavené magma", $magma, $this->strana, 1, $this->barva, "");
-				$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($magma*$jednotka[$index+1]->hod);	
+				$jednotka[$index +1 ] = new Jednotka($index + 1, "Rozžhavené magma", $magma, $this->strana, 1, $this->barva, "");
+				$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($magma*$jednotka[$index + 1]->hod);	
 
-				$jednotka[$index+2] = new Jednotka($index+2, "Ohnivá koule", $gule, $this->strana, 1, $this->barva, "");
-			  $global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($gule*$jednotka[$index+2]->hod);	
+				$jednotka[$index + 2] = new Jednotka($index + 2, "Ohnivá koule", $koule, $this->strana, 1, $this->barva, "");
+			  	$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($koule*$jednotka[$index + 2]->hod);
 
-				echo "<span style='color:".$this->barva."'>Země se roztrhla. K nebesům letí žhavá lává, oheň a kusy skal. <b>".$this->toolNazev()."</b> vytvořil sopku!<br>Sopka vrhla k nebesům " . prevod($magma) . " x ".$jednotka[$index+1]->toolNazev().", " . prevod($mete) . " x ".$jednotka[$index]->toolNazev().", " . prevod($gule) . " x ".$jednotka[$index+2]->toolNazev()."</span><br><br>";
-
-				}
-
+				echo "<span style='color:".$this->barva."'>Země se roztrhla. K nebesům letí žhavá lává, oheň a kusy skal. <b>" . $this->toolNazev() . 
+				"</b> vytvořil sopku!<br>Sopka vrhla k nebesům " . prevod($magma) . " x " . $jednotka[$index+1]->toolNazev(). ", " . 
+				prevod($mete) . " x ".$jednotka[$index]->toolNazev().", " . prevod($koule) . " x ".$jednotka[$index+2]->toolNazev()."</span><br><br>";
+			}
 			elseif($pocet_vyvolanych>0 and $special==2){
-
 				$magma = mt_rand(10000,20000);
 				if($this->schopnosti["posileniOhen"]==1) $magma=round($magma*1.5);
-				if ($this->schopnosti["posileni"] > 0) $magma = round(($magma*($this->schopnosti["posileni"]+100))/100);
+				if ($this->schopnosti["posileni_vyvolavani"] > 0) $magma = round(($magma*($this->schopnosti["posileni_vyvolavani"]+100))/100);
 
-				$gule = mt_rand(100000,500000);
-        if($this->schopnosti["posileniOhen"]==1) $gule=round($gule*1.5);
-        if ($this->schopnosti["posileni"] > 0) $gule = round(($gule*($this->schopnosti["posileni"]+100))/100);
+				$koule = mt_rand(100000,500000);
+        		if($this->schopnosti["posileniOhen"]==1) $koule=round($koule*1.5);
+        		if($this->schopnosti["posileni_vyvolavani"] > 0) $koule = round(($koule*($this->schopnosti["posileni_vyvolavani"]+100))/100);
         
 				$mete = mt_rand(100,200);
 				if($this->schopnosti["posileniOhen"]==1) $mete=round($mete*1.5);
-				if ($this->schopnosti["posileni"] > 0) $mete = round(($mete*($this->schopnosti["posileni"]+100))/100);
+				if($this->schopnosti["posileni_vyvolavani"] > 0) $mete = round(($mete*($this->schopnosti["posileni_vyvolavani"]+100))/100);
 
-        global $global_hodnota;
+        		global $global_hodnota;
         
 				$jednotka[$index] = new Jednotka($index, "Meteorit", $mete, $this->strana, 1, $this->barva, "");
 				$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($mete*$jednotka[$index]->hod);	
@@ -2339,14 +2359,14 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 				$jednotka[$index+1] = new Jednotka($index+1, "Rozžhavené magma", $magma, $this->strana, 1, $this->barva, "");
 				$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($magma*$jednotka[$index+1]->hod);	
 
-				$jednotka[$index+2] = new Jednotka($index+2, "Ohnivá koule", $gule, $this->strana, 1, $this->barva, "");
-				$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($gule*$jednotka[$index+2]->hod);	
+				$jednotka[$index+2] = new Jednotka($index+2, "Ohnivá koule", $koule, $this->strana, 1, $this->barva, "");
+				$global_hodnota[$this->strana] =$global_hodnota[$this->strana] + ($koule*$jednotka[$index+2]->hod);	
 
-				echo "<span style='color:".$this->barva."'>Rudá mračna zkázy zakryla celé bojiště. Z nebes se řítí žhavá lává, oheň a kusy skal. <b>".$this->toolNazev()."</b> vytvořil ohnivou bouři!<br>Ohnivá bouře vrhla na nepřítele " . prevod($magma) . " x ".$jednotka[$index+1]->toolNazev().", " . prevod($mete) . " x ".$jednotka[$index]->toolNazev().", " . prevod($gule) . " x ".$jednotka[$index+2]->toolNazev()."</span><br><br>";
-
-				}
+				echo "<span style='color:".$this->barva."'>Rudá mračna zkázy zakryla celé bojiště. Z nebes se řítí žhavá lává, oheň a kusy skal. <b>".$this->toolNazev()."</b> vytvořil ohnivou bouři!<br>Ohnivá bouře vrhla na nepřítele " . prevod($magma) . " x ".$jednotka[$index+1]->toolNazev().", " . prevod($mete) . " x ".$jednotka[$index]->toolNazev().", " . prevod($koule) . " x ".$jednotka[$index+2]->toolNazev()."</span><br><br>";
 
 			}
+
+		}	// konec funkce vyvolat
 
 
 
