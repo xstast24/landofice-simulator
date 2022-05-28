@@ -51,7 +51,7 @@ table#form id {padding: 4px; color: white}
 .chramy.zivot {color: #27AD27!important;}
 .chramy.ohen {color: #FFFF00!important;}
 .chramy.aether {color: #CCFFFF!important;}
-.chramy.zeme {color: white!important;}
+.chramy.zeme {color: #1D721D!important;}
 .promenneDleSilyArmady {color: red!important;}
 </style>
 
