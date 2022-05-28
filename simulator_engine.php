@@ -1416,19 +1416,19 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 				$koeficient_pocet = 0;
 				$koeficient_zivoty = 0;
 
-				if($jednotka[$id]->ziv <= 100){
+				if($this->ziv <= 100){
 					$koeficient_pocet = 0.05;
 					$koeficient_zivoty = 1 / 2;
 				} 
-				else if ($jednotka[$id]->ziv <= 500){
+				else if ($this->ziv <= 500){
 					$koeficient_pocet = 0.1;
 					$koeficient_zivoty = 2 / 3;
 				}
-				else if ($jednotka[$id]->ziv <= 1000){
+				else if ($this->ziv <= 1000){
 					$koeficient_pocet = 0.2;
 					$koeficient_zivoty = 1;
 				}
-				else if ($jednotka[$id]->ziv <= 2000){
+				else if ($this->ziv <= 2000){
 					$koeficient_pocet = 0.4;
 					$koeficient_zivoty = 3 / 2;
 				}
