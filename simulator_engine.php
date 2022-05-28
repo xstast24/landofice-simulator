@@ -2122,18 +2122,10 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 					break;
 
 				case "Meteorit":			# Magie ohně 3
-					$poctar = $this->pocet;
-
-					while($poctar > 0){
-						$nahoda = unique_random(1,2,1);
-						$pocet_vyvolanych += $nahoda[0];
-						$poctar-=1;
-					}
+					$pocet_vyvolanych = randround($this->pocet / 2);
 
 					if($this->schopnosti["posileniOhen"]==1)
-						$pocet_vyvolanych = round(($pocet_vyvolanych / 3) * 1.5);
-					else
-						$pocet_vyvolanych = round($pocet_vyvolanych/3);
+						$pocet_vyvolanych = randround($pocet_vyvolanych * 1.5);
 					
 					$od="Nebesa zabarvila rudá barva jednotka";
 					break;
