@@ -27,12 +27,13 @@ docker-build: info-short
 
 docker-run: docker-build
 # it = interactively run in console to see php output; rm = delete the container after closed (image stays untouched)
-# p = make port from container visible to host; v = mount/link this repo to the container
+# p = make port from container visible to host; v = mount/link this repo to the container; name = custom name of the container in docker (cosmetic purpose)
 # php... this command in launched in the container to run the PHP server
-	@docker run -it --rm -p $(PORT):$(PORT) -v $(CURRENT_DIRECTORY):/loi/simulator $(DOCKER_IMAGE_NAME) php -t /loi/simulator -S $(HOST):$(PORT)
+	@docker run --name landofice-simulator -it --rm -p $(PORT):$(PORT) -v $(CURRENT_DIRECTORY):/loi/simulator $(DOCKER_IMAGE_NAME) php -t /loi/simulator -S $(HOST):$(PORT)
 
-docker-run-bash: info-short
-	@docker run -it --rm --entrypoint sh -p $(PORT):$(PORT) -v $(pwd):/loi/simulator $(DOCKER_IMAGE_NAME)
+docker-run-bash: docker-build
+# run the docker with bash console for debug purposes, custom playing with the php server etc.
+	@docker run --name landofice-simulator -it --rm --entrypoint sh -p $(PORT):$(PORT) -v $(pwd):/loi/simulator $(DOCKER_IMAGE_NAME)
 
 run: info-short
 	@php -t $(CURRENT_DIRECTORY) -S $(HOST):$(PORT)
