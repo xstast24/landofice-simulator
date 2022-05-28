@@ -2099,7 +2099,12 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 					break;
 
 				case "Ohnivá koule":		# Magie ohně 1
-					$pocet_vyvolanych = floor($this->pocet / 2);
+					if($this->nazev == "Mág ohně")
+						$pocet_vyvolanych = floor($this->pocet * (0.90 + rand(0, 20) / 100) / 4);
+					else if($this->nazev == "Arcimág ohně")	
+						$pocet_vyvolanych = floor($this->pocet * (0.95 + rand(0, 10) / 100));
+					else
+						$pocet_vyvolanych = floor($this->pocet * (0.95 + rand(0, 10) / 100) / 2);
 
 					if($this->schopnosti["posileniOhen"] == 1)
 						$pocet_vyvolanych *= 1.5;
