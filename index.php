@@ -51,7 +51,7 @@ table#form id {padding: 4px; color: white}
 .chramy.zivot {color: #27AD27!important;}
 .chramy.ohen {color: #FFFF00!important;}
 .chramy.aether {color: #CCFFFF!important;}
-.chramy.zeme {color: white!important;}
+.chramy.zeme {color: #1D721D!important;}
 .promenneDleSilyArmady {color: red!important;}
 </style>
 
@@ -122,7 +122,7 @@ table#form id {padding: 4px; color: white}
         <input value='Gnomí velkodílna' class='pleneni modre' type=button onclick='pleneni(1)'><br>
         <input value='Temná jeskyně' class='pleneni modre' type=button onclick='pleneni(4)'><br>
         <input value='Katakomby' class='pleneni modre' type=button onclick='pleneni(3)'><br>
-        <input value='Svobodné město' class='pleneni zelene' type=button onclick='pole("1 x Kamenná hradba\n17 x Katapult\n5 x Těžký katapult\n20 x Balista\n7 x Těžká balista\n2745 x Městští kušníci\n197 x Osadník s lukem\n17 x Potulný Kouzelník\n11 x Master Lovec")'><br>
+        <input value='Svobodné město' class='pleneni zelene' type=button onclick='pole("1 x Kamenná hradba\n17 x Katapult\n5 x Těžký katapult\n20 x Balista\n7 x Těžká balista\n2745 x Městští kušníci\n197 x Osadník s lukem\n17 x Potulný Kouzelník\n11 x Mistr Lovec")'><br>
         <input value='Obři zla' class='pleneni zelene' type=button onclick='pole("50 x Obr lidožrout\n20 x Prokletý Obr\n30 x Hnijící Nemrtvý Obr\n20 x Ohnivý Obr")'><br>
         <input value='Obři dobra' class='pleneni zelene' type=button onclick='pole("50 x Lesní obr\n80 x Ledový obr\n12 x Kamenný Obr")'><br>
         <input value='Země zatracených 1' class='pleneni zelene' type=button onclick='pole("30000 x Zombie\n1000 x Lich\n30 x Temný přízrak\n500 x Padlý válečník")'><br>
@@ -133,10 +133,10 @@ table#form id {padding: 4px; color: white}
         <input value='Ledový palác' class='pleneni zelene' type=button onclick='pole("1 x Ledový král\n750 x Ledový Přízrak\n750 x Starodávný Ledový Přízrak\n1000 x Ledový Elementál\n100 x Ledový obr")'><br>
         <input value='Dralgarova zahrada 1' class='pleneni zelene' type=button onclick='pole("2000 x Obří zelený pavouk\n2000 x Červený lesní pavouk\n2000 x Černý lesní pavouk\n400 x Zlatý lesní pavouk\n1000 x Lesní Troll\n")'><br>
         <input value='Dralgarova zahrada 2' class='pleneni zelene' type=button onclick='pole("2500 x Druid\n50 x Lesní obr\n5 x Wurm\n1250 x Ent\n1000 x Starodávný Ent")'><br>
-        <input value='Trpaslíci 1 - Hlídka u úpatí hor' class='pleneni zelene' type=button onclick='pole("370 x Železnej kněz\n8,290 x Trpaslík\n659 x Železnej golem\n16,080 x Železnej pavouček\n728 x Železnej škorpion")'><br>
-        <input value='Trpaslíci 2 - Strážní věž' class='pleneni zelene' type=button onclick='pole("684 x Železnej kněz\n15,032 x Trpaslík\n1,122 x Železnej golem\n29,662 x Železnej pavouček\n1,285 x Železnej škorpion\n418 x Železnej býk")'><br>
-        <input value='Trpaslíci 3 - Citedela' class='pleneni zelene' type=button onclick='pole("1,166 x Železnej kněz\n24,366 x Trpaslík\n1,513 x Kamennej chrlič\n562 x Poloautomatická socha\n145 x Železný orel - MK1\n152 x Obrněnej vrhač oštěpů\n132 x Obrněnej válečnej vůz")'><br>
-        <input value='Trpaslíci 4 - Železný chrám' class='pleneni zelene' type=button onclick='pole("2,003 x Železnej kněz\n45,297 x Trpaslík\n3,992 x Železnej škorpion\n1,305 x Železnej býk\n2,779 x Kamennej chrlič\n921 x Poloautomatická socha\n259 x Železný orel - MK1\n5 x Colosus z temné ocele")'><br>
+        <input value='Trpaslíci 1 - Hlídka u úpatí hor' class='pleneni zelene' type=button onclick='pole("370 x Železný kněz\n8,290 x Trpaslík\n659 x Železnej golem\n16,080 x Železný pavouček\n728 x Železný škorpion")'><br>
+        <input value='Trpaslíci 2 - Strážní věž' class='pleneni zelene' type=button onclick='pole("684 x Železný kněz\n15,032 x Trpaslík\n1,122 x Železnej golem\n29,662 x Železný pavouček\n1,285 x Železný škorpion\n418 x Železný býk")'><br>
+        <input value='Trpaslíci 3 - Citedela' class='pleneni zelene' type=button onclick='pole("1,166 x Železný kněz\n24,366 x Trpaslík\n1,513 x Kamenný chrlič\n562 x Poloautomatická socha\n145 x Železný orel - MK1\n152 x Obrněnej vrhač oštěpů\n132 x Obrněnej válečnej vůz")'><br>
+        <input value='Trpaslíci 4 - Železný chrám' class='pleneni zelene' type=button onclick='pole("2,003 x Železný kněz\n45,297 x Trpaslík\n3,992 x Železný škorpion\n1,305 x Železný býk\n2,779 x Kamenný chrlič\n921 x Poloautomatická socha\n259 x Železný orel - MK1\n5 x Colosus z temné ocele")'><br>
         <input value='Prokletý vojevůdce' class='pleneni cervene' type=button onclick='pole("1 x Dehinator (Ohnivá zbroj)\n12 x Těžký katapult\n12 x Těžká balista\n40 x Zeď Temné pevnosti\n300 x Prokletý Mág\n750 x Prokletý válečník(Prapor stínů)\n6 x Dehinatorova ochranka")'><br>
         <input value='Prokletá citadela' class='pleneni cervene' type=button onclick='pole("1 x Královna Medůz(Maska Královny medůz)\n1000 x Temný mág(Kouzelnická róba)\n200 x Vyšší Temný Mág(Prokletá kouzelnická róba)\n32 x Zeď Prokleté citadely\n200 x Prokletý Mág\n1000 x Prokletý válečník(Prapor stínů)\n3000 x Æthrův ledový válečník")'><br>
         <input value='Mucusova pevnost' class='pleneni cervene' type=button onclick='pole("1 x Mucus, král Toxických elementálů(Plášť Mucuse, krále toxických elementálů)\n1500 x Zeď pokrytá slizem\n1000 x Toxický Elementál Obránce\n1000 x Toxický Elementál Útočník\n10 x Toxická Elementární Bublina")'><br>
@@ -159,7 +159,7 @@ table#form id {padding: 4px; color: white}
         <b>Eventy - trpaslíci</b><br><br>
         <input value='Bronzový důl' type=button onclick='pole("1,316 x Trpaslík se sekerou\n816 x Trpaslík s kuší\n455 x Trpaslík těžké pěchoty\n3,209 x Trpaslík\n39 x Trpasličí past")'><br>
         <input value='Železný důl' type=button onclick='pole("3,857 x Trpaslík se sekerou\n2,370 x Trpaslík s kuší\n9 x Trpaslík kapitán\n1,363 x Trpaslík těžké pěchoty\n5,063 x Trpaslík\n396 x Trpasličí past")'><br>
-        <input value='Trpasličí karavana' type=button onclick='pole("1,045 x Trpaslík\n364 x Železnej kněz")'><br>
+        <input value='Trpasličí karavana' type=button onclick='pole("1,045 x Trpaslík\n364 x Železný kněz")'><br>
         <input value='Trpasličí patrola' type=button onclick='pole("816 x Trpaslík se sekerou\n709 x Trpaslík s kuší\n29 x Trpaslík kapitán\n396 x Trpaslík těžké pěchoty\n397 x Trpasličí legionář\n207 x Elitní trpaslík s kuší")'><br>
         <input value='Trpasličí kovárna' type=button onclick='pole("3,013 x Trpaslík se sekerou\n3,199 x Trpaslík s kuší\n99 x Trpaslík kapitán\n2,623 x Trpaslík těžké pěchoty\n1,253 x Trpasličí legionář\n20,064 x Trpaslík\n125 x Balista\n51 x Těžká balista")'><br>
         <input value='Trpasličí skladiště' type=button onclick='pole("5,450 x Trpaslík se sekerou\n3,394 x Trpaslík s kuší\n489 x Trpaslík kapitán\n5,913 x Trpaslík těžké pěchoty (Ocelové pláty)\n2,701 x Trpasličí legionář (Železné pláty)\n8,123 x Trpaslík\n990 x Elitní trpaslík s kuší (Jedovaté střely)\n204 x Trpasličí opevnění\n200 x Těžký katapult\n210 x Těžká balista")'><br>
@@ -278,9 +278,9 @@ table#form id {padding: 4px; color: white}
     </td>
 
     <td>
-        <b>Bonusy</b><br><br>
-        <input value='Přidat otroky' type=button onclick='pridej("\n1000 x Otrok s kopím\n1000 x Otrok s oštěpy\n1000 x Otrok štítonoš")'><br>
-        <input value='Přidat zdi imperátorova paláce' type=button onclick='pridej("\n30 x Kamenná hradba\n10 x Kamenná věž\n5 x Věž s balistou")'><br>
+        <b style='color:gray'>Bonusy</b><br><br>
+        <!--Old: <input value='Přidat otroky' type=button onclick='pridej("\n1000 x Otrok s kopím\n1000 x Otrok s oštěpy\n1000 x Otrok štítonoš")'><br>-->
+        <!--Old: <input value='Přidat zdi imperátorova paláce' type=button onclick='pridej("\n30 x Kamenná hradba\n10 x Kamenná věž\n5 x Věž s balistou")'><br>-->
         <!--Broken: <input style='color:gold' value='Zobrazit klan - Hell' type=button onclick='hraci("hell")'><br>-->
         <!--Broken: <input style='color:gold' value='Zobrazit klan - Heaven' type=button onclick='hraci("heaven")'><br>-->
         <input style='color:gray' value='Ohnivá sekta' type=button onclick='pole("10 x arcimág ohně\n50 x mág ohně\n100 x vulkánův přívrženec")'><br>
@@ -298,8 +298,8 @@ table#form id {padding: 4px; color: white}
         <input style='color:gray' value='Vulkánův speciál' type=button onclick='pole("1 x Vulkán bůh ohně\n10 x Ohnivý zplozenec\n40 x Nižší ohnivý splozenec\n50 x Flamekeeper lord\n50 x Vulkánův generál\n100 x magmatický obr\n200 x Ohnivý přízrak\n600 x ohnivý obr\n2000 x Ohnivá zeď\n2000 x flamekeeper\n10000 x ohnivý golem\n10000 x lávový golem\n10000 x magmatický golem\n15000 x ohnivý služebník\n30000 x Ohnivý Fénix\n40000 x efreet\n100000 x arcimág ohně\n100000 x Vulkánův elitní válečník(Válečné bubny)\n100000 x Vulkánův kněz\n500000 x Vulkánův válečník\n500000 x mág ohně(Dalekohled)\n1000000 x Vulkánův přívrženec\n2000000 x Fanatický vulkánův přívrženec(Ohnivá palisáda)")'><br>
         <input style='color:gray' value='Temné pobřeží' type=button onclick='pole("1 x Pán vod\n2 x Worloo\n50 x Vodní drak\n3250 x Temná sépie\n8500 x Oživlá voda\n12500 x Strážce moří\n14655 x Virgo")'><br><br>
 
-        <b>Císařské armády</b><br><br>
-        <input value='květen 2015 (rip001)' type=button onclick='pole("1 x Generál starého impéria (Ohnivá róba)\n1 x Generál starého impéria\n200 x Kapitán elitních střelců starého impéria\n1 x Generál starého impéria (Ohnivá róba)\n200 x Kapitán rytířů starého impéria\n5,000 x Elitní střelec starého impéria\n5,000 x Rytíř starého impéria\n500 x Kapitán střelců starého impéria\n60 x Železný orel - MK1 (Hůlka ledu)\n3,602 x Elfí lučištník (Bronzový meč)\n10,000 x Střelec starého impéria\n155,798 x Elfí elitní lučištník (Težká bojová sekyra)\n1 x Posvátný jednorožec (Kalich ohně)\n20,000 x Elfí hraničář (Prapor krvavého šílenství)\n519 x Jednorožec (Kouzelnická róba)\n50 x Plukovník pěšaků starého impéria\n6 x Prokletý Obr (Prokletá kouzelnická róba)\n1 x Místodržící\n720 x Ohnivý Služebník (Dralgarův Totem života)\n800 x Kapitán pěšáků starého impéria\n4 x Ohnivý Obr\n30 x Plukovník těžkých pěšaků starého impéria\n5 x Ledový obr (Atherův ledový prapor)\n500 x Kapitán těžkých pěšáků starého impéria\n40,000 x Pěšák starého impéria\n20,000 x Těžký pěšák starého impéria\n6,308 x Lesní Bizon (Vulkánův ohnivý prapor)\n1,000 x Železnej škorpion (Težká bojová sekyra)\n1,080 x Ledový Přízrak (Kalich ohně)\n68,564 x Veledruid (Prapor starého druidského cechu)\n122,520 x Otrok s oštěpy (Dralgarův Totem života)\n204,574 x Žebrák (Kalich ohně)\n5,718 x Odpadlík (Kalich ohně)\n2,601 x Druid (Kalich ohně)\n44 x Lesní obr (Dralgarův Totem života)\n263,030 x Růžové prasátko (Kalich ohně)\n142,620 x Otrok s kopím (Dralgarův Totem života)\n600 x Železný Golem (Tvrzené ocelové pláty)\n200 x Starodávný Ent\n690,457 x Ozbrojený vesničan (Pírko z anděla)\n131,320 x Otrok štítonoš (Dralgarův Totem života)\n27,362 x Hnijící vesničan (Kalich ohně)\n1,135 x Těžká balista (Atherův ledový prapor)\n200 x Poloautomatická socha (Tvrzené ocelové pláty)")'><br>
+        <b style='color:gray'>Císařské armády</b><br><br>
+        <input style='color:gray' value='květen 2015 (rip001)' type=button onclick='pole("1 x Generál starého impéria (Ohnivá róba)\n1 x Generál starého impéria\n200 x Kapitán elitních střelců starého impéria\n1 x Generál starého impéria (Ohnivá róba)\n200 x Kapitán rytířů starého impéria\n5,000 x Elitní střelec starého impéria\n5,000 x Rytíř starého impéria\n500 x Kapitán střelců starého impéria\n60 x Železný orel - MK1 (Hůlka ledu)\n3,602 x Elfí lučištník (Bronzový meč)\n10,000 x Střelec starého impéria\n155,798 x Elfí elitní lučištník (Težká bojová sekyra)\n1 x Posvátný jednorožec (Kalich ohně)\n20,000 x Elfí hraničář (Prapor krvavého šílenství)\n519 x Jednorožec (Kouzelnická róba)\n50 x Plukovník pěšaků starého impéria\n6 x Prokletý Obr (Prokletá kouzelnická róba)\n1 x Místodržící\n720 x Ohnivý Služebník (Dralgarův Totem života)\n800 x Kapitán pěšáků starého impéria\n4 x Ohnivý Obr\n30 x Plukovník těžkých pěšaků starého impéria\n5 x Ledový obr (Atherův ledový prapor)\n500 x Kapitán těžkých pěšáků starého impéria\n40,000 x Pěšák starého impéria\n20,000 x Těžký pěšák starého impéria\n6,308 x Lesní Bizon (Vulkánův ohnivý prapor)\n1,000 x Železný škorpion (Težká bojová sekyra)\n1,080 x Ledový Přízrak (Kalich ohně)\n68,564 x Veledruid (Prapor starého druidského cechu)\n122,520 x Otrok s oštěpy (Dralgarův Totem života)\n204,574 x Žebrák (Kalich ohně)\n5,718 x Odpadlík (Kalich ohně)\n2,601 x Druid (Kalich ohně)\n44 x Lesní obr (Dralgarův Totem života)\n263,030 x Růžové prasátko (Kalich ohně)\n142,620 x Otrok s kopím (Dralgarův Totem života)\n600 x Železný Golem (Tvrzené ocelové pláty)\n200 x Starodávný Ent\n690,457 x Ozbrojený vesničan (Pírko z anděla)\n131,320 x Otrok štítonoš (Dralgarův Totem života)\n27,362 x Hnijící vesničan (Kalich ohně)\n1,135 x Těžká balista (Atherův ledový prapor)\n200 x Poloautomatická socha (Tvrzené ocelové pláty)")'><br>
     </td>
 </tr>
 </table>
@@ -309,14 +309,30 @@ table#form id {padding: 4px; color: white}
 <div id='result'></div>
 <div style='width: 600px; margin: auto'>
 <br>
-    <h4>Nevyžádané features (Bugy)</h4>
+    <h4>Bugy (Nevyžádané features)</h4>
     1. V LoI se iniciativa snižuje až na konci kola, zatímco v simulátoru okamžitě. S výjimkou případů, kdy iniciativa klesne na 0 a jednotka pak regulérně nezaútočí.
     Toto je ovšem bug k opravení na straně loi a ne v simulátoru :P<br>
-    V případě, že narazíte na jiné chyby, napište do issues na githubu simulátoru: https://github.com/xstast24/landofice-simulator
+    V případě, že narazíte na jiné chyby, dejte vědět (viz sekce Kontakty)
+    <br><br>
+    <h4>Nápady na vylepšení</h4>
+    1) Přidat odměny při výhře, 2) Hodnoty min/max armád eventů, 3) Tlačítko na 10x opakování simulace pro získání více možných výsledků,
+    4) Tlačítko pro simulaci např. celého plenění najednou, ať hráč vidí, kam dosáhne<br>
+    Pokud se chce kdokoliv podílet na vylepšování/údržbě simulátoru, je vítán (pište na fórum, kontakt níže)!!! ;-)
+    <br><br>
+    <h4>Kontakty</h4>
+    Chyby, nové eventy, nápady na vylepšení, pomoc a podobně pište na oficiální LoI fórum do sekce <a href="http://landofice.com/forum/viewtopic.php?f=6&t=470">Simulátor</a>.<br>
+    Můžete věci napřed probrat na herním chatu, ale tam to rychle zapadne, takže to vždy potom napište na fórum.
+    Pokud chcete mít jistotu, že se to dostane přímo k vývojářům, vytvořte "issue" přímo v <a href="https://github.com/xstast24/landofice-simulator">github repositáři simulátoru</a>
+    (jestli se stránka nenačte, tak nemáte přístup -> napište na fórum a přidáme vás).<br>
+    V případě věcí, které se stydíte řešit na fóru (např. velikost armády), můžete psát Botovi na herní mail FLLL@SEZNAM.CZ
+    (chodím tam ~1x za měsíc, kdybych dlouho neodpovídal, napište znovu, možná to zapadlo ve spamu).
     <br><br>
     <h4>Credits</h4>
-    1) původní autor<br>
-    2) Rip - dlouhou dobu vyvíjel a spravoval do 2021<br>
-    3) Bota a Healtonn - reinkarnace simulátoru 2022 a development; Hron a Nezmar - informace o jednotkách, herní zkušenosti
+    ❥Bota a ❥Healtonn <small>(reinkarnace simulátoru 2022 a development)</small>
+    ❥Hron <small>(informace o jednotkách, herní zkušenosti)</small>
+    ❥Nezmar <small>(údržba a vývoj LoI, herní info)</small>
+    ❥Rip <small>(dlouhou dobu udržoval a spravoval simulátor do 2021)</small>
+    ❥Původní autor <small>(kdo to byl, ať zvedne ruku)</small>
+    ❥Drago <small>(tvůrce LoI, ještě stále nám hostuje LoI)</small>
 <br><br>
 </div>
