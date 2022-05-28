@@ -944,61 +944,35 @@ class Jednotka {
 
 
 
-	function temnykrik(){
-	
-	//má být: 5*(pocet^0.7) az 4.5*(pocet^0.8)
-
+	function temnykrik() {
 		global $jednotka;
 
 		$poctar = $this->pocet;
-		
-		$spodni_hranice = 5 * pow($poctar,0.7);
-		$horni_hranice = 4.5 * pow($poctar,0.8);
-		
-		
-//		echo $spodni_hranice
-//		echo $horni_hranice
 
-		$posileni = mt_rand($spodni_hranice,$horni_hranice);
+		//vypocet podle http://landofice.com/wiki/index.php?title=Schopnosti
+		$hranice1 = 5 * pow($poctar, 0.7);
+		$hranice2 = 4.5 * pow($poctar, 0.8);
+		$spodni_hranice = min($hranice1, $hranice2);
+		$horni_hranice = max($hranice2, $hranice1);;
+		$posileni = mt_rand($spodni_hranice, $horni_hranice);
 
-//		while($poctar > 0){
-
-//			$posileni += mt_rand(1,$posilovac)/1;
-
-//			$poctar-=1;
-
-//			}
-
-		$id=0;
-
-		while($jednotka[$id]){
-
-			if($jednotka[$id]->stav==2){
-
-				$jednotka[$id]->utk*=($posileni/100+1);
-
-				$jednotka[$id]->obr*=($posileni/100+1);
-
-				$jednotka[$id]->ini*=($posileni/100+1);
-
-				$jednotka[$id]->dmg*=($posileni/100+1);
-
+		$id = 0;
+		while ($jednotka[$id]) {
+			if ($jednotka[$id]->stav == 2) {
+				$jednotka[$id]->utk *= ($posileni / 100 + 1);
+				$jednotka[$id]->obr *= ($posileni / 100 + 1);
+				$jednotka[$id]->ini *= ($posileni / 100 + 1);
+				$jednotka[$id]->dmg *= ($posileni / 100 + 1);
 				$jednotka[$id]->zaokrouhlit();
-
 				$poradi[$id][ini] = $jednotka[$id]->ini;
-
 				$poradi[$id][id] = $jednotka[$id]->id;
-
-				}
-
-			$id++;
-
 			}
-
-    $posileni = number_format($posileni, 0, ".",",");
-		echo "<span style='color:".$this->barva."'>Bojovým polem se přehnal, jak obrovská tlaková vlna temný křik, který trhal uši živím a nemrtvé posiloval.<br> ".$this->jmenoArt()." posílil nemrtvé o $posileni%</span><br><br>";
-
+			$id++;
 		}
+
+		$posileni = number_format($posileni, 0, ".", ",");
+		echo "<span style='color:".$this->barva."'>Bojovým polem se přehnal, jak obrovská tlaková vlna temný křik, který trhal uši živím a nemrtvé posiloval.<br> ".$this->jmenoArt()." posílil nemrtvé o $posileni%</span><br><br>";
+	}
 
 function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 	if($frakce == 6 && $stav == 1)
