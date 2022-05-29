@@ -315,8 +315,7 @@ table#form id {padding: 4px; color: white}
     V případě, že narazíte na jiné chyby, dejte vědět (viz sekce Kontakty)
     <br><br>
     <h4>Nápady na vylepšení</h4>
-    1) Přidat odměny při výhře, 2) Hodnoty min/max armád eventů, 3) Tlačítko na 10x opakování simulace pro získání více možných výsledků,
-    4) Tlačítko pro simulaci např. celého plenění najednou, ať hráč vidí, kam dosáhne<br>
+    1) Přidat odměny při výhře, 2) Hodnoty min/max armád eventů, 3) Upgrade PHP 5.6 na 7.4/8.1 (vyžaduje podporu na serveru), 4) Spousta dalších v repozitáři v poznamky/TODO.txt<br>
     Pokud se chce kdokoliv podílet na vylepšování/údržbě simulátoru, je vítán (pište na fórum, kontakt níže)!!! ;-)
     <br><br>
     <h4>Kontakty</h4>
