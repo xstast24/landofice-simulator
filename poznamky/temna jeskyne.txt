@@ -1,0 +1,264 @@
+0x dobyta
+1. útok         - da 1 kolo
+500 x Vlkodlak
+500 x Sněhobílý Vlkodlak
+500 x Kancodlak
+500 x Sněhobílí Kancodlak
+500 x Medvědodlak
+500 x Sněhobílí Mědvědodlak
+50 x Mamutodlak
+50 x Sněhobílí Mamutodlak
+2 x Medůza
+
+1x dobyta
+2. utok
+1,150 x Vlkodlak
+1,150 x Sněhobílý Vlkodlak
+1,150 x Kancodlak
+1,150 x Sněhobílí Kancodlak
+1,150 x Medvědodlak
+1,150 x Sněhobílí Mědvědodlak
+115 x Mamutodlak
+115 x Sněhobílí Mamutodlak
+5 x Medůza
+
+tajemná jeskyně - 2x dobyta
+3. utok
+2,077 x Vlkodlak
+2,077 x Sněhobílý Vlkodlak
+2,077 x Kancodlak
+2,077 x Sněhobílí Kancodlak
+2,077 x Medvědodlak
+2,077 x Sněhobílí Mědvědodlak
+208 x Mamutodlak
+208 x Sněhobílí Mamutodlak
+9 x Medůza
+
+3x dobyta   - da 6 kol
+4. utok
+3,185 x Vlkodlak
+3,185 x Sněhobílý Vlkodlak
+3,185 x Kancodlak
+3,185 x Sněhobílí Kancodlak
+3,185 x Medvědodlak
+3,185 x Sněhobílí Mědvědodlak
+319 x Mamutodlak
+319 x Sněhobílí Mamutodlak
+13 x Medůza
+
+4x dobyta - da 7 kol
+5.utok
+4,460 x Vlkodlak
+4,460 x Sněhobílý Vlkodlak
+4,460 x Kancodlak
+4,460 x Sněhobílí Kancodlak
+4,460 x Medvědodlak
+4,460 x Sněhobílí Mědvědodlak
+446 x Mamutodlak
+446 x Sněhobílí Mamutodlak
+18 x Medůza
+
+5x dobyta  - da 9 kol
+6. utok
+5,909 x Vlkodlak
+5,909 x Sněhobílý Vlkodlak
+5,909 x Kancodlak
+5,909 x Sněhobílí Kancodlak
+5,909 x Medvědodlak
+5,909 x Sněhobílí Mědvědodlak
+591 x Mamutodlak
+591 x Sněhobílí Mamutodlak
+24 x Medůza
+
+6x dobyta  - da 11 kol
+7. utok
+7,549 x Vlkodlak
+7,549 x Sněhobílý Vlkodlak
+7,549 x Kancodlak
+7,549 x Sněhobílí Kancodlak
+7,549 x Medvědodlak
+7,549 x Sněhobílí Mědvědodlak
+755 x Mamutodlak
+755 x Sněhobílí Mamutodlak
+31 x Medůza
+
+
+tajemná jeskyně - 7x dobyta - da 12 kol
+8. utok
+9,413 x Vlkodlak
+9,413 x Sněhobílý Vlkodlak
+9,413 x Kancodlak
+9,413 x Sněhobílí Kancodlak
+9,413 x Medvědodlak
+9,413 x Sněhobílí Mědvědodlak
+942 x Mamutodlak
+942 x Sněhobílí Mamutodlak
+38 x Medůza
+
+8 x dobyta - da 11 kol
+9. utok
+11,543 x Vlkodlak
+11,543 x Sněhobílý Vlkodlak
+11,543 x Kancodlak
+11,543 x Sněhobílí Kancodlak
+11,543 x Medvědodlak
+11,543 x Sněhobílí Mědvědodlak
+1,155 x Mamutodlak
+1,155 x Sněhobílí Mamutodlak
+47 x Medůza
+
+9 x dobyta - da 15 kol
+10. utok
+14,002 x Vlkodlak
+14,002 x Sněhobílý Vlkodlak
+14,002 x Kancodlak
+14,002 x Sněhobílí Kancodlak
+14,002 x Medvědodlak
+14,002 x Sněhobílí Mědvědodlak
+1,401 x Mamutodlak
+1,401 x Sněhobílí Mamutodlak
+57 x Medůza
+
+10 x dobyta
+11. utok
+16,870 x Vlkodlak
+16,870 x Sněhobílý Vlkodlak
+16,870 x Kancodlak
+16,870 x Sněhobílí Kancodlak
+16,870 x Medvědodlak
+16,870 x Sněhobílí Mědvědodlak
+1,687 x Mamutodlak
+1,687 x Sněhobílí Mamutodlak
+68 x Medůza
+
+11 x dobyta
+12. utok
+20,254 x Vlkodlak
+20,254 x Sněhobílý Vlkodlak
+20,254 x Kancodlak
+20,254 x Sněhobílí Kancodlak
+20,254 x Medvědodlak
+20,254 x Sněhobílí Mědvědodlak
+2,026 x Mamutodlak
+2,026 x Sněhobílí Mamutodlak
+82 x Medůza
+
+12. dobyta
+13. utok
+24,294 x Vlkodlak
+24,294 x Sněhobílý Vlkodlak
+24,294 x Kancodlak
+24,294 x Sněhobílí Kancodlak
+24,294 x Medvědodlak
+24,294 x Sněhobílí Mědvědodlak
+2,430 x Mamutodlak
+2,430 x Sněhobílí Mamutodlak
+98 x Medůza
+
+14. dobyta
+15. utok - dá 22 kol
+35,138 x Vlkodlak
+35,138 x Sněhobílý Vlkodlak
+35,138 x Kancodlak
+35,138 x Sněhobílý Kancodlak
+35,138 x Medvědodlak
+35,138 x Sněhobílý Mědvědodlak
+3,514 x Mamutodlak
+3,514 x Sněhobílý Mamutodlak
+141 x Medůza
+
+16. dobyta
+17. utok
+51,651 x Vlkodlak
+51,651 x Sněhobílý Vlkodlak
+51,651 x Kancodlak
+51,651 x Sněhobílí Kancodlak
+51,651 x Medvědodlak
+51,651 x Sněhobílí Mědvědodlak
+5,166 x Mamutodlak
+5,166 x Sněhobílí Mamutodlak
+207 x Medůza
+
+22. dobyta
+23. utok
+188,397 x Vlkodlak
+188,397 x Sněhobílý Vlkodlak
+188,397 x Kancodlak
+188,397 x Sněhobílý Kancodlak
+188,397 x Medvědodlak
+188,397 x Sněhobílý Mědvědodlak
+18,840 x Mamutodlak
+18,840 x Sněhobílý Mamutodlak
+754 x Medůza
+
+39. dobyta
+40. utok
+13,950,398 x Vlkodlak
+13,950,398 x Sněhobílý Vlkodlak
+13,950,398 x Kancodlak
+13,950,398 x Sněhobílý Kancodlak
+13,950,398 x Medvědodlak
+13,950,398 x Sněhobílý Mědvědodlak
+1,395,040 x Mamutodlak
+1,395,040 x Sněhobílý Mamutodlak
+55,802 x Medůza
+
+40. dobyta
+41. utok
+18,119,918 x Vlkodlak
+18,119,918 x Sněhobílý Vlkodlak
+18,119,918 x Kancodlak
+18,119,918 x Sněhobílý Kancodlak
+18,119,918 x Medvědodlak
+18,119,918 x Sněhobílý Mědvědodlak
+1,811,992 x Mamutodlak
+1,811,992 x Sněhobílý Mamutodlak
+72,480 x Medůza
+
+45.dobyta
+46. utok
+67,123,902 x Vlkodlak
+67,123,902 x Sněhobílý Vlkodlak
+67,123,902 x Kancodlak
+67,123,902 x Sněhobílý Kancodlak
+67,123,902 x Medvědodlak
+67,123,902 x Sněhobílý Mědvědodlak
+6,712,391 x Mamutodlak
+6,712,391 x Sněhobílý Mamutodlak
+268,496 x Medůza
+
+46.dobyta
+47. utok
+87,241,968 x Vlkodlak
+87,241,968 x Sněhobílý Vlkodlak
+87,241,968 x Kancodlak
+87,241,968 x Sněhobílý Kancodlak
+87,241,968 x Medvědodlak
+87,241,968 x Sněhobílý Mědvědodlak
+8,724,197 x Mamutodlak
+8,724,197 x Sněhobílý Mamutodlak
+348,968 x Medůza
+
+47.dobyta
+48.utok
+113,394,853 x Vlkodlak
+113,394,853 x Sněhobílý Vlkodlak
+113,394,853 x Kancodlak
+113,394,853 x Sněhobílý Kancodlak
+113,394,853 x Medvědodlak
+113,394,853 x Sněhobílý Mědvědodlak
+11,339,486 x Mamutodlak
+11,339,486 x Sněhobílý Mamutodlak
+453,580 x Medůza
+
+54.dobyta
+55. utok
+711,157,175 x Vlkodlak
+711,157,175 x Sněhobílý Vlkodlak
+711,157,175 x Kancodlak
+711,157,175 x Sněhobílý Kancodlak
+711,157,175 x Medvědodlak
+711,157,175 x Sněhobílý Mědvědodlak
+71,115,718 x Mamutodlak
+71,115,718 x Sněhobílý Mamutodlak
+2,844,629 x Medůza
