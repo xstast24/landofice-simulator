@@ -16,7 +16,6 @@ RELEASE_FILES=(
   jednotky.php
   jednotky.xml
   pleneni.php
-  seznam.php
   simulator_engine.php
   sorttable.js
   wz_tooltip.js

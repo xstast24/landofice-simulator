@@ -66,7 +66,10 @@ table#form id {padding: 4px; color: white}
 </div>
 <br>
 <center><input type='submit' onClick="ajaxFunction()" value="BOJ!" class='boj'></center><br>
-<center><input type='submit' onClick="window.open('jednotky.php', '_blank');" value="Seznam jednotek" class='boj'><input type='submit' onClick="window.open('seznam.php', '_blank');" value="Seznam výpisů" class='boj'><input type='submit' onClick="window.open('pleneni.php', '_blank');" value="Výpis artefaktů u plenění" class='boj'></center><br>
+<center>
+    <input type='submit' onClick="window.open('jednotky.php', '_blank');" value="Seznam jednotek" class='boj'>
+    <input type='submit' onClick="window.open('pleneni.php', '_blank');" value="Výpis artefaktů u plenění" class='boj'>
+</center><br>
 <center><input type='submit' onClick="zobrazit()" value="Zobrazit/Skrýt Eventy" class='boj'></center>
 <br>
 <table id='eventy' style='display:none'>

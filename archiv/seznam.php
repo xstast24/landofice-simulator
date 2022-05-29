@@ -28,42 +28,42 @@ echo "V dobách, kdy se neplatil žold a podpory v paláci nebyly omezené...</t
 
 //tělo tabulky
 echo "<tr><td width='300px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
-echo "<a href=\"/archiv/Loi-vypisy/dreadd-imperatoruv_palac.htm\".>Dreadd vs Vulcan v palaci</a>";
+echo ".>Dreadd vs Vulcan v palaci</a>";
 echo "</td>";
 echo "<td width='500px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
 echo "Štítování obřími kostlivci...</td></tr>";
 
 //tělo tabulky
 echo "<tr><td width='300px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
-echo "<a href=\"/archiv/Loi-vypisy/dreadd-imperatoruv_palac2.htm\".>Dreadd vs Vulcan v palaci 2</a>";
+echo ".>Dreadd vs Vulcan v palaci 2</a>";
 echo "</td>";
 echo "<td width='500px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
 echo "Doražení Vulcana ...</td></tr>";
 
 //tělo tabulky
 echo "<tr><td width='300px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
-echo "<a href=\"/archiv/Loi-vypisy/dreadd-palac05.htm\".>Dreadd vs Aether v palaci</a>";
+echo ".>Dreadd vs Aether v palaci</a>";
 echo "</td>";
 echo "<td width='500px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
 echo "Slabý aether, štítování lichama ...</td></tr>";
 
 //tělo tabulky
 echo "<tr><td width='300px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
-echo "<a href=\"/archiv/Loi-vypisy/palac-dreadd_vs_dreadd-ultimatni.html\".>Dreadd vs Dreadd !!</a>";
+echo ".>Dreadd vs Dreadd !!</a>";
 echo "</td>";
 echo "<td width='500px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
 echo "222 tis. lichu a 1,8 M kostlivcu s hulkou ohne proti jinemu dreaddovi. Paráda</td></tr>";
 
 //tělo tabulky
 echo "<tr><td width='300px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
-echo "<a href=\"/archiv/Loi-vypisy/dread-vs-dralgar-palac.html\".>Dreadd vs Dralgar s PKS</a>";
+echo ".>Dreadd vs Dralgar s PKS</a>";
 echo "</td>";
 echo "<td width='500px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
 echo "Můj dreadd proti dralgarovi s PKS</td></tr>";
 
 //tělo tabulky
 echo "<tr><td width='300px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
-echo "<a href=\"/archiv/Loi-vypisy/Rip002 vs Vont.html\".>Dreadd vs dreadd ultimate</a>";
+echo ".>Dreadd vs dreadd ultimate</a>";
 echo "</td>";
 echo "<td width='500px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
 echo "Můj dreadd proti Vontovo dreaddovi</td></tr>";
@@ -80,21 +80,21 @@ echo "<tr><td width='300px' align='center' style='border: 1px dashed gray;height
 echo "<b>Údolí stínů</b></td></tr>";
 //tělo tabulky
 echo "<tr><td width='300px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
-echo "<a href=\"/archiv/Loi-vypisy/crinis_vs_DCCD.html\".>Crinis(PKS) vs DCCD</a>";
+echo ".>Crinis(PKS) vs DCCD</a>";
 echo "</td>";
 echo "<td width='500px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
 echo "Síla PKS ...</td></tr>";
 
 //tělo tabulky
 echo "<tr><td width='300px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
-echo "<a href=\"/archiv/Loi-vypisy/US-dreadd-vs-aether001.html\".>Dreadd (PKS) vs Aether</a>";
+echo ".>Dreadd (PKS) vs Aether</a>";
 echo "</td>";
 echo "<td width='500px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
 echo "Jednotky se slayerem se nedostanou k lizu ...</td></tr>";
 
 //tělo tabulky
 echo "<tr><td width='300px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
-echo "<a href=\"/archiv/Loi-vypisy/dreadd_vs_50Mcrinis.html\".>Dreadd (PKS) vs 50M Crinis</a>";
+echo ".>Dreadd (PKS) vs 50M Crinis</a>";
 echo "</td>";
 echo "<td width='500px' align='center' style='border: 1px dashed gray;height:10px;text-align:center;padding:8px'>";
 echo "Hodne silna criniska ...</td></tr>";
@@ -104,4 +104,4 @@ echo "Hodne silna criniska ...</td></tr>";
 echo "</table>";
 
 ?>
-<script src="sorttable.js" type="text/javascript"></script>
+<script src="../sorttable.js" type="text/javascript"></script>
