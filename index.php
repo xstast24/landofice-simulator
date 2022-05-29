@@ -312,11 +312,11 @@ table#form id {padding: 4px; color: white}
     <h4>Bugy (Nevyžádané features)</h4>
     1. V LoI se iniciativa snižuje až na konci kola, zatímco v simulátoru okamžitě. S výjimkou případů, kdy iniciativa klesne na 0 a jednotka pak regulérně nezaútočí.
     Toto je ovšem bug k opravení na straně loi a ne v simulátoru :P<br>
+    2. Temná jeskyně - úplně špatně. Spolek mocných - chybí některé jednotky.
     V případě, že narazíte na jiné chyby, dejte vědět (viz sekce Kontakty)
     <br><br>
     <h4>Nápady na vylepšení</h4>
-    1) Přidat odměny při výhře, 2) Hodnoty min/max armád eventů, 3) Tlačítko na 10x opakování simulace pro získání více možných výsledků,
-    4) Tlačítko pro simulaci např. celého plenění najednou, ať hráč vidí, kam dosáhne<br>
+    1) Přidat odměny při výhře, 2) Hodnoty min/max armád eventů, 3) Upgrade PHP 5.6 na 7.4/8.1 (vyžaduje podporu na serveru), 4) Spousta dalších v repozitáři v poznamky/TODO.txt<br>
     Pokud se chce kdokoliv podílet na vylepšování/údržbě simulátoru, je vítán (pište na fórum, kontakt níže)!!! ;-)
     <br><br>
     <h4>Kontakty</h4>

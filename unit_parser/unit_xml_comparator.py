@@ -10,19 +10,23 @@ def find_missing_units(file_path1, file_path2):
     new_xml = new_xml.getroot()
 
     original_units = []
+    original_units_lowercase = []
+
     added = []
 
     for child in original_xml:
-        original_units.append(child[1].text.lower())
+        original_units.append(child[1].text)
+        original_units_lowercase.append(child[1].text.lower())
 
     for child in new_xml:
-        if child[1].text.lower() not in original_units:
-            added.append(child[1].text.lower())
+        if child[1].text.lower() not in original_units_lowercase:
+            added.append(child[1].text)
         else:
-            original_units.remove(child[1].text.lower())
+            original_units_lowercase.remove(child[1].text.lower())
+            original_units = [unit for unit in original_units if unit.lower() != child[1].text.lower()]
 
-    print("CHYBEJICI: ", original_units)
-    print("NOVE: ", added)
+    print("CHYBEJICI (byly ve starem, nejsou v novem):\n", "\n".join(sorted(original_units)))
+    print("\nNOVE:\n", "\n".join(sorted(added)))
 
 
 if __name__ == "__main__":
