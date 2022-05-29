@@ -3,6 +3,10 @@ Schopnosti:
 * vyvolavani kentauru - pridat okynko na zadani poctu tahu
 * kanibalizmus - musi ozivit max tolik zivotu, kolik mela zabita jednotka.
 
+Eventy:
+* Spolek mocnych - doplnit jednotky pro vyssi pocty dobyti (magove ledu, stinove jednotky atp.)
+* Temna jeskyne - opravit kompletne hodnoty, aproximovat vzorec vypoctu na zaklade "temna jeskyne.txt" (originalni vzorec je tajny, coz je dobre)
+
 Other:
 * Tlačítko na 10x opakování simulace pro získání více možných výsledků,
 * Tlačítko pro simulaci např. celého plenění najednou, ať hráč vidí, kam dosáhne

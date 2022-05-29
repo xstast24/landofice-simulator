@@ -312,6 +312,7 @@ table#form id {padding: 4px; color: white}
     <h4>Bugy (Nevyžádané features)</h4>
     1. V LoI se iniciativa snižuje až na konci kola, zatímco v simulátoru okamžitě. S výjimkou případů, kdy iniciativa klesne na 0 a jednotka pak regulérně nezaútočí.
     Toto je ovšem bug k opravení na straně loi a ne v simulátoru :P<br>
+    2. Temná jeskyně - úplně špatně. Spolek mocných - chybí některé jednotky.
     V případě, že narazíte na jiné chyby, dejte vědět (viz sekce Kontakty)
     <br><br>
     <h4>Nápady na vylepšení</h4>
