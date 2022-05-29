@@ -138,7 +138,7 @@ class Jednotka {
 
 				$this->zkl_ini = $jednotka->iniciativa * 1;
 
-				if($this->zkl_ini == 0){
+				if($this->nazev == "Meteorit"){
 
 					$this->zkl_ini = mt_rand(10,30);
 
