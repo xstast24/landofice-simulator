@@ -11,6 +11,7 @@ RELEASE_FILES=(
   images
   ajax.js
   ajax-loader.gif
+  api.php
   favicon.ico
   index.php
   jednotky.php
