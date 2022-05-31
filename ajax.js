@@ -42,9 +42,9 @@ function ajaxFunction() {
 
         xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-        ut = document.getElementById("ut").value;
+        ut = document.getElementById("ut").value.trim(); //get value from field and strip any excessive whitespaces around it
 
-        ob = document.getElementById("ob").value;
+        ob = document.getElementById("ob").value.trim();
 
         //cesta = document.getElementById("cesta").value;	
 
