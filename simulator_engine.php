@@ -2907,22 +2907,24 @@ while($jednotka[$a]){
 
 echo "--------------------------------------------------------------<br><br>";
 
-$utocnikPreziloHodnota = $global_hodnota[1]-$hodnota[1];
 $utocnikCelkemHodnota = $global_hodnota[1];
-$utocnikZtratyProcento = 100*$utocnikPreziloHodnota/$utocnikCelkemHodnota;
+$utocnikPreziloHodnota = $hodnota[1];
+$utocnikZabitoHodnota = $utocnikCelkemHodnota - $utocnikPreziloHodnota;
+$utocnikZtratyProcento = 100*$utocnikPreziloHodnota/$utocnikCelkemHodnota; //0 = vsichni zivi, 100 = vsichni mrtvi
 echo "<div id='vysledkyUtocnik' style='color:#b0c4de' hodnotaCelkem='$utocnikCelkemHodnota' hodnotaPrezilo='$utocnikPreziloHodnota'>"; //atributy uchovavaji hodnotu, aby byla snadno dostupna odjinud (javascript)
 echo "Útočník přežilo:<br>";
 echo "<div style='color:".UTK."'>$ataker</div>";
-echo "Celkem hodnota zabité armády: " . prevod($utocnikPreziloHodnota) . "/" . prevod($utocnikCelkemHodnota) . " (" . number_format($utocnikZtratyProcento, 2, ',', ' ') ."%)<br><br>";
+echo "Celkem hodnota zabité armády: " . prevod($utocnikZabitoHodnota) . "/" . prevod($utocnikCelkemHodnota) . " (" . number_format($utocnikZtratyProcento, 2, ',', ' ') ."%)<br><br>";
 echo "</div>";
 
-$obrancePreziloHodnota = $global_hodnota[-1]-$hodnota[-1];
 $obranceCelkemHodnota = $global_hodnota[-1];
+$obrancePreziloHodnota = $hodnota[-1];
+$obranceZabitoHodnota = $obranceCelkemHodnota - $obrancePreziloHodnota;
 $obranceZtratyProcento = 100*$obrancePreziloHodnota/$obranceCelkemHodnota;
 echo "<div id='vysledkyObrance' hodnotaCelkem='$obranceCelkemHodnota' hodnotaPrezilo='$obrancePreziloHodnota'>"; //atributy uchovavaji hodnotu, aby byla snadno dostupna odjinud (javascript)
 echo "Obránce přežilo:<br>";
 echo "<div style='color:".OBR."'>$defender</div>";
-echo "Celkem hodnota zabité armády: " . prevod($obrancePreziloHodnota) . "/" . prevod($obranceCelkemHodnota) . " (" . number_format($obranceZtratyProcento, 2, ',', ' ') ."%)<br><br>";
+echo "Celkem hodnota zabité armády: " . prevod($obranceZabitoHodnota) . "/" . prevod($obranceCelkemHodnota) . " (" . number_format($obranceZtratyProcento, 2, ',', ' ') ."%)<br><br>";
 echo "</div>";
 
 
