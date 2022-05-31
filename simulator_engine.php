@@ -2910,7 +2910,7 @@ echo "--------------------------------------------------------------<br><br>";
 $utocnikCelkemHodnota = $global_hodnota[1];
 $utocnikPreziloHodnota = $hodnota[1];
 $utocnikZabitoHodnota = $utocnikCelkemHodnota - $utocnikPreziloHodnota;
-$utocnikZtratyProcento = 100*$utocnikPreziloHodnota/$utocnikCelkemHodnota; //0 = vsichni zivi, 100 = vsichni mrtvi
+$utocnikZtratyProcento = 100*$utocnikZabitoHodnota/$utocnikCelkemHodnota; //0 = vsichni zivi, 100 = vsichni mrtvi
 echo "<div id='vysledkyUtocnik' style='color:#b0c4de' hodnotaCelkem='$utocnikCelkemHodnota' hodnotaPrezilo='$utocnikPreziloHodnota'>"; //atributy uchovavaji hodnotu, aby byla snadno dostupna odjinud (javascript)
 echo "Útočník přežilo:<br>";
 echo "<div style='color:".UTK."'>$ataker</div>";
@@ -2919,8 +2919,8 @@ echo "</div>";
 
 $obranceCelkemHodnota = $global_hodnota[-1];
 $obrancePreziloHodnota = $hodnota[-1];
-$obranceZabitoHodnota = $obranceCelkemHodnota - $obrancePreziloHodnota;
-$obranceZtratyProcento = 100*$obrancePreziloHodnota/$obranceCelkemHodnota;
+$utocnikZabitoHodnota = $obranceCelkemHodnota - $obrancePreziloHodnota;
+$obranceZtratyProcento = 100*$utocnikZabitoHodnota/$obranceCelkemHodnota;
 echo "<div id='vysledkyObrance' hodnotaCelkem='$obranceCelkemHodnota' hodnotaPrezilo='$obrancePreziloHodnota'>"; //atributy uchovavaji hodnotu, aby byla snadno dostupna odjinud (javascript)
 echo "Obránce přežilo:<br>";
 echo "<div style='color:".OBR."'>$defender</div>";
