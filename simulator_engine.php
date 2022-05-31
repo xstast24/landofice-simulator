@@ -2919,8 +2919,8 @@ echo "</div>";
 
 $obranceCelkemHodnota = $global_hodnota[-1];
 $obrancePreziloHodnota = $hodnota[-1];
-$utocnikZabitoHodnota = $obranceCelkemHodnota - $obrancePreziloHodnota;
-$obranceZtratyProcento = 100*$utocnikZabitoHodnota/$obranceCelkemHodnota;
+$obranceZabitoHodnota = $obranceCelkemHodnota - $obrancePreziloHodnota;
+$obranceZtratyProcento = 100*$obranceZabitoHodnota/$obranceCelkemHodnota;
 echo "<div id='vysledkyObrance' hodnotaCelkem='$obranceCelkemHodnota' hodnotaPrezilo='$obrancePreziloHodnota'>"; //atributy uchovavaji hodnotu, aby byla snadno dostupna odjinud (javascript)
 echo "Obránce přežilo:<br>";
 echo "<div style='color:".OBR."'>$defender</div>";
