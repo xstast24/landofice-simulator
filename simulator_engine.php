@@ -2890,14 +2890,6 @@ while($aktualniKolo<=$pocetKol){
 
 	}
 
-
-
-echo "--------------------------------------------------------------<br><br>";
-
-ECHO "<div style='color:#b0c4de'>Útočník přežilo:<br>";
-
-
-
 $a=0;$hodnota="";$ataker="";$defender="";
 
 while($jednotka[$a]){
@@ -2910,25 +2902,33 @@ while($jednotka[$a]){
 
 	$a++;
 
-	}
+}
 
 
+echo "--------------------------------------------------------------<br><br>";
 
+$utocnikPreziloHodnota = $global_hodnota[1]-$hodnota[1];
+$utocnikCelkemHodnota = $global_hodnota[1];
+$utocnikZtratyProcento = 100*$utocnikPreziloHodnota/$utocnikCelkemHodnota;
+echo "<div id='vysledkyUtocnik' style='color:#b0c4de' hodnotaCelkem='$utocnikCelkemHodnota' hodnotaPrezilo='$utocnikPreziloHodnota'>"; //atributy uchovavaji hodnotu, aby byla snadno dostupna odjinud (javascript)
+echo "Útočník přežilo:<br>";
 echo "<div style='color:".UTK."'>$ataker</div>";
+echo "Celkem hodnota zabité armády: " . prevod($utocnikPreziloHodnota) . "/" . prevod($utocnikCelkemHodnota) . " (" . number_format($utocnikZtratyProcento, 2, ',', ' ') ."%)<br><br>";
+echo "</div>";
 
-ECHO "Celkem hodnota zabité armády: " . prevod($global_hodnota[1]-$hodnota[1]) . "/" . prevod($global_hodnota[1]) . " (" . number_format((100*($global_hodnota[1]-$hodnota[1]))/$global_hodnota[1], 2, ',', ' ') ."%)<br><br></div>";
-
-  echo "Obránce přežilo:<br>";
-
+$obrancePreziloHodnota = $global_hodnota[-1]-$hodnota[-1];
+$obranceCelkemHodnota = $global_hodnota[-1];
+$obranceZtratyProcento = 100*$obrancePreziloHodnota/$obranceCelkemHodnota;
+echo "<div id='vysledkyObrance' hodnotaCelkem='$obranceCelkemHodnota' hodnotaPrezilo='$obrancePreziloHodnota'>"; //atributy uchovavaji hodnotu, aby byla snadno dostupna odjinud (javascript)
+echo "Obránce přežilo:<br>";
 echo "<div style='color:".OBR."'>$defender</div>";
-
-ECHO "Celkem hodnota zabité armády: " . prevod($global_hodnota[-1]-$hodnota[-1]) . "/" . prevod($global_hodnota[-1]) . " (" . number_format((100*($global_hodnota[-1]-$hodnota[-1]))/$global_hodnota[-1], 2, ',', ' ') ."%)<br><br></div>";
+echo "Celkem hodnota zabité armády: " . prevod($obrancePreziloHodnota) . "/" . prevod($obranceCelkemHodnota) . " (" . number_format($obranceZtratyProcento, 2, ',', ' ') ."%)<br><br>";
+echo "</div>";
 
 
 echo "<center><input type='submit' onClick=\"ajaxFunction()\" value=\"BOJ!\" class='boj'></center><br>";
 
 $cas2 = explode(" ", microtime());
-
 echo "<center>" . (round((($cas2[1] + $cas2[0]) - $cas1) * $rd)) / $rd . "s</center>";
 
 }
