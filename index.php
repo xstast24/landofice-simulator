@@ -55,7 +55,7 @@ table#form id {padding: 4px; color: white}
 .promenneDleSilyArmady {color: red!important;}
 </style>
 
-<div style='width:750px;margin:auto'>
+<div style='width:800px;margin:auto'>
 <table>
 <tr><td><div id='selectionButon1' class='selectionButtonInactive' onClick='selectButton(1)'></div></td><td><div class="selectionButtonActive" onClick='selectButton(2)' id='selectionButon2'>⬇</div></td></tr>
 <tr>
@@ -310,26 +310,26 @@ table#form id {padding: 4px; color: white}
 
 <div id='obrazek'></div>
 <div id='result'></div>
-<div style='width: 600px; margin: auto'>
+<div style='width: 800px; margin: auto'>
 <br>
     <h4>Bugy (Nevyžádané features)</h4>
     1. V LoI se iniciativa snižuje až na konci kola, zatímco v simulátoru okamžitě. S výjimkou případů, kdy iniciativa klesne na 0 a jednotka pak regulérně nezaútočí.
     Toto je ovšem bug k opravení na straně loi a ne v simulátoru :P<br>
     2. Temná jeskyně - úplně špatně. Spolek mocných - chybí některé jednotky.
     V případě, že narazíte na jiné chyby, dejte vědět (viz sekce Kontakty)
-    <br><br>
+    <br>
     <h4>Nápady na vylepšení</h4>
     1) Přidat odměny při výhře, 2) Hodnoty min/max armád eventů, 3) Upgrade PHP 5.6 na 7.4/8.1 (vyžaduje podporu na serveru), 4) Spousta dalších v repozitáři v poznamky/TODO.txt<br>
     Pokud se chce kdokoliv podílet na vylepšování/údržbě simulátoru, je vítán (pište na fórum, kontakt níže)!!! ;-)
-    <br><br>
+    <br>
     <h4>Kontakty</h4>
-    Chyby, nové eventy, nápady na vylepšení, pomoc a podobně pište na oficiální LoI fórum do sekce <a href="http://landofice.com/forum/viewtopic.php?f=6&t=470">Simulátor</a>.<br>
+    Chyby, nové eventy, nápady na vylepšení, pomoc a podobně pište na oficiální LoI fórum do sekce <a href="http://landofice.com/forum/viewtopic.php?f=6&t=470">Simulátor</a>.
     Můžete věci napřed probrat na herním chatu, ale tam to rychle zapadne, takže to vždy potom napište na fórum.
     Pokud chcete mít jistotu, že se to dostane přímo k vývojářům, vytvořte "issue" přímo v <a href="https://github.com/xstast24/landofice-simulator">github repositáři simulátoru</a>
-    (jestli se stránka nenačte, tak nemáte přístup -> napište na fórum a přidáme vás).<br>
+    (jestli se stránka nenačte, tak nemáte přístup -> napište na fórum a přidáme vás).
     V případě věcí, které se stydíte řešit na fóru (např. velikost armády), můžete psát Botovi na herní mail FLLL@SEZNAM.CZ
     (chodím tam ~1x za měsíc, kdybych dlouho neodpovídal, napište znovu, možná to zapadlo ve spamu).
-    <br><br>
+    <br>
     <h4>Credits</h4>
     ❥Bota a ❥Healtonn <small>(reinkarnace simulátoru 2022 a development)</small>
     ❥Hron <small>(informace o jednotkách, herní zkušenosti)</small>
