@@ -26,6 +26,8 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
 <body bgcolor='#000000' text='#f5f5f5' link='#b0c4de' vlink='#b0c4de' alink='#b0c4de' topmargin='0'>
 <script type='text/javascript' src='ajax.js'></script>
 <script type='text/javascript' src='wz_tooltip.js'></script>
+<script type='text/javascript' src='src/common.js'></script>
+<script type='text/javascript' src='src/simulator_common.js'></script>
 
 <div style='font-family: verdana;font-size: 12px;margin-left: 30px; padding-top: 20px'>
     <style type=text/css>
@@ -72,15 +74,16 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
     </center><br>
     <center><input type='submit' onClick="zobrazit()" value="Zobrazit/Skrýt Eventy" class='boj'></center>
     <br>
-    <table id='eventy' style='display:none'>
+    <table id='eventy' style='display:block'> <!--TODO put back display:none to hide it by default, for testing reasons I leave it displayed so I dont have to click every time-->
         <tr>
             <td>
-                <b>Válka</b><br><br>
+                <div id="sekceValka"><a onclick="simulovatCelouSekci('sekceValka')"><b>Válka</b></a><br><br>
                 <input style='color:gold' value='Město' type=button onclick='pole("2096 x Ozbrojený vesničan\n26 x Kovář\n13721 x Vesničan\n371 x Městská pěchota\n150 x Městští kušníci\n1 x Těžká balista\n1 x Místodržící(Měděné platy)")'><br>
-                <input value='Svatyně eternanů' type=button onclick='pole("50 x Eternan vyvolávač\n11 x Eternan mág\n1 x Eternan dohlížitel")'><br>
-                <input value='Chrám Etermanů' type=button onclick='pole("80 x Eternan vyvolávač\n33 x Eternan mág\n2 x Eternan dohlížitel")'><br><br>
+                <input value='Svatyně Eternanů' type=button onclick='pole("50 x Eternan vyvolávač\n11 x Eternan mág\n1 x Eternan dohlížitel")'><br>
+                <input value='Chrám Eternanů' type=button onclick='pole("80 x Eternan vyvolávač\n33 x Eternan mág\n2 x Eternan dohlížitel")'><br><br>
+                </div>
 
-                <b>Tažení</b><br><br>
+                <div id="sekceTazeni"><a onclick="simulovatCelouSekci('sekceTazeni')"><b>Tažení</b></a><br><br>
                 <input value='Laboratoř 01' type=button onclick='pole("100000 x Otrok s kopím\n100000 x Otrok štítonoš\n1000 x Ohnivý démon\n1000 x Ohnivý démon")'><br>
                 <input value='Laboratoř 02' type=button onclick='pole("200 x Plamenný démon mág\n10 x Plamenný démon arcimág\n200 x Plamenný démon mág\n10 x Plamenný démon arcimág\n200 x Plamenný démon mág\n10 x Plamenný démon arcimág")'><br>
                 <input value='Laboratoř 03' type=button onclick='pole("200 x Toxický Elementál Obránce\n12 x Toxická Elementární Bublina\n2000 x Hnijící vesničan\n10 x Hnijící Nemrtvý Obr\n20 x Obří kostlivec\n1000 x Toxické oživlé bahno")'><br>
@@ -97,10 +100,11 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                 <input value='Království orla 4' type=button onclick='pole("15,000 x Těžký pěšák starého impéria\n15 x Kapitán těžkých pěšáků starého impéria\n10,000 x Elitní střelec starého impéria\n10 x Kapitán elitních střelců starého impéria\n1 x Generál starého impéria (Gladius)\n15 x Kamenná hradba\n4 x Kamenná věž\n200 x Těžký katapult\n200 x Těžká balista")'><br>
                 <input value='Království orla 5' type=button onclick='pole("20,000 x Ozbrojený vesničan\n500 x Kovář\n50,000 x Vesničan\n15,000 x Otrok s kopím\n15,000 x Otrok s oštěpy\n15,000 x Otrok štítonoš\n7,000 x Městská pěchota\n6,000 x Městští kušníci\n5,000 x Pěšák starého impéria")'><br>
                 <input value='Království orla 6' type=button onclick='pole("20,000 x Těžký pěšák starého impéria\n20 x Kapitán těžkých pěšáků starého impéria\n1 x Plukovník těžkých pěšaků starého impéria (Gladius)\n15,000 x Střelec starého impéria\n15 x Kapitán střelců starého impéria\n7,000 x Elitní střelec starého impéria\n7 x Kapitán elitních střelců starého impéria\n20,000 x Pěšák starého impéria\n20 x Kapitán pěšáků starého impéria\n100 x Therysusova elitní stráž (Drtič lebek)\n1 x Král Therysus (Katana z Temné ocele)")'><br>
+                </div>
             </td>
 
             <td>
-                <b>Dobývání</b><br><br>
+                <div id="sekceDobyvani"><a onclick="simulovatCelouSekci('sekceDobyvani')"><b>Dobývání</b></a><br><br>
                 <input value='Trpasličí hospoda' type=button onclick='pole("7 x Trpaslík se sekerou\n2 x Trpaslík s kuší\n5 x Trpasličí legionář\n1 x Trpaslík kapitán")'><br>
                 <input value='Trpasličí pevnost' type=button onclick='pole("41 x Těžký katapult\n50 x Těžká balista\n605 x Trpaslík se sekerou\n504 x Trpaslík s kuší\n2 x Trpaslík kapitán\n216 x Trpaslík těžké pěchoty\n984 x Trpasličí legionář")'><br>
                 <input value='Trpasličí pokladnice' type=button onclick='pole("119 x Těžký katapult\n113 x Těžká balista\n10798 x Trpaslík se sekerou\n4148 x Trpaslík s kuší\n53 x Trpaslík kapitán\n6191 x Trpaslík těžké pěchoty\n6966 x Trpasličí legionář")'><br>
@@ -117,10 +121,11 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                 <input value='Jeskyně života 1' type=button onclick='pole("1 x wurm\n100 x Elfí hraničář")'><br>
                 <input value='Jeskyně života 2' type=button onclick='pole("7,000 x Druid\n2,500 x Veledruid\n1,000 x Obří černý pavouk\n25 x Horský obr\n5 x Prastarý Horský Wurm")'><br>
                 <input value='Krystal moci - město' type=button onclick='pole("1 x Kamenná hradba\n16 x Katapult\n20 x Balista\n15,332 x Vesničan\n3,250 x Městská pěchota\n2,935 x Městští kušníci\n1,305 x Temný Elf\n1 x Velitel Temných Elfů")'><br>
+                </div>
             </td>
 
             <td>
-                <b>Plenění</b><br><br>
+                <div id="sekcePleneni"><a onclick="simulovatCelouSekci('sekcePleneni')"><b>Plenění</b></a><br><br>
                 <input value='Spolek mocných' class='pleneni modre' type=button onclick='pleneni(2)'><br>
                 <input value='Gnomí velkodílna' class='pleneni modre' type=button onclick='pleneni(1)'><br>
                 <input value='Temná jeskyně' class='pleneni modre' type=button onclick='pleneni(4)'><br>
@@ -145,11 +150,12 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                 <input value='Prokletý vojevůdce' class='pleneni cervene' type=button onclick='pole("1 x Dehinator (Ohnivá zbroj)\n12 x Těžký katapult\n12 x Těžká balista\n40 x Zeď Temné pevnosti\n300 x Prokletý Mág\n750 x Prokletý válečník(Prapor stínů)\n6 x Dehinatorova ochranka")'><br>
                 <input value='Prokletá citadela' class='pleneni cervene' type=button onclick='pole("1 x Královna Medůz(Maska Královny medůz)\n1000 x Temný mág(Kouzelnická róba)\n200 x Vyšší Temný Mág(Prokletá kouzelnická róba)\n32 x Zeď Prokleté citadely\n200 x Prokletý Mág\n1000 x Prokletý válečník(Prapor stínů)\n3000 x Æthrův ledový válečník")'><br>
                 <input value='Mucusova pevnost' class='pleneni cervene' type=button onclick='pole("1 x Mucus, král Toxických elementálů(Plášť Mucuse, krále toxických elementálů)\n1500 x Zeď pokrytá slizem\n1000 x Toxický Elementál Obránce\n1000 x Toxický Elementál Útočník\n10 x Toxická Elementární Bublina")'><br>
+                </div>
             </td>
 
 
             <td>
-                <b>Eventy - začátky</b><br><br>
+                <div id="sekceEventyZacatky"><a onclick="simulovatCelouSekci('sekceEventyZacatky')"><b>Eventy - začátky</b></a><br><br>
                 <input value='Vesnice' type=button onclick='pole("1 x Ozbrojený vesničan\n10 x Vesničan")'><br>
                 <input value='Osada' type=button onclick='pole("95 x Ozbrojený vesničan\n43 x Osadník s lukem\n2 x Katapult\n1 x Velitel osady")'><br>
                 <input value='Skupinka barbarů' type=button onclick='pole("17 x Barbar\n1 x Náčelník barbarů")'><br>
@@ -158,18 +164,20 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                 <input value='Velký hřbitov' type=button onclick='pole("1095 x Kostlivec\n180 x Zombie\n17 x Lich")'><br>
                 <input value='Skrýš banditů' type=button onclick='pole("948 x Bandita\n538 x Bandita s lukem\n1 x Bandita velitel")'><br>
                 <input value='Gnómská dílna' type=button onclick='pole("8 x Katapult\n2 x Těžký katapult\n8 x Balista\n2 x Těžká balista\n485 x Gnóm s kuší\n1144 x Otrok štítonoš")'><br><br>
+                </div>
 
-                <b>Eventy - trpaslíci</b><br><br>
+                <div id="sekceEventyTrpaslici"><a onclick="simulovatCelouSekci('sekceEventyTrpaslici')"><b>Eventy - trpaslíci</b></a><br><br>
                 <input value='Bronzový důl' type=button onclick='pole("1,316 x Trpaslík se sekerou\n816 x Trpaslík s kuší\n455 x Trpaslík těžké pěchoty\n3,209 x Trpaslík\n39 x Trpasličí past")'><br>
                 <input value='Železný důl' type=button onclick='pole("3,857 x Trpaslík se sekerou\n2,370 x Trpaslík s kuší\n9 x Trpaslík kapitán\n1,363 x Trpaslík těžké pěchoty\n5,063 x Trpaslík\n396 x Trpasličí past")'><br>
                 <input value='Trpasličí karavana' type=button onclick='pole("1,045 x Trpaslík\n364 x Železný kněz")'><br>
                 <input value='Trpasličí patrola' type=button onclick='pole("816 x Trpaslík se sekerou\n709 x Trpaslík s kuší\n29 x Trpaslík kapitán\n396 x Trpaslík těžké pěchoty\n397 x Trpasličí legionář\n207 x Elitní trpaslík s kuší")'><br>
                 <input value='Trpasličí kovárna' type=button onclick='pole("3,013 x Trpaslík se sekerou\n3,199 x Trpaslík s kuší\n99 x Trpaslík kapitán\n2,623 x Trpaslík těžké pěchoty\n1,253 x Trpasličí legionář\n20,064 x Trpaslík\n125 x Balista\n51 x Těžká balista")'><br>
                 <input value='Trpasličí skladiště' type=button onclick='pole("5,450 x Trpaslík se sekerou\n3,394 x Trpaslík s kuší\n489 x Trpaslík kapitán\n5,913 x Trpaslík těžké pěchoty (Ocelové pláty)\n2,701 x Trpasličí legionář (Železné pláty)\n8,123 x Trpaslík\n990 x Elitní trpaslík s kuší (Jedovaté střely)\n204 x Trpasličí opevnění\n200 x Těžký katapult\n210 x Těžká balista")'><br>
+                </div>
             </td>
 
             <td>
-                <b>Eventy</b><br><br>
+                <div id="sekceEventy"><a onclick="simulovatCelouSekci('sekceEventy')"><b>Eventy</b></a><br><br>
                 <input value='Armáda eternanů' type=button onclick='pole("250 x Eternan vyvolávač\n250 x Eternan mág\n250 x Eternan dohlížitel\n10000 x Energetický služebník\n10000 x Energetický služebník")'><br>
                 <input value='Bažina' type=button onclick='pole("475 x Oživlé bahno\n10 x Bažinný ent\n28 x Zombie")'><br>
                 <input value='Zakletá bažina' type=button onclick='pole("999 x Oživlé bahno\n193 x Bažinný ent\n61 x Kostlivec\n1974 x Zombie\n1 x Temný přízrak\n5 x Stín")'><br>
@@ -195,11 +203,12 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                 <input value='Kmen obrů lidožroutů' type=button onclick='pole("38 x Obr lidožrout")'><br>
                 <input value='Trosky neznámého chrámu' class='promenneDleSilyArmady' type=button onclick='silaarmady(7)'><br>
                 <input value='Prokletý chrám ohně' class='promenneDleSilyArmady' type=button onclick='silaarmady(8)'><br><br>
+                </div>
             </td>
 
 
             <td>
-                <b>Eventy - chrámy</b><br><br>
+                <div id="sekceChramy"><a onclick="simulovatCelouSekci('sekceChramy')"><b>Eventy - chrámy</b></a><br><br>
                 <input value='Chrám gobliní sekty' class='chramy goblini' type=button onclick='pole("746 x Goblin\n120 x Goblin s Prakem\n25 x Goblin Fanatik\n2 x Gobliní pojízdná bomba\n23 x Goblin Pyroman")'><br>
 
                 <input value='Chrám ledu' class='chramy led' type=button onclick='pole("105 x Vyznavač boha ledu\n12 x Zasvěcenec boha ledu\n9 x Ledový Přízrak")'><br>
@@ -238,11 +247,12 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                 <input value='Velechrám země' class='chramy zeme' type=button onclick='pole("42 x Horský Wurm\n24 x Prastarý Horský Wurm\n45,044 x Elfí hraničář\n8,462 x Mramorový golem\n333 x Mramorožrout\n44 x Mág země")'><br>
                 <input value='Posvátný chrám země' class='chramy zeme' type=button onclick='pole("48 x Velemág země\n84,050 x Elfí hraničář\n75 x Prastarý Horský Wurm\n85 x Horský Wurm\n685 x Onyxožrout\n85 x Mág země\n14,888 x Onyxový Golem")'><br>
                 <input value='Posvátný dóm země' class='chramy zeme' type=button onclick='pole("Az vam prijde, napiste nam jednotky a pridame je (kontakty jsou dole)")'><br><br>
+                </div>
             </td>
 
 
             <td>
-                <b>Démoní eventy</b><br><br>
+                <div id="sekceDemoniEventy"><a onclick="simulovatCelouSekci('sekceDemoniEventy')"><b>Démoní eventy</b></a><br><br>
                 <input value='Démon' type=button onclick='pole("1 x Plamenný démon s bičem")'><br>
                 <input value='Skupinka démonů 1' type=button onclick='pole("10 x Plamenný démon\n2 x Plamenný démon mág")'><br>
                 <input value='Skupinka démonů 2' type=button onclick='pole("10 x Ohnivý démon\n1,485 x Ohnivý imp")'><br>
@@ -253,9 +263,10 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                 <input style='color:orange' value='Armáda démonů' type=button onclick='pole("Armáda některého z démonů.\nPokud je postavená předsunutá hlídka, jméno démona se ukáže před útokem vedle tabulky. Nebo je možné poslat 1 vesničana na průzkum, jelikož armáda je speciální event a démon se napevno vybírá už při příchodu eventu (normálně jsou eventy generované až při útoku)")'><br>
                 <input value='Démoní karavana' class='promenneDleSilyArmady' type=button onclick='silaarmady(5)'><br>
                 <input value='Obětiště obsazené démony' class='promenneDleSilyArmady' type=button onclick='silaarmady(6)'><br><br>
+                </div>
 
 
-                <b>Démoni</b><br><br>
+                <div id="sekceDemoni"><a onclick="simulovatCelouSekci('sekceDemoni')"><b>Démoni</b></a><br><br>
                 <input value='Dh&#039; Arok' type=button onclick='pole("2000 x Otrok s kopím\n2000 x Otrok s kopím\n2000 x Otrok s kopím\n10 x Těžký katapult\n50 x Ohnivý démon")'><br>
                 <input value='Dh&#039; Ragh' type=button onclick='pole("100 x Plamenný démon s bičem\n100 x Plamenný démon s bičem\n1000 x Otrok s kopím\n1000 x Otrok s kopím\n1 x Plamenný démon arcimág")'><br>
                 <input value='Dh&#039; Karn' type=button onclick='pole("70 x Plamenný démon\n50 x Plamenný démon s bičem\n20 x Plamenný démon mág\n1 x Plamenný démon arcimág\n1 x Plamenný démon arcimág")'><br>
@@ -271,7 +282,7 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                 <input style='color:gold' value='Dr&#039; Seharon' type=button onclick='pole("100 x Démon Mág Krvavého Měsíce\n2,500 x Stínový jezdec\n5,000 x Stínový válečník\n200 x Stínový obr\n10,000 x Stínový mág démonů")'><br>
                 <input style='color:gold' value='Dra&#039; Astuer' type=button onclick='pole("100 x Démon Kněz Krvavého Měsíce\n800 x Démon Jezdec\n400 x Démon Těžký Jezdec\n800 x Plamenný démon\n300 x Plamenný démon mág")'><br>
                 <input style='color:gold' value='Tel&#039; Osroxas' type=button onclick='pole("200 x Démon Kněz Krvavého Měsíce\n200 x Démon Mág Krvavého Měsíce\n1,000 x Démon Jezdec\n500 x Démon Těžký Jezdec\n500 x Stínový obr")'><br>
-
+                </div>
 
                 <br>
                 <input value='Pevnost démonů 01' type=button onclick='pole("10000 x Otrok s kopím\n10000 x Otrok s oštěpy\n10000 x Otrok štítonoš\n200 x Katapult\n200 x Těžká balista\n10 x Ohnivý imp")'><br>
@@ -281,7 +292,7 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
             </td>
 
             <td>
-                <b style='color:gray'>Bonusy</b><br><br>
+                <div id="sekceBonusy"><a onclick="simulovatCelouSekci('sekceBonusy')"><b style='color:gray'>Bonusy</b></a><br><br>
                 <!--Old: <input value='Přidat otroky' type=button onclick='pridej("\n1000 x Otrok s kopím\n1000 x Otrok s oštěpy\n1000 x Otrok štítonoš")'><br>-->
                 <!--Old: <input value='Přidat zdi imperátorova paláce' type=button onclick='pridej("\n30 x Kamenná hradba\n10 x Kamenná věž\n5 x Věž s balistou")'><br>-->
                 <!--Broken: <input style='color:gold' value='Zobrazit klan - Hell' type=button onclick='hraci("hell")'><br>-->
@@ -300,9 +311,11 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                 <input style='color:gray' value='Vulkánův nejsvětější svatostánek' type=button onclick='pole("1 x flamekeeper lord\n1 x ohnivý zplozenec\n5 x magmatický obr\n10 x ohnivý přízrak\n10 x ohnivý obr\n50 x flamekeeper\n1000 x magmatický golem\n5000 x vulkánův válečník\n50000 x vulkánův kněz\n100000 x vulkánův přívrženec\n500000 x Fanatický vulkánův přívrženec")'><br>
                 <input style='color:gray' value='Vulkánův speciál' type=button onclick='pole("1 x Vulkán bůh ohně\n10 x Ohnivý zplozenec\n40 x Nižší ohnivý splozenec\n50 x Flamekeeper lord\n50 x Vulkánův generál\n100 x magmatický obr\n200 x Ohnivý přízrak\n600 x ohnivý obr\n2000 x Ohnivá zeď\n2000 x flamekeeper\n10000 x ohnivý golem\n10000 x lávový golem\n10000 x magmatický golem\n15000 x ohnivý služebník\n30000 x Ohnivý Fénix\n40000 x efreet\n100000 x arcimág ohně\n100000 x Vulkánův elitní válečník(Válečné bubny)\n100000 x Vulkánův kněz\n500000 x Vulkánův válečník\n500000 x mág ohně(Dalekohled)\n1000000 x Vulkánův přívrženec\n2000000 x Fanatický vulkánův přívrženec(Ohnivá palisáda)")'><br>
                 <input style='color:gray' value='Temné pobřeží' type=button onclick='pole("1 x Pán vod\n2 x Worloo\n50 x Vodní drak\n3250 x Temná sépie\n8500 x Oživlá voda\n12500 x Strážce moří\n14655 x Virgo")'><br><br>
+                </div>
 
-                <b style='color:gray'>Císařské armády</b><br><br>
+                <div id="sekce"><a onclick="simulovatCelouSekci('sekce')"><b style='color:gray'>Císařské armády</b></a><br><br>
                 <input style='color:gray' value='květen 2015 (rip001)' type=button onclick='pole("1 x Generál starého impéria (Ohnivá róba)\n1 x Generál starého impéria\n200 x Kapitán elitních střelců starého impéria\n1 x Generál starého impéria (Ohnivá róba)\n200 x Kapitán rytířů starého impéria\n5,000 x Elitní střelec starého impéria\n5,000 x Rytíř starého impéria\n500 x Kapitán střelců starého impéria\n60 x Železný orel - MK1 (Hůlka ledu)\n3,602 x Elfí lučištník (Bronzový meč)\n10,000 x Střelec starého impéria\n155,798 x Elfí elitní lučištník (Težká bojová sekyra)\n1 x Posvátný jednorožec (Kalich ohně)\n20,000 x Elfí hraničář (Prapor krvavého šílenství)\n519 x Jednorožec (Kouzelnická róba)\n50 x Plukovník pěšaků starého impéria\n6 x Prokletý Obr (Prokletá kouzelnická róba)\n1 x Místodržící\n720 x Ohnivý Služebník (Dralgarův Totem života)\n800 x Kapitán pěšáků starého impéria\n4 x Ohnivý Obr\n30 x Plukovník těžkých pěšaků starého impéria\n5 x Ledový obr (Atherův ledový prapor)\n500 x Kapitán těžkých pěšáků starého impéria\n40,000 x Pěšák starého impéria\n20,000 x Těžký pěšák starého impéria\n6,308 x Lesní Bizon (Vulkánův ohnivý prapor)\n1,000 x Železný škopion (Težká bojová sekyra)\n1,080 x Ledový Přízrak (Kalich ohně)\n68,564 x Veledruid (Prapor starého druidského cechu)\n122,520 x Otrok s oštěpy (Dralgarův Totem života)\n204,574 x Žebrák (Kalich ohně)\n5,718 x Odpadlík (Kalich ohně)\n2,601 x Druid (Kalich ohně)\n44 x Lesní obr (Dralgarův Totem života)\n263,030 x Růžové prasátko (Kalich ohně)\n142,620 x Otrok s kopím (Dralgarův Totem života)\n600 x Železný Golem (Tvrzené ocelové pláty)\n200 x Starodávný Ent\n690,457 x Ozbrojený vesničan (Pírko z anděla)\n131,320 x Otrok štítonoš (Dralgarův Totem života)\n27,362 x Hnijící vesničan (Kalich ohně)\n1,135 x Těžká balista (Atherův ledový prapor)\n200 x Poloautomatická socha (Tvrzené ocelové pláty)")'><br>
+                </div>
             </td>
         </tr>
     </table>
