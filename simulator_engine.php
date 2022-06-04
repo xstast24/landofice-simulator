@@ -92,7 +92,7 @@ class Jednotka {
 
 	#Konstruktor jednotek
 
-	function Jednotka($id, $nazev, $pocet, $strana, $vyvolana, $barva, $art) {
+	function __construct($id, $nazev, $pocet, $strana, $vyvolana, $barva, $art) {
 
 		global $xml; $nazev=(trim($nazev));
 		
@@ -964,8 +964,8 @@ class Jednotka {
 				$jednotka[$id]->ini *= ($posileni / 100 + 1);
 				$jednotka[$id]->dmg *= ($posileni / 100 + 1);
 				$jednotka[$id]->zaokrouhlit();
-				$poradi[$id][ini] = $jednotka[$id]->ini;
-				$poradi[$id][id] = $jednotka[$id]->id;
+				$poradi[$id]['ini'] = $jednotka[$id]->ini;
+				$poradi[$id]['id'] = $jednotka[$id]->id;
 			}
 			$id++;
 		}
@@ -1235,9 +1235,9 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 
 			$jednotka[$id]->zaokrouhlit();
 
-			$poradi[$id][ini] = $jednotka[$id]->ini;
+			$poradi[$id]['ini'] = $jednotka[$id]->ini;
 
-			$poradi[$id][id] = $jednotka[$id]->id;
+			$poradi[$id]['id'] = $jednotka[$id]->id;
 
 			}
 
@@ -1372,8 +1372,8 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 		
 		while($jednotka[$id]){
 			if($jednotka[$id]->strana==$this->strana){
-				$poradi[$id][obdrzela_dmg] = $jednotka[$id]->obdrzela_dmg;
-				$poradi[$id][id] = $jednotka[$id]->id;
+				$poradi[$id]['obdrzela_dmg'] = $jednotka[$id]->obdrzela_dmg;
+				$poradi[$id]['id'] = $jednotka[$id]->id;
 			}
 			$id++;
 		}
@@ -1383,7 +1383,7 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 		$vyleceno;
 
 	  	while($a<count($jednotka)){
-	  		$id = $poradi[$a][id];
+	  		$id = $poradi[$a]['id'];
 
 			if($jednotka[$id]->strana==$this->strana and $jednotka[$id]->celkem_zivotu > 0 and $jednotka[$id]->id != $this->id and 
 			   $jednotka[$id]->celkem_zivotu < $jednotka[$id]->poc_celkem_zivotu){//jednotka nemůže léčit sama sebe
@@ -1444,8 +1444,8 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 		while($jednotka[$id]){
 
 			if($jednotka[$id]->strana==$this->strana){
-			$poradi[$id][obdrzela_dmg] = $jednotka[$id]->obdrzela_dmg;
-			$poradi[$id][id] = $jednotka[$id]->id;
+			$poradi[$id]['obdrzela_dmg'] = $jednotka[$id]->obdrzela_dmg;
+			$poradi[$id]['id'] = $jednotka[$id]->id;
 			
 			}
 		$id++;
@@ -1458,7 +1458,7 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 		$vyleceno;
 	  while($a<count($jednotka)){
 	  
-	  	$id = $poradi[$a][id];
+	  	$id = $poradi[$a]['id'];
 
 			if($jednotka[$id]->strana==$this->strana and $jednotka[$id]->celkem_zivotu > 0 and $jednotka[$id]->id != $this->id and $jednotka[$id]->celkem_zivotu < $jednotka[$id]->poc_celkem_zivotu){//jednotka nemůže léčit sama sebe
 			
@@ -1495,8 +1495,8 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 		while($jednotka[$id]){
 
 			if($jednotka[$id]->strana!=$this->strana){ //hledáme v seznamu jednotek protistrany
-			$poradi[$id][hod] = $jednotka[$id]->hod; //tu s nejvyšší hodnotou
-			$poradi[$id][id] = $jednotka[$id]->id;
+			$poradi[$id]['hod'] = $jednotka[$id]->hod; //tu s nejvyšší hodnotou
+			$poradi[$id]['id'] = $jednotka[$id]->id;
 			
 			}
 		$id++;
@@ -1508,7 +1508,7 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 		$a=0;
 	  while($a<count($jednotka)){
 	  
-	  	$id = $poradi[$a][id];
+	  	$id = $poradi[$a]['id'];
 
 			if($jednotka[$id]->strana!=$this->strana and $jednotka[$id]->celkem_zivotu > 0 ){//vytvoří se kopie živé nepřátelské jednotky
 			
@@ -1627,9 +1627,9 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 
 			$jednotka[$id]->ini=0;
 
-			$poradi[$id][ini] = $jednotka[$id]->ini;
+			$poradi[$id]['ini'] = $jednotka[$id]->ini;
 
-			$poradi[$id][id] = $jednotka[$id]->id;
+			$poradi[$id]['id'] = $jednotka[$id]->id;
 
 			}
 
@@ -1739,67 +1739,67 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 
     switch($i){
 
-          case 1: if($this->schopnosti[stec] > 0){$n = "Steč"; $zkr = stec;$e++;} break;
+          case 1: if($this->schopnosti['stec'] > 0){$n = "Steč"; $zkr = 'stec';$e++;} break;
 
-          case 2: if($this->schopnosti[slayer] == 1){$n = "Slayer"; $zkr = nic;$e++;} break;
+          case 2: if($this->schopnosti['slayer'] == 1){$n = "Slayer"; $zkr = 'nic';$e++;} break;
 
-          case 3: if($this->schopnosti[magieLesa] > 0){$n = "Magie Lesa"; $zkr = magieLesa;$e++;} break;
+          case 3: if($this->schopnosti['magieLesa'] > 0){$n = "Magie Lesa"; $zkr = 'magieLesa';$e++;} break;
 
-          case 4: if($this->schopnosti[magieZeme] > 0){$n = "Magie Země"; $zkr = magieZeme;$e++;} break;
+          case 4: if($this->schopnosti['magieZeme'] > 0){$n = "Magie Země"; $zkr = 'magieZeme';$e++;} break;
 
-          case 5: if($this->schopnosti[magieLedu] > 0){$n = "Magie Ledu"; $zkr = magieLedu;$e++;} break;
+          case 5: if($this->schopnosti['magieLedu'] > 0){$n = "Magie Ledu"; $zkr = 'magieLedu';$e++;} break;
 
-          case 6: if($this->schopnosti[magieOhne] > 0){$n = "Magie Ohně"; $zkr = magieOhne;$e++;} break;
+          case 6: if($this->schopnosti['magieOhne'] > 0){$n = "Magie Ohně"; $zkr = 'magieOhne';$e++;} break;
 
-          case 7: if($this->schopnosti[magieSmrti] > 0){$n = "Magie Smrti"; $zkr = magieSmrti;$e++;} break;
+          case 7: if($this->schopnosti['magieSmrti'] > 0){$n = "Magie Smrti"; $zkr = 'magieSmrti';$e++;} break;
 
-          case 8: if($this->schopnosti[magieSvetla] > 0){$n = "Magie Světla"; $zkr = magieSvetla;$e++;} break;
+          case 8: if($this->schopnosti['magieSvetla'] > 0){$n = "Magie Světla"; $zkr = 'magieSvetla';$e++;} break;
 
-          case 9: if($this->schopnosti[sebevrazedna] > 0){$n = "Sebevražedná"; $zkr = nic;$e++;} break;
+          case 9: if($this->schopnosti['sebevrazedna'] > 0){$n = "Sebevražedná"; $zkr = 'nic';$e++;} break;
 
-          case 10: if($this->pocetUtoku > 1){$n = "Multiútok "; $zkr = multiutok;$e++;} break;
+          case 10: if($this->pocetUtoku > 1){$n = "Multiútok "; $zkr = 'multiutok';$e++;} break;
 
-          case 11: if($this->schopnosti[ohnivyStit] > 0){$n = "Ohnivý štít"; $zkr = ohnivyStit;$e++;} break;
+          case 11: if($this->schopnosti['ohnivyStit'] > 0){$n = "Ohnivý štít"; $zkr = 'ohnivyStit';$e++;} break;
 
-          case 12: if($this->schopnosti[ledovyStit] > 0){$n = "Ledový štít"; $zkr = ledovyStit;$e++;} break;
+          case 12: if($this->schopnosti['ledovyStit'] > 0){$n = "Ledový štít"; $zkr = 'ledovyStit';$e++;} break;
 
-          case 13: if($this->schopnosti[toxickyStit] > 0){$n = "Toxický štít"; $zkr = toxickyStit;$e++;} break;
+          case 13: if($this->schopnosti['toxickyStit'] > 0){$n = "Toxický štít"; $zkr = 'toxickyStit';$e++;} break;
 
-          case 14: if($this->schopnosti[drtivyUtok] > 0){$n = "Drtivý útok"; $zkr = drtivyUtok;$e++;} break;
+          case 14: if($this->schopnosti['drtivyUtok'] > 0){$n = "Drtivý útok"; $zkr = 'drtivyUtok';$e++;} break;
 
-          case 15: if($this->schopnosti[svatyUtok] > 0){$n = "Svatý útok"; $zkr = svatyUtok;$e++;} break;
+          case 15: if($this->schopnosti['svatyUtok'] > 0){$n = "Svatý útok"; $zkr = 'svatyUtok';$e++;} break;
 
-          case 16: if($this->schopnosti[jedovyUtok] > 0){$n = "Jed"; $zkr = jedovyUtok;$e++;} break;
+          case 16: if($this->schopnosti['jedovyUtok'] > 0){$n = "Jed"; $zkr = 'jedovyUtok';$e++;} break;
 
-          case 17: if($this->schopnosti[dav] > 0){$n = "Dav"; $zkr = nic;$e++;} break;
+          case 17: if($this->schopnosti['dav'] > 0){$n = "Dav"; $zkr = 'nic';$e++;} break;
 
-          case 18: if($this->schopnosti[exterminace] > 0){$n = "Exterminace"; $zkr = nic;$e++;} break;
+          case 18: if($this->schopnosti['exterminace'] > 0){$n = "Exterminace"; $zkr = 'nic';$e++;} break;
 
-          case 19: if($this->schopnosti[imunitaOhen] > 0){$n = "Imunita na oheň"; $zkr = nic;$e++;} break;
+          case 19: if($this->schopnosti['imunitaOhen'] > 0){$n = "Imunita na oheň"; $zkr = 'nic';$e++;} break;
 
-          case 20: if($this->schopnosti[sabotaz] > 0){$n = "Sabotér"; $zkr = nic;$e++;} break;
+          case 20: if($this->schopnosti['sabotaz'] > 0){$n = "Sabotér"; $zkr = 'nic';$e++;} break;
 
-          case 21: if($this->schopnosti[temnykrik] > 0){$n = "Temný křik"; $zkr = nic;$e++;} break;
+          case 21: if($this->schopnosti['temnykrik'] > 0){$n = "Temný křik"; $zkr = 'nic';$e++;} break;
 
-          case 22: if($this->schopnosti[vzkryseni] > 0){$n = "Vzkříšení"; $zkr = nic;$e++;} break;
+          case 22: if($this->schopnosti['vzkryseni'] > 0){$n = "Vzkříšení"; $zkr = 'nic';$e++;} break;
 
-          case 23: if($this->schopnosti[staze] == 1){$n = "Prastará magie"; $zkr = nic;$e++;} break;
+          case 23: if($this->schopnosti['staze'] == 1){$n = "Prastará magie"; $zkr = 'nic';$e++;} break;
 
-          case 24: if($this->schopnosti[magieEternanu] > 0){$n = "Eternanská magie"; $zkr = magieEternanu;$e++;} break;
+          case 24: if($this->schopnosti['magieEternanu'] > 0){$n = "Eternanská magie"; $zkr = 'magieEternanu';$e++;} break;
 
-		      case 25: if($this->schopnosti[magieVody] > 0){$n = "Magie vody"; $zkr = magieVody;$e++;} break;
+		      case 25: if($this->schopnosti['magieVody'] > 0){$n = "Magie vody"; $zkr = 'magieVody';$e++;} break;
 		      
-		      case 26: if($this->schopnosti[imunitaMagie] > 0) {$n = "Imunita proti Magii"; $zkr = imunitaMagie;$e++;}break;
+		      case 26: if($this->schopnosti['imunitaMagie'] > 0) {$n = "Imunita proti Magii"; $zkr = 'imunitaMagie';$e++;}break;
 		      
-		      case 27: if($this->schopnosti[imunitaLed] > 0) {$n = "Imunita proti Ledu"; $zkr = imunitaLed;$e++;}break;
+		      case 27: if($this->schopnosti['imunitaLed'] > 0) {$n = "Imunita proti Ledu"; $zkr = 'imunitaLed';$e++;}break;
 		      
-		      case 28: if($this->schopnosti[silaGoblinu] > 0){$n = "Síla goblinů"; $zkr = silaGoblinu;$e++;} break;
+		      case 28: if($this->schopnosti['silaGoblinu'] > 0){$n = "Síla goblinů"; $zkr = 'silaGoblinu';$e++;} break;
 		      
-		      case 29: if($this->schopnosti[konstrukce] > 0){$n = "Konstrukce"; $zkr = konstrukce;$e++;} break;
+		      case 29: if($this->schopnosti['konstrukce'] > 0){$n = "Konstrukce"; $zkr = 'konstrukce';$e++;} break;
 		      
-		      case 30: if($this->schopnosti[kanibalizmus] > 0){$n = "Kanibalizmus"; $zkr = kanibalizmus;$e++;} break;
+		      case 30: if($this->schopnosti['kanibalizmus'] > 0){$n = "Kanibalizmus"; $zkr = 'kanibalizmus';$e++;} break;
 		      
-		      case 31: if($this->schopnosti[magiePrastarych] > 0){$n = "Magie Prastarých"; $zkr = magiePrastarych;$e++;} break;
+		      case 31: if($this->schopnosti['magiePrastarych'] > 0){$n = "Magie Prastarých"; $zkr = 'magiePrastarych';$e++;} break;
 
 		      
 		      
@@ -2411,9 +2411,9 @@ function aktualizaceInic(){
 
 	while($poradi[$id]){
 
-		$poradi[$id][ini] = $jednotka[$id]->ini;
+		$poradi[$id]['ini'] = $jednotka[$id]->ini;
 
-		$poradi[$id][id] = $jednotka[$id]->id;
+		$poradi[$id]['id'] = $jednotka[$id]->id;
 
 		$id++;
 
@@ -2454,7 +2454,10 @@ function parsekJednotky($zdroj, $strana, $barva){
 
 		if(similar_text("velitel klanu",$nazevJednotky)==13) $nazevJednotky="Generál starého impéria";
 
-		$indexTridy = count($jednotka);
+		if (empty($jednotka))
+			$indexTridy = 0;
+		else
+			$indexTridy = count($jednotka);
 
 		$jednotka[$indexTridy] = new Jednotka($indexTridy, $nazevJednotky, $pocetJednotek, $strana, 0, $barva, $art);
 
@@ -2468,7 +2471,7 @@ function parsekJednotky($zdroj, $strana, $barva){
 
 function seradit($orderby){
 
-	$sortarray="";$val="";global $poradi;
+	$sortarray;$val="";global $poradi;
 
 	FOREACH ($poradi AS $val)
 
@@ -2494,13 +2497,13 @@ function najit($nazevHodnoty, $hodnota){
 
 	$a=0;
 
-	$id = $poradi[$a][id];
+	$id = $poradi[$a]['id'];
 
 	while($a<count($jednotka)){
 
-		if($jednotka[$id]->$nazevHodnoty == $hodnota || $jednotka[$id]->celkem_zivotu <= 0 ) {$a++;$id = $poradi[$a][id];}
+		if($jednotka[$id]->$nazevHodnoty == $hodnota || $jednotka[$id]->celkem_zivotu <= 0 ) {$a++;$id = $poradi[$a]['id'];}
 
-		else {$id = $poradi[$a][id];break;}
+		else {$id = $poradi[$a]['id'];break;}
 
 		}
 
@@ -2554,11 +2557,11 @@ $a=0;
 
 while($jednotka[$a]){
 
-	$poradi[$a][ini] = $jednotka[$a]->ini;
+	$poradi[$a]['ini'] = $jednotka[$a]->ini;
 
-	$poradi[$a][celkem_zivotu] = $jednotka[$a]->celkem_zivotu;
+	$poradi[$a]['celkem_zivotu'] = $jednotka[$a]->celkem_zivotu;
 
-	$poradi[$a][id] = $jednotka[$a]->id;
+	$poradi[$a]['id'] = $jednotka[$a]->id;
 
 	$strana=$jednotka[$a]->strana;
 
@@ -2695,11 +2698,11 @@ while($aktualniKolo<=$pocetKol){
 
 						while($jednotka[$idx]){
 
-							$poradi[$idx][ini] = $jednotka[$idx]->ini;
+							$poradi[$idx]['ini'] = $jednotka[$idx]->ini;
 
-							$poradi[$idx][celkem_zivotu] = $jednotka[$idx]->celkem_zivotu;
+							$poradi[$idx]['celkem_zivotu'] = $jednotka[$idx]->celkem_zivotu;
 
-							$poradi[$idx][id] = $jednotka[$idx]->id;$idx++;
+							$poradi[$idx]['id'] = $jednotka[$idx]->id;$idx++;
 
 							}
 
@@ -2834,9 +2837,9 @@ while($aktualniKolo<=$pocetKol){
 
 		while($jednotka[$a]){
 
-			$poradi[$a][ini] = $jednotka[$a]->ini;
+			$poradi[$a]['ini'] = $jednotka[$a]->ini;
 
-			$poradi[$a][id] = $jednotka[$a]->id;
+			$poradi[$a]['id'] = $jednotka[$a]->id;
 
 			$a++;
 
@@ -2852,7 +2855,7 @@ while($aktualniKolo<=$pocetKol){
 
 	$a=0;
 
-	$zmena="";
+	$zmena=[];
 
 	while($jednotka[$a]){
 
@@ -2860,9 +2863,9 @@ while($aktualniKolo<=$pocetKol){
 
 		$jednotka[$a]->obnovitIni();
 
-		$poradi[$a][ini] = $jednotka[$a]->ini;
+		$poradi[$a]['ini'] = $jednotka[$a]->ini;
 
-		$poradi[$a][id] = $jednotka[$a]->id;
+		$poradi[$a]['id'] = $jednotka[$a]->id;
 
 		$strana=$jednotka[$a]->strana;
 
@@ -2890,7 +2893,10 @@ while($aktualniKolo<=$pocetKol){
 
 	}
 
-$a=0;$hodnota="";$ataker="";$defender="";
+$a=0;
+$hodnota=[];
+$ataker="";
+$defender="";
 
 while($jednotka[$a]){
 
