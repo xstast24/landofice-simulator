@@ -9,6 +9,7 @@ fi
 
 RELEASE_FILES=(
   images
+  src
   ajax.js
   ajax-loader.gif
   api.php

@@ -3,7 +3,7 @@
 # use 0.0.0.0, because "localhost" might fail to connect in some cases, see https://stackoverflow.com/a/38570561/7684041
 HOST = "0.0.0.0"
 PORT = "8069"
-PHP_VERSION = "5.6"
+PHP_VERSION = "7.4"
 DOCKER_IMAGE_NAME = "php:$(PHP_VERSION)-alpine"
 CURRENT_DIRECTORY = $(shell pwd)
 
