@@ -7,12 +7,12 @@ const BARVA_OBRANCE = 'white' //barva pouzita ve vypisech bitvy pro akce/vysledk
 const BARVA_SOUHRN_KOLA = '#C0C0C0' //barva pouzita ve vypisech bitvy pro souhrn kola (na konci kazdeho kola pod utoky)
 
 
-function startLoadingAnimation() {
-    const animation = "<div style='position:absolute;top:400px;width:95%'><center><img style='margin:auto;background:black;padding-left:40px;padding-right:40px;border-radius:15px;box-shadow: 0 0 4px white' src='ajax-loader.gif'><center><div>";
-    document.getElementById("obrazek").innerHTML = animation;
+function showLoadingAnimation() {
+    const loader = document.getElementById("obrazek")
+    loader.innerHTML = "<div style='position:absolute;top:400px;width:95%'><img src='ajax-loader.gif' alt='Loading...' style='margin:auto;background:black;padding: 0 40px 0 40px;border-radius:15px;box-shadow: 0 0 4px white'><div>";
 }
 
-function stopLoadingAnimation() {
+function hideLoadingAnimation() {
     document.getElementById("obrazek").innerHTML = '';
 }
 

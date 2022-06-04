@@ -27,7 +27,7 @@ var xmlhttp = new getXMLObject();	//xmlhttp holds the ajax object
 
 
 function ajaxFunction() {
-    startLoadingAnimation()
+    showLoadingAnimation()
 
     var ut;
 
@@ -54,7 +54,7 @@ function ajaxFunction() {
 
 function handleServerResponse() {
     if (xmlhttp.readyState == 4) {
-        stopLoadingAnimation()
+        hideLoadingAnimation()
         if (xmlhttp.status == 200) {
             document.getElementById("result").innerHTML = xmlhttp.responseText;
         } else {
@@ -65,8 +65,9 @@ function handleServerResponse() {
 
 
 function zobrazit() {
-    // zobrazi seznam vsech eventu, kde si hrac muze vybrat
-    if (document.getElementById("eventy").style.display == 'none') {document.getElementById("eventy").style.display = 'block';} else document.getElementById("eventy").style.display = 'none';
+    // zobrazi/skryje seznam vsech eventu, kde si hrac muze vybrat
+    const seznamEventu = document.getElementById("eventy")
+    seznamEventu.style.display === 'none' ? seznamEventu.style.display = 'block' : seznamEventu.style.display = 'none'
 }
 
 
@@ -94,7 +95,8 @@ function selectButton(el) {
 
 
 function aktivniPole() {
-    return document.getElementById("selectionButon1").getAttribute('class') === 'selectionButtonActive' ? document.getElementById('ut') : document.getElementById('ob');
+    let pole = document.getElementById("selectionButon1").getAttribute('class') === 'selectionButtonActive' ? 'ut' : 'ob'
+    return document.getElementById(pole)
 }
 
 function pole(obsah) {
@@ -181,7 +183,7 @@ function silaarmady(el) {
 
 /**Simuluje utok armadou utocnika na vsechny eventy ze sekce a vypise vysledky.*/
 async function simulovatCelouSekci(nazevSekce) {
-    startLoadingAnimation()
+    showLoadingAnimation()
     const casZacatku = Date.now()
 
     const sekce = document.getElementById(nazevSekce)
@@ -199,7 +201,7 @@ async function simulovatCelouSekci(nazevSekce) {
     }
 
     zobrazSouhrnVysledku(souhrnVysledku)
-    stopLoadingAnimation()
+    hideLoadingAnimation()
 
     function zobrazSouhrnVysledku(souhrnnyElement) {
         souhrnnyElement.appendChild(document.createElement('br'))
