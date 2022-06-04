@@ -27,7 +27,7 @@ var xmlhttp = new getXMLObject();	//xmlhttp holds the ajax object
 
 
 function ajaxFunction() {
-    document.getElementById("obrazek").innerHTML = "<div style='position:absolute;top:400px;width:95%'><center><img style='margin:auto;background:black;padding-left:40px;padding-right:40px;border-radius:15px;box-shadow: 0 0 4px white' src='ajax-loader.gif'><center><div>";
+    showLoadingAnimation()
 
     var ut;
 
@@ -54,13 +54,10 @@ function ajaxFunction() {
 
 function handleServerResponse() {
     if (xmlhttp.readyState == 4) {
+        hideLoadingAnimation()
         if (xmlhttp.status == 200) {
-            document.getElementById("obrazek").innerHTML = "";
-
             document.getElementById("result").innerHTML = xmlhttp.responseText;
         } else {
-            document.getElementById("obrazek").innerHTML = "";
-
             alert("Error during AJAX call. Please try again");
         }
     }
@@ -68,8 +65,9 @@ function handleServerResponse() {
 
 
 function zobrazit() {
-    // zobrazi seznam vsech eventu, kde si hrac muze vybrat
-    if (document.getElementById("eventy").style.display == 'none') {document.getElementById("eventy").style.display = 'block';} else document.getElementById("eventy").style.display = 'none';
+    // zobrazi/skryje seznam vsech eventu, kde si hrac muze vybrat
+    const seznamEventu = document.getElementById("eventy")
+    seznamEventu.style.display === 'none' ? seznamEventu.style.display = 'block' : seznamEventu.style.display = 'none'
 }
 
 
@@ -97,7 +95,8 @@ function selectButton(el) {
 
 
 function aktivniPole() {
-    return document.getElementById("selectionButon1").getAttribute('class') === 'selectionButtonActive' ? document.getElementById('ut') : document.getElementById('ob');
+    let pole = document.getElementById("selectionButon1").getAttribute('class') === 'selectionButtonActive' ? 'ut' : 'ob'
+    return document.getElementById(pole)
 }
 
 function pole(obsah) {
@@ -179,4 +178,121 @@ function pleneni(el) {
 
 function silaarmady(el) {
     ajaxFunction4(el);
+}
+
+
+/**Simuluje utok armadou utocnika na vsechny eventy ze sekce a vypise vysledky.*/
+async function simulovatCelouSekci(nazevSekce) {
+    showLoadingAnimation()
+    const casZacatku = Date.now()
+
+    const sekce = document.getElementById(nazevSekce)
+    const eventy = sekce.getElementsByTagName('input')
+    const armadaUtocnika = getAttackerArmy()
+    const pocetOpakovaniPerEvent = 3 //kazdy utok se opakuje a vezme se nejhorsi vysledek, aby se zabranilo falesne pozitivnimu vysledku pri velke nahode
+    //TODO pocet opakovani ridit configem
+
+    let souhrnVysledku = document.createElement('div')
+    for (const event of eventy) {
+        const armadaObrance = prectiArmaduEventu(event) //vraci null pro dynamicke armady (napr. modre pleneni) - at si je hrac simuluje radeji rucne
+        const vysledek = armadaObrance === null ? null : await ziskejNejhorsiVsledekSimulace(armadaUtocnika, armadaObrance, pocetOpakovaniPerEvent)
+        souhrnVysledku.appendChild(vytvorVyslednyElement(event, await vysledek))
+        souhrnVysledku.appendChild(document.createElement('br'))
+    }
+
+    zobrazSouhrnVysledku(souhrnVysledku)
+    hideLoadingAnimation()
+
+    function zobrazSouhrnVysledku(souhrnnyElement) {
+        souhrnnyElement.appendChild(document.createElement('br'))
+        souhrnnyElement.appendChild(document.createElement('br'))
+
+        //vytvori dodatecny popis/vysvetleni simulace
+        const dodatecneInfo = document.createElement('span')
+        dodatecneInfo.textContent = `Každý event byl simulován ${pocetOpakovaniPerEvent}x, zobrazen nejhorší výsledek. Náhoda ale může způsobit i horší výsledky -> raději ručně ověřit.`
+        dodatecneInfo.style.color = BARVA_SOUHRN_KOLA
+        souhrnnyElement.appendChild(dodatecneInfo)
+
+        const casBehu = ((Date.now() - casZacatku) / 1000) //ms -> s
+        const infoCasBehu = document.createElement('span')
+        infoCasBehu.textContent = `${casBehu}s`
+        infoCasBehu.style.color = BARVA_SOUHRN_KOLA
+        souhrnnyElement.appendChild(document.createElement('br'))
+        souhrnnyElement.appendChild(infoCasBehu)
+
+        document.getElementById("result").innerHTML = souhrnnyElement.innerHTML; //nestaci jen appendChild(), protoze potrebujeme prepsat existujici obsah
+    }
+
+    function vytvorVyslednyElement(event, vysledek) {
+        const kontejner = document.createElement('div')
+        //vytvor nadpis eventu
+        const jmenoEventu = document.createElement('span')
+        jmenoEventu.textContent = event.value //event.value obsahuje jmeno eventu
+        jmenoEventu.style.fontWeight = 'bold'
+        jmenoEventu.style.fontSize = 'large'
+        kontejner.appendChild(jmenoEventu)
+        kontejner.appendChild(document.createElement('br'))
+        //vytvor informace o vysledku
+        if (vysledek === null) {
+            const infoPreskoceniEventu = document.createElement('span')
+            infoPreskoceniEventu.textContent = 'Přeskočeno. Armádu eventu je dynamická (např. závislá na počtu dobytí).'
+            infoPreskoceniEventu.style.color = BARVA_SOUHRN_KOLA
+            kontejner.appendChild(infoPreskoceniEventu)
+        } else {
+            jmenoEventu.style.color = vysledek.obrance.hodnotaPrezilo < 100 ? 'green' : 'white' //uspesne dobyty event bude mit zelene jmeno
+            const vysledekUtocnik = document.createElement('span')
+            vysledekUtocnik.textContent = `Celkem hodnota zabité armády: ${vysledek.utocnik.hodnotaZabito}/${vysledek.utocnik.hodnotaCelkem}`
+            vysledekUtocnik.style.color = BARVA_UTOCNIK
+            const vysledekUtocnikProcento = document.createElement('span')
+            vysledekUtocnikProcento.textContent = ` (${vysledek.utocnik.procentoZtraty.toFixed(2)}%)`;
+            vysledekUtocnikProcento.style.fontWeight = 'bold'
+            vysledekUtocnikProcento.style.color = BARVA_UTOCNIK
+
+            const vysledekObrance = document.createElement('span')
+            vysledekObrance.textContent = `Celkem hodnota zabité armády: ${vysledek.obrance.hodnotaZabito}/${vysledek.obrance.hodnotaCelkem}`;
+            vysledekObrance.style.color = BARVA_OBRANCE
+            const vysledekObranceProcento = document.createElement('span')
+            vysledekObranceProcento.textContent = ` (${vysledek.obrance.procentoZtraty.toFixed(2)}%)`;
+            vysledekObranceProcento.style.fontWeight = 'bold'
+            vysledekObranceProcento.style.color = BARVA_OBRANCE
+
+            kontejner.appendChild(vysledekUtocnik)
+            kontejner.appendChild(vysledekUtocnikProcento)
+            kontejner.appendChild(document.createElement('br'))
+            kontejner.appendChild(vysledekObrance)
+            kontejner.appendChild(vysledekObranceProcento)
+        }
+
+        return kontejner
+    }
+
+    function prectiArmaduEventu(event) {
+        const onclickValue = event.getAttribute('onclick')
+        if (onclickValue.startsWith('pole(')) {
+            const armada = onclickValue.replace(/^pole\(['"]/, '').replace(/['"]\)$/, ''); //pole("armada") --> armada
+            return reformatArmyString(armada.replace(/\\n/g, '\n')) //nahradi znaky '\n' symbolem noveho radku (bylo nacteno ze stringu, takze to byly jen znaky);
+        }
+        else return null; //dynamicke hodnoty armady, napr. pleneni dle poctu dobyti -> preskocit
+        //TODO ziskat armadu kdyz je zavisla na sile utocnika
+        // - silu mam k dispozici (dopocitam z fejk utoku na 1 x ruzove prasatko) a jde ziskat stejne jako vysledek bitvy pres fetch (viz ajaxFunction3 a runEngineSimulation)
+    }
+
+    async function ziskejNejhorsiVsledekSimulace(armadaUtocnika, armadaObrance, opakovani) {
+        let nejhorsi = null
+        for (let i=0; i<opakovani; i++) {
+            let vysledek = await getBattleResults(armadaUtocnika, armadaObrance)
+            console.log('vysl', vysledek)
+            // Nejhorsi vysledek je nejmene zabitych obrancu. Pokud je zabitych stejne (napr. oba utoky 100% uspech), tak potom je horsi vetsi ztrata utocnika
+            if (nejhorsi == null) {
+                nejhorsi = vysledek
+            } else {
+                if (vysledek.obrance.hodnotaPrezilo > nejhorsi.obrance.hodnotaPrezilo) {
+                    nejhorsi = vysledek;
+                } else if (vysledek.obrance.hodnotaPrezilo === nejhorsi.obrance.hodnotaPrezilo) {
+                    if (vysledek.utocnik.hodnotaPrezilo < nejhorsi.utocnik.hodnotaPrezilo) nejhorsi = vysledek;
+                }
+            }
+        }
+        return nejhorsi
+    }
 }
