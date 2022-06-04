@@ -281,7 +281,6 @@ async function simulovatCelouSekci(nazevSekce) {
         let nejhorsi = null
         for (let i=0; i<opakovani; i++) {
             let vysledek = await getBattleResults(armadaUtocnika, armadaObrance)
-            console.log('vysl', vysledek)
             // Nejhorsi vysledek je nejmene zabitych obrancu. Pokud je zabitych stejne (napr. oba utoky 100% uspech), tak potom je horsi vetsi ztrata utocnika
             if (nejhorsi == null) {
                 nejhorsi = vysledek
