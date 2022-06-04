@@ -195,6 +195,7 @@ async function simulovatCelouSekci(nazevSekce) {
         const armadaObrance = prectiArmaduEventu(event) //vraci null pro dynamicke armady (napr. modre pleneni) - at si je hrac simuluje radeji rucne
         const vysledek = armadaObrance === null ? null : await ziskejNejhorsiVsledekSimulace(armadaUtocnika, armadaObrance, pocetOpakovaniPerEvent)
         souhrnVysledku.appendChild(vytvorVyslednyElement(event, await vysledek))
+        souhrnVysledku.appendChild(document.createElement('br'))
     }
 
     zobrazSouhrnVysledku(souhrnVysledku)
@@ -221,26 +222,43 @@ async function simulovatCelouSekci(nazevSekce) {
     }
 
     function vytvorVyslednyElement(event, vysledek) {
-        const kontejner = document.createElement('div') //TODO barva nazvu dle vysledku (zelena OK), tucne vysledne procento
-        const jmenoEventu = document.createElement('h3')
+        const kontejner = document.createElement('div')
+        //vytvor nadpis eventu
+        const jmenoEventu = document.createElement('span')
         jmenoEventu.textContent = event.value //event.value obsahuje jmeno eventu
+        jmenoEventu.style.fontWeight = 'bold'
+        jmenoEventu.style.fontSize = 'large'
         kontejner.appendChild(jmenoEventu)
+        kontejner.appendChild(document.createElement('br'))
+        //vytvor informace o vysledku
         if (vysledek === null) {
             const infoPreskoceniEventu = document.createElement('span')
             infoPreskoceniEventu.textContent = 'Přeskočeno. Armádu eventu je dynamická (např. závislá na počtu dobytí).'
             infoPreskoceniEventu.style.color = BARVA_SOUHRN_KOLA
             kontejner.appendChild(infoPreskoceniEventu)
         } else {
+            jmenoEventu.style.color = vysledek.obrance.hodnotaPrezilo < 100 ? 'green' : 'white' //uspesne dobyty event bude mit zelene jmeno
             const vysledekUtocnik = document.createElement('span')
-            vysledekUtocnik.textContent = `Celkem hodnota zabité armády: ${vysledek.utocnik.hodnotaZabito}/${vysledek.utocnik.hodnotaCelkem} (${vysledek.utocnik.procentoZtraty.toFixed(2)}%)`
+            vysledekUtocnik.textContent = `Celkem hodnota zabité armády: ${vysledek.utocnik.hodnotaZabito}/${vysledek.utocnik.hodnotaCelkem}`
             vysledekUtocnik.style.color = BARVA_UTOCNIK
-            kontejner.appendChild(vysledekUtocnik)
-            kontejner.appendChild(document.createElement('br'))
+            const vysledekUtocnikProcento = document.createElement('span')
+            vysledekUtocnikProcento.textContent = ` (${vysledek.utocnik.procentoZtraty.toFixed(2)}%)`;
+            vysledekUtocnikProcento.style.fontWeight = 'bold'
+            vysledekUtocnikProcento.style.color = BARVA_UTOCNIK
 
             const vysledekObrance = document.createElement('span')
-            vysledekObrance.textContent = `Celkem hodnota zabité armády: ${vysledek.obrance.hodnotaZabito}/${vysledek.obrance.hodnotaCelkem} (${vysledek.obrance.procentoZtraty.toFixed(2)}%)`
+            vysledekObrance.textContent = `Celkem hodnota zabité armády: ${vysledek.obrance.hodnotaZabito}/${vysledek.obrance.hodnotaCelkem}`;
             vysledekObrance.style.color = BARVA_OBRANCE
+            const vysledekObranceProcento = document.createElement('span')
+            vysledekObranceProcento.textContent = ` (${vysledek.obrance.procentoZtraty.toFixed(2)}%)`;
+            vysledekObranceProcento.style.fontWeight = 'bold'
+            vysledekObranceProcento.style.color = BARVA_OBRANCE
+
+            kontejner.appendChild(vysledekUtocnik)
+            kontejner.appendChild(vysledekUtocnikProcento)
+            kontejner.appendChild(document.createElement('br'))
             kontejner.appendChild(vysledekObrance)
+            kontejner.appendChild(vysledekObranceProcento)
         }
 
         return kontejner
