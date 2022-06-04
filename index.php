@@ -74,7 +74,7 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
     </center><br>
     <center><input type='submit' onClick="zobrazit()" value="Zobrazit/Skrýt Eventy" class='boj'></center>
     <br>
-    <table id='eventy' style='display:block'> <!--TODO put back display:none to hide it by default, for testing reasons I leave it displayed so I dont have to click every time-->
+    <table id='eventy' style='display:none'>
         <tr>
             <td>
                 <div id="sekceValka"><a onclick="simulovatCelouSekci('sekceValka')"><b>Válka</b></a><br><br>
