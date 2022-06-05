@@ -1036,7 +1036,7 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
         $vyleceno_ghul = round ($dmg * (mt_rand(0,5)/100));
         $vyleceno_upir = round ($dmg * (mt_rand(3,15)/100));
         
-        $vyleceno;
+        $vyleceno = 0;
         
        if ($this->ident == 684 /*Ghúl*/) {
 			
@@ -1369,7 +1369,7 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 		global $jednotka;global $poradi;
 		$id = 0;
 		$poradi=[];
-		
+
 		while($jednotka[$id]){
 			if($jednotka[$id]->strana==$this->strana){
 				$poradi[$id]['obdrzela_dmg'] = $jednotka[$id]->obdrzela_dmg;
@@ -1380,7 +1380,7 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 		
 		seradit("obdrzela_dmg");  //seřadí podle dmg, kterou jednotka obdržela
 		$a=0;
-		$vyleceno;
+		$vyleceno = 0;
 
 	  	while($a<count($jednotka)){
 	  		$id = $poradi[$a]['id'];
@@ -1455,7 +1455,7 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 
 		
 		$a=0;
-		$vyleceno;
+		$vyleceno = 0;
 	  while($a<count($jednotka)){
 	  
 	  	$id = $poradi[$a]['id'];
@@ -2471,15 +2471,15 @@ function parsekJednotky($zdroj, $strana, $barva){
 
 function seradit($orderby){
 
-	$sortarray;$val="";global $poradi;
-
-	FOREACH ($poradi AS $val)
-
-	{$sortarray[] = $val[$orderby];}
+	global $poradi;
+	$sortarray = [];
+	$val="";
+	FOREACH ($poradi as $val) {
+		$sortarray[] = $val[$orderby];
+	}
 
 	array_multisort($sortarray,SORT_DESC,$poradi);
-
-	}
+}
 	
 
 
@@ -2547,14 +2547,14 @@ function magieSvetla(){
 
 }
 
+	global $jednotka; //inicializovana nize v parseru jednotek
+
 	parsekJednotky($utocnik, 1, UTK);
 
 	parsekJednotky($obrance, -1, OBR);
 
 
-
 $a=0;
-
 while($jednotka[$a]){
 
 	$poradi[$a]['ini'] = $jednotka[$a]->ini;
@@ -2565,8 +2565,8 @@ while($jednotka[$a]){
 
 	$strana=$jednotka[$a]->strana;
 
+	$hodnota = [];
 	if($strana == 1) {$ataker .= $jednotka[$a]->vypsat();$hodnota[$strana]+=$jednotka[$a]->pocet*$jednotka[$a]->hod;}
-
 	elseif($strana == -1) {$defender .= $jednotka[$a]->vypsat();$hodnota[$strana]+=$jednotka[$a]->pocet*$jednotka[$a]->hod;}
 
 	$a++;
