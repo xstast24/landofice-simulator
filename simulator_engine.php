@@ -1310,9 +1310,9 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 
 		global $jednotka;
 
-		$jednotka[$obrance]->schopnosti[ohnivyStit]=0;
+		$jednotka[$obrance]->schopnosti['ohnivyStit']=0;
 
-		$jednotka[$obrance]->schopnosti[magieOhne]=0;
+		$jednotka[$obrance]->schopnosti['magieOhne']=0;
 
 		echo "<span style='color:gray'>Zasaženou jednotku prostoupil magický chlad...</span><br>";
 
