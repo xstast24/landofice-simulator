@@ -2589,7 +2589,6 @@ if ($utocnik != "" and $obrance != "") {
 		if (strcasecmp($magic, "magie smrti") == 0) return "magieSmrti";
 		if (strcasecmp($magic, "magie ledu") == 0) return "magieLedu";
 		if (strcasecmp($magic, "magie ohne") == 0) return "magieOhne";
-		return "NASRAT";
 	}
 
 
