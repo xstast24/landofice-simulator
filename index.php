@@ -26,12 +26,12 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
 </head>
 
 <body bgcolor='#000000' text='#f5f5f5' link='#b0c4de' vlink='#b0c4de' alink='#b0c4de' topmargin='0'>
+<script type='text/javascript' src='config.js<?php echo "?$simulatorVersion" ?>'></script>
 <script type='text/javascript' src='ajax.js<?php echo "?$simulatorVersion"?>'></script>
 <script type='text/javascript' src='wz_tooltip.js<?php echo "?$simulatorVersion" ?>'></script>
 <script type='text/javascript' src='src/common.js<?php echo "?$simulatorVersion" ?>'></script>
 <script type='text/javascript' src='src/simulator_common.js<?php echo "?$simulatorVersion" ?>'></script>
-<!--Chrome cached JS files forever (sim updates didn't work). Solution => https://stackoverflow.com/a/32427/7684041-->
-<!--Append simulator version to JS filenames -> files are changing with updates -> chrome loads the new ones-->
+<!--Chrome cached JS files forever (sim updates didn't work). Solution: Append simulator version to JS filenames -> files are changing with updates -> chrome loads the new ones. https://stackoverflow.com/a/32427/7684041-->
 
 <div style='font-family: verdana;font-size: 12px;margin-left: 30px; padding-top: 20px'>
     <style type=text/css>
