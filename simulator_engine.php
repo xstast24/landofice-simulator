@@ -2608,6 +2608,7 @@ if ($utocnik != "" and $obrance != "") {
 
 			$artefact = false;
 			$multimagic = false;
+			$art = "";
 			if (strpos($nazevJednotky, "(") !== false && strpos($nazevJednotky, ")") !== false) $artefact = true;
 			if (strpos($nazevJednotky, "[") !== false && strpos($nazevJednotky, "]") !== false) $multimagic = true;
 
@@ -2637,9 +2638,6 @@ if ($utocnik != "" and $obrance != "") {
 				$magic = explode(" ", $magic);
 				$level = $magic[2];
 				$magic = reformatMagic($magic[0] . " " . $magic[1]);
-			} else {
-				$art = "";
-			}
 
 			if (similar_text("velitel klanu", $nazevJednotky) == 13) $nazevJednotky = "Generál starého impéria";
 
