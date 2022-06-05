@@ -2582,33 +2582,61 @@ if ($utocnik != "" and $obrance != "") {
 		}
 	}
 
+	function reformatMagic($magic){
+		# method used to convert user input magic to code magic. Example: Magie svetla -> magieSvetla
+		$magic = strtolower($magic);
+		if ("magie světlla") return "magieSvetla";
+		if ("magie lesa") return "magieLesa";
+		if ("magie smrti") return "magieSmrti";
+		if ("magie ledu") return "magieLedu";
+		if ("magie ohne") return "magieOhne";
+	}
+
 
 
 	function parsekJednotky($zdroj, $strana, $barva)
 	{
-
 		global $jednotka;
-
 		$utocnici = explode("\n", $zdroj);
-
 		$index = 0;
 
 		while ($utocnici[$index]) {
-
 			$bojovnik = explode(" x ", $utocnici[$index]);
-
 			$pocetJednotek = $bojovnik[0];
 			$pocetJednotek = trim(Str_Replace(",", "", $pocetJednotek));
-
 			$nazevJednotky = $bojovnik[1];
 
-			$art = explode("(", $nazevJednotky);
+			$artefact = false;
+			$multimagic = false;
+			if (strpos($nazevJednotky, "(") !== false && strpos($nazevJednotky, ")") !== false) $artefact = true;
+			if (strpos($nazevJednotky, "[") !== false && strpos($nazevJednotky, "]") !== false) $multimagic = true;
 
-			if ($art[1] != "") {
+			if ($artefact && $multimagic){
+				$tmp = explode("(", $nazevJednotky);
+				$nazevJednotky = $tmp[0];
 
+				$tmp = explode(")", $tmp[1]);
+				$art = trim($tmp[0]);
+
+				$tmp = Str_Replace(" [", "", $tmp[1]);
+				$tmp = Str_Replace("[", "", $tmp);
+				$tmp = Str_Replace("]", "", $tmp);
+
+				$tmp = explode(" ", $tmp);
+				$level = $tmp[2];
+				$magic = reformatMagic($tmp[0] . " " . $tmp[1]);
+			} else if ($artefact){
+				$art = explode("(", $nazevJednotky);
 				$nazevJednotky = $art[0];
-
 				$art = trim(Str_Replace(")", "", $art[1]));
+			} else if ($multimagic){
+				$tmp = explode("[", $nazevJednotky);
+				$nazevJednotky = $tmp[0];
+
+				$magic = trim(Str_Replace("]", "", $tmp[1]));
+				$magic = explode(" ", $magic);
+				$level = $magic[2];
+				$magic = reformatMagic($magic[0] . " " . $magic[1]);
 			} else {
 				$art = "";
 			}
@@ -2621,6 +2649,9 @@ if ($utocnik != "" and $obrance != "") {
 				$indexTridy = count($jednotka);
 
 			$jednotka[$indexTridy] = new Jednotka($indexTridy, $nazevJednotky, $pocetJednotek, $strana, 0, $barva, $art);
+
+			if ($multimagic)
+				$jednotka[$indexTridy]->schopnosti[$magic] = $level;
 
 			$index++;
 		}
