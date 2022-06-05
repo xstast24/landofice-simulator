@@ -2564,8 +2564,7 @@ while($jednotka[$a]){
 	$poradi[$a]['id'] = $jednotka[$a]->id;
 
 	$strana=$jednotka[$a]->strana;
-
-	$hodnota = [];
+	
 	if($strana == 1) {$ataker .= $jednotka[$a]->vypsat();$hodnota[$strana]+=$jednotka[$a]->pocet*$jednotka[$a]->hod;}
 	elseif($strana == -1) {$defender .= $jednotka[$a]->vypsat();$hodnota[$strana]+=$jednotka[$a]->pocet*$jednotka[$a]->hod;}
 
