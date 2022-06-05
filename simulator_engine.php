@@ -293,8 +293,8 @@ if ($utocnik != "" and $obrance != "") {
 				case "Prapor světla":
 					$this->schopnosti["stec"] += 0.5 * $this->dmg;
 					if ($this->frakce == 7) {
-						$this->utk *= 1.5;
-						$this->ini *= 1.3;
+						$this->utk = ceil($this->utk * 1.5);
+						$this->ini = ceil($this->ini * 1.3);
 					}
 
 					$popis = "Nenemrtvá jednotka získá 50% damage do steče, pokud je Crinisina získává navíc 50% do útoku a 30% do iniciativy.";
