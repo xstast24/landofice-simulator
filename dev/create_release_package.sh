@@ -26,16 +26,16 @@ RELEASE_FILES=(
 )
 
 SCRIPT_DIR=$(dirname "${0}")
-SIMULATOR_ROOT="$SCRIPT_DIR"
-RELEASE_DIR="$SIMULATOR_ROOT"/"$PACKAGE_NAME"
+SIMULATOR_ROOT=$(dirname "${SCRIPT_DIR}")
+RELEASE_DIR="$SIMULATOR_ROOT/$PACKAGE_NAME"
 
 echo "Creating release dir"
 rm -rf "$RELEASE_DIR"
 mkdir -p "$RELEASE_DIR"
 # copy contents
 for path in "${RELEASE_FILES[@]}"; do
-  cp -a "$SIMULATOR_ROOT"/"$path" "$RELEASE_DIR"  # -a to recursively copy (also dirs) and preserve file attributes
+  cp -a "$SIMULATOR_ROOT/$path" "$RELEASE_DIR"  # -a to recursively copy (also dirs) and preserve file attributes
 done
 
 echo "Creating release zip"
-zip -q -r "$SIMULATOR_ROOT"/"$PACKAGE_NAME".zip "$RELEASE_DIR"  # -q to not show all processed files
+zip -q -r "$SIMULATOR_ROOT/$PACKAGE_NAME".zip "$RELEASE_DIR"  # -q to not show all processed files
