@@ -1368,7 +1368,7 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 
 		global $jednotka;global $poradi;
 		$id = 0;
-		$poradi="";
+		$poradi=[];
 		
 		while($jednotka[$id]){
 			if($jednotka[$id]->strana==$this->strana){
@@ -1439,7 +1439,7 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 	
 		global $jednotka;global $poradi;
 		$id = 0;
-		$poradi="";
+		$poradi=[];
 		
 		while($jednotka[$id]){
 
@@ -1490,7 +1490,7 @@ function isgoblin($frakce, $stav){  //identifikace rasa ziveho goblina
 
 		global $jednotka;global $poradi;
 		$id = 0;
-		$poradi="";
+		$poradi=[];
 		
 		while($jednotka[$id]){
 
