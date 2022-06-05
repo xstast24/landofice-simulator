@@ -1,15 +1,15 @@
 Schopnosti:
-* meteority - je spravne iniciativa?
+* volba multimagie pomoci zapisu "1 x unit (item) [magie]"
 * vyvolavani kentauru - pridat okynko na zadani poctu tahu
-* kanibalizmus - musi ozivit max tolik zivotu, kolik mela zabita jednotka.
+* kanibalizmus - musi ozivit max tolik zivotu, kolik mela zabita jednotka (tohle je stare jeste z puvodnho simu, je stale potreba?)
 
 Eventy:
 * Spolek mocnych - doplnit jednotky pro vyssi pocty dobyti (magove ledu, stinove jednotky atp.)
 * Temna jeskyne - opravit kompletne hodnoty, aproximovat vzorec vypoctu na zaklade "temna jeskyne.txt" (originalni vzorec je tajny, coz je dobre)
-* chram ohne v dobyvani - nektere odlisne typy jednotek
 * chramy - udavat maximalni hodnotu
 
 Other:
+* ignorovat diakritiku + upper/lowercase pri parsovani jednotek
 * vytvorit README, at muze kdokoliv simulator v budoucnu snadno vylepsovat/udrzovat
 * Tlačítko na 10x opakování simulace pro získání více možných výsledků,
 * Přidat odměny při výhře
