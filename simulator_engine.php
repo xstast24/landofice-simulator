@@ -2584,12 +2584,12 @@ if ($utocnik != "" and $obrance != "") {
 
 	function reformatMagic($magic){
 		# method used to convert user input magic to code magic. Example: Magie svetla -> magieSvetla
-		$magic = strtolower($magic);
-		if ("magie světlla") return "magieSvetla";
-		if ("magie lesa") return "magieLesa";
-		if ("magie smrti") return "magieSmrti";
-		if ("magie ledu") return "magieLedu";
-		if ("magie ohne") return "magieOhne";
+		if (strcasecmp($magic, "magie světla") == 0) return "magieSvetla";
+		if (strcasecmp($magic, "magie lesa") == 0) return "magieLesa";
+		if (strcasecmp($magic, "magie smrti") == 0) return "magieSmrti";
+		if (strcasecmp($magic, "magie ledu") == 0) return "magieLedu";
+		if (strcasecmp($magic, "magie ohne") == 0) return "magieOhne";
+		return "NASRAT";
 	}
 
 
