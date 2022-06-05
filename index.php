@@ -3,12 +3,10 @@ ini_set("display_errors", 1); //show PHP errors on the web if they happen
 $config = parse_ini_file("config.ini", true);
 $simulatorVersion = $config['general']['version'];
 
-$utocnik="1 x Agranat, řečený zloděj duší(Prokletá kouzelnická róba)
-3077 x Zombie(Gladius)
-3,077 x Zombie (Gladius)
-331 x Bažinný ent
-157 x Kostlivec
-21 x Stín";
+$utocnik="10,000 x Svatý válečník
+10,000 x Svatý válečník (Měděné pláty)
+10,000 x Zasvěcenec světla [Magie světla 3]
+10,000 x Zasvěcenec světla (Měděné pláty) [Magie světla 4]";
 $obrance="1 x Dehinator (Ohnivá zbroj)
 12 x Těžký katapult
 12 x Těžká balista
@@ -150,7 +148,7 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                 <input value='Trpaslíci 3 - Citedela' class='pleneni zelene' type=button onclick='pole("1,166 x Železný kněz\n24,366 x Trpaslík\n1,513 x Kamenný chrlič\n562 x Poloautomatická socha\n145 x Železný orel - MK1\n152 x Obrněnej vrhač oštěpů\n132 x Obrněnej válečnej vůz")'><br>
                 <input value='Trpaslíci 4 - Železný chrám' class='pleneni zelene' type=button onclick='pole("2,003 x Železný kněz\n45,297 x Trpaslík\n3,992 x Železný škopion\n1,305 x Železný býk\n2,779 x Kamenný chrlič\n921 x Poloautomatická socha\n259 x Železný orel - MK1\n5 x Colosus z temné ocele")'><br>
                 <!--Posvatny chram je specialni jednorazovy event pouze pro Dreadda, aby si odemcel Nekromancery-->
-                <input style='color:gold' value='Posvátný chrám' type=button onclick='pole("10000 x Svatý válečník\n1500 x Elitní střelec\n1000 x Mnich\n500 x Křižák\n250 x Paladin\n1 x Světlonoš\n25 x Balista\n30 x Těžká balista\n1000 x Renegád")'><br>
+                <input style='color:gold' value='Posvátný chrám' type=button onclick='pole("10000 x Svatý válečník\n1500 x Elitní střelec\n1000 x Mnich\n500 x Křižák\n250 x Paladin\n1 x Světlonoš [Magie světla 5]\n25 x Balista\n30 x Těžká balista\n1000 x Renegád")'><br>
                 <input value='Prokletý vojevůdce' class='pleneni cervene' type=button onclick='pole("1 x Dehinator (Ohnivá zbroj)\n12 x Těžký katapult\n12 x Těžká balista\n40 x Zeď Temné pevnosti\n300 x Prokletý Mág\n750 x Prokletý válečník(Prapor stínů)\n6 x Dehinatorova ochranka")'><br>
                 <input value='Prokletá citadela' class='pleneni cervene' type=button onclick='pole("1 x Královna Medůz(Maska Královny medůz)\n1000 x Temný mág(Kouzelnická róba)\n200 x Vyšší Temný Mág(Prokletá kouzelnická róba)\n32 x Zeď Prokleté citadely\n200 x Prokletý Mág\n1000 x Prokletý válečník(Prapor stínů)\n3000 x Æthrův ledový válečník")'><br>
                 <input value='Mucusova pevnost' class='pleneni cervene' type=button onclick='pole("1 x Mucus, král Toxických elementálů(Plášť Mucuse, krále toxických elementálů)\n1500 x Zeď pokrytá slizem\n1000 x Toxický Elementál Obránce\n1000 x Toxický Elementál Útočník\n10 x Toxická Elementární Bublina")'><br>

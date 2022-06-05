@@ -293,8 +293,8 @@ if ($utocnik != "" and $obrance != "") {
 				case "Prapor světla":
 					$this->schopnosti["stec"] += 0.5 * $this->dmg;
 					if ($this->frakce == 7) {
-						$this->utk *= 1.5;
-						$this->ini *= 1.3;
+						$this->utk = ceil($this->utk * 1.5);
+						$this->ini = ceil($this->ini * 1.3);
 					}
 
 					$popis = "Nenemrtvá jednotka získá 50% damage do steče, pokud je Crinisina získává navíc 50% do útoku a 30% do iniciativy.";
@@ -2582,35 +2582,62 @@ if ($utocnik != "" and $obrance != "") {
 		}
 	}
 
+	function reformatMagic($magic){
+		# method used to convert user input magic to code magic. Example: Magie svetla -> magieSvetla
+		if (strcasecmp($magic, "magie světla") == 0) return "magieSvetla";
+		if (strcasecmp($magic, "magie lesa") == 0) return "magieLesa";
+		if (strcasecmp($magic, "magie smrti") == 0) return "magieSmrti";
+		if (strcasecmp($magic, "magie ledu") == 0) return "magieLedu";
+		if (strcasecmp($magic, "magie ohne") == 0) return "magieOhne";
+		return "NASRAT";
+	}
+
 
 
 	function parsekJednotky($zdroj, $strana, $barva)
 	{
-
 		global $jednotka;
-
 		$utocnici = explode("\n", $zdroj);
-
 		$index = 0;
 
 		while ($utocnici[$index]) {
-
 			$bojovnik = explode(" x ", $utocnici[$index]);
-
 			$pocetJednotek = $bojovnik[0];
 			$pocetJednotek = trim(Str_Replace(",", "", $pocetJednotek));
-
 			$nazevJednotky = $bojovnik[1];
 
-			$art = explode("(", $nazevJednotky);
+			$artefact = false;
+			$multimagic = false;
+			$art = "";
+			if (strpos($nazevJednotky, "(") !== false && strpos($nazevJednotky, ")") !== false) $artefact = true;
+			if (strpos($nazevJednotky, "[") !== false && strpos($nazevJednotky, "]") !== false) $multimagic = true;
 
-			if ($art[1] != "") {
+			if ($artefact && $multimagic){
+				$tmp = explode("(", $nazevJednotky);
+				$nazevJednotky = $tmp[0];
 
+				$tmp = explode(")", $tmp[1]);
+				$art = trim($tmp[0]);
+
+				$tmp = Str_Replace(" [", "", $tmp[1]);
+				$tmp = Str_Replace("[", "", $tmp);
+				$tmp = Str_Replace("]", "", $tmp);
+
+				$tmp = explode(" ", $tmp);
+				$level = $tmp[2];
+				$magic = reformatMagic($tmp[0] . " " . $tmp[1]);
+			} else if ($artefact){
+				$art = explode("(", $nazevJednotky);
 				$nazevJednotky = $art[0];
-
 				$art = trim(Str_Replace(")", "", $art[1]));
-			} else {
-				$art = "";
+			} else if ($multimagic){
+				$tmp = explode("[", $nazevJednotky);
+				$nazevJednotky = $tmp[0];
+
+				$magic = trim(Str_Replace("]", "", $tmp[1]));
+				$magic = explode(" ", $magic);
+				$level = $magic[2];
+				$magic = reformatMagic($magic[0] . " " . $magic[1]);
 			}
 
 			if (similar_text("velitel klanu", $nazevJednotky) == 13) $nazevJednotky = "Generál starého impéria";
@@ -2621,6 +2648,9 @@ if ($utocnik != "" and $obrance != "") {
 				$indexTridy = count($jednotka);
 
 			$jednotka[$indexTridy] = new Jednotka($indexTridy, $nazevJednotky, $pocetJednotek, $strana, 0, $barva, $art);
+
+			if ($multimagic)
+				$jednotka[$indexTridy]->schopnosti[$magic] = $level;
 
 			$index++;
 		}
