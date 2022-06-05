@@ -183,14 +183,15 @@ function silaarmady(el) {
 
 /**Simuluje utok armadou utocnika na vsechny eventy ze sekce a vypise vysledky.*/
 async function simulovatCelouSekci(nazevSekce) {
+    if (!CONFIG.simulateSections.enabled) {console.info('Simulace celych sekci je vypnuta -> skip'); return}
+
     showLoadingAnimation()
     const casZacatku = Date.now()
 
     const sekce = document.getElementById(nazevSekce)
     const eventy = sekce.getElementsByTagName('input')
     const armadaUtocnika = getAttackerArmy()
-    const pocetOpakovaniPerEvent = 3 //kazdy utok se opakuje a vezme se nejhorsi vysledek, aby se zabranilo falesne pozitivnimu vysledku pri velke nahode
-    //TODO pocet opakovani ridit configem
+    const pocetOpakovaniPerEvent = CONFIG.simulateSections.retries_per_event //kazdy utok se opakuje a vezme se nejhorsi vysledek, aby se zabranilo falesne pozitivnimu vysledku pri velke nahode
 
     let souhrnVysledku = document.createElement('div')
     for (const event of eventy) {
@@ -224,6 +225,7 @@ async function simulovatCelouSekci(nazevSekce) {
     }
 
     function vytvorVyslednyElement(event, vysledek) {
+        //TODO udelat rozklikavaci spoiler s celym vypisem
         const kontejner = document.createElement('div')
         //vytvor nadpis eventu
         const jmenoEventu = document.createElement('span')
@@ -281,7 +283,6 @@ async function simulovatCelouSekci(nazevSekce) {
         let nejhorsi = null
         for (let i=0; i<opakovani; i++) {
             let vysledek = await getBattleResults(armadaUtocnika, armadaObrance)
-            console.log('vysl', vysledek)
             // Nejhorsi vysledek je nejmene zabitych obrancu. Pokud je zabitych stejne (napr. oba utoky 100% uspech), tak potom je horsi vetsi ztrata utocnika
             if (nejhorsi == null) {
                 nejhorsi = vysledek
