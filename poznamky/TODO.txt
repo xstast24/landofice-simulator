@@ -6,10 +6,12 @@ Schopnosti:
 Eventy:
 * Spolek mocnych - doplnit jednotky pro vyssi pocty dobyti (magove ledu, stinove jednotky atp.)
 * Temna jeskyne - opravit kompletne hodnoty, aproximovat vzorec vypoctu na zaklade "temna jeskyne.txt" (originalni vzorec je tajny, coz je dobre)
+* chram ohne v dobyvani - nektere odlisne typy jednotek
+* chramy - udavat maximalni hodnotu
 
 Other:
+* vytvorit README, at muze kdokoliv simulator v budoucnu snadno vylepsovat/udrzovat
 * Tlačítko na 10x opakování simulace pro získání více možných výsledků,
-* Tlačítko pro simulaci např. celého plenění najednou, ať hráč vidí, kam dosáhne
 * Přidat odměny při výhře
 * Hodnoty min/max armád eventů
 * reorganizace struktury repositare https://stackoverflow.com/a/42393990/7684041
