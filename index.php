@@ -3,8 +3,8 @@ ini_set("display_errors", 1); //show PHP errors on the web if they happen
 $config = parse_ini_file("config.ini", true);
 $simulatorVersion = $config['general']['version'];
 
-$utocnik="10,000 x Zasvěcenec světla
-10,000 x Zasvěcenec světla (Měděné pláty)
+$utocnik="10,000 x Svatý válečník
+10,000 x Svatý válečník (Měděné pláty)
 10,000 x Zasvěcenec světla [Magie světla 3]
 10,000 x Zasvěcenec světla (Měděné pláty) [Magie světla 4]";
 $obrance="1 x Dehinator (Ohnivá zbroj)
