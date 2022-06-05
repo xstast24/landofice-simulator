@@ -2638,6 +2638,7 @@ if ($utocnik != "" and $obrance != "") {
 				$magic = explode(" ", $magic);
 				$level = $magic[2];
 				$magic = reformatMagic($magic[0] . " " . $magic[1]);
+			}
 
 			if (similar_text("velitel klanu", $nazevJednotky) == 13) $nazevJednotky = "Generál starého impéria";
 
