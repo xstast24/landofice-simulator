@@ -1,11 +1,12 @@
 Schopnosti:
-* volba multimagie pomoci zapisu "1 x unit (item) [magie]"
 * vyvolavani kentauru - pridat okynko na zadani poctu tahu
 * kanibalizmus - musi ozivit max tolik zivotu, kolik mela zabita jednotka (tohle je stare jeste z puvodnho simu, je stale potreba?)
 
 Eventy:
-* Spolek mocnych - doplnit jednotky pro vyssi pocty dobyti (magove ledu, stinove jednotky atp.)
 * Temna jeskyne - opravit kompletne hodnoty, aproximovat vzorec vypoctu na zaklade "temna jeskyne.txt" (originalni vzorec je tajny, coz je dobre)
+* lehce nepresne (5-20%) -> zapisovat presnou hodnotu sily armady a pocty jednotek, at to jde dohledat:
+    Demoni karava, Obetiste obsazene demony, Proklety chram ohne, Trosky neznameho chramu
+* Kmen obru lidozroutu - je rostouci? Nekdy i 50+, ale simulator ukazuje fixne 38 -> zapisovat pocty jednotek a silu armady, at jde dohledat
 * chramy - udavat maximalni hodnotu
 
 Other:
