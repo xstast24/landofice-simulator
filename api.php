@@ -101,13 +101,12 @@ else if ($zam == 6){
 }
 //Trosky neznameho chramu
 elseif ($zam == 7) {
-    echo (ceil($plan / 267876))." x Medůza\n";
+    echo (ceil($plan / 200000))." x Medůza\n";
     echo (ceil($plan / 121))." x Kamenná socha\n";
 }
 //Proklety chram
 elseif ($zam == 8) {
-    echo (ceil($plan / 9990))." x Ohnivý Služebník\n";
-
+    echo (ceil($plan / 10000))." x Ohnivý Služebník\n";
     echo (ceil($plan / 1513595))." x Nižší ohnivý splozenec\n";
 }
 
