@@ -1,7 +1,6 @@
 ﻿<?php
 
-$plan = $_POST['plan'];  //v pripade demonu je v plan zadana prestiz
-
+$plan = $_POST['plan'];  //v pripade demonu je v plan zadana prestiz, v pripade pleneni pocet dobyti
 $zam = $_POST['zam'];   //v zam je zadane cislo pleneni/demoniho eventu 5 - karavana, 6 - obetiste, 7 - trosky nezn chramu, 8 - proklety chram
 
 if ($zam == 1){
@@ -36,40 +35,24 @@ echo ($plan * 30) . " x Těžký Katapult\n";
 
 echo ($plan2 * 50) . " x Osedlaný Mamut s Gnomí Posádkou\n";
 
-}
-
-elseif ($zam == 2){
-
-$plan += 1;
-
-$i = 2;
-
-$plan2 = 1;
-
-while ($i <= $plan){
-
-//je sudé?
-
-$zao = ceil($i/2) - $i / 2;
-
-if ($zao != 0){
-
-$plan2 += 1;
-
-}
-
-$i += 1;
-
-}
-
-echo ($plan * 5) . " x Mág země\n";
-
-echo ($plan * 5) . " x Exorcista\n";
-
-echo ($plan * 5) . " x Flamekeeper\n";
-
-echo ($plan2 * 1) . " x Kamenná věž\n";
-
+} elseif ($zam == 2) { //Spolek mocnych
+    //$plan == dobyto X-krat
+    $jednotky = array(); //jmeno => pocet
+    $jednotky['Mág země'] = 5 * $plan + 5; //5 pro kazde dobyti (pri stavu "3x dobyto" bude 20 magu)
+    $jednotky['Exorcista'] = 5 * $plan + 5;
+    $jednotky['Flamekeeper'] = 5 * $plan + 5;
+    $jednotky['Kamenná věž'] = max(1, ceil($plan/2));
+    $jednotky['Mág ledu'] = 200 * floor($plan / 25); //200 kazdych 25 dobyti (24x dobyto -> 0 magu, 25x dobyto -> 200 magu)
+    $jednotky['Stínový mág'] = 100 * floor($plan / 50); //100 kazdych 50 dobyti
+    $jednotky['Stínový arcimág'] = 50 * floor($plan / 75); //50 kazdych 75 dobyti
+    $jednotky['Velemág země'] = 10 * floor($plan / 100); //10 kazdych 100 dobyti
+    //vloz vsechny jednotky
+    foreach ($jednotky as $jmeno => $pocet) {
+        if ($pocet > 0) echo "$pocet x $jmeno\n";
+    }
+    //vloz navic 1x velemag ledu samostatne kazdych 150 dobyti (tzn. 450 dobyti jich bude 1x a 1x a 1x)
+    $pocetVelemaguLedu = floor($plan / 150);
+    if ($pocetVelemaguLedu > 0) echo str_repeat("1 x Velemág Ledu\n", $pocetVelemaguLedu);
 }
 
 elseif ($zam == 3){

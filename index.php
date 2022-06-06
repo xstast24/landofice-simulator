@@ -3,10 +3,11 @@ ini_set("display_errors", 1); //show PHP errors on the web if they happen
 $config = parse_ini_file("config.ini", true);
 $simulatorVersion = $config['general']['version'];
 
-$utocnik="10,000 x Svatý válečník
-10,000 x Svatý válečník (Měděné pláty)
-10,000 x Zasvěcenec světla [Magie světla 3]
-10,000 x Zasvěcenec světla (Měděné pláty) [Magie světla 4]";
+$utocnik="1 x Agranat, řečený zloděj duší (Prokletá kouzelnická róba)
+2000 x Druid(Gladius)
+2,000 x Druid (Gladius)
+100 x Zasvěcenec světla [Magie světla 3]
+100 x Zasvěcenec světla (Měděné pláty) [Magie světla 4]";
 $obrance="1 x Dehinator (Ohnivá zbroj)
 12 x Těžký katapult
 12 x Těžká balista
@@ -117,7 +118,7 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                 <input value='Obchodní stezky 3' type=button onclick='pole("1 x Wurm")'><br>
                 <input value='Neznámá indicie 1' type=button onclick='pole("100 x Otrok s kopím\n50 x Otrok s oštěpy\n500 x Otrok štítonoš\n1 x Paladin\n1 x Místodržící\n1 x Kovář\n250 x Efreet\n3 x Vyznavač boha ledu\n2 x Mág ohně")'><br>
                 <input value='Neznámá indicie 2' type=button onclick='pole("100 x Elfí lučištník\n5 x Druid\n1 x Lesní obr")'><br>
-                <input value='Neznámá indicie 3' type=button onclick='pole("2000 x Elfí lučištník\n500 x Druid\n50 x Lesní obr\n10 x Wurm\n5 x Lesní obr jezdící na Posvátném Wurmovi\n3000 x Ent\n1000 x Starodávný Ent\n750 x Kamenný Golem\n50 x Kamenožrout\n10 x Mág země")'><br>
+                <input value='Neznámá indicie 3' type=button onclick='pole("2000 x Elfí lučištník\n500 x Druid\n50 x Lesní obr\n10 x Wurm\n5 x Horský Wurm\n1 x Prastarý Horský Wurm\n3000 x Ent\n1000 x Starodávný Ent\n750 x Kamenný Golem\n50 x Kamenožrout\n10 x Mág země")'><br>
                 <input value='Šedé hory 1' type=button onclick='pole("2 x Nižší ohnivý splozenec")'><br>
                 <input value='Šedé hory 2' type=button onclick='pole("2 x Nižší ohnivý splozenec\n10 x Kamenný Obr")'><br>
                 <input value='Jeskyně života 1' type=button onclick='pole("1 x wurm\n100 x Elfí hraničář")'><br>
@@ -132,7 +133,7 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                 <input value='Gnomí velkodílna' class='pleneni modre' type=button onclick='pleneni(1)'><br>
                 <input value='Temná jeskyně' class='pleneni modre' type=button onclick='pleneni(4)'><br>
                 <input value='Katakomby' class='pleneni modre' type=button onclick='pleneni(3)'><br>
-                <input value='Svobodné město' class='pleneni zelene' type=button onclick='pole("1 x Kamenná hradba\n17 x Katapult\n5 x Těžký katapult\n20 x Balista\n7 x Těžká balista\n2745 x Městští kušníci\n197 x Osadník s lukem\n17 x Potulný Kouzelník\n11 x Mistr Lovec")'><br>
+                <input value='Svobodné město' class='pleneni zelene' type=button onclick='pole("1 x Kamenná hradba\n17 x Katapult\n5 x Těžký katapult\n20 x Balista\n7 x Těžká balista\n2745 x Městští kušníci\n197 x Osadník s lukem\n17 x Potulný Kouzelník [Magie ledu 1]\n11 x Mistr Lovec")'><br>
                 <input value='Obři zla' class='pleneni zelene' type=button onclick='pole("50 x Obr lidožrout\n20 x Prokletý Obr\n30 x Hnijící Nemrtvý Obr\n20 x Ohnivý Obr")'><br>
                 <input value='Obři dobra' class='pleneni zelene' type=button onclick='pole("50 x Lesní obr\n80 x Ledový obr\n12 x Kamenný Obr")'><br>
                 <input value='Země zatracených 1' class='pleneni zelene' type=button onclick='pole("30000 x Zombie\n1000 x Lich\n30 x Temný přízrak\n500 x Padlý válečník")'><br>
@@ -197,7 +198,7 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                 <input value='Prokleté údolí' type=button onclick='pole("919 x Vlkodlak\n486 x Sněhobílý Vlkodlak\n1044 x Kancodlak\n461 x Sněhobílý Kancodlak\n959 x Medvědodlak\n533 x Sněhobílý Mědvědodlak\n359 x Mamutodlak\n96 x Sněhobílý Mamutodlak")'><br>
                 <input value='Stonehenge' type=button onclick='pole("20 x Druid\n5 x Ent\n5 x Starodávný Ent")'><br>
                 <input value='Gobliní opevněná hospoda' type=button onclick='pole("14 x Goblin\n44 x Goblin Fanatik\n25 x Goblin Pyroman\n1 x Gobliní pojízdná bomba")'><br>
-                <input value='Svobodná gobliní dílna' type=button onclick='pole("50 x Goblin Fanatik\n5 x Gobliní pojízdná bomba\n25 x Goblin Pyroman\n1 x Gobliní Patriarcha\n10 x Rozžhavené magma\n1 x Nepoužitelný golem")'><br>
+                <input value='Svobodná gobliní dílna' type=button onclick='pole("50 x Goblin Fanatik\n5 x Gobliní pojízdná bomba\n25 x Goblin Pyroman\n1 x Gobliní Patriarcha [Magie ledu 1]\n10 x Rozžhavené magma\n1 x Nepoužitelný golem")'><br>
                 <input value='Staré stoky 1' type=button onclick='pole("4651 x Zombie\n180 x Lich\n2895 x Kostlivec")'><br>
                 <input value='Staré stoky 2' type=button onclick='pole("250 x Stín\n10 x Temný přízrak\n1000 x Uvězněná duše")'><br>
                 <input value='Opevněné město' type=button onclick='pole("1 x Kamenná hradba\n17 x Katapult\n10 x Těžký katapult\n25 x Balista\n9 x Těžká balista\n2649 x Městští kušníci\n199 x Osadník s lukem\n722 x Gnóm s kuší")'><br>
