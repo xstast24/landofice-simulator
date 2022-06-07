@@ -26,7 +26,7 @@ function getDefenderArmy() {
 
 /**Reformat raw army string (e.g. copy paste by user) to a standardized/consistent format, e.g. "\n1,100   x Wurm(Gladiola)\n\n" -> "1100 x Wurm (Gladiola)"*/
 function reformatArmyString(armyString) {
-    //remove thousands-comma[1,100->1000]; add space before item [unit(item) -> unit (item)]; shrink & remove extra whitespaces
+    //remove thousands-comma[1,100->1100]; add space before item [unit(item) -> unit (item)]; shrink & remove extra whitespaces
     return armyString.replace(/(\d),(\d)/g, '$1$2').replace(/\(/g, ' (').replace(/\n+/g, '\n').replace(/' '+/g, ' ').trim();
 }
 
