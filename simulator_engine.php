@@ -90,7 +90,6 @@ if ($utocnik != "" and $obrance != "") {
                 //porovnavani jmena ignoruje diakritiku a velikost pisma, pac jsou hrubky v eventech, napr. Sněžný / Snežny Obr (jinak v eventu, v klan army atp.)
                 if (compareStringsIgnoringDiacriticsAndCase($jednotka->nazev, $nazev)) {
                     $this->nazev = $jednotka->nazev; //prepis nazev vlozeny userem na nazev z XML, ktery pak pouzivame vsude (i v hardcoded casech)
-                    // ---> tohle resi situaaci, kdy user napise jednotku s jinou diakritikou. Ona se spravne matchne, ale pak se nahradi, aby byla vsude stejna jak v XML
                     $this->ident = $jednotka->id * 1;
                     $this->dmg = $jednotka->damage * 1;
                     $this->utk = $jednotka->utok * 1;
