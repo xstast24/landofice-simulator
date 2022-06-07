@@ -1484,17 +1484,13 @@ if ($utocnik != "" and $obrance != "") {
 			}
 
 			seradit("hod");  //seřadí podle hodnoty nepřátelské jednotky
-
-
 			$a = 0;
+			
 			while ($a < count($jednotka)) {
-
 				$id = $poradi[$a]['id'];
 
-				if ($jednotka[$id]->strana != $this->strana and $jednotka[$id]->celkem_zivotu > 0) { //vytvoří se kopie živé nepřátelské jednotky
-
+				if ($jednotka[$id]->strana != $this->strana and $jednotka[$id]->celkem_zivotu > 0 and $jednotka[$id]->schopnosti['unikatni'] != "1") { //vytvoří se kopie živé nepřátelské jednotky
 					$index = count($jednotka);
-
 					$nahoda = mt_rand(10, 36) / 10;
 					//vyvola nejméně jednu jednotku nebo v rozmezi 50-600 hodnoty jednotky za kazdy svuj zivot 
 					$vyvola = round((($this->celkem_zivotu * $nahoda)) / $jednotka[$id]->hod);
@@ -1507,20 +1503,19 @@ if ($utocnik != "" and $obrance != "") {
 							$nazev = str_replace("Stínový ", "", $jednotka[$id]->nazev);
 						else $nazev = $jednotka[$id]->nazev;
 
-
 						// stinove jednotky nemuzou donekonecna sumonovat nove stinove jednotky.
 						if ($jednotka[$id]->schopnosti["magiePrastarych"] == 3) {
 							$jednotka[$index] = new Jednotka($index, $nazev, $vyvola, $this->strana, 1, $this->barva, "");
 							$jednotka[$index]->schopnosti["magiePrastarych"] = 0;
 						} else
 							$jednotka[$index] = new Jednotka($index, $nazev, $vyvola, $this->strana, 1, $this->barva, "");
+
 						$jednotka[$index]->obr = 0;
 						$jednotka[$index]->nazev = "Stínový " . $jednotka[$index]->nazev;
 
 						//navýšení celkové hodnoty o hodnotu stínových jednotek
 						global $global_hodnota;
 						$global_hodnota[$this->strana] = $global_hodnota[$this->strana] + ($vyvola * $jednotka[$index]->hod);
-
 
 						echo "<span style='color:" . $this->barva . "'>Jednotka " . $this->pocet . " x " . $this->toolNazev() . " započala krvavý rituál pro vyvolání stínové magie a stvořila celkem " . $vyvola . " x " . $jednotka[$index]->toolNazev() . "</span><br><br>";
 
