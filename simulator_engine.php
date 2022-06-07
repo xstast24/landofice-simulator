@@ -1,15 +1,14 @@
 ﻿<?php
 
-ini_set("display_errors", 0); //nepouzivejte v PHP4
-
+ini_set("display_errors", 1); //show PHP errors if they happen
 error_reporting(E_ERROR | E_WARNING);
 
-$utocnik = $_POST['ut'];
+require_once 'src/common.php'; //import shared methods/utils
 
-$obrance = $_POST['ob'];
 
+$utocnik = reformatArmyString($_POST['ut']);
+$obrance = reformatArmyString($_POST['ob']);
 //$cesta = $_POST['cesta'];
-
 
 
 $cesta = "jednotky.xml";
@@ -19,14 +18,6 @@ $cas1 = explode(" ", microtime());
 $cas1 = $cas1[1] + $cas1[0];
 
 $rd = "10000"; /* zaokrouhlování */
-
-//nahodne zaokrouhlování při vyvolávání jednotek např.ohnivého přízraku
-function randround($cislo)
-{
-	$nahoda = mt_rand(0, 100);
-	if ($nahoda < 50) return floor($cislo);
-	else return round($cislo);
-}
 
 function unique_random($Min, $Max, $num)
 {
@@ -71,106 +62,71 @@ function unique_random($Min, $Max, $num)
 
 
 if ($utocnik != "" and $obrance != "") {
-
 	define("UTK", "#b0c4de");
-
 	define("OBR", "white");
 
 	if (!$xml = simplexml_load_file($cesta)) die("<span style='color:red'>Soubor se statistikami jednotek nebyl nalezen.</span>");
 
-
-
 	class Jednotka
 	{
-
 		var $id, $ident, $nazev, $pocet, $dmg, $utk, $obr, $ziv, $ini, $hod, $typ, $stav, $pocetUtoku, $frakce, $schopnosti, $celkem_zivotu, $obdrzela_dmg, $poc_celkem_zivotu, $zkl_ini, $nahoda, $strana, $bojovala, $barva, $art, $popis_artu;
 
-
-
 		#Konstruktor jednotek
-
 		function __construct($id, $nazev, $pocet, $strana, $vyvolana, $barva, $art)
 		{
-
 			global $xml;
 			$nazev = (trim($nazev));
-
 			$this->id = $id * 1;
-
 			$this->nazev = $nazev;
-
 			$this->pocet = $pocet * 1;
-
 			$this->vyvolana = $vyvolana * 1;
-
 			$this->strana = $strana * 1;
-
 			$this->barva = $barva;
-
 			$this->art = $art;
-
 			$this->bojovala = 0;
+			$this->nahoda = rand(0, 1);
 
-			$this->nahoda = mt_rand(0, 1);
+            foreach ($xml->jednotka as $jednotka) { //prochazi vsechny jednotky v xml, az narazi na stejne jmeno, nacte z ni hodnoty
+                //porovnavani jmena ignoruje diakritiku a velikost pisma, pac jsou hrubky v eventech, napr. Sněžný / Snežny Obr (jinak v eventu, v klan army atp.)
+                if (compareStringsIgnoringDiacriticsAndCase($jednotka->nazev, $nazev)) {
+                    $this->nazev = $jednotka->nazev; //prepis nazev vlozeny userem na nazev z XML, ktery pak pouzivame vsude (i v hardcoded casech)
+                    // ---> tohle resi situaaci, kdy user napise jednotku s jinou diakritikou. Ona se spravne matchne, ale pak se nahradi, aby byla vsude stejna jak v XML
+                    $this->ident = $jednotka->id * 1;
+                    $this->dmg = $jednotka->damage * 1;
+                    $this->utk = $jednotka->utok * 1;
+                    $this->obr = $jednotka->obrana * 1;
+                    $this->ziv = $jednotka->zivoty * 1;
+                    $this->celkem_zivotu = $jednotka->zivoty * $pocet * 1;
+                    $this->poc_celkem_zivotu = $jednotka->zivoty * $pocet * 1;
+                    $this->obdrzela_dmg = 0;
+                    $this->udelala_dmg = 0;
+                    $this->zkl_ini = $jednotka->iniciativa * 1;
+                    if ($this->nazev == "Meteorit") {
+                        $this->zkl_ini = rand(10, 30);
+                    }
 
-			foreach ($xml->jednotka as $jednotka) {
+                    $this->ini = $this->zkl_ini;
+                    if ($this->vyvolana == 1 && ($this->nazev == "Ohnivá koule" or $this->nazev == "Ledová koule" or $this->nazev == "Rozžhavené magma" or $this->nazev == "Ohnivý déšť")) {
+                        $this->ini = 1;
+                    }
 
-				if (trim(strtolower($jednotka->nazev)) == trim(strtolower($nazev))) {
+                    $this->hod = $jednotka->hodnota * 1;
+                    $this->typUtoku = $jednotka->typUtoku * 1;
+                    #stav 1 - zivy, 2 - nemrtvy, 3 - nezivy
+                    $this->stav = $jednotka->stav * 1;
+                    $this->pocetUtoku = $jednotka->pocetUtoku * 1;
+                    #frakce: 0 - nezařazeno, 1 - Dralgar, 2 - vulkan, 3 - Aether, 4 - Dreadd, 5 - Dhar, 6 - Ghoro, 7 - crinis, 8 - ascendacy
+                    $this->frakce = $jednotka->frakce * 1;
+                    foreach ($jednotka->schopnosti->schopnost as $schopnost) {
+                        $nazevSchopnosti = trim($schopnost->nazev);
+                        $hodnotaSchopnosti = $schopnost->hodnota;
+                        $schopnosti[$nazevSchopnosti] = $hodnotaSchopnosti;
+                    }
 
-					$this->ident = $jednotka->id * 1;
-
-					$this->dmg = $jednotka->damage * 1;
-
-					$this->utk = $jednotka->utok * 1;
-
-					$this->obr = $jednotka->obrana * 1;
-
-					$this->ziv = $jednotka->zivoty * 1;
-
-					$this->celkem_zivotu = $jednotka->zivoty * $pocet * 1;
-
-					$this->poc_celkem_zivotu = $jednotka->zivoty * $pocet * 1;
-
-					$this->obdrzela_dmg = 0;
-
-					$this->udelala_dmg = 0;
-
-					$this->zkl_ini = $jednotka->iniciativa * 1;
-
-					if ($this->nazev == "Meteorit") {
-
-						$this->zkl_ini = mt_rand(10, 30);
-					}
-
-					$this->ini = $this->zkl_ini;
-
-					if ($this->vyvolana == 1 && ($this->nazev == "Ohnivá koule" or $this->nazev == "Ledová koule" or $this->nazev == "Rozžhavené magma" or $this->nazev == "Ohnivý déšť")) $this->ini = 1;
-
-					$this->hod = $jednotka->hodnota * 1;
-
-					$this->typUtoku = $jednotka->typUtoku * 1;
-
-					#stav 1 - zivy, 2 - nemrtvy, 3 - nezivy
-					$this->stav = $jednotka->stav * 1;
-
-					$this->pocetUtoku = $jednotka->pocetUtoku * 1;
-
-					#frakce: 0 - nezařazeno, 1 - Dralgar, 2 - vulkan, 3 - Aether, 4 - Dreadd, 5 - Dhar, 6 - Ghoro, 7 - crinis, 8 - ascendacy
-					$this->frakce = $jednotka->frakce * 1;
-
-					foreach ($jednotka->schopnosti->schopnost as $schopnost) {
-
-						$nazevSchopnosti = trim($schopnost->nazev);
-
-						$hodnotaSchopnosti = $schopnost->hodnota;
-
-						$schopnosti[$nazevSchopnosti] = $hodnotaSchopnosti;
-					}
-
-					$this->schopnosti = $schopnosti;
-					break;
-				}
-			}
+                    $this->schopnosti = $schopnosti;
+                    break;
+                }
+            }
 
 			if ($this->celkem_zivotu == "") die("<span style='color:red'>Neznám jednotku " . $this->nazev . "</span>");
 
