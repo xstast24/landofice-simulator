@@ -1001,6 +1001,10 @@
 				<nazev>magieLesa</nazev>
 				<hodnota>5</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>unikatni</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -2997,6 +3001,10 @@
 				<nazev>imunitaOhen</nazev>
 				<hodnota>1</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>unikatni</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -3753,6 +3761,10 @@
 				<nazev>ohnivyStit</nazev>
 				<hodnota>1250</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>unikatni</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -4301,6 +4313,10 @@
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
+			<schopnost>
+				<nazev>unikatni</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -5600,6 +5616,10 @@
 			<schopnost>
 				<nazev>stec</nazev>
 				<hodnota>180</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>unikatni</nazev>
+				<hodnota>1</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>

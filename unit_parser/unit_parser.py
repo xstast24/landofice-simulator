@@ -48,7 +48,8 @@ def extract_data_from_html_table(raw_data: str) -> list:
     set_suicide_multi_attack(unit_list)
 
     unit_list = [unit for unit in unit_list if unit["nazev"] not in units_to_remove]
-    # TODO aplikace viceutoku
+    set_unique_units(unit_list)
+
     return unit_list
 
 
@@ -87,6 +88,14 @@ def set_unit_abilities(unit: dict, magic: str, abilities: str) -> None:
 def set_fraction(row: str) -> str:
     god = row.find("h3").getText()
     return fraction_list.get(god, "0")
+
+def set_unique_units(units: list) -> None:
+    unique_units = ["Posvátný jednorožec", "Generál starého impéria", "Dreaddův Vyvolený", "Flamekeeper Lord",
+                    "Gobliní Hrdina"]
+
+    for unit in units:
+        if unit['nazev'] in unique_units:
+            unit["schopnosti"]["unikatni"] = "1"
 
 
 if __name__ == "__main__":

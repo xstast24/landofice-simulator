@@ -215,7 +215,6 @@ def set_spell(unit: dict, spell: str) -> None:
         level = name.split(" Světla ")[1].strip()
         name = "magieSvetla"
         unit["schopnosti"][name] = level
-        # TODO potom poresit chybejici magii prastarych
 
 
 def roman_to_arabic(roman_number: str):
