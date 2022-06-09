@@ -153,6 +153,7 @@ function ajaxFunction3(el) {
 
 function ajaxFunction4(el) {
     let id = prompt("Zadej svoji sílu armády:", "");
+    id = id.replace(/\s/g, '').trim() //remove whitespaces, so user can copy paste value from LoI main page
 
     var getdate = new Date();  //Used to prevent caching during ajax call
 
