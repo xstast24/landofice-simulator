@@ -71,7 +71,7 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
     </div>
     <br>
     <center>
-        <input id='tlacitkoBojNahore' type='button' onClick="ajaxFunction()" value="BOJ!" class='boj'>
+        <input id='tlacitkoBojNahore' type='button' onClick="ajaxFunction()" value="BOJ" class='boj'>
         <input id='tlacitkoOpakovaneSimulaceNahore' type='button' onClick="opakovanaSimulace(20)" value="20x" class='boj'>
     </center><br>
     <center>

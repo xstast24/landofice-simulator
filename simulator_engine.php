@@ -3074,7 +3074,7 @@ if ($utocnik != "" and $obrance != "") {
 
 
 	echo "<center>
-            <input type='button' id='tlacitkoBojDole' onClick=\"ajaxFunction()\" value=\"BOJ!\" class='boj'>
+            <input type='button' id='tlacitkoBojDole' onClick=\"ajaxFunction()\" value=\"BOJ\" class='boj'>
             <input type='button' id='tlacitkoOpakovaneSimulaceDole' onClick=\"opakovanaSimulace(20)\" value=\"20x\" class='boj'>
           </center><br>";
 
