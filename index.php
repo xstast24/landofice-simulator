@@ -27,7 +27,7 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
 <body bgcolor='#000000' text='#f5f5f5' link='#b0c4de' vlink='#b0c4de' alink='#b0c4de' topmargin='0'>
 <script type='text/javascript' src='config.js<?php echo "?$simulatorVersion" ?>'></script>
 <script type='text/javascript' src='ajax.js<?php echo "?$simulatorVersion"?>'></script>
-<script type='text/javascript' src='wz_tooltip.js<?php echo "?$simulatorVersion" ?>'></script>
+<script type='text/javascript' src='wz_tooltip.js<?php echo "?$simulatorVersion" ?>'></script> <!--more info www.walterzorn.de/en/tooltip/tooltip_e.htm-->
 <script type='text/javascript' src='src/common.js<?php echo "?$simulatorVersion" ?>'></script>
 <script type='text/javascript' src='src/simulator_common.js<?php echo "?$simulatorVersion" ?>'></script>
 <!--Chrome cached JS files forever (sim updates didn't work). Solution: Append simulator version to JS filenames -> files are changing with updates -> chrome loads the new ones. https://stackoverflow.com/a/32427/7684041-->
@@ -72,7 +72,7 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
     <br>
     <center>
         <input id='tlacitkoBojNahore' type='button' onClick="ajaxFunction()" value="BOJ" class='boj'>
-        <input id='tlacitkoOpakovaneSimulaceNahore' type='button' onClick="opakovanaSimulace(20)" value="20x" class='boj'>
+        <input id='tlacitkoOpakovaneSimulaceNahore' type='button' onClick="opakovanaSimulace(20)" value="20x" class='boj' onmouseover="Tip('Opakuje boj 20x a vypise nejhorsi vysledek')" onmouseout="UnTip()">
     </center><br>
     <center>
         <input type='submit' onClick="window.open('jednotky.php', '_blank');" value="Seznam jednotek" class='boj'>
