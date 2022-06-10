@@ -197,7 +197,7 @@ async function simulovatCelouSekci(nazevSekce) {
     let souhrnVysledku = document.createElement('div')
     for (const event of eventy) {
         const armadaObrance = prectiArmaduEventu(event) //vraci null pro dynamicke armady (napr. modre pleneni) - at si je hrac simuluje radeji rucne
-        const vysledek = armadaObrance === null ? null : await ziskejNejhorsiVsledekSimulace(armadaUtocnika, armadaObrance, pocetOpakovaniPerEvent)
+        const vysledek = armadaObrance === null ? null : await ziskejNejhorsiVysledekSimulace(armadaUtocnika, armadaObrance, pocetOpakovaniPerEvent)
         souhrnVysledku.appendChild(vytvorVyslednyElement(event, await vysledek))
         souhrnVysledku.appendChild(document.createElement('br'))
     }
@@ -279,22 +279,40 @@ async function simulovatCelouSekci(nazevSekce) {
         //TODO ziskat armadu kdyz je zavisla na sile utocnika
         // - silu mam k dispozici (dopocitam z fejk utoku na 1 x ruzove prasatko) a jde ziskat stejne jako vysledek bitvy pres fetch (viz ajaxFunction3 a runEngineSimulation)
     }
+}
 
-    async function ziskejNejhorsiVsledekSimulace(armadaUtocnika, armadaObrance, opakovani) {
-        let nejhorsi = null
-        for (let i=0; i<opakovani; i++) {
-            let vysledek = await getBattleResults(armadaUtocnika, armadaObrance)
-            // Nejhorsi vysledek je nejmene zabitych obrancu. Pokud je zabitych stejne (napr. oba utoky 100% uspech), tak potom je horsi vetsi ztrata utocnika
-            if (nejhorsi == null) {
-                nejhorsi = vysledek
-            } else {
-                if (vysledek.obrance.hodnotaPrezilo > nejhorsi.obrance.hodnotaPrezilo) {
-                    nejhorsi = vysledek;
-                } else if (vysledek.obrance.hodnotaPrezilo === nejhorsi.obrance.hodnotaPrezilo) {
-                    if (vysledek.utocnik.hodnotaPrezilo < nejhorsi.utocnik.hodnotaPrezilo) nejhorsi = vysledek;
-                }
+
+async function opakovanaSimulace(pocetOpakovani) {
+    showLoadingAnimation();
+    setFightButtonsState('disabled'); //disable the buttons, so user can't click it multiple times (spam/overload server)
+    const casZacatku = Date.now();
+
+    const armadaUtocnika = getAttackerArmy();
+    const armadaObrance = getDefenderArmy();
+    const vysledek = await ziskejNejhorsiVysledekSimulace(armadaUtocnika, armadaObrance, pocetOpakovani);
+    const casBehu = ((Date.now() - casZacatku) / 1000); //ms -> s
+    document.getElementById("result").innerHTML = `${vysledek.celaBitvaHtmlString}<br><center>celkem ${casBehu.toString()}s</center>`;
+
+    setFightButtonsState('enabled');
+    hideLoadingAnimation();
+}
+
+
+//TODO move to simulator_common.js
+async function ziskejNejhorsiVysledekSimulace(armadaUtocnika, armadaObrance, opakovani) {
+    let nejhorsi = null
+    for (let i=0; i<opakovani; i++) {
+        let vysledek = await getBattleResults(armadaUtocnika, armadaObrance)
+        // Nejhorsi vysledek je nejmene zabitych obrancu. Pokud je zabitych stejne (napr. oba utoky 100% uspech), tak potom je horsi vetsi ztrata utocnika
+        if (nejhorsi == null) {
+            nejhorsi = vysledek
+        } else {
+            if (vysledek.obrance.hodnotaPrezilo > nejhorsi.obrance.hodnotaPrezilo) {
+                nejhorsi = vysledek;
+            } else if (vysledek.obrance.hodnotaPrezilo === nejhorsi.obrance.hodnotaPrezilo) {
+                if (vysledek.utocnik.hodnotaPrezilo < nejhorsi.utocnik.hodnotaPrezilo) nejhorsi = vysledek;
             }
         }
-        return nejhorsi
     }
+    return nejhorsi
 }

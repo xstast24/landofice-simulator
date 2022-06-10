@@ -16,6 +16,18 @@ function hideLoadingAnimation() {
     document.getElementById("obrazek").innerHTML = '';
 }
 
+/**Disable/enable fight buttons (prevents spamming of backend).
+ * @param {string} state 'enabled' or 'disabled', the desired button status*/
+function setFightButtonsState(state) {
+    const topButton = document.getElementById('tlacitkoBojNahore')
+    const topButtonRepeat = document.getElementById('tlacitkoOpakovaneSimulaceNahore')
+    const bottomButton = document.getElementById('tlacitkoBojDole') //bottom buttons are shown with the fight results, so sometimes they might not exist
+    const bottomButtonRepeat = document.getElementById('tlacitkoOpakovaneSimulaceDole')
+    for (const button of [topButton, topButtonRepeat, bottomButton, bottomButtonRepeat]) {
+        if (button) button.disabled = (state === 'disabled'); //the disabled state is not visible cos buttons are grey by default, but it works
+    }
+}
+
 function getAttackerArmy() {
     return reformatArmyString(document.getElementById("ut").value);
 }
@@ -50,7 +62,7 @@ async function getBattleResults(attackerArmyString, defenderArmyString) {
     defender.hodnotaZabito = defender.hodnotaCelkem - defender.hodnotaPrezilo
     defender.procentoZtraty = 100 * defender.hodnotaZabito / defender.hodnotaCelkem
 
-    return {utocnik: attacker, obrance: defender}
+    return {utocnik: attacker, obrance: defender, celaBitvaHtmlString: resultHtmlString}
 }
 
 

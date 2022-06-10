@@ -3073,7 +3073,10 @@ if ($utocnik != "" and $obrance != "") {
 	echo "</div>";
 
 
-	echo "<center><input type='submit' onClick=\"ajaxFunction()\" value=\"BOJ!\" class='boj'></center><br>";
+	echo "<center>
+            <input type='button' id='tlacitkoBojDole' onClick=\"ajaxFunction()\" value=\"BOJ!\" class='boj'>
+            <input type='button' id='tlacitkoOpakovaneSimulaceDole' onClick=\"opakovanaSimulace(20)\" value=\"20x\" class='boj'>
+          </center><br>";
 
 	$cas2 = explode(" ", microtime());
 	echo "<center>" . (round((($cas2[1] + $cas2[0]) - $cas1) * $rd)) / $rd . "s</center>";

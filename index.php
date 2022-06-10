@@ -70,7 +70,10 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
         </table>
     </div>
     <br>
-    <center><input type='submit' onClick="ajaxFunction()" value="BOJ!" class='boj'></center><br>
+    <center>
+        <input id='tlacitkoBojNahore' type='button' onClick="ajaxFunction()" value="BOJ!" class='boj'>
+        <input id='tlacitkoOpakovaneSimulaceNahore' type='button' onClick="opakovanaSimulace(20)" value="20x" class='boj'>
+    </center><br>
     <center>
         <input type='submit' onClick="window.open('jednotky.php', '_blank');" value="Seznam jednotek" class='boj'>
         <input type='submit' onClick="window.open('pleneni.php', '_blank');" value="Výpis artefaktů u plenění" class='boj'>

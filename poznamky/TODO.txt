@@ -10,9 +10,7 @@ Eventy:
 * chramy - udavat maximalni hodnotu
 
 Other:
-* ignorovat diakritiku + upper/lowercase pri parsovani jednotek
 * vytvorit README, at muze kdokoliv simulator v budoucnu snadno vylepsovat/udrzovat
-* Tlačítko na 10x opakování simulace pro získání více možných výsledků,
 * Přidat odměny při výhře
 * Hodnoty min/max armád eventů
 * reorganizace struktury repositare https://stackoverflow.com/a/42393990/7684041
