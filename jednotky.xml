@@ -369,6 +369,10 @@
 		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
+			<schopnost>
+				<nazev>magieLedu</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -3771,11 +3775,11 @@
 			</schopnost>
 			<schopnost>
 				<nazev>magieOhne</nazev>
-				<hodnota>3</hodnota>
+				<hodnota>4</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>vyvolavaJednotku</nazev>
-				<hodnota>Meteorit</hodnota>
+				<hodnota>Ohnivý přízrak</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -4345,6 +4349,10 @@
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
+			<schopnost>
+				<nazev>magieLedu</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>

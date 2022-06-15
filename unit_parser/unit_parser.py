@@ -94,8 +94,12 @@ def set_default_multi_magic(units: dict) -> None:
         elif unit["nazev"] == "Zasvěcenec světla":
             unit["schopnosti"]["magieSvetla"] = "2"
         elif unit["nazev"] == "Flamekeeper Lord":
-            unit["schopnosti"]["magieOhne"] = "3"
-            unit["schopnosti"]["vyvolavaJednotku"] = "Meteorit"
+            unit["schopnosti"]["magieOhne"] = "4"
+            unit["schopnosti"]["vyvolavaJednotku"] = "Ohnivý přízrak"
+        elif unit["nazev"] == "Gobliní Patriarcha":
+            unit["schopnosti"]["magieLedu"] = "1"
+        elif unit["nazev"] == "Potulný Kouzelník":
+            unit["schopnosti"]["magieLedu"] = "1"
 
 
 def set_fraction(row: str) -> str:
