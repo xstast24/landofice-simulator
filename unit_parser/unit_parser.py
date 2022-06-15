@@ -50,6 +50,8 @@ def extract_data_from_html_table(raw_data: str) -> list:
     unit_list = [unit for unit in unit_list if unit["nazev"] not in units_to_remove]
     set_unique_units(unit_list)
 
+    set_default_multi_magic(unit_list)
+
     return unit_list
 
 
@@ -85,6 +87,17 @@ def set_unit_abilities(unit: dict, magic: str, abilities: str) -> None:
     set_abilities(unit, abilities)
 
 
+def set_default_multi_magic(units: dict) -> None:
+    for unit in units:
+        if unit["nazev"] == "Světlonoš":
+            unit["schopnosti"]["magieSvetla"] = "5"
+        elif unit["nazev"] == "Zasvěcenec světla":
+            unit["schopnosti"]["magieSvetla"] = "2"
+        elif unit["nazev"] == "Flamekeeper Lord":
+            unit["schopnosti"]["magieOhne"] = "3"
+            unit["schopnosti"]["vyvolavaJednotku"] = "Meteorit"
+
+
 def set_fraction(row: str) -> str:
     god = row.find("h3").getText()
     return fraction_list.get(god, "0")
@@ -92,10 +105,13 @@ def set_fraction(row: str) -> str:
 def set_unique_units(units: list) -> None:
     unique_units = ["Posvátný jednorožec", "Generál starého impéria", "Dreaddův Vyvolený", "Flamekeeper Lord",
                     "Gobliní Hrdina"]
+    semi_unique_units = {"Kamenný Kraken"}
 
     for unit in units:
         if unit['nazev'] in unique_units:
             unit["schopnosti"]["unikatni"] = "1"
+        if unit['nazev'] in semi_unique_units:
+            unit["schopnosti"]["pseudoUnikatni"] = "1"
 
 
 if __name__ == "__main__":

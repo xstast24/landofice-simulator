@@ -2525,6 +2525,10 @@
 				<nazev>stec</nazev>
 				<hodnota>75000</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>pseudoUnikatni</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -3765,6 +3769,14 @@
 				<nazev>unikatni</nazev>
 				<hodnota>1</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>magieOhne</nazev>
+				<hodnota>3</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Meteorit</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -4829,6 +4841,10 @@
 				<nazev>svatyUtok</nazev>
 				<hodnota>40</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>magieSvetla</nazev>
+				<hodnota>2</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -4912,6 +4928,10 @@
 			<schopnost>
 				<nazev>imunitaOhen</nazev>
 				<hodnota>1</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>magieSvetla</nazev>
+				<hodnota>5</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>

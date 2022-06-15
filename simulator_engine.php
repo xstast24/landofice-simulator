@@ -116,12 +116,12 @@ if ($utocnik != "" and $obrance != "") {
                     $this->pocetUtoku = $jednotka->pocetUtoku * 1;
                     #frakce: 0 - nezařazeno, 1 - Dralgar, 2 - vulkan, 3 - Aether, 4 - Dreadd, 5 - Dhar, 6 - Ghoro, 7 - crinis, 8 - ascendacy
                     $this->frakce = $jednotka->frakce * 1;
+
                     foreach ($jednotka->schopnosti->schopnost as $schopnost) {
                         $nazevSchopnosti = trim($schopnost->nazev);
                         $hodnotaSchopnosti = $schopnost->hodnota;
                         $schopnosti[$nazevSchopnosti] = $hodnotaSchopnosti;
                     }
-
                     $this->schopnosti = $schopnosti;
                     break;
                 }
@@ -1400,7 +1400,7 @@ if ($utocnik != "" and $obrance != "") {
 
 				if ($jednotka[$id]->strana == $this->strana and $jednotka[$id]->celkem_zivotu > 0 and $jednotka[$id]->id != $this->id and $jednotka[$id]->celkem_zivotu < $jednotka[$id]->poc_celkem_zivotu) { //jednotka nemůže léčit sama sebe
 
-					$vyleceno = max(round($jednotka[$id]->poc_celkem_zivotu * 0.1 * $this->pocet), 1000);
+					$vyleceno = max(round($jednotka[$id]->poc_celkem_zivotu * 0.15 * $this->pocet), 1000);
 
 					if (($jednotka[$id]->celkem_zivotu + $vyleceno) > $jednotka[$id]->poc_celkem_zivotu) $vyleceno = $jednotka[$id]->poc_celkem_zivotu - $jednotka[$id]->celkem_zivotu;
 
@@ -2043,7 +2043,7 @@ if ($utocnik != "" and $obrance != "") {
 
 			$damage = $this->dmg;
 
-			$damage += $damage * $bonus / 100;
+			$damage += $damage * $bonus / 100;	// bonus znaci extra procenta napr z jedoveho utoku
 
 			if ($this->schopnosti["stec"] > 0 and $aktualniKolo == 3) $damage += $this->schopnosti["stec"];
 
@@ -2055,6 +2055,9 @@ if ($utocnik != "" and $obrance != "") {
 
 				$dmg = $this->pocet * $damage;
 			}
+
+			$dmgModifier = rand(95, 105) / 100; //nahodny rozptyl dmg +-5%
+			$dmg *= $dmgModifier;
 
 			if (($jednotka[$id_obrance]->obr - $this->utk) >= 25 and $this->schopnosti["slayer"] == 0) {
 				//			$dmg = $this->pocet * 0.55;
@@ -2598,8 +2601,18 @@ if ($utocnik != "" and $obrance != "") {
 
 			$jednotka[$indexTridy] = new Jednotka($indexTridy, $nazevJednotky, $pocetJednotek, $strana, 0, $barva, $art);
 
-			if ($multimagic)
+			if ($multimagic){
 				$jednotka[$indexTridy]->schopnosti[$magic] = $level;
+
+				//specialni pripady multimagie pro nektere jednotky
+				if ($jednotka[$indexTridy]->nazev == "Flamekeeper Lord"){
+					if ($jednotka[$indexTridy]->schopnosti[$magic] == "3"){
+						$jednotka[$indexTridy]->schopnosti["vyvolavaJednotku"] = "Meteorit";
+					} else if ($jednotka[$indexTridy]->schopnosti[$magic] == "4"){
+						$jednotka[$indexTridy]->schopnosti["vyvolavaJednotku"] = "Ohnivý přízrak";
+					}
+				}
+			}
 
 			$index++;
 		}
