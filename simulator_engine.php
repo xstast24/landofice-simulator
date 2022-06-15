@@ -1400,7 +1400,7 @@ if ($utocnik != "" and $obrance != "") {
 
 				if ($jednotka[$id]->strana == $this->strana and $jednotka[$id]->celkem_zivotu > 0 and $jednotka[$id]->id != $this->id and $jednotka[$id]->celkem_zivotu < $jednotka[$id]->poc_celkem_zivotu) { //jednotka nemůže léčit sama sebe
 
-					$vyleceno = max(round($jednotka[$id]->poc_celkem_zivotu * 0.1 * $this->pocet), 1000);
+					$vyleceno = max(round($jednotka[$id]->poc_celkem_zivotu * 0.15 * $this->pocet), 1000);
 
 					if (($jednotka[$id]->celkem_zivotu + $vyleceno) > $jednotka[$id]->poc_celkem_zivotu) $vyleceno = $jednotka[$id]->poc_celkem_zivotu - $jednotka[$id]->celkem_zivotu;
 
