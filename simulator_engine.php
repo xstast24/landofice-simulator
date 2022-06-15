@@ -116,12 +116,12 @@ if ($utocnik != "" and $obrance != "") {
                     $this->pocetUtoku = $jednotka->pocetUtoku * 1;
                     #frakce: 0 - nezařazeno, 1 - Dralgar, 2 - vulkan, 3 - Aether, 4 - Dreadd, 5 - Dhar, 6 - Ghoro, 7 - crinis, 8 - ascendacy
                     $this->frakce = $jednotka->frakce * 1;
+
                     foreach ($jednotka->schopnosti->schopnost as $schopnost) {
                         $nazevSchopnosti = trim($schopnost->nazev);
                         $hodnotaSchopnosti = $schopnost->hodnota;
                         $schopnosti[$nazevSchopnosti] = $hodnotaSchopnosti;
                     }
-
                     $this->schopnosti = $schopnosti;
                     break;
                 }
@@ -2598,8 +2598,18 @@ if ($utocnik != "" and $obrance != "") {
 
 			$jednotka[$indexTridy] = new Jednotka($indexTridy, $nazevJednotky, $pocetJednotek, $strana, 0, $barva, $art);
 
-			if ($multimagic)
+			if ($multimagic){
 				$jednotka[$indexTridy]->schopnosti[$magic] = $level;
+
+				//specialni pripady multimagie pro nektere jednotky
+				if ($jednotka[$indexTridy]->nazev == "Flamekeeper Lord"){
+					if ($jednotka[$indexTridy]->schopnosti[$magic] == "3"){
+						$jednotka[$indexTridy]->schopnosti["vyvolavaJednotku"] = "Meteorit";
+					} else if ($jednotka[$indexTridy]->schopnosti[$magic] == "4"){
+						$jednotka[$indexTridy]->schopnosti["vyvolavaJednotku"] = "Ohnivý přízrak";
+					}
+				}
+			}
 
 			$index++;
 		}
