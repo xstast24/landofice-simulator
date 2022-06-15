@@ -2056,7 +2056,7 @@ if ($utocnik != "" and $obrance != "") {
 				$dmg = $this->pocet * $damage;
 			}
 
-			$dmgModifier = rand(95, 105) / 100;
+			$dmgModifier = rand(95, 105) / 100; //nahodny rozptyl dmg +-5%
 			$dmg *= $dmgModifier;
 
 			if (($jednotka[$id_obrance]->obr - $this->utk) >= 25 and $this->schopnosti["slayer"] == 0) {
