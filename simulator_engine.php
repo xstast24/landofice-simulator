@@ -2043,7 +2043,7 @@ if ($utocnik != "" and $obrance != "") {
 
 			$damage = $this->dmg;
 
-			$damage += $damage * $bonus / 100;
+			$damage += $damage * $bonus / 100;	// bonus znaci extra procenta napr z jedoveho utoku
 
 			if ($this->schopnosti["stec"] > 0 and $aktualniKolo == 3) $damage += $this->schopnosti["stec"];
 
@@ -2055,6 +2055,9 @@ if ($utocnik != "" and $obrance != "") {
 
 				$dmg = $this->pocet * $damage;
 			}
+
+			$dmgModifier = rand(95, 105) / 100;
+			$dmg *= $dmgModifier;
 
 			if (($jednotka[$id_obrance]->obr - $this->utk) >= 25 and $this->schopnosti["slayer"] == 0) {
 				//			$dmg = $this->pocet * 0.55;
