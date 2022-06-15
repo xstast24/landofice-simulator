@@ -10,6 +10,7 @@ Eventy:
 * chramy - udavat maximalni hodnotu
 
 Other:
+* pridat +-10% dmg rozptyl
 * vytvorit README, at muze kdokoliv simulator v budoucnu snadno vylepsovat/udrzovat
 * Přidat odměny při výhře
 * Hodnoty min/max armád eventů
