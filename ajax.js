@@ -285,6 +285,7 @@ async function simulovatCelouSekci(nazevSekce) {
 async function opakovanaSimulace(pocetOpakovani) {
     showLoadingAnimation();
     setFightButtonsState('disabled'); //disable the buttons, so user can't click it multiple times (spam/overload server)
+    UnTip(); //force hide tooltip, cos after the button was disabled, the auto-hiding on hover-out doesn't work and the tooltip stays displayed
     const casZacatku = Date.now();
 
     const armadaUtocnika = getAttackerArmy();
