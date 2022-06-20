@@ -4413,7 +4413,7 @@
 		<utok>0</utok>
 		<obrana>0</obrana>
 		<damage>0</damage>
-		<zivoty>100</zivoty>
+		<zivoty>50</zivoty>
 		<iniciativa>0</iniciativa>
 		<typUtoku>3</typUtoku>
 		<hodnota>1</hodnota>
@@ -4429,7 +4429,7 @@
 		<utok>0</utok>
 		<obrana>0</obrana>
 		<damage>0</damage>
-		<zivoty>100</zivoty>
+		<zivoty>50</zivoty>
 		<iniciativa>1</iniciativa>
 		<typUtoku>3</typUtoku>
 		<hodnota>1</hodnota>
@@ -4445,7 +4445,7 @@
 		<utok>0</utok>
 		<obrana>0</obrana>
 		<damage>0</damage>
-		<zivoty>100</zivoty>
+		<zivoty>50</zivoty>
 		<iniciativa>1</iniciativa>
 		<typUtoku>3</typUtoku>
 		<hodnota>1</hodnota>
@@ -4480,7 +4480,7 @@
 		<nazev>Gobliní Letící Fanatik</nazev>
 		<utok>20</utok>
 		<obrana>1</obrana>
-		<damage>300</damage>
+		<damage>400</damage>
 		<zivoty>5</zivoty>
 		<iniciativa>7</iniciativa>
 		<typUtoku>2</typUtoku>
@@ -4500,7 +4500,7 @@
 		<nazev>Gobliní Letící Bomba</nazev>
 		<utok>30</utok>
 		<obrana>0</obrana>
-		<damage>15000</damage>
+		<damage>20000</damage>
 		<zivoty>50</zivoty>
 		<iniciativa>1</iniciativa>
 		<typUtoku>2</typUtoku>
@@ -8277,6 +8277,54 @@
 				<nazev>slayer</nazev>
 				<hodnota>1</hodnota>
 			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>999001</id>
+		<nazev>Velitel 1</nazev>
+		<utok>14</utok>
+		<obrana>0</obrana>
+		<damage>15</damage>
+		<zivoty>21</zivoty>
+		<iniciativa>10</iniciativa>
+		<typUtoku>1</typUtoku>
+		<hodnota>1</hodnota>
+		<stav>1</stav>
+		<frakce>0</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>999002</id>
+		<nazev>Velitel 2</nazev>
+		<utok>14</utok>
+		<obrana>0</obrana>
+		<damage>15</damage>
+		<zivoty>21</zivoty>
+		<iniciativa>15</iniciativa>
+		<typUtoku>2</typUtoku>
+		<hodnota>1</hodnota>
+		<stav>1</stav>
+		<frakce>0</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>999004</id>
+		<nazev>Velitel 4</nazev>
+		<utok>14</utok>
+		<obrana>0</obrana>
+		<damage>15</damage>
+		<zivoty>21</zivoty>
+		<iniciativa>20</iniciativa>
+		<typUtoku>4</typUtoku>
+		<hodnota>1</hodnota>
+		<stav>1</stav>
+		<frakce>0</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
 		</schopnosti>
 	</jednotka>
 </jednotky>
