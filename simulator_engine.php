@@ -2329,10 +2329,10 @@ if ($utocnik != "" and $obrance != "") {
 						case "Gobliní Vzducholoď":
 							$pocet_vyvolanych = $this->pocet * 100;
 							break;
-						case "Gobliní Hybridní vzducholoď":
+						case "Gobliní Hybridní Vzducholoď":
 							$pocet_vyvolanych = $this->pocet * 200;
 							break;
-						case "Gobliní Vyztužená vzducholoď":
+						case "Gobliní Vyztužená Vzducholoď":
 							$pocet_vyvolanych = $this->pocet * 400;
 							break;
 					}
