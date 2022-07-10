@@ -299,8 +299,8 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
 
             <td>
                 <div id="sekceBonusy"><a onclick="simulovatCelouSekci('sekceBonusy')"><b style='color:gray'>Bonusy</b></a><br><br>
-                <!--Old: <input value='Přidat otroky' type=button onclick='pridej("\n1000 x Otrok s kopím\n1000 x Otrok s oštěpy\n1000 x Otrok štítonoš")'><br>-->
-                <!--Old: <input value='Přidat zdi imperátorova paláce' type=button onclick='pridej("\n30 x Kamenná hradba\n10 x Kamenná věž\n5 x Věž s balistou")'><br>-->
+                <input value='Přidat otroky' type=button onclick='pridej("\n1000 x Otrok s kopím\n1000 x Otrok s oštěpy\n1000 x Otrok štítonoš")'><br>
+                <input value='Přidat zdi imperátorova paláce' type=button onclick='pridej("\n30 x Kamenná hradba\n10 x Kamenná věž\n5 x Věž s balistou")'><br>
                 <!--Broken: <input style='color:gold' value='Zobrazit klan - Hell' type=button onclick='hraci("hell")'><br>-->
                 <!--Broken: <input style='color:gold' value='Zobrazit klan - Heaven' type=button onclick='hraci("heaven")'><br>-->
                 <input style='color:gray' value='Ohnivá sekta' type=button onclick='pole("10 x arcimág ohně\n50 x mág ohně\n100 x vulkánův přívrženec")'><br>

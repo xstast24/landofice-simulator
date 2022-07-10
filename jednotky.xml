@@ -2628,7 +2628,7 @@
 		<zivoty>340</zivoty>
 		<iniciativa>11</iniciativa>
 		<typUtoku>1</typUtoku>
-		<hodnota>3000</hodnota>
+		<hodnota>750</hodnota>
 		<stav>1</stav>
 		<frakce>5</frakce>
 		<pocetUtoku>1</pocetUtoku>
@@ -4179,7 +4179,7 @@
 		<damage>10</damage>
 		<zivoty>20</zivoty>
 		<iniciativa>2</iniciativa>
-		<typUtoku>1</typUtoku>
+		<typUtoku>4</typUtoku>
 		<hodnota>1000</hodnota>
 		<stav>1</stav>
 		<frakce>6</frakce>
@@ -4241,10 +4241,10 @@
 		<utok>2</utok>
 		<obrana>15</obrana>
 		<damage>100</damage>
-		<zivoty>1000</zivoty>
-		<iniciativa>1</iniciativa>
+		<zivoty>900</zivoty>
+		<iniciativa>2</iniciativa>
 		<typUtoku>4</typUtoku>
-		<hodnota>10000</hodnota>
+		<hodnota>9000</hodnota>
 		<stav>3</stav>
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
@@ -4361,10 +4361,10 @@
 		<utok>4</utok>
 		<obrana>20</obrana>
 		<damage>100</damage>
-		<zivoty>1000</zivoty>
-		<iniciativa>1</iniciativa>
+		<zivoty>900</zivoty>
+		<iniciativa>2</iniciativa>
 		<typUtoku>4</typUtoku>
-		<hodnota>12500</hodnota>
+		<hodnota>11250</hodnota>
 		<stav>3</stav>
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
@@ -4381,10 +4381,10 @@
 		<utok>8</utok>
 		<obrana>30</obrana>
 		<damage>100</damage>
-		<zivoty>1000</zivoty>
-		<iniciativa>1</iniciativa>
+		<zivoty>900</zivoty>
+		<iniciativa>2</iniciativa>
 		<typUtoku>4</typUtoku>
-		<hodnota>15000</hodnota>
+		<hodnota>13500</hodnota>
 		<stav>3</stav>
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
@@ -4468,12 +4468,12 @@
 		<nazev>Gobliní mina</nazev>
 		<utok>0</utok>
 		<obrana>0</obrana>
-		<damage>30</damage>
-		<zivoty>3</zivoty>
+		<damage>200</damage>
+		<zivoty>1</zivoty>
 		<iniciativa>0</iniciativa>
 		<typUtoku>1</typUtoku>
 		<hodnota>1</hodnota>
-		<stav>2</stav>
+		<stav>3</stav>
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
@@ -4731,8 +4731,8 @@
 		<id>2300</id>
 		<nazev>Válečník</nazev>
 		<utok>6</utok>
-		<obrana>3</obrana>
-		<damage>12</damage>
+		<obrana>6</obrana>
+		<damage>6</damage>
 		<zivoty>7</zivoty>
 		<iniciativa>4</iniciativa>
 		<typUtoku>1</typUtoku>
@@ -4741,14 +4741,42 @@
 		<frakce>7</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
+			<schopnost>
+				<nazev>magieSvetla</nazev>
+				<hodnota>2</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2301</id>
+		<nazev>Svatý Válečník</nazev>
+		<utok>7</utok>
+		<obrana>6</obrana>
+		<damage>7</damage>
+		<zivoty>7</zivoty>
+		<iniciativa>5</iniciativa>
+		<typUtoku>1</typUtoku>
+		<hodnota>20</hodnota>
+		<stav>1</stav>
+		<frakce>7</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>magieSvetla</nazev>
+				<hodnota>2</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>svatyUtok</nazev>
+				<hodnota>50</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
 		<id>2302</id>
-		<nazev>Svatý válečník</nazev>
+		<nazev>Elitní Válečník</nazev>
 		<utok>7</utok>
-		<obrana>4</obrana>
-		<damage>14</damage>
+		<obrana>9</obrana>
+		<damage>7</damage>
 		<zivoty>10</zivoty>
 		<iniciativa>5</iniciativa>
 		<typUtoku>1</typUtoku>
@@ -4759,11 +4787,51 @@
 		<schopnosti>
 			<schopnost>
 				<nazev>magieSvetla</nazev>
-				<hodnota>3</hodnota>
+				<hodnota>2</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2303</id>
+		<nazev>Elitní Svatý Válečník</nazev>
+		<utok>8</utok>
+		<obrana>9</obrana>
+		<damage>8</damage>
+		<zivoty>10</zivoty>
+		<iniciativa>6</iniciativa>
+		<typUtoku>1</typUtoku>
+		<hodnota>20</hodnota>
+		<stav>1</stav>
+		<frakce>7</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>magieSvetla</nazev>
+				<hodnota>2</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
-				<hodnota>25</hodnota>
+				<hodnota>100</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2304</id>
+		<nazev>Kapitán Pěšáků</nazev>
+		<utok>10</utok>
+		<obrana>9</obrana>
+		<damage>10</damage>
+		<zivoty>10</zivoty>
+		<iniciativa>8</iniciativa>
+		<typUtoku>1</typUtoku>
+		<hodnota>50</hodnota>
+		<stav>1</stav>
+		<frakce>7</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>magieSvetla</nazev>
+				<hodnota>2</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -4788,13 +4856,57 @@
 		</schopnosti>
 	</jednotka>
 	<jednotka>
+		<id>2311</id>
+		<nazev>Svatý Střelec</nazev>
+		<utok>10</utok>
+		<obrana>2</obrana>
+		<damage>7</damage>
+		<zivoty>10</zivoty>
+		<iniciativa>7</iniciativa>
+		<typUtoku>2</typUtoku>
+		<hodnota>30</hodnota>
+		<stav>1</stav>
+		<frakce>7</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>magieSvetla</nazev>
+				<hodnota>4</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>svatyUtok</nazev>
+				<hodnota>50</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
 		<id>2312</id>
-		<nazev>Elitní střelec</nazev>
+		<nazev>Elitní Střelec</nazev>
 		<utok>10</utok>
 		<obrana>3</obrana>
-		<damage>7</damage>
+		<damage>9</damage>
 		<zivoty>12</zivoty>
-		<iniciativa>7</iniciativa>
+		<iniciativa>8</iniciativa>
+		<typUtoku>2</typUtoku>
+		<hodnota>50</hodnota>
+		<stav>1</stav>
+		<frakce>7</frakce>
+		<pocetUtoku>2</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>magieSvetla</nazev>
+				<hodnota>4</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2313</id>
+		<nazev>Elitní Svatý Střelec</nazev>
+		<utok>11</utok>
+		<obrana>3</obrana>
+		<damage>10</damage>
+		<zivoty>12</zivoty>
+		<iniciativa>9</iniciativa>
 		<typUtoku>2</typUtoku>
 		<hodnota>50</hodnota>
 		<stav>1</stav>
@@ -4807,7 +4919,27 @@
 			</schopnost>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
-				<hodnota>30</hodnota>
+				<hodnota>100</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2314</id>
+		<nazev>Kapitán Střelců</nazev>
+		<utok>10</utok>
+		<obrana>3</obrana>
+		<damage>10</damage>
+		<zivoty>12</zivoty>
+		<iniciativa>8</iniciativa>
+		<typUtoku>2</typUtoku>
+		<hodnota>100</hodnota>
+		<stav>1</stav>
+		<frakce>7</frakce>
+		<pocetUtoku>2</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>magieSvetla</nazev>
+				<hodnota>4</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -4819,39 +4951,111 @@
 		<damage>22</damage>
 		<zivoty>20</zivoty>
 		<iniciativa>6</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>50</hodnota>
+		<typUtoku>2</typUtoku>
+		<hodnota>100</hodnota>
 		<stav>1</stav>
 		<frakce>7</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
 				<nazev>magieSvetla</nazev>
-				<hodnota>2</hodnota>
+				<hodnota>3</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>svatyUtok</nazev>
+				<hodnota>25</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2321</id>
+		<nazev>Svatý Mnich</nazev>
+		<utok>11</utok>
+		<obrana>4</obrana>
+		<damage>21</damage>
+		<zivoty>20</zivoty>
+		<iniciativa>7</iniciativa>
+		<typUtoku>2</typUtoku>
+		<hodnota>100</hodnota>
+		<stav>1</stav>
+		<frakce>7</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>magieSvetla</nazev>
+				<hodnota>3</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>svatyUtok</nazev>
+				<hodnota>100</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
 		<id>2322</id>
-		<nazev>Zasvěcenec světla</nazev>
+		<nazev>Válečný Mnich</nazev>
 		<utok>12</utok>
 		<obrana>6</obrana>
 		<damage>26</damage>
-		<zivoty>25</zivoty>
+		<zivoty>20</zivoty>
 		<iniciativa>7</iniciativa>
-		<typUtoku>1</typUtoku>
-		<hodnota>50</hodnota>
+		<typUtoku>2</typUtoku>
+		<hodnota>100</hodnota>
+		<stav>1</stav>
+		<frakce>7</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>magieSvetla</nazev>
+				<hodnota>3</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>svatyUtok</nazev>
+				<hodnota>50</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2323</id>
+		<nazev>Válečný Svatý Mnich</nazev>
+		<utok>13</utok>
+		<obrana>6</obrana>
+		<damage>27</damage>
+		<zivoty>20</zivoty>
+		<iniciativa>8</iniciativa>
+		<typUtoku>2</typUtoku>
+		<hodnota>100</hodnota>
+		<stav>1</stav>
+		<frakce>7</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>magieSvetla</nazev>
+				<hodnota>3</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>svatyUtok</nazev>
+				<hodnota>200</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2324</id>
+		<nazev>Opat</nazev>
+		<utok>12</utok>
+		<obrana>6</obrana>
+		<damage>13</damage>
+		<zivoty>10</zivoty>
+		<iniciativa>6</iniciativa>
+		<typUtoku>2</typUtoku>
+		<hodnota>200</hodnota>
 		<stav>1</stav>
 		<frakce>7</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
-				<hodnota>40</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>2</hodnota>
+				<hodnota>500</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -4864,21 +5068,37 @@
 		<zivoty>340</zivoty>
 		<iniciativa>8</iniciativa>
 		<typUtoku>1</typUtoku>
-		<hodnota>400</hodnota>
+		<hodnota>300</hodnota>
 		<stav>1</stav>
 		<frakce>7</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>svatyUtok</nazev>
-				<hodnota>50</hodnota>
+				<nazev>stec</nazev>
+				<hodnota>200</hodnota>
 			</schopnost>
-			<schopnost>
-				<nazev>dav</nazev>
-				<hodnota>1</hodnota>
-			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2331</id>
+		<nazev>Svatý Křižák</nazev>
+		<utok>19</utok>
+		<obrana>16</obrana>
+		<damage>45</damage>
+		<zivoty>340</zivoty>
+		<iniciativa>8</iniciativa>
+		<typUtoku>1</typUtoku>
+		<hodnota>300</hodnota>
+		<stav>1</stav>
+		<frakce>7</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
 			<schopnost>
 				<nazev>stec</nazev>
+				<hodnota>220</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>svatyUtok</nazev>
 				<hodnota>100</hodnota>
 			</schopnost>
 		</schopnosti>
@@ -4906,8 +5126,36 @@
 				<hodnota>250</hodnota>
 			</schopnost>
 			<schopnost>
+				<nazev>dav</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2333</id>
+		<nazev>Svatý Paladin</nazev>
+		<utok>20</utok>
+		<obrana>17</obrana>
+		<damage>55</damage>
+		<zivoty>360</zivoty>
+		<iniciativa>9</iniciativa>
+		<typUtoku>1</typUtoku>
+		<hodnota>500</hodnota>
+		<stav>1</stav>
+		<frakce>7</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>magieSvetla</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>stec</nazev>
+				<hodnota>300</hodnota>
+			</schopnost>
+			<schopnost>
 				<nazev>svatyUtok</nazev>
-				<hodnota>100</hodnota>
+				<hodnota>200</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>dav</nazev>
@@ -4940,6 +5188,30 @@
 			<schopnost>
 				<nazev>magieSvetla</nazev>
 				<hodnota>5</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>2391</id>
+		<nazev>Zasvěcenec světla</nazev>
+		<utok>12</utok>
+		<obrana>6</obrana>
+		<damage>26</damage>
+		<zivoty>25</zivoty>
+		<iniciativa>7</iniciativa>
+		<typUtoku>1</typUtoku>
+		<hodnota>50</hodnota>
+		<stav>1</stav>
+		<frakce>7</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>svatyUtok</nazev>
+				<hodnota>40</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>magieSvetla</nazev>
+				<hodnota>2</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -6422,7 +6694,7 @@
 		<obrana>0</obrana>
 		<damage>30000</damage>
 		<zivoty>1000</zivoty>
-		<iniciativa>11</iniciativa>
+		<iniciativa>30</iniciativa>
 		<typUtoku>1</typUtoku>
 		<hodnota>1</hodnota>
 		<stav>3</stav>
