@@ -2681,9 +2681,9 @@ if ($utocnik != "" and $obrance != "") {
 		while ($jednotka[$a]) {
 
 			if ($jednotka[$a]->schopnosti["magieSvetla"] > 1) {
-				if ($jednotka[$a]->schopnosti["magieSvetla"] == 2)     $jednotka[$a]->obr *= 1 + $jednotka["boostMagieSvetla"] / 100;
-				elseif ($jednotka[$a]->schopnosti["magieSvetla"] == 3) $jednotka[$a]->utk *= 1 + $jednotka["boostMagieSvetla"] / 100;
-				elseif ($jednotka[$a]->schopnosti["magieSvetla"] == 4) $jednotka[$a]->ini *= 1 + $jednotka["boostMagieSvetla"] / 100;
+				if ($jednotka[$a]->schopnosti["magieSvetla"] == 2)     $jednotka[$a]->obr *= 1 + ($jednotka[$a]->schopnosti["boostMagieSvetla"] / 100);
+				elseif ($jednotka[$a]->schopnosti["magieSvetla"] == 3) $jednotka[$a]->utk *= 1 + ($jednotka[$a]->schopnosti["boostMagieSvetla"] / 100);
+				elseif ($jednotka[$a]->schopnosti["magieSvetla"] == 4) $jednotka[$a]->ini *= 1 + ($jednotka[$a]->schopnosti["boostMagieSvetla"] / 100);
 
 				$jednotka[$a]->zaokrouhlit;
 			}
