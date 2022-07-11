@@ -1,4 +1,9 @@
-def generate_units(unit_data: str, unit_file_path: str = "../jednotky.xml"):
+from os.path import dirname, abspath
+
+SCRIPT_DIRECTORY = dirname(dirname(abspath(__file__)))
+TARGET_PATH = SCRIPT_DIRECTORY + "\jednotky.xml"
+
+def generate_units(unit_data: str, unit_file_path: str = TARGET_PATH):
     xml_file = open(unit_file_path, 'w', encoding="utf-8")
     xml_file.write("<jednotky>\n")
 

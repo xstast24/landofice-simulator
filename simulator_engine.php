@@ -114,7 +114,7 @@ if ($utocnik != "" and $obrance != "") {
                     #stav 1 - zivy, 2 - nemrtvy, 3 - nezivy
                     $this->stav = $jednotka->stav * 1;
                     $this->pocetUtoku = $jednotka->pocetUtoku * 1;
-                    #frakce: 0 - nezařazeno, 1 - Dralgar, 2 - vulkan, 3 - Aether, 4 - Dreadd, 5 - Dhar, 6 - Ghoro, 7 - crinis, 8 - ascendacy
+                    #frakce: 0 - nezařazeno, 1 - Dralgar, 2 - vulkan, 3 - Aether, 4 - Dreadd, 5 - Dhar, 6 - Ghoro, 7 - crinis, 8 - ascendacy, 10 - demoni
                     $this->frakce = $jednotka->frakce * 1;
 
                     foreach ($jednotka->schopnosti->schopnost as $schopnost) {
@@ -729,7 +729,7 @@ if ($utocnik != "" and $obrance != "") {
 				case "Gnomí vozík":
 					$this->dmg *= 1.15;
 					$this->obr += 1;
-					if ($this->nazev == "Gobliní vzducholoď" or $this->nazev == "Gobliní Hybridní vzducholoď" or $this->nazev == "Gobliní Vyztužená vzducholoď")
+					if ($this->nazev == "Gobliní Vzducholoď" or $this->nazev == "Gobliní Hybridní Vzducholoď" or $this->nazev == "Gobliní Vyztužená Vzducholoď")
 						$this->schopnosti["staze"] = 8;
 
 					$popis = "Jednotka získa +15% do poškození a +1 do obrany. Gobliní vzducholodě získávají navíc +50% na množství paragánů.";
@@ -2329,10 +2329,10 @@ if ($utocnik != "" and $obrance != "") {
 						case "Gobliní Vzducholoď":
 							$pocet_vyvolanych = $this->pocet * 100;
 							break;
-						case "Gobliní Hybridní vzducholoď":
+						case "Gobliní Hybridní Vzducholoď":
 							$pocet_vyvolanych = $this->pocet * 200;
 							break;
-						case "Gobliní Vyztužená vzducholoď":
+						case "Gobliní Vyztužená Vzducholoď":
 							$pocet_vyvolanych = $this->pocet * 400;
 							break;
 					}
@@ -2469,23 +2469,17 @@ if ($utocnik != "" and $obrance != "") {
 
 
 			if ($this->schopnosti["drtivyUtok"] > 0 and $jednotka[$obrance]->stav == 3) {
-
 				$bonus = $this->schopnosti["drtivyUtok"];
-
 				echo "<span style='color:#778899'>Jednotka " . $this->jmenoArt() . " použíla drtivý útok a získala +" . $this->schopnosti["drtivyUtok"] . "% do poškození</span><br>";
 			}
 
-			if ($this->schopnosti["svatyUtok"] > 0 and $jednotka[$obrance]->stav == 2) {
-
+			if ($this->schopnosti["svatyUtok"] > 0 and ($jednotka[$obrance]->stav == 2 or $jednotka[$obrance]->frakce == 8 or $jednotka[$obrance]->frakce == 10)) {
 				$bonus = $this->schopnosti["svatyUtok"];
-
 				echo "<span style='color:#778899'>Jednotka " . $this->jmenoArt() . " použíla svatý útok a získala +" . $this->schopnosti["svatyUtok"] . "% do poškození</span><br>";
 			}
 
 			if ($this->schopnosti["jedovyUtok"] > 0 and $jednotka[$obrance]->stav == 1) {
-
 				$bonus = $this->schopnosti["jedovyUtok"];
-
 				echo "<span style='color:#778899'>Jednotka " . $this->jmenoArt() . " použíla jedový útok a získala +" . $this->schopnosti["jedovyUtok"] . "% do poškození</span><br>";
 			}
 
@@ -2681,19 +2675,15 @@ if ($utocnik != "" and $obrance != "") {
 
 	function magieSvetla()
 	{
-
 		$a = 0;
 		global $jednotka;
 
 		while ($jednotka[$a]) {
 
 			if ($jednotka[$a]->schopnosti["magieSvetla"] > 1) {
-
-				if ($jednotka[$a]->schopnosti["magieSvetla"] == 2)     $jednotka[$a]->obr *= 1.2;
-
-				elseif ($jednotka[$a]->schopnosti["magieSvetla"] == 3) $jednotka[$a]->utk *= 1.2;
-
-				elseif ($jednotka[$a]->schopnosti["magieSvetla"] == 4) $jednotka[$a]->ini *= 1.2;
+				if ($jednotka[$a]->schopnosti["magieSvetla"] == 2)     $jednotka[$a]->obr *= 1 + $jednotka["boostMagieSvetla"] / 100;
+				elseif ($jednotka[$a]->schopnosti["magieSvetla"] == 3) $jednotka[$a]->utk *= 1 + $jednotka["boostMagieSvetla"] / 100;
+				elseif ($jednotka[$a]->schopnosti["magieSvetla"] == 4) $jednotka[$a]->ini *= 1 + $jednotka["boostMagieSvetla"] / 100;
 
 				$jednotka[$a]->zaokrouhlit;
 			}
