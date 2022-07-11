@@ -461,6 +461,54 @@ missing_units = [
             "slayer": "1"
         }
     },
+    {
+        "id": "999001",
+        "nazev": "Velitel 1",
+        "utok": "14",
+        "obrana": "0",
+        "damage": "15",
+        "zivoty": "21",
+        "iniciativa": "10",
+        "typUtoku": "1",
+        "hodnota": "1",
+        "stav": "1",
+        "frakce": "0",
+        "pocetUtoku": "1",
+        "schopnosti": {
+        }
+    },
+    {
+        "id": "999002",
+        "nazev": "Velitel 2",
+        "utok": "14",
+        "obrana": "0",
+        "damage": "15",
+        "zivoty": "21",
+        "iniciativa": "15",
+        "typUtoku": "2",
+        "hodnota": "1",
+        "stav": "1",
+        "frakce": "0",
+        "pocetUtoku": "1",
+        "schopnosti": {
+        }
+    },
+    {
+        "id": "999004",
+        "nazev": "Velitel 4",
+        "utok": "14",
+        "obrana": "0",
+        "damage": "15",
+        "zivoty": "21",
+        "iniciativa": "20",
+        "typUtoku": "4",
+        "hodnota": "1",
+        "stav": "1",
+        "frakce": "0",
+        "pocetUtoku": "1",
+        "schopnosti": {
+        }
+    },
 ]
 
 

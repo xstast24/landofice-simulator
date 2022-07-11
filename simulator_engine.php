@@ -729,7 +729,7 @@ if ($utocnik != "" and $obrance != "") {
 				case "Gnomí vozík":
 					$this->dmg *= 1.15;
 					$this->obr += 1;
-					if ($this->nazev == "Gobliní vzducholoď" or $this->nazev == "Gobliní Hybridní vzducholoď" or $this->nazev == "Gobliní Vyztužená vzducholoď")
+					if ($this->nazev == "Gobliní Vzducholoď" or $this->nazev == "Gobliní Hybridní Vzducholoď" or $this->nazev == "Gobliní Vyztužená Vzducholoď")
 						$this->schopnosti["staze"] = 8;
 
 					$popis = "Jednotka získa +15% do poškození a +1 do obrany. Gobliní vzducholodě získávají navíc +50% na množství paragánů.";
@@ -2329,10 +2329,10 @@ if ($utocnik != "" and $obrance != "") {
 						case "Gobliní Vzducholoď":
 							$pocet_vyvolanych = $this->pocet * 100;
 							break;
-						case "Gobliní Hybridní vzducholoď":
+						case "Gobliní Hybridní Vzducholoď":
 							$pocet_vyvolanych = $this->pocet * 200;
 							break;
-						case "Gobliní Vyztužená vzducholoď":
+						case "Gobliní Vyztužená Vzducholoď":
 							$pocet_vyvolanych = $this->pocet * 400;
 							break;
 					}
