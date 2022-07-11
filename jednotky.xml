@@ -4745,6 +4745,10 @@
 				<nazev>magieSvetla</nazev>
 				<hodnota>2</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>boostMagieSvetla</nazev>
+				<hodnota>10</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -4764,6 +4768,10 @@
 			<schopnost>
 				<nazev>magieSvetla</nazev>
 				<hodnota>2</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>boostMagieSvetla</nazev>
+				<hodnota>15</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
@@ -4789,6 +4797,10 @@
 				<nazev>magieSvetla</nazev>
 				<hodnota>2</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>boostMagieSvetla</nazev>
+				<hodnota>20</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -4808,6 +4820,10 @@
 			<schopnost>
 				<nazev>magieSvetla</nazev>
 				<hodnota>2</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>boostMagieSvetla</nazev>
+				<hodnota>25</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
@@ -4833,6 +4849,10 @@
 				<nazev>magieSvetla</nazev>
 				<hodnota>2</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>boostMagieSvetla</nazev>
+				<hodnota>20</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -4853,6 +4873,10 @@
 				<nazev>magieSvetla</nazev>
 				<hodnota>4</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>boostMagieSvetla</nazev>
+				<hodnota>20</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -4872,6 +4896,10 @@
 			<schopnost>
 				<nazev>magieSvetla</nazev>
 				<hodnota>4</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>boostMagieSvetla</nazev>
+				<hodnota>30</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
@@ -4897,6 +4925,10 @@
 				<nazev>magieSvetla</nazev>
 				<hodnota>4</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>boostMagieSvetla</nazev>
+				<hodnota>40</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -4916,6 +4948,10 @@
 			<schopnost>
 				<nazev>magieSvetla</nazev>
 				<hodnota>4</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>boostMagieSvetla</nazev>
+				<hodnota>50</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
@@ -4941,6 +4977,10 @@
 				<nazev>magieSvetla</nazev>
 				<hodnota>4</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>boostMagieSvetla</nazev>
+				<hodnota>40</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -4960,6 +5000,10 @@
 			<schopnost>
 				<nazev>magieSvetla</nazev>
 				<hodnota>3</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>boostMagieSvetla</nazev>
+				<hodnota>20</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
@@ -4986,6 +5030,10 @@
 				<hodnota>3</hodnota>
 			</schopnost>
 			<schopnost>
+				<nazev>boostMagieSvetla</nazev>
+				<hodnota>30</hodnota>
+			</schopnost>
+			<schopnost>
 				<nazev>svatyUtok</nazev>
 				<hodnota>100</hodnota>
 			</schopnost>
@@ -5010,6 +5058,10 @@
 				<hodnota>3</hodnota>
 			</schopnost>
 			<schopnost>
+				<nazev>boostMagieSvetla</nazev>
+				<hodnota>40</hodnota>
+			</schopnost>
+			<schopnost>
 				<nazev>svatyUtok</nazev>
 				<hodnota>50</hodnota>
 			</schopnost>
@@ -5032,6 +5084,10 @@
 			<schopnost>
 				<nazev>magieSvetla</nazev>
 				<hodnota>3</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>boostMagieSvetla</nazev>
+				<hodnota>50</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
@@ -5734,7 +5790,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>500000</hodnota>
 		<stav>1</stav>
-		<frakce>8</frakce>
+		<frakce>10</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -6998,7 +7054,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>10</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7014,7 +7070,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>12</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7030,7 +7086,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>15</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7046,7 +7102,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>25</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>2</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7062,7 +7118,7 @@
 		<typUtoku>2</typUtoku>
 		<hodnota>50</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7086,7 +7142,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>30</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>2</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7226,7 +7282,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>2</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7242,7 +7298,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>100</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7262,7 +7318,7 @@
 		<typUtoku>2</typUtoku>
 		<hodnota>20</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7282,7 +7338,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>100</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7306,7 +7362,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>150</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7330,7 +7386,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>1000</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7350,7 +7406,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>325000</hodnota>
 		<stav>3</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7378,7 +7434,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>100</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7402,7 +7458,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>1000</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7422,7 +7478,7 @@
 		<typUtoku>2</typUtoku>
 		<hodnota>1000</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7454,7 +7510,7 @@
 		<typUtoku>2</typUtoku>
 		<hodnota>1000</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7470,7 +7526,7 @@
 		<typUtoku>2</typUtoku>
 		<hodnota>1000</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7490,7 +7546,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>150000</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7518,7 +7574,7 @@
 		<typUtoku>2</typUtoku>
 		<hodnota>1000</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7550,7 +7606,7 @@
 		<typUtoku>2</typUtoku>
 		<hodnota>1000</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7566,7 +7622,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>325000</hodnota>
 		<stav>3</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7594,7 +7650,7 @@
 		<typUtoku>2</typUtoku>
 		<hodnota>1000</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7618,7 +7674,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>1</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7634,7 +7690,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>2</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7650,7 +7706,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>3</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>3</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7666,7 +7722,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>1</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7682,7 +7738,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>2</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7698,7 +7754,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>75</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7718,7 +7774,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>75</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7738,7 +7794,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>75</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7758,7 +7814,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>200</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7778,7 +7834,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>200</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7798,7 +7854,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>150</hodnota>
 		<stav>3</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7814,7 +7870,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>6</hodnota>
 		<stav>3</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7830,7 +7886,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>560</hodnota>
 		<stav>3</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7846,7 +7902,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>80</hodnota>
 		<stav>3</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7862,7 +7918,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>2300</hodnota>
 		<stav>3</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7882,7 +7938,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>400</hodnota>
 		<stav>3</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7902,7 +7958,7 @@
 		<typUtoku>2</typUtoku>
 		<hodnota>140</hodnota>
 		<stav>3</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7918,7 +7974,7 @@
 		<typUtoku>2</typUtoku>
 		<hodnota>200</hodnota>
 		<stav>3</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7934,7 +7990,7 @@
 		<typUtoku>2</typUtoku>
 		<hodnota>260</hodnota>
 		<stav>1</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7954,7 +8010,7 @@
 		<typUtoku>3</typUtoku>
 		<hodnota>2000</hodnota>
 		<stav>3</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
@@ -7974,7 +8030,7 @@
 		<typUtoku>4</typUtoku>
 		<hodnota>2000</hodnota>
 		<stav>3</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 		</schopnosti>
@@ -7990,7 +8046,7 @@
 		<typUtoku>1</typUtoku>
 		<hodnota>95000</hodnota>
 		<stav>3</stav>
-		<frakce>10</frakce>
+		<frakce>0</frakce>
 		<pocetUtoku>2</pocetUtoku>
 		<schopnosti>
 		</schopnosti>

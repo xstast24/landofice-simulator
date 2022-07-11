@@ -140,6 +140,9 @@ def get_toxic_dmg(description: str) -> str:
 def get_block_percentage(description: str) -> str:
     return description.split("zablokuje ")[1].split("%")[0].strip()
 
+def get_holy_boost(description: str) -> str:
+    return description.split("+")[1].split("%")[0].strip()
+
 
 def set_magic(unit: dict, magic: str) -> None:
     for spell in magic:
@@ -215,6 +218,9 @@ def set_spell(unit: dict, spell: str) -> None:
         level = name.split(" Světla ")[1].strip()
         name = "magieSvetla"
         unit["schopnosti"][name] = level
+
+        if level in ['2', '3', '4']:
+            unit["schopnosti"]["boostMagieSvetla"] = get_holy_boost(description)
 
 
 def roman_to_arabic(roman_number: str):

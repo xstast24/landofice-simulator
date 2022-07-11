@@ -13,7 +13,6 @@ fraction_list = {  # taken from loi simulator
     "Ghoro": "6",
     "Crinis": "7",
     "Ascandancy": "8",
-    "Demoni": "10"
 }
 
 units_to_remove = ["NIC", "Není", "SMAZAT", "Agresivní velikonoční kuřátko", "Červený gumový medvídek",
@@ -56,6 +55,7 @@ def extract_data_from_html_table(raw_data: str) -> list:
 
 
 def parse_html_row(row: str, fraction: str) -> dict:
+    race = row.select_one(":nth-child(14)").getText().strip()
     unit = {
         "id": row.select_one(":nth-child(2)").getText(),
         "nazev": row.select_one(":nth-child(3)").getText(),
@@ -67,7 +67,7 @@ def parse_html_row(row: str, fraction: str) -> dict:
         "typUtoku": row.select_one(":nth-child(9)").getText(),
         "hodnota": row.select_one(":nth-child(10)").getText(),
         "stav": "1",  # default value is living unit, will be modified later during processing unit abilities
-        "frakce": fraction,
+        "frakce": "10" if race == "demon" else fraction,
         "pocetUtoku": "1",
         "schopnosti": {}
     }
