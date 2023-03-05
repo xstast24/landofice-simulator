@@ -252,7 +252,7 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                 <input value='Dóm země' class='chramy zeme' type=button onclick='pole("22,629 x Elfí elitní lučištník\n17 x Wurm\n8 x Horský Wurm\n2,981 x Kamenný Golem\n138 x Kamenožrout\n16 x Mág země")'><br>
                 <input value='Velechrám země' class='chramy zeme' type=button onclick='pole("42 x Horský Wurm\n24 x Prastarý Horský Wurm\n45,044 x Elfí hraničář\n8,462 x Mramorový golem\n333 x Mramorožrout\n44 x Mág země")'><br>
                 <input value='Posvátný chrám země' class='chramy zeme' type=button onclick='pole("48 x Velemág země\n84,050 x Elfí hraničář\n75 x Prastarý Horský Wurm\n85 x Horský Wurm\n685 x Onyxožrout\n85 x Mág země\n14,888 x Onyxový Golem")'><br>
-                <input value='Posvátný dóm země' class='chramy zeme' type=button onclick='pole("Az vam prijde, napiste nam jednotky a pridame je (kontakty jsou dole)")'><br><br>
+                <input value='Posvátný dóm země' class='chramy zeme' type=button onclick='pole("1 x Lesní obr jezdící na Posvátném Wurmovi\n184 x Horský Wurm\n133 x Prastarý Horský Wurm\n288,126 x Elfí hraničář\n39,629 x Topazový Golem\n1,644 x Topazožrout\n483 x Mág země\n164 x Velemág země")'><br><br>
                 </div>
             </td>
 
@@ -337,17 +337,21 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
         2. Temná jeskyně - úplně špatně. Spolek mocných - chybí některé jednotky.
         V případě, že narazíte na jiné chyby, dejte vědět (viz sekce Kontakty)
         <br>
-        <h4>Nápady na vylepšení</h4>
-        1) Přidat odměny při výhře, 2) Hodnoty min/max armád eventů, 3) Upgrade PHP 5.6 na 7.4/8.1 (vyžaduje podporu na serveru), 4) Spousta dalších v repozitáři v poznamky/TODO.txt<br>
-        Pokud se chce kdokoliv podílet na vylepšování/údržbě simulátoru, je vítán (pište na fórum, kontakt níže)!!! ;-)
-        <br>
         <h4>Kontakty</h4>
-        Chyby, nové eventy, nápady na vylepšení, pomoc a podobně pište na oficiální LoI fórum do sekce <a href="http://landofice.com/forum/viewtopic.php?f=6&t=470">Simulátor</a>.
-        Můžete věci napřed probrat na herním chatu, ale tam to rychle zapadne, takže to vždy potom napište na fórum.
-        Pokud chcete mít jistotu, že se to dostane přímo k vývojářům, vytvořte "issue" přímo v <a href="https://github.com/xstast24/landofice-simulator">github repositáři simulátoru</a>
-        (jestli se stránka nenačte, tak nemáte přístup -> napište na fórum a přidáme vás).
-        V případě věcí, které se stydíte řešit na fóru (např. velikost armády), můžete psát Botovi na herní mail FLLL@SEZNAM.CZ
-        (chodím tam ~1x za měsíc, kdybych dlouho neodpovídal, napište znovu, možná to zapadlo ve spamu).
+        Oficiální LoI fórum sekce <a href="http://landofice.com/forum/viewtopic.php?f=6&t=470">Simulátor</a>.
+        Bota007 herní mail: FLLL@SEZNAM.CZ (chodím tam ~2x za měsíc, kdybych neodpovídal, napište znovu, asi to zapadlo).
+        Chyby, nové eventy, nápady na vylepšení, pomoc a podobně pište na fórum/mail.
+        Můžete věci napřed probrat na herním chatu, ale tam to rychle zapadne, takže to vždy potom napište na fórum nebo mail.
+        Věci, které se stydíte řešit na fóru (např. velikost armády :-P), pište na mail.
+        <a href="https://github.com/xstast24/landofice-simulator">Github repositář simulátoru</a> (jestli se stránka nenačte, tak nemáte přístup -> napište na fórum/mail a přidáme vás).
+        <br>
+        <h4>Changelog</h4>
+        3/2023: +posvátný dóm země (dík Sunnie)
+        2022: znovuoživení simulátoru, 42 milionů změn
+        <br>
+        <h4>Nápady na vylepšení</h4>
+        1) Přidat odměny při výhře, 2) Hodnoty min/max armád eventů, 3) Milion dalších v repozitáři v poznamky/TODO.txt<br>
+        Pokud se chce kdokoliv podílet na vylepšování/údržbě simulátoru, je vítán (pište na fórum+mail, kontakt níže)!!! ;-)
         <br>
         <h4>Credits</h4>
         ❥Bota a ❥Healtonn <small>(reinkarnace simulátoru 2022 a development)</small>
@@ -355,7 +359,7 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
         ❥Nezmar <small>(údržba a vývoj LoI, herní info)</small>
         ❥Rip <small>(dlouhou dobu udržoval a spravoval simulátor do 2021)</small>
         ❥Původní autor <small>(kdo to byl, ať zvedne ruku)</small>
-        ❥Drago <small>(tvůrce LoI, ještě stále nám hostuje LoI)</small>
+        ❥Drago <small>(tvůrce LoI, ještě stále nám hostuje LoI [2022])</small>
         <br><br>
     </div>
 </div>
