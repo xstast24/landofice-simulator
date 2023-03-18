@@ -338,16 +338,13 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
         V případě, že narazíte na jiné chyby, dejte vědět (viz sekce Kontakty)
         <br>
         <h4>Kontakty</h4>
-        Oficiální LoI fórum sekce <a href="http://landofice.com/forum/viewtopic.php?f=6&t=470">Simulátor</a>.
-        Bota007 herní mail: FLLL@SEZNAM.CZ (chodím tam ~2x za měsíc, kdybych neodpovídal, napište znovu, asi to zapadlo).
+        Oficiální LoI fórum sekce <a href="http://landofice.com/forum/viewtopic.php?f=6&t=470">Simulátor</a>.<br>
+        Bota007 herní mail: FLLL@SEZNAM.CZ (chodím tam ~2x za měsíc, kdybych neodpovídal, napište znovu, asi to zapadlo).<br>
+        <a href="https://github.com/xstast24/landofice-simulator">Github repositář simulátoru</a>
+        (jestli se stránka nenačte, tak nemáte přístup -> napište na fórum/mail a přidáme vás).<br>
         Chyby, nové eventy, nápady na vylepšení, pomoc a podobně pište na fórum/mail.
         Můžete věci napřed probrat na herním chatu, ale tam to rychle zapadne, takže to vždy potom napište na fórum nebo mail.
         Věci, které se stydíte řešit na fóru (např. velikost armády :-P), pište na mail.
-        <a href="https://github.com/xstast24/landofice-simulator">Github repositář simulátoru</a> (jestli se stránka nenačte, tak nemáte přístup -> napište na fórum/mail a přidáme vás).
-        <br>
-        <h4>Changelog</h4>
-        3/2023: +posvátný dóm země (dík Sunnie)
-        2022: znovuoživení simulátoru, 42 milionů změn
         <br>
         <h4>Nápady na vylepšení</h4>
         1) Přidat odměny při výhře, 2) Hodnoty min/max armád eventů, 3) Milion dalších v repozitáři v poznamky/TODO.txt<br>
@@ -360,6 +357,10 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
         ❥Rip <small>(dlouhou dobu udržoval a spravoval simulátor do 2021)</small>
         ❥Původní autor <small>(kdo to byl, ať zvedne ruku)</small>
         ❥Drago <small>(tvůrce LoI, ještě stále nám hostuje LoI [2022])</small>
+        <br>
+        <h4>Changelog</h4>
+        3/2023: +posvátný dóm země (dík Sunnie)<br>
+        2022: znovuoživení simulátoru, 42 milionů změn
         <br><br>
     </div>
 </div>
