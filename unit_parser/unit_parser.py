@@ -1,8 +1,12 @@
-from bs4 import BeautifulSoup
-from ability_parser import set_abilities, set_magic, set_suicide_multi_attack
-from unit_generator import generate_units
-from missing_units import handle_missing_units
+import logging
+import os.path
 import sys
+
+from bs4 import BeautifulSoup, element
+
+from ability_parser import set_abilities, set_magic, set_suicide_multi_attack
+from missing_units import handle_missing_units
+from unit_generator import generate_units
 
 fraction_list = {  # taken from loi simulator
     "Dralgar Imagar": "1",
@@ -87,7 +91,7 @@ def set_unit_abilities(unit: dict, magic: str, abilities: str) -> None:
     set_abilities(unit, abilities)
 
 
-def set_default_multi_magic(units: dict) -> None:
+def set_default_multi_magic(units: list) -> None:
     for unit in units:
         if unit["nazev"] == "Světlonoš":
             unit["schopnosti"]["magieSvetla"] = "5"
@@ -102,9 +106,10 @@ def set_default_multi_magic(units: dict) -> None:
             unit["schopnosti"]["magieLedu"] = "1"
 
 
-def set_fraction(row: str) -> str:
+def set_fraction(row: element.Tag) -> str:
     god = row.find("h3").getText()
     return fraction_list.get(god, "0")
+
 
 def set_unique_units(units: list) -> None:
     unique_units = ["Posvátný jednorožec", "Generál starého impéria", "Dreaddův Vyvolený", "Flamekeeper Lord",
@@ -119,10 +124,13 @@ def set_unique_units(units: list) -> None:
 
 
 if __name__ == "__main__":
-    file_path = "test_data/vsechny_jednotky.html"
+    logging.basicConfig(stream=sys.stdout, level=logging.INFO)  # init logger
+
+    file_path = os.path.join("test_data", "vsechny_jednotky.html")
     if len(sys.argv) == 2:
         file_path = sys.argv[1]
 
+    logging.info(f'Loading units from "{file_path}"')
     file_data = load_file(file_path)
 
     unit_data = extract_data_from_html_table(file_data)

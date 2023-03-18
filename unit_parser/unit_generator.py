@@ -1,9 +1,15 @@
+import logging
+import os.path
 from os.path import dirname, abspath
 
-SCRIPT_DIRECTORY = dirname(dirname(abspath(__file__)))
-TARGET_PATH = SCRIPT_DIRECTORY + "\jednotky.xml"
+logger = logging.getLogger(__name__)
 
-def generate_units(unit_data: str, unit_file_path: str = TARGET_PATH):
+SCRIPT_DIRECTORY = dirname(dirname(abspath(__file__)))
+TARGET_PATH = os.path.join(SCRIPT_DIRECTORY, 'jednotky.xml')
+
+
+def generate_units(unit_data: list, unit_file_path: str = TARGET_PATH):
+    logger.info(f'Exporting units as "{unit_file_path}"')
     xml_file = open(unit_file_path, 'w', encoding="utf-8")
     xml_file.write("<jednotky>\n")
 
