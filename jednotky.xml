@@ -2400,7 +2400,7 @@
 		<zivoty>1</zivoty>
 		<iniciativa>15</iniciativa>
 		<typUtoku>1</typUtoku>
-		<hodnota>3</hodnota>
+		<hodnota>5</hodnota>
 		<stav>1</stav>
 		<frakce>5</frakce>
 		<pocetUtoku>1</pocetUtoku>
@@ -2424,7 +2424,7 @@
 		<zivoty>1</zivoty>
 		<iniciativa>18</iniciativa>
 		<typUtoku>1</typUtoku>
-		<hodnota>3</hodnota>
+		<hodnota>5</hodnota>
 		<stav>1</stav>
 		<frakce>5</frakce>
 		<pocetUtoku>1</pocetUtoku>
@@ -2669,7 +2669,7 @@
 	</jednotka>
 	<jednotka>
 		<id>1002</id>
-		<nazev>Dreaddův přívrženec</nazev>
+		<nazev>Dreaddův Přívrženec</nazev>
 		<utok>6</utok>
 		<obrana>2</obrana>
 		<damage>4</damage>
@@ -2677,6 +2677,22 @@
 		<iniciativa>5</iniciativa>
 		<typUtoku>1</typUtoku>
 		<hodnota>10</hodnota>
+		<stav>1</stav>
+		<frakce>4</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>1003</id>
+		<nazev>Přívrženec Věčné Temnoty</nazev>
+		<utok>8</utok>
+		<obrana>3</obrana>
+		<damage>5</damage>
+		<zivoty>18</zivoty>
+		<iniciativa>5</iniciativa>
+		<typUtoku>1</typUtoku>
+		<hodnota>12</hodnota>
 		<stav>1</stav>
 		<frakce>4</frakce>
 		<pocetUtoku>1</pocetUtoku>
@@ -2725,13 +2741,13 @@
 	</jednotka>
 	<jednotka>
 		<id>1012</id>
-		<nazev>Prokletý kněz</nazev>
+		<nazev>Prokletý Kněz</nazev>
 		<utok>0</utok>
 		<obrana>4</obrana>
 		<damage>0</damage>
 		<zivoty>50</zivoty>
 		<iniciativa>6</iniciativa>
-		<typUtoku>3</typUtoku>
+		<typUtoku>4</typUtoku>
 		<hodnota>500</hodnota>
 		<stav>1</stav>
 		<frakce>4</frakce>
@@ -2745,13 +2761,13 @@
 	</jednotka>
 	<jednotka>
 		<id>1013</id>
-		<nazev>Prokletý kněz věčné Temnoty</nazev>
+		<nazev>Prokletý Kněz Věčné Temnoty</nazev>
 		<utok>0</utok>
 		<obrana>4</obrana>
 		<damage>0</damage>
 		<zivoty>50</zivoty>
 		<iniciativa>4</iniciativa>
-		<typUtoku>3</typUtoku>
+		<typUtoku>4</typUtoku>
 		<hodnota>1000</hodnota>
 		<stav>1</stav>
 		<frakce>4</frakce>
@@ -2785,10 +2801,10 @@
 	</jednotka>
 	<jednotka>
 		<id>1023</id>
-		<nazev>Černý rytíř</nazev>
-		<utok>20</utok>
-		<obrana>16</obrana>
-		<damage>32</damage>
+		<nazev>Černý Rytíř</nazev>
+		<utok>25</utok>
+		<obrana>20</obrana>
+		<damage>40</damage>
 		<zivoty>220</zivoty>
 		<iniciativa>12</iniciativa>
 		<typUtoku>1</typUtoku>
@@ -2799,16 +2815,16 @@
 		<schopnosti>
 			<schopnost>
 				<nazev>stec</nazev>
-				<hodnota>96</hodnota>
+				<hodnota>120</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
 		<id>1024</id>
-		<nazev>Temný rytíř</nazev>
-		<utok>24</utok>
-		<obrana>16</obrana>
-		<damage>64</damage>
+		<nazev>Temný Rytíř</nazev>
+		<utok>30</utok>
+		<obrana>20</obrana>
+		<damage>80</damage>
 		<zivoty>320</zivoty>
 		<iniciativa>13</iniciativa>
 		<typUtoku>1</typUtoku>
@@ -2823,16 +2839,16 @@
 			</schopnost>
 			<schopnost>
 				<nazev>stec</nazev>
-				<hodnota>320</hodnota>
+				<hodnota>400</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
 		<id>1025</id>
-		<nazev>Rytíř věčné Temnoty</nazev>
-		<utok>28</utok>
-		<obrana>16</obrana>
-		<damage>128</damage>
+		<nazev>Rytíř Věčné Temnoty</nazev>
+		<utok>35</utok>
+		<obrana>20</obrana>
+		<damage>160</damage>
 		<zivoty>420</zivoty>
 		<iniciativa>14</iniciativa>
 		<typUtoku>1</typUtoku>
@@ -2847,7 +2863,7 @@
 			</schopnost>
 			<schopnost>
 				<nazev>stec</nazev>
-				<hodnota>640</hodnota>
+				<hodnota>800</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -2901,7 +2917,7 @@
 	</jednotka>
 	<jednotka>
 		<id>1033</id>
-		<nazev>Soulkeeper věčné Temnoty</nazev>
+		<nazev>Soulkeeper Věčné Temnoty</nazev>
 		<utok>11</utok>
 		<obrana>8</obrana>
 		<damage>300</damage>
@@ -2940,6 +2956,26 @@
 			<schopnost>
 				<nazev>magieSmrti</nazev>
 				<hodnota>6</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>1082</id>
+		<nazev>Prokletá Duše</nazev>
+		<utok>0</utok>
+		<obrana>0</obrana>
+		<damage>1</damage>
+		<zivoty>5</zivoty>
+		<iniciativa>5</iniciativa>
+		<typUtoku>1</typUtoku>
+		<hodnota>5</hodnota>
+		<stav>2</stav>
+		<frakce>4</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>slayer</nazev>
+				<hodnota>1</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -3704,6 +3740,46 @@
 		</schopnosti>
 	</jednotka>
 	<jednotka>
+		<id>1180</id>
+		<nazev>Ohnivá hradba</nazev>
+		<utok>0</utok>
+		<obrana>20</obrana>
+		<damage>0</damage>
+		<zivoty>15000</zivoty>
+		<iniciativa>0</iniciativa>
+		<typUtoku>1</typUtoku>
+		<hodnota>10000</hodnota>
+		<stav>3</stav>
+		<frakce>2</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>ohnivyStit</nazev>
+				<hodnota>5000</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
+		<id>1181</id>
+		<nazev>Lávová hradba</nazev>
+		<utok>0</utok>
+		<obrana>26</obrana>
+		<damage>0</damage>
+		<zivoty>20000</zivoty>
+		<iniciativa>0</iniciativa>
+		<typUtoku>1</typUtoku>
+		<hodnota>15000</hodnota>
+		<stav>3</stav>
+		<frakce>2</frakce>
+		<pocetUtoku>1</pocetUtoku>
+		<schopnosti>
+			<schopnost>
+				<nazev>ohnivyStit</nazev>
+				<hodnota>6000</hodnota>
+			</schopnost>
+		</schopnosti>
+	</jednotka>
+	<jednotka>
 		<id>1190</id>
 		<nazev>Ohnivý Služebník</nazev>
 		<utok>16</utok>
@@ -3757,7 +3833,7 @@
 		<utok>16</utok>
 		<obrana>10</obrana>
 		<damage>22</damage>
-		<zivoty>75</zivoty>
+		<zivoty>750</zivoty>
 		<iniciativa>8</iniciativa>
 		<typUtoku>2</typUtoku>
 		<hodnota>1000</hodnota>
@@ -4747,7 +4823,7 @@
 			</schopnost>
 			<schopnost>
 				<nazev>boostMagieSvetla</nazev>
-				<hodnota>10</hodnota>
+				<hodnota>20</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -4771,7 +4847,7 @@
 			</schopnost>
 			<schopnost>
 				<nazev>boostMagieSvetla</nazev>
-				<hodnota>15</hodnota>
+				<hodnota>20</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
@@ -4823,7 +4899,7 @@
 			</schopnost>
 			<schopnost>
 				<nazev>boostMagieSvetla</nazev>
-				<hodnota>25</hodnota>
+				<hodnota>20</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
@@ -4899,7 +4975,7 @@
 			</schopnost>
 			<schopnost>
 				<nazev>boostMagieSvetla</nazev>
-				<hodnota>30</hodnota>
+				<hodnota>20</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
@@ -4927,7 +5003,7 @@
 			</schopnost>
 			<schopnost>
 				<nazev>boostMagieSvetla</nazev>
-				<hodnota>40</hodnota>
+				<hodnota>20</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -4951,7 +5027,7 @@
 			</schopnost>
 			<schopnost>
 				<nazev>boostMagieSvetla</nazev>
-				<hodnota>50</hodnota>
+				<hodnota>20</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
@@ -4979,7 +5055,7 @@
 			</schopnost>
 			<schopnost>
 				<nazev>boostMagieSvetla</nazev>
-				<hodnota>40</hodnota>
+				<hodnota>20</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -5031,7 +5107,7 @@
 			</schopnost>
 			<schopnost>
 				<nazev>boostMagieSvetla</nazev>
-				<hodnota>30</hodnota>
+				<hodnota>20</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
@@ -5059,7 +5135,7 @@
 			</schopnost>
 			<schopnost>
 				<nazev>boostMagieSvetla</nazev>
-				<hodnota>40</hodnota>
+				<hodnota>20</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
@@ -5087,7 +5163,7 @@
 			</schopnost>
 			<schopnost>
 				<nazev>boostMagieSvetla</nazev>
-				<hodnota>50</hodnota>
+				<hodnota>20</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
@@ -5250,20 +5326,20 @@
 	<jednotka>
 		<id>2391</id>
 		<nazev>Zasvěcenec světla</nazev>
-		<utok>12</utok>
-		<obrana>6</obrana>
-		<damage>26</damage>
-		<zivoty>25</zivoty>
+		<utok>6</utok>
+		<obrana>3</obrana>
+		<damage>13</damage>
+		<zivoty>12</zivoty>
 		<iniciativa>7</iniciativa>
 		<typUtoku>1</typUtoku>
-		<hodnota>50</hodnota>
+		<hodnota>15</hodnota>
 		<stav>1</stav>
 		<frakce>7</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
 				<nazev>svatyUtok</nazev>
-				<hodnota>40</hodnota>
+				<hodnota>15</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>magieSvetla</nazev>
@@ -5961,7 +6037,7 @@
 		<utok>24</utok>
 		<obrana>20</obrana>
 		<damage>40</damage>
-		<zivoty>310</zivoty>
+		<zivoty>160</zivoty>
 		<iniciativa>14</iniciativa>
 		<typUtoku>1</typUtoku>
 		<hodnota>370</hodnota>
@@ -6750,7 +6826,7 @@
 		<obrana>0</obrana>
 		<damage>30000</damage>
 		<zivoty>1000</zivoty>
-		<iniciativa>30</iniciativa>
+		<iniciativa>21</iniciativa>
 		<typUtoku>1</typUtoku>
 		<hodnota>1</hodnota>
 		<stav>3</stav>
