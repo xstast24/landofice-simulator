@@ -359,7 +359,7 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
         ❥Drago <small>(tvůrce LoI, ještě stále nám hostuje LoI [2022])</small>
         <br>
         <h4>Changelog</h4>
-        3/2023: +posvátný dóm země (dík Sunnie)<br>
+        3/2023: +posvátný dóm země (dík Sunnie); update jednotek<br>
         2022: znovuoživení simulátoru, 42 milionů změn
         <br><br>
     </div>
