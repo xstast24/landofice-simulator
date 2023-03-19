@@ -107,6 +107,9 @@ def set_ability(unit: dict, ability: str) -> None:
     elif "Velmistrovská Magie Ohně" == name:
         name = MULTI_MAGIE
         unit["schopnosti"][name] = "2"
+    elif "Požehnaná Magie Světla":
+        name = MULTI_MAGIE
+        unit["schopnosti"][name] = "m1"
 
 
     if unit["nazev"] == "Eternan vyvolávač":    # fix for incomplete data provided in html table

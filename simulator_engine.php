@@ -111,7 +111,7 @@ if ($utocnik != "" and $obrance != "") {
                         $nazevSchopnosti = trim($schopnost->nazev);
                         $hodnotaSchopnosti = $schopnost->hodnota;
 
-						if ($nazevSchopnosti == "vyvolavaJednotku"){		# TODO fix item vyvolavani -> override item priority v ramci jedne magie
+						if ($nazevSchopnosti == "vyvolavaJednotku" or $nazevSchopnosti == "magieSvetla"){		# TODO fix item vyvolavani -> override item priority v ramci jedne magie
 							empty($schopnosti[$nazevSchopnosti]) ? $schopnosti[$nazevSchopnosti] = [$hodnotaSchopnosti] : array_push($schopnosti[$nazevSchopnosti], $hodnotaSchopnosti);
 						} else {
 							$schopnosti[$nazevSchopnosti] = $hodnotaSchopnosti;
@@ -276,7 +276,7 @@ if ($utocnik != "" and $obrance != "") {
 				case "Meč paladina":
 					$this->utk += 10;
 					$this->dmg += 7;
-					$this->schopnosti["magieSvetla"] = 1;
+					$this->schopnosti["magieSvetla"] = [1];
 					$popis = "Unikátní jednotka získá +10 do útoku a +7 do damage, zároveň se naučí magii světla 1.";
 					break;
 
@@ -1160,23 +1160,16 @@ if ($utocnik != "" and $obrance != "") {
 
 		function magieSvetla5()
 		{
-
 			global $jednotka;
-
 			$id = 0;
 
 			while ($jednotka[$id]) {
-
 				if ($jednotka[$id]->frakce == 7) {
-
 					$jednotka[$id]->schopnosti["stec"] += 5 * $jednotka[$id]->dmg;
-
 					$jednotka[$id]->ini++;
-
 					$jednotka[$id]->zaokrouhlit();
-
+					
 					$poradi[$id]['ini'] = $jednotka[$id]->ini;
-
 					$poradi[$id]['id'] = $jednotka[$id]->id;
 				}
 
@@ -1914,7 +1907,11 @@ if ($utocnik != "" and $obrance != "") {
 
 				if ($n != "x") {
 
-					$hodnotaSchopnosti = $this->schopnosti[$zkr];
+					if ($zkr == "magieSvetla"){
+						$hodnotaSchopnosti = $this->schopnosti[$zkr][0];
+					} else {
+						$hodnotaSchopnosti = $this->schopnosti[$zkr];
+					}
 
 					if ($zkr == "multiutok") $hodnotaSchopnosti = $this->pocetUtoku;
 
@@ -2672,19 +2669,22 @@ if ($utocnik != "" and $obrance != "") {
 
 	function magieSvetla()
 	{
+		
 		$a = 0;
 		global $jednotka;
 
 		while ($jednotka[$a]) {
 
-			if ($jednotka[$a]->schopnosti["magieSvetla"] > 1) {
-				if ($jednotka[$a]->schopnosti["magieSvetla"] == 2)     $jednotka[$a]->obr *= 1 + ($jednotka[$a]->schopnosti["boostMagieSvetla"] / 100);
-				elseif ($jednotka[$a]->schopnosti["magieSvetla"] == 3) $jednotka[$a]->utk *= 1 + ($jednotka[$a]->schopnosti["boostMagieSvetla"] / 100);
-				elseif ($jednotka[$a]->schopnosti["magieSvetla"] == 4) $jednotka[$a]->ini *= 1 + ($jednotka[$a]->schopnosti["boostMagieSvetla"] / 100);
-
+			if (empty($jednotka[$a]->schopnosti["magieSvetla"])){
 				$jednotka[$a]->zaokrouhlit;
+				$a++;
+				continue;
 			}
+			if (in_array(2, $jednotka[$a]->schopnosti["magieSvetla"]))     $jednotka[$a]->obr *= 1 + ($jednotka[$a]->schopnosti["boostMagieSvetla"] / 100);
+			elseif (in_array(3, $jednotka[$a]->schopnosti["magieSvetla"])) $jednotka[$a]->utk *= 1 + ($jednotka[$a]->schopnosti["boostMagieSvetla"] / 100);
+			elseif (in_array(4, $jednotka[$a]->schopnosti["magieSvetla"])) $jednotka[$a]->ini *= 1 + ($jednotka[$a]->schopnosti["boostMagieSvetla"] / 100);
 
+			$jednotka[$a]->zaokrouhlit;
 			$a++;
 		}
 	}
@@ -2775,7 +2775,7 @@ if ($utocnik != "" and $obrance != "") {
 							if ($jednotka[$id]->schopnosti["dav"] == 1) $jednotka[$id]->dav();
 							if ($jednotka[$id]->schopnosti["temnykrik"] == 1) $jednotka[$id]->temnykrik();
 							if ($jednotka[$id]->schopnosti["silaGoblinu"] == 1) $jednotka[$id]->silaGoblinu();
-							if ($jednotka[$id]->schopnosti["magieSvetla"] == 5) $jednotka[$id]->magieSvetla5();
+							if (!empty($jednotka[$id]->schopnosti["magieSvetla"]) and in_array(5, $jednotka[$id]->schopnosti["magieSvetla"])) $jednotka[$id]->magieSvetla5();
 							if ($jednotka[$id]->schopnosti["magieLedu"] == 7) $jednotka[$id]->magieLedu7();
 							if ($jednotka[$id]->schopnosti["magieVody"] == 1) $jednotka[$id]->magieVody1();
 							if ($jednotka[$id]->schopnosti["magieZeme"] == 2) $jednotka[$id]->magieZeme2();
@@ -2791,9 +2791,9 @@ if ($utocnik != "" and $obrance != "") {
 						if (($aktualniKolo == 1 or $aktualniKolo == 2) and $jednotka[$id]->schopnosti["staze"] == 1) $jednotka[$id]->staze();
 
 						// posileni magie svetla se provadi kazde kolo
-						if ($jednotka[$id]->schopnosti["magieSvetla"] == 2) $jednotka[$id]->svetlo("naše zbroje");
-						elseif ($jednotka[$id]->schopnosti["magieSvetla"] == 3) $jednotka[$id]->svetlo("naše zbraně");
-						elseif ($jednotka[$id]->schopnosti["magieSvetla"] == 4) $jednotka[$id]->svetlo("naši rychlost");
+						if (!empty($jednotka[$id]->schopnosti["magieSvetla"]) and in_array(2, $jednotka[$id]->schopnosti["magieSvetla"])) $jednotka[$id]->svetlo("naše zbroje");
+						elseif (!empty($jednotka[$id]->schopnosti["magieSvetla"]) and in_array(3, $jednotka[$id]->schopnosti["magieSvetla"])) $jednotka[$id]->svetlo("naše zbraně");
+						elseif (!empty($jednotka[$id]->schopnosti["magieSvetla"]) and in_array(4, $jednotka[$id]->schopnosti["magieSvetla"])) $jednotka[$id]->svetlo("naši rychlost");
 
 						//Může jednotka provést útok v tomto kole ?
 						if (($aktualniKolo == 1 and ($jednotka[$id]->typUtoku == 4 or $jednotka[$id]->typUtoku == 3)) or ($aktualniKolo == 2 and ($jednotka[$id]->typUtoku == 4 or $jednotka[$id]->typUtoku == 3 or $jednotka[$id]->typUtoku == 2)) or (($aktualniKolo == 3 or $aktualniKolo == 4 or $aktualniKolo == 5) and ($jednotka[$id]->typUtoku == 4 or $jednotka[$id]->typUtoku == 1 or $jednotka[$id]->typUtoku == 2))) {
@@ -2881,7 +2881,7 @@ if ($utocnik != "" and $obrance != "") {
 
 										if ($jednotka[$id]->schopnosti["magieVody"] == 3 and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti["imunitaMagie"]) $jednotka[$id]->magieVody3($id_obrance);
 
-										if ($jednotka[$id]->schopnosti["magieSvetla"] == 1 and $jednotka[$id_obrance]->stav == 2) $jednotka[$id]->magieSvetla1($id_obrance);
+										if (!empty($jednotka[$id]->schopnosti["magieSvetla"]) and in_array(1, $jednotka[$id]->schopnosti["magieSvetla"]) and $jednotka[$id_obrance]->stav == 2) $jednotka[$id]->magieSvetla1($id_obrance);
 
 										if ($jednotka[$id]->schopnosti["sebevrazedna"] and $jednotka[$id]->schopnosti["viceutok"] > 1 and ($jednotka[$id_obrance]->celkem_zivotu <= 0 or $jednotka[$id_obrance]->obdrzela_dmg >= $jednotka[$id_obrance]->poc_celkem_zivotu)) {
 

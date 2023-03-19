@@ -74,3 +74,9 @@ def generate_multi_magic(level: str) -> str:
         abilities = {MAGIE_SVETLA: "4"}
         abilities_xml_string += generate_abilities(abilities)
         return abilities_xml_string
+    elif level == "m1":
+        abilities = {MAGIE_SVETLA: "5"}
+        abilities_xml_string = generate_abilities(abilities)
+        abilities = {MAGIE_SVETLA: "6"}
+        abilities_xml_string += generate_abilities(abilities)
+        return abilities_xml_string
