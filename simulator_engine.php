@@ -2309,17 +2309,15 @@ if ($utocnik != "" and $obrance != "") {
 					break;
 
 				case "Uvězněná duše":
-					if ($this->schopnosti["magieSmrti"] == 5)					# Magie Smrti 5
-						$vyvolal = mt_rand(150, 400);
-					else if ($this->schopnosti["magieSmrti"] == 10)				# Magie Smrti 10
-						$vyvolal = mt_rand(300, 800);
+                    $pocet_vyvolanych = 0; $minVyvolanych = 0; $maxVyvolanych = 0;
+					if ($this->schopnosti["magieSmrti"] == 5) {$minVyvolanych = 150; $maxVyvolanych = 400;} # Magie Smrti 5
+					else if ($this->schopnosti["magieSmrti"] == 10) {$minVyvolanych = 300; $maxVyvolanych = 800;} # Magie Smrti 10
 
-					$poctar = $this->pocet;
+                    $poctar = $this->pocet;
 					while ($poctar > 0) {
-						$pocet_vyvolanych += $vyvolal;
+						$pocet_vyvolanych += mt_rand($minVyvolanych, $maxVyvolanych);
 						$poctar -= 1;
 					}
-
 					$od = "";
 					$co = "povolal";
 					break;
