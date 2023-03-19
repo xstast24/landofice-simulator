@@ -2210,7 +2210,9 @@ if ($utocnik != "" and $obrance != "") {
 					break;
 
 				case "Ohnivá koule":		# Magie ohně 1
-					if ($this->nazev == "Mág ohně")
+                    if ($this->schopnosti['unikatni'] == 1)
+                        $pocet_vyvolanych = $this->celkem_zivotu * 2;
+					else if ($this->nazev == "Mág ohně")
 						$pocet_vyvolanych = floor($this->pocet * (0.91 + rand(0, 20) / 100) / 4);
 					else if ($this->nazev == "Arcimág ohně")
 						$pocet_vyvolanych = floor($this->pocet * (0.97 + rand(0, 10) / 100));
@@ -2226,7 +2228,12 @@ if ($utocnik != "" and $obrance != "") {
 					break;
 
 				case "Ohnivý imp":			# Magie ohně 2
-					$pocet_vyvolanych = round($this->pocet * 2);
+                    if ($this->schopnosti['unikatni'] == 1) {
+                        $odehranychTahu = 1;  # TODO pridat do simulatoru input pro pocet aktualne odehranych tahu (tags: kola, tahy, odehranoTahu, odehranoKol)
+                        $pocet_vyvolanych = ceil($this->celkem_zivotu / 100) + floor($odehranychTahu / 3000);
+                    }
+                    else
+    					$pocet_vyvolanych = round($this->pocet * 2);
 
 					if ($this->schopnosti["posileniOhen"] == 1)
 						$pocet_vyvolanych *= 1.5;
@@ -2295,7 +2302,7 @@ if ($utocnik != "" and $obrance != "") {
 					}
 
 					if ($this->schopnosti["posileniOhen"] == 1)
-						$pocet_vyvolanych * 1.5;
+                        $pocet_vyvolanych = floor($pocet_vyvolanych * 1.5);
 
 					$pocet_vyvolanych = round($pocet_vyvolanych);
 					$od = "Rudé mraky prostoupili Andela věčného ohne. Pak začala z nebe padat ohnivá smrt.";
