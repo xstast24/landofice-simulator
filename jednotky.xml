@@ -370,8 +370,20 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
+				<nazev>magieOhne</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ohnivá koule</hodnota>
+			</schopnost>
+			<schopnost>
 				<nazev>magieLedu</nazev>
 				<hodnota>1</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>magieSmrti</nazev>
+				<hodnota>4</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -3842,12 +3854,12 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>ohnivyStit</nazev>
-				<hodnota>1250</hodnota>
+				<nazev>magieOhne</nazev>
+				<hodnota>3</hodnota>
 			</schopnost>
 			<schopnost>
-				<nazev>unikatni</nazev>
-				<hodnota>1</hodnota>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Meteorit</hodnota>
 			</schopnost>
 			<schopnost>
 				<nazev>magieOhne</nazev>
@@ -3856,6 +3868,14 @@
 			<schopnost>
 				<nazev>vyvolavaJednotku</nazev>
 				<hodnota>Ohnivý přízrak</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>ohnivyStit</nazev>
+				<hodnota>1250</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>unikatni</nazev>
+				<hodnota>1</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -4426,8 +4446,20 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
+				<nazev>magieOhne</nazev>
+				<hodnota>1</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ohnivá koule</hodnota>
+			</schopnost>
+			<schopnost>
 				<nazev>magieLedu</nazev>
 				<hodnota>1</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>magieSmrti</nazev>
+				<hodnota>4</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -4773,6 +4805,22 @@
 		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
+			<schopnost>
+				<nazev>magieOhne</nazev>
+				<hodnota>3</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Meteorit</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>magieOhne</nazev>
+				<hodnota>4</hodnota>
+			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Ohnivý přízrak</hodnota>
+			</schopnost>
 			<schopnost>
 				<nazev>imunitaOhen</nazev>
 				<hodnota>1</hodnota>
@@ -5317,10 +5365,6 @@
 				<nazev>imunitaOhen</nazev>
 				<hodnota>1</hodnota>
 			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -5340,10 +5384,6 @@
 			<schopnost>
 				<nazev>svatyUtok</nazev>
 				<hodnota>15</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>2</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
