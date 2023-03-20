@@ -53,8 +53,6 @@ def extract_data_from_html_table(raw_data: str) -> list:
     unit_list = [unit for unit in unit_list if unit["nazev"] not in units_to_remove]
     set_unique_units(unit_list)
 
-    set_default_multi_magic(unit_list)
-
     return unit_list
 
 
@@ -91,6 +89,7 @@ def set_unit_abilities(unit: dict, magic: str, abilities: str) -> None:
     set_abilities(unit, abilities)
 
 
+# deprecated
 def set_default_multi_magic(units: list) -> None:
     for unit in units:
         if unit["nazev"] == "Světlonoš":

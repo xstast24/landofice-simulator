@@ -1,6 +1,7 @@
 import logging
 import os.path
 from os.path import dirname, abspath
+from ability_parser import MAGIE_OHNE, MAGIE_LEDU, MAGIE_SMRTI, MAGIE_SVETLA, VYVOLA_JEDNOTKU
 
 logger = logging.getLogger(__name__)
 
@@ -43,11 +44,39 @@ def generate_abilities(ability_data: dict) -> str:
     unit_xml_string = ""
 
     for key in ability_data.keys():
-        unit_xml_string += f"\t\t\t<schopnost>\n"
+        if key == "multiMagie":
+            unit_xml_string += generate_multi_magic(ability_data[key])
+        else:
+            unit_xml_string += f"\t\t\t<schopnost>\n"
 
-        unit_xml_string += f"\t\t\t\t<nazev>{key}</nazev>\n"
-        unit_xml_string += f"\t\t\t\t<hodnota>{ability_data[key]}</hodnota>\n"
+            unit_xml_string += f"\t\t\t\t<nazev>{key}</nazev>\n"
+            unit_xml_string += f"\t\t\t\t<hodnota>{ability_data[key]}</hodnota>\n"
 
-        unit_xml_string += f"\t\t\t</schopnost>\n"
+            unit_xml_string += f"\t\t\t</schopnost>\n"
 
     return unit_xml_string
+
+def generate_multi_magic(level: str) -> str:
+    if level == "1":
+        abilities = {MAGIE_OHNE: "1", VYVOLA_JEDNOTKU: "Ohnivá koule", MAGIE_LEDU: "1", MAGIE_SMRTI: "4"}
+        return generate_abilities(abilities)
+    elif level == "2":
+        abilities = {MAGIE_OHNE: "3", VYVOLA_JEDNOTKU: "Meteorit"}
+        abilities_xml_string = generate_abilities(abilities)
+        abilities = {MAGIE_OHNE: "4", VYVOLA_JEDNOTKU: "Ohnivý přízrak"}
+        abilities_xml_string += generate_abilities(abilities)
+        return abilities_xml_string
+    elif level == "3":
+        abilities = {MAGIE_SVETLA: "2"}
+        abilities_xml_string = generate_abilities(abilities)
+        abilities = {MAGIE_SVETLA: "3"}
+        abilities_xml_string += generate_abilities(abilities)
+        abilities = {MAGIE_SVETLA: "4"}
+        abilities_xml_string += generate_abilities(abilities)
+        return abilities_xml_string
+    elif level == "m1":
+        abilities = {MAGIE_SVETLA: "5"}
+        abilities_xml_string = generate_abilities(abilities)
+        abilities = {MAGIE_SVETLA: "6"}
+        abilities_xml_string += generate_abilities(abilities)
+        return abilities_xml_string
