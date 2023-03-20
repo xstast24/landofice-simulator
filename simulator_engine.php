@@ -2154,19 +2154,6 @@ if ($utocnik != "" and $obrance != "") {
 			}
 		}
 
-		/**
-		 * returns an array containing all units that needs to be summoned
-		 */
-		function get_all_summon_units(){
-			foreach($this->schopnosti as $key => $value){
-				if ($key == "vyvolavaJednotku"){
-					return $this->schopnosti[$key];
-				}
-			}
-			return [];
-		}
-
-
 		function vyvolat()
 		{
 			global $jednotka;
@@ -2177,7 +2164,7 @@ if ($utocnik != "" and $obrance != "") {
 			$co = "přivolala celkem";
 			$jak = "";
 
-			$jednotky_pro_vyvolani = $this->get_all_summon_units();
+			$jednotky_pro_vyvolani = $this->schopnosti['vyvolavaJednotku'] ?? [];  //array containing all units that need to be summoned
 			foreach($jednotky_pro_vyvolani as $jednotka_nazev){
 				$jednotka_nazev = (string) $jednotka_nazev;
 				switch ($jednotka_nazev) {
