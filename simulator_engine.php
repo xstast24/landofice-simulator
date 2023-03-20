@@ -327,7 +327,6 @@ if ($utocnik != "" and $obrance != "") {
 				case "Ohnivý bič":
 					$this->schopnosti["magieOhne"] = 1;
 					$this->schopnosti["ohnivyStit"] = 700;
-					$this->schopnosti["vyvolavaJednotku"] = "Ohnivá koule";
 					empty($this->schopnosti["vyvolavaJednotku"]) ? $this->schopnosti["vyvolavaJednotku"] = ["Ohnivá koule"] : array_push($this->schopnosti["vyvolavaJednotku"], "Ohnivá koule");
 					$popis = "Unikátní jednotka se naučí magii ohně 1 a získá ohnivý štít 750.";
 					break;
