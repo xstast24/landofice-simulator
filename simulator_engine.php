@@ -2204,7 +2204,9 @@ if ($utocnik != "" and $obrance != "") {
 						break;
 
 					case "Ohnivá koule":		# Magie ohně 1
-						if ($this->nazev == "Mág ohně")
+                        if ($this->schopnosti['unikatni'] == 1)
+                            $pocet_vyvolanych = $this->celkem_zivotu * 2;
+						else if ($this->nazev == "Mág ohně")
 							$pocet_vyvolanych = floor($this->pocet * (0.91 + rand(0, 20) / 100) / 4);
 						else if ($this->nazev == "Arcimág ohně")
 							$pocet_vyvolanych = floor($this->pocet * (0.97 + rand(0, 10) / 100));
@@ -2221,14 +2223,16 @@ if ($utocnik != "" and $obrance != "") {
 
 					case "Ohnivý imp":			# Magie ohně 2
 						$pocet_vyvolanych = round($this->pocet * 2);
-
 						if ($this->schopnosti["posileniOhen"] == 1)
 							$pocet_vyvolanych *= 1.5;
-
 						break;
 
 					case "Meteorit":			# Magie ohně 3
-						$pocet_vyvolanych = randround($this->pocet / 2);
+                        if ($this->schopnosti['unikatni'] == 1) {
+                            $odehranychTahu = 1;  # TODO pridat do simulatoru input pro pocet aktualne odehranych tahu (tags: kola, tahy, odehranoTahu, odehranoKol)
+                            $pocet_vyvolanych = ceil($this->celkem_zivotu / 100) + floor($odehranychTahu / 3000);
+                        } else
+    						$pocet_vyvolanych = randround($this->pocet / 2);
 
 						if ($this->schopnosti["posileniOhen"] == 1)
 							$pocet_vyvolanych = randround($pocet_vyvolanych * 1.5);
@@ -2289,27 +2293,25 @@ if ($utocnik != "" and $obrance != "") {
 						}
 
 						if ($this->schopnosti["posileniOhen"] == 1)
-							$pocet_vyvolanych * 1.5;
+                            $pocet_vyvolanych = $pocet_vyvolanych * 1.5;
 
 						$pocet_vyvolanych = round($pocet_vyvolanych);
 						$od = "Rudé mraky prostoupili Andela věčného ohne. Pak začala z nebe padat ohnivá smrt.";
 						break;
 
-					case "Uvězněná duše":
-						if ($this->schopnosti["magieSmrti"] == 5)					# Magie Smrti 5
-							$vyvolal = mt_rand(150, 400);
-						else if ($this->schopnosti["magieSmrti"] == 10)				# Magie Smrti 10
-							$vyvolal = mt_rand(300, 800);
+                    case "Uvězněná duše":
+                        $pocet_vyvolanych = 0; $minVyvolanych = 0; $maxVyvolanych = 0;
+                        if ($this->schopnosti["magieSmrti"] == 5) {$minVyvolanych = 150; $maxVyvolanych = 400;} # Magie Smrti 5
+                        else if ($this->schopnosti["magieSmrti"] == 10) {$minVyvolanych = 300; $maxVyvolanych = 800;} # Magie Smrti 10
 
-						$poctar = $this->pocet;
-						while ($poctar > 0) {
-							$pocet_vyvolanych += $vyvolal;
-							$poctar -= 1;
-						}
-
-						$od = "";
-						$co = "povolal";
-						break;
+                        $poctar = $this->pocet;
+                        while ($poctar > 0) {
+                            $pocet_vyvolanych += mt_rand($minVyvolanych, $maxVyvolanych);
+                            $poctar -= 1;
+                        }
+                        $od = "";
+                        $co = "povolal";
+                        break;
 
 					case "Prokletý ent":		# Magie Smrti 7
 						$pocet_vyvolanych = floor($this->celkem_zivotu / 150);
@@ -2671,7 +2673,7 @@ if ($utocnik != "" and $obrance != "") {
 			elseif (in_array(3, $jednotka[$a]->schopnosti["magieSvetla"])) $jednotka[$a]->utk *= 1 + ($jednotka[$a]->schopnosti["boostMagieSvetla"] / 100);
 			elseif (in_array(4, $jednotka[$a]->schopnosti["magieSvetla"])) $jednotka[$a]->ini *= 1 + ($jednotka[$a]->schopnosti["boostMagieSvetla"] / 100);
 
-			$jednotka[$a]->zaokrouhlit;
+			$jednotka[$a]->zaokrouhlit();
 			$a++;
 		}
 	}
