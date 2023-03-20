@@ -112,8 +112,10 @@ if ($utocnik != "" and $obrance != "") {
                         $hodnotaSchopnosti = $schopnost->hodnota;
 
 						if ($nazevSchopnosti == "vyvolavaJednotku" or $nazevSchopnosti == "magieSvetla"){		# TODO fix item vyvolavani -> override item priority v ramci jedne magie
+							# novy system pro vybrane magie - uklada vice hodnot v poli, aby jednotka mohla vyvolavat vice ruznych veci, nebo provadet vice typu stejne magie
 							empty($schopnosti[$nazevSchopnosti]) ? $schopnosti[$nazevSchopnosti] = [$hodnotaSchopnosti] : array_push($schopnosti[$nazevSchopnosti], $hodnotaSchopnosti);
 						} else {
+							# starsi system - jednotka muze mit jen jeden typ od kazde magie atp. Pouziva se porad tam, kde zatim nebyl potreba novy system (napr. nikdo nema 2 ruzne magie ledu)
 							$schopnosti[$nazevSchopnosti] = $hodnotaSchopnosti;
 						}   
                     }
