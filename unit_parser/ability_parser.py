@@ -107,7 +107,7 @@ def set_ability(unit: dict, ability: str) -> None:
     elif "Velmistrovská Magie Ohně" == name:
         name = MULTI_MAGIE
         unit["schopnosti"][name] = "2"
-    elif "Požehnaná Magie Světla":
+    elif "Požehnaná Magie Světla" == name:
         name = MULTI_MAGIE
         unit["schopnosti"][name] = "m1"
 

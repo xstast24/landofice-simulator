@@ -353,14 +353,6 @@
 		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -1709,14 +1701,6 @@
 				<nazev>ledovyStit</nazev>
 				<hodnota>25</hodnota>
 			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -2709,14 +2693,6 @@
 		<frakce>4</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -2733,14 +2709,6 @@
 		<frakce>4</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -2801,14 +2769,6 @@
 				<nazev>magieSmrti</nazev>
 				<hodnota>4</hodnota>
 			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -2828,14 +2788,6 @@
 			<schopnost>
 				<nazev>magieSmrti</nazev>
 				<hodnota>11</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -2874,14 +2826,6 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>stec</nazev>
 				<hodnota>120</hodnota>
 			</schopnost>
@@ -2901,14 +2845,6 @@
 		<frakce>4</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 			<schopnost>
 				<nazev>slayer</nazev>
 				<hodnota>1</hodnota>
@@ -2933,14 +2869,6 @@
 		<frakce>4</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 			<schopnost>
 				<nazev>slayer</nazev>
 				<hodnota>1</hodnota>
@@ -3841,14 +3769,6 @@
 				<nazev>ohnivyStit</nazev>
 				<hodnota>5000</hodnota>
 			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -3868,14 +3788,6 @@
 			<schopnost>
 				<nazev>ohnivyStit</nazev>
 				<hodnota>6000</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -4350,14 +4262,6 @@
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
 			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
-			<schopnost>
 				<nazev>imunitaOhen</nazev>
 				<hodnota>1</hodnota>
 			</schopnost>
@@ -4377,14 +4281,6 @@
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 			<schopnost>
 				<nazev>konstrukce</nazev>
 				<hodnota>1</hodnota>
@@ -4641,14 +4537,6 @@
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -4665,14 +4553,6 @@
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -4689,14 +4569,6 @@
 		<frakce>6</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -5105,14 +4977,6 @@
 				<nazev>boostMagieSvetla</nazev>
 				<hodnota>20</hodnota>
 			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -5240,14 +5104,6 @@
 			<schopnost>
 				<nazev>boostMagieSvetla</nazev>
 				<hodnota>20</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -5380,14 +5236,6 @@
 			<schopnost>
 				<nazev>svatyUtok</nazev>
 				<hodnota>500</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
 			</schopnost>
 		</schopnosti>
 	</jednotka>
@@ -5873,14 +5721,6 @@
 		<frakce>8</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -6461,14 +6301,6 @@
 		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -6601,14 +6433,6 @@
 				<nazev>toxickyStit</nazev>
 				<hodnota>250</hodnota>
 			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -6709,14 +6533,6 @@
 		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -7201,14 +7017,6 @@
 		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -7225,14 +7033,6 @@
 		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
@@ -7249,14 +7049,6 @@
 		<frakce>0</frakce>
 		<pocetUtoku>1</pocetUtoku>
 		<schopnosti>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>5</hodnota>
-			</schopnost>
-			<schopnost>
-				<nazev>magieSvetla</nazev>
-				<hodnota>6</hodnota>
-			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>
