@@ -2677,7 +2677,6 @@ if ($utocnik != "" and $obrance != "") {
 		while ($jednotka[$a]) {
 
 			if (empty($jednotka[$a]->schopnosti["magieSvetla"])){
-				$jednotka[$a]->zaokrouhlit;
 				$a++;
 				continue;
 			}
