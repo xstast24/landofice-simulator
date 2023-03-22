@@ -126,16 +126,24 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                 <input value='Šedé hory 2' type=button onclick='pole("2 x Nižší ohnivý splozenec\n10 x Kamenný Obr")'><br>
                 <input value='Jeskyně života 1' type=button onclick='pole("1 x wurm\n100 x Elfí hraničář")'><br>
                 <input value='Jeskyně života 2' type=button onclick='pole("7,000 x Druid\n2,500 x Veledruid\n1,000 x Obří černý pavouk\n25 x Horský obr\n5 x Prastarý Horský Wurm")'><br>
-                <input value='Krystal moci - město' type=button onclick='pole("1 x Kamenná hradba\n16 x Katapult\n20 x Balista\n15,332 x Vesničan\n3,250 x Městská pěchota\n2,935 x Městští kušníci\n1,305 x Temný Elf\n1 x Velitel Temných Elfů")'><br>
+                <input value='Krystal moci - město' type=button onclick='pole("1 x Kamenná hradba\n16 x Katapult\n20 x Balista\n15,332 x Vesničan\n3,250 x Městská pěchota\n2,935 x Městští kušníci\n1,305 x Temný Elf\n1 x Velitel Temných Elfů")'><br><br>
+                </div>
+
+                <div id="sekcePleneniOstatni"><a onclick="simulovatCelouSekci('sekcePleneniOstatni')"><b>Plenění ostatní</b></a><br><br>
+                    <input value='Spolek mocných' class='pleneni modre' type=button onclick='pleneni(2)'><br>
+                    <input value='Gnomí velkodílna' class='pleneni modre' type=button onclick='pleneni(1)'><br>
+                    <input value='Temná jeskyně' class='pleneni modre' type=button onclick='pleneni(4)'><br>
+                    <input value='Katakomby' class='pleneni modre' type=button onclick='pleneni(3)'><br>
+                    <!--Posvatny chram je specialni jednorazovy event pouze pro Dreadda, aby si odemcel Nekromancery-->
+                    <input style='color:gold' value='Posvátný chrám' type=button onclick='pole("10000 x Svatý válečník\n1500 x Elitní střelec\n1000 x Mnich\n500 x Křižák\n250 x Paladin\n1 x Světlonoš\n25 x Balista\n30 x Těžká balista\n1000 x Renegád")'><br>
+                    <input value='Prokletý vojevůdce' class='pleneni cervene' type=button onclick='pole("1 x Dehinator (Ohnivá zbroj)\n12 x Těžký katapult\n12 x Těžká balista\n40 x Zeď Temné pevnosti\n300 x Prokletý Mág\n750 x Prokletý válečník(Prapor stínů)\n6 x Dehinatorova ochranka")'><br>
+                    <input value='Prokletá citadela' class='pleneni cervene' type=button onclick='pole("1 x Královna Medůz(Maska Královny medůz)\n1000 x Temný mág(Kouzelnická róba)\n200 x Vyšší Temný Mág(Prokletá kouzelnická róba)\n32 x Zeď Prokleté citadely\n200 x Prokletý Mág\n1000 x Prokletý válečník(Prapor stínů)\n3000 x Æthrův ledový válečník")'><br>
+                    <input value='Mucusova pevnost' class='pleneni cervene' type=button onclick='pole("1 x Mucus, král Toxických elementálů(Plášť Mucuse, krále toxických elementálů)\n1500 x Zeď pokrytá slizem\n1000 x Toxický Elementál Obránce\n1000 x Toxický Elementál Útočník\n10 x Toxická Elementární Bublina")'><br>
                 </div>
             </td>
 
             <td>
-                <div id="sekcePleneni"><a onclick="simulovatCelouSekci('sekcePleneni')"><b>Plenění</b></a><br><br>
-                <input value='Spolek mocných' class='pleneni modre' type=button onclick='pleneni(2)'><br>
-                <input value='Gnomí velkodílna' class='pleneni modre' type=button onclick='pleneni(1)'><br>
-                <input value='Temná jeskyně' class='pleneni modre' type=button onclick='pleneni(4)'><br>
-                <input value='Katakomby' class='pleneni modre' type=button onclick='pleneni(3)'><br>
+                <div id="sekcePleneniZelene"><a onclick="simulovatCelouSekci('sekcePleneniZelene')"><b>Plenění zelené</b></a><br><br>
                 <input value='Svobodné město' class='pleneni zelene' type=button onclick='pole("1 x Kamenná hradba\n17 x Katapult\n5 x Těžký katapult\n20 x Balista\n7 x Těžká balista\n2745 x Městští kušníci\n197 x Osadník s lukem\n17 x Potulný Kouzelník\n11 x Mistr Lovec")'><br>
                 <input value='Obři zla' class='pleneni zelene' type=button onclick='pole("50 x Obr lidožrout\n20 x Prokletý Obr\n30 x Hnijící Nemrtvý Obr\n20 x Ohnivý Obr")'><br>
                 <input value='Obři dobra' class='pleneni zelene' type=button onclick='pole("50 x Lesní obr\n80 x Ledový obr\n12 x Kamenný Obr")'><br>
@@ -151,11 +159,6 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                 <input value='Trpaslíci 2 - Strážní věž' class='pleneni zelene' type=button onclick='pole("684 x Železný kněz\n15,032 x Trpaslík\n1,122 x Železný golem\n29,662 x Železný pavouček\n1,285 x Železný škopion\n418 x Železný býk")'><br>
                 <input value='Trpaslíci 3 - Citedela' class='pleneni zelene' type=button onclick='pole("1,166 x Železný kněz\n24,366 x Trpaslík\n1,513 x Kamenný chrlič\n562 x Poloautomatická socha\n145 x Železný orel - MK1\n152 x Obrněnej vrhač oštěpů\n132 x Obrněnej válečnej vůz")'><br>
                 <input value='Trpaslíci 4 - Železný chrám' class='pleneni zelene' type=button onclick='pole("2,003 x Železný kněz\n45,297 x Trpaslík\n3,992 x Železný škopion\n1,305 x Železný býk\n2,779 x Kamenný chrlič\n921 x Poloautomatická socha\n259 x Železný orel - MK1\n5 x Colosus z temné ocele")'><br>
-                <!--Posvatny chram je specialni jednorazovy event pouze pro Dreadda, aby si odemcel Nekromancery-->
-                <input style='color:gold' value='Posvátný chrám' type=button onclick='pole("10000 x Svatý válečník\n1500 x Elitní střelec\n1000 x Mnich\n500 x Křižák\n250 x Paladin\n1 x Světlonoš\n25 x Balista\n30 x Těžká balista\n1000 x Renegád")'><br>
-                <input value='Prokletý vojevůdce' class='pleneni cervene' type=button onclick='pole("1 x Dehinator (Ohnivá zbroj)\n12 x Těžký katapult\n12 x Těžká balista\n40 x Zeď Temné pevnosti\n300 x Prokletý Mág\n750 x Prokletý válečník(Prapor stínů)\n6 x Dehinatorova ochranka")'><br>
-                <input value='Prokletá citadela' class='pleneni cervene' type=button onclick='pole("1 x Královna Medůz(Maska Královny medůz)\n1000 x Temný mág(Kouzelnická róba)\n200 x Vyšší Temný Mág(Prokletá kouzelnická róba)\n32 x Zeď Prokleté citadely\n200 x Prokletý Mág\n1000 x Prokletý válečník(Prapor stínů)\n3000 x Æthrův ledový válečník")'><br>
-                <input value='Mucusova pevnost' class='pleneni cervene' type=button onclick='pole("1 x Mucus, král Toxických elementálů(Plášť Mucuse, krále toxických elementálů)\n1500 x Zeď pokrytá slizem\n1000 x Toxický Elementál Obránce\n1000 x Toxický Elementál Útočník\n10 x Toxická Elementární Bublina")'><br>
                 </div>
             </td>
 
