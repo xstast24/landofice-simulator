@@ -769,11 +769,6 @@ if ($utocnik != "" and $obrance != "") {
                     break;
 
                 case "Excalibur":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->utk += 15;
                     $this->obr += 10;
                     $this->ini += 5;
@@ -791,11 +786,6 @@ if ($utocnik != "" and $obrance != "") {
                     break;
 
                 case "Prsten Života":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->add_ability_using_item(MAGIE_LESA, 2);
                     $this->add_summoned_unit_using_item("Wurm");
 
