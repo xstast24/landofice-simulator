@@ -393,7 +393,7 @@ if ($utocnik != "" and $obrance != "") {
                 case "Ohnivá róba":
                     $this->add_ability_using_item(MAGIE_OHNE, 3);
                     $this->add_ability_using_item(OHNIVY_STIT, 500);
-                    $this->add_ability_using_item(VYVOLAVA_JEDNOTKU, "Meteorit");
+                    $this->add_summoned_unit_using_item("Meteorit");
 
                     $popis = "Unikátní jednotka se naučí magii ohně 3 a získá ohnivý štít 500.";
                     break;
@@ -401,7 +401,7 @@ if ($utocnik != "" and $obrance != "") {
                 case "Ohnivý bič":
                     $this->add_ability_using_item(MAGIE_OHNE, 1);
                     $this->add_ability_using_item(OHNIVY_STIT, 700);
-                    $this->add_ability_using_item(VYVOLAVA_JEDNOTKU, "Ohnivá koule");
+                    $this->add_summoned_unit_using_item("Ohnivá koule");
 
                     $popis = "Unikátní jednotka se naučí magii ohně 1 a získá ohnivý štít 750.";
                     break;
@@ -409,7 +409,7 @@ if ($utocnik != "" and $obrance != "") {
                 case "Arianin svazek ohnivého mistrovství":
                     $this->add_ability_using_item(MAGIE_OHNE, 4);
                     $this->add_ability_using_item(OHNIVY_STIT, 1000);
-                    $this->add_ability_using_item(VYVOLAVA_JEDNOTKU, "Ohnivý přízrak");
+                    $this->add_summoned_unit_using_item("Ohnivý přízrak");
 
                     $popis = "Legendární jednotka se naučí magii ohně 4 a získá ohnivý štít 1000.";
                     break;
