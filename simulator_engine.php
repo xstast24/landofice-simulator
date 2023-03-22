@@ -330,33 +330,18 @@ if ($utocnik != "" and $obrance != "") {
                     break;
 
                 case "Hole silového pole":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->obr += 30;
 
                     $popis = "Unikátní jednotka záská +30 do obrany.";
                     break;
 
                 case "Slonovinový luk":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->typUtoku = 2;
 
                     $popis = "Unikátní jednotce je změněn druh útoku na 2.";
                     break;
 
                 case "Meč paladina":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->utk += 10;
                     $this->dmg += 7;
                     $this->add_ability_using_item(MAGIE_SVETLA, 1);
@@ -380,11 +365,6 @@ if ($utocnik != "" and $obrance != "") {
                     break;
 
                 case "Prsten strážce":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->obr += 20;
                     $this->add_ability_using_item(IMUNITA_OHEN, 1);
 
@@ -392,11 +372,6 @@ if ($utocnik != "" and $obrance != "") {
                     break;
 
                 case "Helma ledového válečníka":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->obr += 5;
                     $this->add_ability_using_item(IMUNITA_OHEN, 1);
                     $this->add_ability_using_item(MAGIE_LEDU, 2);
@@ -405,11 +380,6 @@ if ($utocnik != "" and $obrance != "") {
                     break;
 
                 case "Boty rychlosti":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->ini += 5;
                     $popis = "Unikátní jednotka získa +5 do inciativy.";
                     break;
@@ -421,11 +391,6 @@ if ($utocnik != "" and $obrance != "") {
                     break;
 
                 case "Ohnivá róba":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->add_ability_using_item(MAGIE_OHNE, 3);
                     $this->add_ability_using_item(OHNIVY_STIT, 500);
                     $this->add_ability_using_item(VYVOLAVA_JEDNOTKU, "Meteorit");
@@ -434,11 +399,6 @@ if ($utocnik != "" and $obrance != "") {
                     break;
 
                 case "Ohnivý bič":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-                    
                     $this->add_ability_using_item(MAGIE_OHNE, 1);
                     $this->add_ability_using_item(OHNIVY_STIT, 700);
                     $this->add_ability_using_item(VYVOLAVA_JEDNOTKU, "Ohnivá koule");
@@ -661,11 +621,6 @@ if ($utocnik != "" and $obrance != "") {
                     break;
 
                 case "Svazek ledového mistrovství":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->add_ability_using_item(MAGIE_LEDU, 3);
                     $this->add_ability_using_item(LEDOVY_STIT, 30);
 
@@ -673,11 +628,6 @@ if ($utocnik != "" and $obrance != "") {
                     break;
 
                 case "Ledová róba":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->add_ability_using_item(IMUNITA_OHEN, 1);
                     $this->add_ability_using_item(LEDOVY_STIT, 10);
 
@@ -685,11 +635,6 @@ if ($utocnik != "" and $obrance != "") {
                     break;
 
                 case "Aethrova róba moci":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->add_ability_using_item(IMUNITA_OHEN, 1);
                     $this->add_ability_using_item(LEDOVY_STIT, 80);
                     $this->add_ability_using_item(MAGIE_LEDU, 4);
@@ -818,11 +763,6 @@ if ($utocnik != "" and $obrance != "") {
                     break;
 
                 case "Kopí hlupáků":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->add_ability_using_item(EXTERMINACE, 1);
 
                     $popis = "Unikátní jednotka získa schopnost exterminace.";
@@ -863,33 +803,18 @@ if ($utocnik != "" and $obrance != "") {
                     break;
 
                 case "Maska Medůzy":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->add_ability_using_item(MAGIE_ZEME, 1);
 
                     $popis = "Unikátní jednotka získá Magii země 1";
                     break;
 
                 case "Amulet Beznaděje":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->add_ability_using_item(MAGIE_SMRTI, 3);
 
                     $popis = "Unikátní jednotka získá Magii smrti 3";
                     break;
 
                 case "Tutsumasa, Ledová dračí čepel":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->add_ability_using_item(MAGIE_LEDU, 2);
                     $this->dmg *= 4;
 
@@ -897,11 +822,6 @@ if ($utocnik != "" and $obrance != "") {
                     break;
 
                 case "Kostěná dračí hůl":
-                    if (!$this->has_ability(UNIKATNI_JEDNOTKA, [])) {
-                        $popis = "Tento předmět je pouze pro unikátní jednotky.";
-                        break;
-                    }
-
                     $this->add_ability_using_item(MAGIE_SMRTI, 5);
                     $this->add_summoned_unit_using_item("Uvězněná duše");
                     $this->dmg *= 4;
