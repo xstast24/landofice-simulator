@@ -472,7 +472,6 @@ if ($utocnik != "" and $obrance != "") {
                     if (!$this->has_ability(MAGIE_SMRTI, [])){
                         $popis = "Jednotka musí umět magii smrti.";
                     } else {
-                        $this->schopnosti["imunitaOhen"] = 1;
                         $this->add_ability_using_item(IMUNITA_OHEN, 1);
                         $this->obr += 3;
 
@@ -517,7 +516,7 @@ if ($utocnik != "" and $obrance != "") {
                         if ($this->frakce == FRAKCE_VULKAN)
                             $this->schopnosti[OHNIVY_STIT][0] += $this->dmg;
 
-                        $this->schopnosti["ohnivyStit"][0] += 1;
+                        $this->schopnosti[OHNIVY_STIT][0] += 1;
                     } else
                         $this->add_ability_using_item(OHNIVY_STIT, 1);
 
@@ -880,7 +879,7 @@ if ($utocnik != "" and $obrance != "") {
             global $jednotka;
             global $zabito_goblinu;
 
-            $dmg = $jednotka[$obrance]->schopnosti["ohnivyStit"][0] * ($jednotka[$obrance]->pocet + $kill);
+            $dmg = $jednotka[$obrance]->schopnosti[OHNIVY_STIT][0] * ($jednotka[$obrance]->pocet + $kill);
 
             $pocet_ziv = $this->celkem_zivotu - $dmg;
 
@@ -907,7 +906,7 @@ if ($utocnik != "" and $obrance != "") {
             global $jednotka;
             global $zabito_goblinu;
 
-            $dmg = $jednotka[$obrance]->schopnosti["toxickyStit"] * ($jednotka[$obrance]->pocet + $kill);
+            $dmg = $jednotka[$obrance]->schopnosti[TOXICKY_STIT] * ($jednotka[$obrance]->pocet + $kill);
 
             $pocet_ziv = $this->celkem_zivotu - $dmg;
 
@@ -932,14 +931,14 @@ if ($utocnik != "" and $obrance != "") {
             global $jednotka;
 
 
-            $this->ini -= max($this->ini * ($jednotka[$obrance]->schopnosti["ledovyStit"] / 100), 1);
+            $this->ini -= max($this->ini * ($jednotka[$obrance]->schopnosti[LEDOVY_STIT] / 100), 1);
             if ($this->ini < 0) $this->ini = 0;
 
             aktualizaceInic();
 
             $this->zaokrouhlit();
 
-            echo "<span style='color:" . $this->barva . "'>Kolem jednotky " . $jednotka[$obrance]->toolNazev() . " je ledový štít, který spomalil útočníka o " . $jednotka[$obrance]->schopnosti["ledovyStit"][0] . "%</span><br>";
+            echo "<span style='color:" . $this->barva . "'>Kolem jednotky " . $jednotka[$obrance]->toolNazev() . " je ledový štít, který spomalil útočníka o " . $jednotka[$obrance]->schopnosti[LEDOVY_STIT][0] . "%</span><br>";
         }
 
 
@@ -1075,7 +1074,7 @@ if ($utocnik != "" and $obrance != "") {
         function vzkryseni($kill)
         {
 
-            if (mt_rand(0, 100) <= $this->schopnosti["vzkryseni"]) {
+            if (mt_rand(0, 100) <= $this->schopnosti[VZKRISENI][0]) {
 
                 $kill = round($kill * (mt_rand(50, 100) / 100));
 
@@ -1099,7 +1098,7 @@ if ($utocnik != "" and $obrance != "") {
 
             $vyleceno = 0;
 
-            if ($this->ident == 684 /*Ghúl*/) {
+            if ($this->ident == 684 /*Ghúl*/) {     # TODO upravit ify aby fungovaly
 
                 if (($this->celkem_zivotu + $vyleceno_ghul) > $this->poc_celkem_zivotu) $vyleceno_ghul = $this->poc_celkem_zivotu - $this->celkem_zivotu;
 
@@ -2051,7 +2050,8 @@ if ($utocnik != "" and $obrance != "") {
             $this->dmg = round($this->dmg);
             $this->utk = round($this->utk);
             $this->obr = round($this->obr);
-            $this->schopnosti["stec"][0] = round($this->schopnosti["stec"][0]);
+            if ($this->has_ability(STEC, []))
+                $this->schopnosti["stec"][0] = round($this->schopnosti["stec"][0]);
         }
 
 
