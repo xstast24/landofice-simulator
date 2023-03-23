@@ -534,12 +534,13 @@ if ($utocnik != "" and $obrance != "") {
 
                 case "Jedovaté střely":
                     if ($this->typUtoku == 2) {
+                        $popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti živým cílům.";
                         if ($this->has_ability(JEDOVY_UTOK, []))
                             $this->schopnosti[JEDOVY_UTOK][0] += 10;
                         else
                             $this->add_ability_using_item(JEDOVY_UTOK, 10);
-                    }
-                    $popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti živým cílům.";
+                    } else
+                        $popis = "Toto neni jednotka s typem utoku 2";
                     break;
 
                 case "Drtivé střely":
