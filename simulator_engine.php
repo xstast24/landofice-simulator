@@ -130,14 +130,12 @@ if ($utocnik != "" and $obrance != "") {
                         $this->utk++;
                         $this->obr++;
                     }
-
                     $popis = "Nemrtvá jednotka získá +1 do útoku a obrany.";
                     break;
 
                 case "Amulet velitele":
                     if ($this->stav == STAV_ZIVA)
                         $this->ini++;
-
                     $popis = "Nenemrtvá a Neneživá jednotka získa +1 do iniciativy.";
                     break;
 
@@ -145,13 +143,11 @@ if ($utocnik != "" and $obrance != "") {
                     if ($this->stav == STAV_ZIVA)
                         $this->ziv += 2;
                     $popis = "Nenemrtvá a Neneživá jednotka získá +2 do životů.";
-
                     break;
 
                 case "Pírka z anděla":
                     if ($this->stav == STAV_ZIVA)
                         $this->ziv += 7;
-
                     $popis = "Nenemrtvá a Neneživá jednotka získá +7 do životů.";
                     break;
 
@@ -165,7 +161,6 @@ if ($utocnik != "" and $obrance != "") {
                         $this->dmg++;
                         $this->ziv--;
                     }
-
                     $popis = "Jednotka s druhem útoku 1 získá +1 do damage a -1 od životů.";
                     break;
 
@@ -173,11 +168,9 @@ if ($utocnik != "" and $obrance != "") {
                     if ($this->nazev == "Druid") {
                         $this->change_summoned_unit_using_item("Ent", "Starodávný Ent");
                         $this->add_ability_using_item(MAGIE_LESA, 3);
-
                         $popis = "Druidové přivolávají místo Entů Starodávné Enty.";
                     } else if ($this->nazev == "Veledruid") {
                         $this->boost_summoning_amount_using_item(50);
-
                         $popis = "Veledruidové vyvolávají o 50% více Starodávných entů.";
                     }
 
@@ -186,7 +179,6 @@ if ($utocnik != "" and $obrance != "") {
                 case "Kostěná flétna":
                     if ($this->nazev == "Lich" or $this->nazev == "Arcilich") {
                         $this->boost_summoning_amount_using_item(50);
-
                         $popis = "Lichové vyvolávají o 50% více kostlivců, Arcilichové vyvolávají o 50% více upírů.";
                     }
                     break;
@@ -206,52 +198,44 @@ if ($utocnik != "" and $obrance != "") {
                 case "Kalich ohně":
                     $this->add_ability_using_item(OHNIVY_STIT, 1);
                     $this->add_ability_using_item(IMUNITA_OHEN, 1);
-
                     $popis = "Jednotka získá ohnivý štít 1.";
                     break;
 
                 case "Hůlka ohně":
                     $this->add_ability_using_item(OHNIVY_STIT, 2);
                     $this->add_ability_using_item(IMUNITA_OHEN, 1);
-
                     $popis = "Jednotka získá ohnivý štít 2.";
                     break;
 
                 case "Hůl ohně":
                     $this->add_ability_using_item(MAGIE_OHNE, 1);
                     $this->add_summoned_unit_using_item("Ohnivá koule");
-                    
                     $popis = "Unikátní jednotka se naučí magii ohně 1.";
                     break;
 
                 case "Dráp draka":
                     $this->dmg *= 2;
-
                     $popis = "Unikátní jednotka získá +100% do damage.";
                     break;
 
                 case "Kostěná hůl":
                     $this->add_ability_using_item(MAGIE_SMRTI, 1);
-
                     $popis = "Unikátní jednotka se naučí magii smrti 1.";
                     break;
 
                 case "Ohnivá zbroj":
                     $this->add_ability_using_item(OHNIVY_STIT, $this->dmg * 2);
                     $this->obr += 5;
-
                     $popis = "Unikátní jednotka získá +5 do obrany a ohnivý štít rovnající se 2 násobku jeho damage.";
                     break;
 
                 case "Ledová čepel":
                     $this->add_ability_using_item(MAGIE_LEDU, 1);
-
                     $popis = "Unikátní jednotka se naučí magii ledu 1.";
                     break;
 
                 case "Plášť slabosti":
                     $this->ziv = 1;
-
                     $popis = "Unikátní jednotce klesne počet životů na 1.";
                     break;
 
@@ -262,7 +246,6 @@ if ($utocnik != "" and $obrance != "") {
                         $this->utk = ceil($this->utk * 1.5);
                         $this->ini = ceil($this->ini * 1.3);
                     }
-
                     $popis = "Nenemrtvá jednotka získá 50% damage do steče, pokud je Crinisina získává navíc 50% do útoku a 30% do iniciativy.";
                     break;
 
@@ -273,19 +256,16 @@ if ($utocnik != "" and $obrance != "") {
 
                         $this->obr = 1;
                     }
-
                     $popis = "Nenemrtvá a neneživá jednotka získá +200% damage do steče, ale jeji obrana klesne na 1.";
                     break;
 
                 case "Hole silového pole":
                     $this->obr += 30;
-
                     $popis = "Unikátní jednotka záská +30 do obrany.";
                     break;
 
                 case "Slonovinový luk":
                     $this->typUtoku = 2;
-
                     $popis = "Unikátní jednotce je změněn druh útoku na 2.";
                     break;
 
@@ -293,29 +273,24 @@ if ($utocnik != "" and $obrance != "") {
                     $this->utk += 10;
                     $this->dmg += 7;
                     $this->add_ability_using_item(MAGIE_SVETLA, 1);
-
                     $popis = "Unikátní jednotka získá +10 do útoku a +7 do damage, zároveň se naučí magii světla 1.";
                     break;
 
                 case "Druidský Rituál":
                     if ($this->nazev == "Druid" or $this->nazev == "Nemrtvý druid") {
                         $this->boost_summoning_amount_using_item(50);
-
                         $popis = "Druidové vyvolávají o 50% více Entů.";
                     }
-
                     break;
 
                 case "Hůlka ledu":
                     $this->add_ability_using_item(MAGIE_LEDU, 1);
-
                     $popis = "Jednotka se naučí magii ledu 1.";
                     break;
 
                 case "Prsten strážce":
                     $this->obr += 20;
                     $this->add_ability_using_item(IMUNITA_OHEN, 1);
-
                     $popis = "Unikátní jednotka získa +20 do obrany a je imuní vůči ohnivému štítu a bleskům.";
                     break;
 
@@ -323,7 +298,6 @@ if ($utocnik != "" and $obrance != "") {
                     $this->obr += 5;
                     $this->add_ability_using_item(IMUNITA_OHEN, 1);
                     $this->add_ability_using_item(MAGIE_LEDU, 2);
-
                     $popis = "Unikátní jednotka získa +5 do obrany, je imuní vůči ohnivému štítu, naučí se magii ledu 2.";
                     break;
 
@@ -334,7 +308,6 @@ if ($utocnik != "" and $obrance != "") {
 
                 case "Prapor krvavého šílenství":
                     $this->add_ability_using_item(DAV, 1);
-
                     $popis = "Jednotka se naučí schopnost dav.";
                     break;
 
@@ -342,7 +315,6 @@ if ($utocnik != "" and $obrance != "") {
                     $this->add_ability_using_item(MAGIE_OHNE, 3);
                     $this->add_ability_using_item(OHNIVY_STIT, 500);
                     $this->add_summoned_unit_using_item("Meteorit");
-
                     $popis = "Unikátní jednotka se naučí magii ohně 3 a získá ohnivý štít 500.";
                     break;
 
@@ -350,7 +322,6 @@ if ($utocnik != "" and $obrance != "") {
                     $this->add_ability_using_item(MAGIE_OHNE, 1);
                     $this->add_ability_using_item(OHNIVY_STIT, 700);
                     $this->add_summoned_unit_using_item("Ohnivá koule");
-
                     $popis = "Unikátní jednotka se naučí magii ohně 1 a získá ohnivý štít 750.";
                     break;
 
@@ -358,74 +329,63 @@ if ($utocnik != "" and $obrance != "") {
                     $this->add_ability_using_item(MAGIE_OHNE, 4);
                     $this->add_ability_using_item(OHNIVY_STIT, 1000);
                     $this->add_summoned_unit_using_item("Ohnivý přízrak");
-
                     $popis = "Legendární jednotka se naučí magii ohně 4 a získá ohnivý štít 1000.";
                     break;
 
                 case "Měděné pláty":
                     $this->obr += 1;
-
                     $popis = "Jednotka získá +1 do obrany.";
                     break;
 
                 case "Bronzové pláty":
                     $this->obr += 2;
-
                     $popis = "Jednotka získá +2 do obrany.";
                     break;
 
                 case "Železné pláty":
                     $this->obr += 4;
                     $this->ini -= 1;
-
                     $popis = "Jednotka získá +4 do obrany, ale její iniciativa klesne o 1.";
                     break;
 
                 case "Ocelové pláty":
                     $this->obr += 6;
                     $this->ini -= 1;
-
                     $popis = "Jednotka získá +6 do obrany, ale její iniciativa klesne o 1.";
                     break;
 
                 case "Tvrzené ocelové pláty":
                     $this->obr += 8;
                     $this->ini -= 1;
-
                     $popis = "Jednotka získá +8 do obrany, ale její iniciativa klesne o 1.";
                     break;
 
                 case "Pláty z Temné ocele":
                     $this->obr += 11;
                     $this->ini -= 2;
-
                     $popis = "Jednotka získá +11 do obrany, ale její iniciativa klesne o 2.";
                     break;
 
                 case "Maska Královny medůz":
                     $this->add_ability_using_item(MAGIE_SMRTI, 3);
                     $this->add_ability_using_item(MAGIE_ZEME, 1);
-                    
                     $popis = "Legendární jednotka získá Magii země 1 a Magii smrti 3.";
                     break;
 
                 case "Kouzelnická róba":
                     $this->add_ability_using_item(IMUNITA_OHEN, 1);
                     $this->obr++;
-
                     $popis = "Jednotka získá +1 do obrany a je imuní vůči ohnivému štítu.";
                     break;
 
-                case "Prokletá kouzelnická róba":
-                    if (!$this->has_ability(MAGIE_SMRTI, [])){
-                        $popis = "Jednotka musí umět magii smrti.";
-                    } else {
+                case "Prokletá kouzelnická róba":   
+                    if ($this->has_ability(MAGIE_SMRTI, [])) {
                         $this->add_ability_using_item(IMUNITA_OHEN, 1);
                         $this->obr += 3;
-
                         $popis = "Jednotka s Magí smrti získá +3 do obrany a je imuní vůči ohnivému štítu.";
+                    } else {
+                        $popis = "Jednotka musí umět magii smrti.";
                     }
-
                     break;
 
                 case "Prapor berzekra":
@@ -433,7 +393,6 @@ if ($utocnik != "" and $obrance != "") {
                     $this->ini += 2;
                     $this->obr *= 0.75;
                     $this->utk *= 1.2;
-
                     $popis = "Jednotka získa +2 do iniciativy, -25% do obrany, +20% do utoku a naučí se dav.";
                     break;
 
@@ -444,7 +403,6 @@ if ($utocnik != "" and $obrance != "") {
                     } else {
                         $this->add_ability_using_item(MAGIE_LEDU, 1);
                     }
-
                     $popis = "Jednotka získá schopnost Magie Ledu 1, Aethrova jednotka získa schopnost Magie Ledu 2 a navíc +3 do iniciativy";
                     break;
 
@@ -455,7 +413,6 @@ if ($utocnik != "" and $obrance != "") {
                     } else {
                         $this->add_ability_using_item(MAGIE_LEDU, 1);
                     }
-
                     $popis = "Jednotka získá schopnost Magie Ledu 1, Aethrova jednotka získa schopnost Magie Ledu 2 a navíc +3 do iniciativy";
                     break;
 
@@ -478,7 +435,6 @@ if ($utocnik != "" and $obrance != "") {
                     $this->obr += 4;
                     if ($this->frakce == FRAKCE_DHAR)
                         $this->obr += 6;
-
                     $popis = "Jednotka dostane +4 do obrany pokud je Dharova získá dalších +6.";
                     break;
 
@@ -487,19 +443,16 @@ if ($utocnik != "" and $obrance != "") {
                         $this->ziv *= 1.5;
                     else
                         $this->ziv *= 1.15;
-
                     $popis = "Jednotka získá +15% do životů, pokud je Dralgarova získá dalších +35%.";
                     break;
 
                 case "Dreaddův prapor smrti":
                     $this->obr += 2;
                     $this->utk += 2;
-
                     if ($this->frakce == FRAKCE_DREADD) {
                         $this->obr += 4;
                         $this->utk += 4;
                     }
-
                     $popis = "Jednotka získá +2 do útoku a obrany pokud je Dreaddova získá dalších +4 do útoku a obrany.";
                     break;
 
@@ -508,7 +461,6 @@ if ($utocnik != "" and $obrance != "") {
                         $this->dmg *= 1.35;
                     else
                         $this->dmg *= 1.15;
-
                     $popis = "Jednotka získá +15% do damage pokud je Ghorova získá dalších +35%.";
                     break;
 
@@ -517,7 +469,6 @@ if ($utocnik != "" and $obrance != "") {
                     $this->add_ability_using_item(IMUNITA_OHEN, 1);
                     $this->add_ability_using_item(EXTERMINACE, 1);
                     $this->dmg *= 3;
-
                     $popis = "Legendární Dehinatorova zbraň. Legendární jednotka získá Imunitu proti ohni, Magii Smrti 3, Exterminaci a její damage je zvýšen o 200%.";
                     break;
 
@@ -526,45 +477,40 @@ if ($utocnik != "" and $obrance != "") {
                     $this->utk += 5;
                     $this->dmg *= 1.5;
                     $this->ziv *= 1.5;
-
                     $popis = "Nabito temnou magií z vesmíru Diabolus, poskytuje jednotce +5 útok, +5 obrana, +50% damage a +50% životů.";
                     break;
 
                 case "Jedovaté střely":
                     if ($this->typUtoku == 2) {
+                        $popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti živým cílům.";
                         if ($this->has_ability(JEDOVY_UTOK, []))
                             $this->schopnosti[JEDOVY_UTOK][0] += 10;
                         else
                             $this->add_ability_using_item(JEDOVY_UTOK, 10);
-                    }
-
-                    $popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti živým cílům.";
+                    } else
+                        $popis = "Toto neni jednotka s typem utoku 2";
                     break;
 
                 case "Drtivé střely":
                     if ($this->typUtoku == 2) {
+                        $popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti neživým cílům.";
                         if ($this->has_ability(DRTIVY_UTOK, []))
                             $this->schopnosti[DRTIVY_UTOK] += 10;
                         else
                             $this->add_ability_using_item(DRTIVY_UTOK, 10);
-
-                        $popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti neživým cílům.";
                     } else
                         $popis = "Toto neni jednotka s typem utoku 2";
-
                     break;
 
                 case "Posvěcené střely":
                     if ($this->typUtoku == 2) {
+                        $popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti nemrtvým cílům.";
                         if ($this->has_ability(SVATY_UTOK, []))
                             $this->schopnosti[SVATY_UTOK] += 10;
                         else
                             $this->add_ability_using_item(SVATY_UTOK, 10);
-                        
-                        $popis = "Jednotka s druhem útoku 2 získá +10% do poškození proti nemrtvým cílům.";
                     } else
                         $popis = "Toto neni jednotka s typem utoku 2";
-                    
                     break;
 
                 case "Svazek ledového mistrovství":
@@ -577,7 +523,6 @@ if ($utocnik != "" and $obrance != "") {
                 case "Ledová róba":
                     $this->add_ability_using_item(IMUNITA_OHEN, 1);
                     $this->add_ability_using_item(LEDOVY_STIT, 10);
-
                     $popis = "Unikátní jednotka se naučí ledový štít 10% a je imuní proti ohnivému štítu.";
                     break;
 
@@ -586,14 +531,12 @@ if ($utocnik != "" and $obrance != "") {
                     $this->add_ability_using_item(LEDOVY_STIT, 80);
                     $this->add_ability_using_item(MAGIE_LEDU, 4);
                     $this->obr += 42;
-
                     $popis = "Unikátní jednotka získá +42 do obrany, ledový štít 80%, imunitu proti ohnivému štítu a naučí se Magii ledu 4 &#8211; Aethrův dotek.";
                     break;
 
                 case "Obranná palisáda":
                     $this->obr += 20;
                     $this->ini = 0;
-
                     $popis = "Jednotka se skryje za obrannou palisádu. Získá +20 do obrany, ale její iniciativa klesne na 0.";
                     break;
 
@@ -603,7 +546,6 @@ if ($utocnik != "" and $obrance != "") {
                         $this->utk++;
                         $this->obr -= 1;
                     }
-                    
                     $popis = "Válečné bubny posílí armádu. +1 iniciativa, +1 útok, -1 obrana. Pouze pro živé jednotky s druhem útoku 1";
                     break;
 
@@ -612,7 +554,6 @@ if ($utocnik != "" and $obrance != "") {
                         $this->ini++;
                         $this->utk *= 1.2;
                     }
-
                     $popis = "Není nad to vědět, kam střílet. +20% do útoku, +1 do iniciativy pro jednotky s druhem útoku 2 a 3.";
                     break;
 
@@ -620,7 +561,6 @@ if ($utocnik != "" and $obrance != "") {
                     $this->obr -= 1;
                     $this->ini = 0;
                     $this->add_ability_using_item(OHNIVY_STIT, 3);
-
                     $popis = "Kdo chce na nás zaútočit musí proběhnout ohněm. Jednotka získá -1 do obrany, iniciativa je snížena na 0 a získá ohnivý štít 3.";
                     break;
 
@@ -629,7 +569,6 @@ if ($utocnik != "" and $obrance != "") {
                         $this->ini -= 1;
                         $this->utk += 3;
                     }
-
                     $popis = "Proč jednou při střelbě nezamířit? Jednotka získá -1 do ini, +3 do útoku. Pouze pro jednotky s druhem útoku 2 a 3.";
                     break;
 
@@ -637,14 +576,12 @@ if ($utocnik != "" and $obrance != "") {
                     $this->utk *= 1.2;
                     $this->ini++;
                     $this->dmg *= 1.25;
-
                     $popis = "Plášť legendárního krále toxických elementálů, požene tvé jednotky do útoku. +20% do útoku, +1 inic, +25% do damage.";
                     break;
 
                 case "Posvátný popel":
                     if ($this->has_ability(VZKRISENI, []))
                         $this->schopnosti[VZKRISENI][0] += 10;
-
                     $popis = "Jednotky se schopností vzkříšení mají zvýšenou šanci na znovuvzkříšení o 10%.";
                     break;
 
@@ -654,44 +591,37 @@ if ($utocnik != "" and $obrance != "") {
                         $popis = "Jednotka s magii smrti 5 vyvolá o 25% více uvěznených duší.";
                     } else
                         $popis = "Pouze pro jednotky s magii smrti 5.";
-                        
                     break;
 
                 case "Santova čepice":
                     $this->add_ability_using_item(IMUNITA_OHEN, 1);
-
                     $popis = "Štastné a veselé Vánoce.";
                     break;
 
                 case "Bronzový meč":
                     $this->utk += 1;
-
                     $popis = "Jednotka získá +1 do útoku.";
                     break;
 
                 case "Gladius":
                     $this->utk += 2;
-
                     $popis = "Jednotka získá +2 do útoku.";
                     break;
 
                 case "Rytířský jednoruční meč":
                     $this->utk += 4;
-
                     $popis = "Jednotka získá +4 do útoku.";
                     break;
 
                 case "Bastard":
                     $this->utk += 7;
                     $this->obr -= 2;
-
                     $popis = "Jednotka získá +7 do útoku, ale její obrana klesne o 2.";
                     break;
 
                 case "Težká bojová sekyra":
                     $this->utk += 10;
                     $this->obr -= 3;
-
                     $popis = "Jednotka získá +10 do útoku, ale její obrana klesne o 3.";
                     break;
 
@@ -705,13 +635,11 @@ if ($utocnik != "" and $obrance != "") {
                     $this->utk += 3;
                     $this->ini -= 1;
                     $this->add_ability_using_item(SLAYER, 1);
-
                     $popis = "Řemdih s kovovými koulemi. Jednotka získá +3 do útoku, -1 do inicitívy a naučí se schopnost slayer.";
                     break;
 
                 case "Kopí hlupáků":
                     $this->add_ability_using_item(EXTERMINACE, 1);
-
                     $popis = "Unikátní jednotka získa schopnost exterminace.";
                     break;
 
@@ -719,7 +647,6 @@ if ($utocnik != "" and $obrance != "") {
                     $this->utk += 15;
                     $this->obr += 10;
                     $this->ini += 5;
-
                     $popis = "Unikátní jednotka získá +15 do útoku, +10 do obrany a +5 do inicitivy.";
                     break;
 
@@ -728,33 +655,28 @@ if ($utocnik != "" and $obrance != "") {
                     $this->add_summoned_unit_using_item("Stínový drak");
                     $this->obr += 5;
                     $this->dmg *= 4;
-
                     $popis = "Unikátní jednotka získá +300% do poškození, +5 do obrany a naučí se Magii ohně 7";
                     break;
 
                 case "Prsten Života":
                     $this->add_ability_using_item(MAGIE_LESA, 2);
                     $this->add_summoned_unit_using_item("Wurm");
-
                     $popis = "Unikátní jednotka získá Magii lesa 2";
                     break;
 
                 case "Maska Medůzy":
                     $this->add_ability_using_item(MAGIE_ZEME, 1);
-
                     $popis = "Unikátní jednotka získá Magii země 1";
                     break;
 
                 case "Amulet Beznaděje":
                     $this->add_ability_using_item(MAGIE_SMRTI, 3);
-
                     $popis = "Unikátní jednotka získá Magii smrti 3";
                     break;
 
                 case "Tutsumasa, Ledová dračí čepel":
                     $this->add_ability_using_item(MAGIE_LEDU, 2);
                     $this->dmg *= 4;
-
                     $popis = "Unikátní jednotka získá +300% do damage a naučí se Magii ledu 2";
                     break;
 
@@ -762,7 +684,6 @@ if ($utocnik != "" and $obrance != "") {
                     $this->add_ability_using_item(MAGIE_SMRTI, 5);
                     $this->add_summoned_unit_using_item("Uvězněná duše");
                     $this->dmg *= 4;
-                    
                     $popis = "Unikátní jednotka získá +300% do damage a naučí se Magii smrti 5";
                     break;
 
@@ -771,7 +692,6 @@ if ($utocnik != "" and $obrance != "") {
                         $this->schopnosti[DRTIVY_UTOK][0] += 100;
                     else
                         $this->add_ability_using_item(DRTIVY_UTOK, 100);
-
                     $popis = "JJednotka získá +100% do poškození proti neživým cílům.";
                     break;
 
@@ -779,27 +699,23 @@ if ($utocnik != "" and $obrance != "") {
                     if ($this->has_ability(SVATY_UTOK, []))
                         $this->schopnosti[SVATY_UTOK][0] += 100;
                     else
-                    $this->add_ability_using_item(SVATY_UTOK, 100);
-
+                        $this->add_ability_using_item(SVATY_UTOK, 100);
                     $popis = "Jednotka získá +100% do poškození proti nemrtvým cílům.";
                     break;
 
                 case "Mágova róba moci":
                     $this->add_ability_using_item(POSILENI_VYVOLAVANI, 10);
-
                     $popis = "Posílí přivolávací a vyvolávací magii jednotky o 10%.";
                     break;
 
                 case "Velemágova róba moci":
                     $this->add_ability_using_item(POSILENI_VYVOLAVANI, 50);
-
                     $popis = "Posílí přivolávací a vyvolávací magií jednotky o 50%.	";
                     break;
 
                 case "Gnomí vozík":
                     $this->dmg *= 1.15;
                     $this->obr += 1;
-
                     if ($this->nazev == "Gobliní Vzducholoď" or $this->nazev == "Gobliní Hybridní Vzducholoď" or $this->nazev == "Gobliní Vyztužená Vzducholoď")
                         $this->boost_summoning_amount_using_item(50);
 
@@ -809,21 +725,15 @@ if ($utocnik != "" and $obrance != "") {
 
             $this->celkem_zivotu = $this->ziv * $this->pocet;
             $this->poc_celkem_zivotu = $this->ziv * $this->pocet;
-
             $this->popis_artu = $popis;
-
             $this->zaokrouhlit();
         }
 
 
-
         #Funce schopností jednotek
-
         #Štíty jednotek
-
         function ohnivyStit($obrance, $kill)
         {
-
             global $jednotka;
             global $zabito_goblinu;
 
@@ -850,7 +760,6 @@ if ($utocnik != "" and $obrance != "") {
 
         function toxickyStit($obrance, $kill)
         {
-
             global $jednotka;
             global $zabito_goblinu;
 
@@ -1657,7 +1566,7 @@ if ($utocnik != "" and $obrance != "") {
             $i = 0;
             $e = 0;
             $n = "x";
-            $pocet_schopnosti_ve_hre = 32;
+            $pocet_schopnosti_ve_hre = 32; #pri pridani schopnosti nezapomenout zvednout citac!!!
 
             while ($i < $pocet_schopnosti_ve_hre) {
                 switch ($i) {
