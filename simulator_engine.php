@@ -1618,7 +1618,7 @@ if ($utocnik != "" and $obrance != "") {
             $i = 0;
             $e = 0;
             $n = "x";
-            $pocet_schopnosti_ve_hre = 32;
+            $pocet_schopnosti_ve_hre = 32; #pri pridani schopnosti nezapomenout zvednout citac!!!
 
             while ($i < $pocet_schopnosti_ve_hre) {
                 switch ($i) {
