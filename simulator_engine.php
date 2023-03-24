@@ -1997,7 +1997,7 @@ if ($utocnik != "" and $obrance != "") {
                 $pocet_vyvolanych = min($this->pocet * 5, $pocet_vyvolanych);
 
                 //lich s kostěnou flétnou
-                if ($this->nazev == "Lich" and $this->has_ability(SUMMONING_BOOST, [])) $pocet_vyvolanych = boost_summoning_count($pocet_vyvolanych, $this->get_summoning_boost());
+                if ($this->nazev == "Lich" and $this->can_boost_summoning()) $pocet_vyvolanych = boost_summoning_count($pocet_vyvolanych, $this->get_summoning_boost());
             }
 
 
@@ -2012,7 +2012,7 @@ if ($utocnik != "" and $obrance != "") {
             if ($this->has_ability(MAGIE_SMRTI, [12])) {
                 $pocet_vyvolanych = min($this->pocet, $pocet_vyvolanych);
                 //arcilich s kostěnou flétnou
-                if ($this->nazev == "Archlich" and $this->has_ability(SUMMONING_BOOST, [])) $pocet_vyvolanych = boost_summoning_count($pocet_vyvolanych, $this->get_summoning_boost());
+                if ($this->nazev == "Archlich" and $this->can_boost_summoning()) $pocet_vyvolanych = boost_summoning_count($pocet_vyvolanych, $this->get_summoning_boost());
             }
 
             $random = mt_rand(0, 100);
