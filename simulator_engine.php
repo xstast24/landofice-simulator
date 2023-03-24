@@ -587,7 +587,7 @@ if ($utocnik != "" and $obrance != "") {
 
                 case "Amulet věznitele":
                     if ($this->has_ability(MAGIE_SMRTI, [5])){
-                        $this->add_ability_using_item(STAZE, 25);
+                        $this->add_ability_using_item(SUMMONING_BOOST, 25);
                         $popis = "Jednotka s magii smrti 5 vyvolá o 25% více uvěznených duší.";
                     } else
                         $popis = "Pouze pro jednotky s magii smrti 5.";
@@ -704,12 +704,12 @@ if ($utocnik != "" and $obrance != "") {
                     break;
 
                 case "Mágova róba moci":
-                    $this->add_ability_using_item(POSILENI_VYVOLAVANI, 10);
+                    $this->boost_summoning_amount_using_item(10);
                     $popis = "Posílí přivolávací a vyvolávací magii jednotky o 10%.";
                     break;
 
                 case "Velemágova róba moci":
-                    $this->add_ability_using_item(POSILENI_VYVOLAVANI, 50);
+                    $this->boost_summoning_amount_using_item(50);
                     $popis = "Posílí přivolávací a vyvolávací magií jednotky o 50%.	";
                     break;
 
@@ -1997,7 +1997,7 @@ if ($utocnik != "" and $obrance != "") {
                 $pocet_vyvolanych = min($this->pocet * 5, $pocet_vyvolanych);
 
                 //lich s kostěnou flétnou
-                if ($this->nazev == "Lich" and $this->has_ability(STAZE, [])) $pocet_vyvolanych = boost_summoning_count($pocet_vyvolanych, $this->get_summoning_boost());
+                if ($this->nazev == "Lich" and $this->has_ability(SUMMONING_BOOST, [])) $pocet_vyvolanych = boost_summoning_count($pocet_vyvolanych, $this->get_summoning_boost());
             }
 
 
@@ -2012,7 +2012,7 @@ if ($utocnik != "" and $obrance != "") {
             if ($this->has_ability(MAGIE_SMRTI, [12])) {
                 $pocet_vyvolanych = min($this->pocet, $pocet_vyvolanych);
                 //arcilich s kostěnou flétnou
-                if ($this->nazev == "Archlich" and $this->has_ability(STAZE, [])) $pocet_vyvolanych = boost_summoning_count($pocet_vyvolanych, $this->get_summoning_boost());
+                if ($this->nazev == "Archlich" and $this->has_ability(SUMMONING_BOOST, [])) $pocet_vyvolanych = boost_summoning_count($pocet_vyvolanych, $this->get_summoning_boost());
             }
 
             $random = mt_rand(0, 100);
@@ -2242,7 +2242,7 @@ if ($utocnik != "" and $obrance != "") {
                         //počet duší, které zvládne povolat
                         $pocet_vyvolanych = ($this->celkem_zivotu * (0.95 + rand(0, 10) / 100)) / 10; // pocet zivotov/10 +/- 5%
                         //pokud má artefakt, muze jich povolat vic	
-                        if ($this->has_ability(POSILENI_VYVOLAVANI, [])) $pocet_vyvolanych = randround(($pocet_vyvolanych * ($this->schopnosti["posileni_vyvolavani"][0] + 100)) / 100);
+                        if ($this->can_boost_summoning()) $pocet_vyvolanych = randround(($pocet_vyvolanych * ($this->get_summoning_boost() + 100)) / 100);
                         //pokud muze povolat vice dusi nez bylo zabito goblinu	
                         if ($pocet_vyvolanych > $zabito_goblinu) $pocet_vyvolanych = $zabito_goblinu;
                         //vyvolané duše odečíst od zabitých goblinů
@@ -2282,7 +2282,7 @@ if ($utocnik != "" and $obrance != "") {
 
                 if ($special == 0 and $pocet_vyvolanych > 0) {
                     //posílení vyvolávací a přivolávací magie
-                    if ($this->has_ability(POSILENI_VYVOLAVANI, []) and !$this->has_ability(MAGIE_SMRTI, [13])) $pocet_vyvolanych = randround(($pocet_vyvolanych * ($this->schopnosti[POSILENI_VYVOLAVANI][0] + 100)) / 100);
+                    if ($this->can_boost_summoning() and !$this->has_ability(MAGIE_SMRTI, [13])) $pocet_vyvolanych = randround(($pocet_vyvolanych * ($this->get_summoning_boost() + 100)) / 100);
 
                     echo "<span style='color:" . $this->barva . "'>";
                     $jednotka[$index] = new Jednotka($index, $jednotka_nazev, $pocet_vyvolanych, $this->strana, 1, $this->barva, "");
@@ -2303,10 +2303,10 @@ if ($utocnik != "" and $obrance != "") {
                         $mete = round($mete * 1.5);
                     }
 
-                    if ($this->has_ability(POSILENI_VYVOLAVANI, [])) {
-                        $magma = round(($magma * ($this->schopnosti["posileni_vyvolavani"][0] + 100)) / 100);
-                        $koule = round(($koule * ($this->schopnosti["posileni_vyvolavani"][0] + 100)) / 100);
-                        $mete = round(($mete * ($this->schopnosti["posileni_vyvolavani"][0] + 100)) / 100);
+                    if ($this->can_boost_summoning()) {
+                        $magma = round(($magma * ($this->get_summoning_boost() + 100)) / 100);
+                        $koule = round(($koule * ($this->get_summoning_boost() + 100)) / 100);
+                        $mete = round(($mete * ($this->get_summoning_boost() + 100)) / 100);
                     }
 
                     global $global_hodnota;
@@ -2325,15 +2325,15 @@ if ($utocnik != "" and $obrance != "") {
                 } elseif ($pocet_vyvolanych > 0 and $special == 2) {
                     $magma = mt_rand(10000, 20000);
                     if ($this->has_ability(POSILNI_OHEN, [1])) $magma = round($magma * 1.5);
-                    if ($this->has_ability(POSILENI_VYVOLAVANI, [])) $magma = round(($magma * ($this->schopnosti["posileni_vyvolavani"][0] + 100)) / 100);
+                    if ($this->can_boost_summoning()) $magma = round(($magma * ($this->get_summoning_boost() + 100)) / 100);
 
                     $koule = mt_rand(100000, 500000);
                     if ($this->has_ability(POSILNI_OHEN, [1])) $koule = round($koule * 1.5);
-                    if ($this->has_ability(POSILENI_VYVOLAVANI, [])) $koule = round(($koule * ($this->schopnosti["posileni_vyvolavani"][0] + 100)) / 100);
+                    if ($this->can_boost_summoning()) $koule = round(($koule * ($this->get_summoning_boost() + 100)) / 100);
 
                     $mete = mt_rand(100, 200);
                     if ($this->has_ability(POSILNI_OHEN, [1])) $mete = round($mete * 1.5);
-                    if ($this->has_ability(POSILENI_VYVOLAVANI, [])) $mete = round(($mete * ($this->schopnosti["posileni_vyvolavani"][0] + 100)) / 100);
+                    if ($this->can_boost_summoning()) $mete = round(($mete * ($this->get_summoning_boost() + 100)) / 100);
 
                     global $global_hodnota;
 
@@ -2435,15 +2435,15 @@ if ($utocnik != "" and $obrance != "") {
          * $boostValue represents by how many % is unit going to be boosted. Value of 50 -> 50% summoning boost and so on.
          */
         function boost_summoning_amount_using_item(int $boostValue){
-            $this->schopnosti[STAZE] = $boostValue;
+            $this->schopnosti[SUMMONING_BOOST] = $boostValue;
         }
 
         function get_summoning_boost(): int{
-            return $this->schopnosti[STAZE];
+            return $this->schopnosti[SUMMONING_BOOST];
         }
 
         function can_boost_summoning(): bool{
-            return $this->has_ability(STAZE, []);
+            return $this->has_ability(SUMMONING_BOOST, []);
         }
 
         /**
@@ -2770,19 +2770,19 @@ if ($utocnik != "" and $obrance != "") {
 
                                         if ($jednotka[$id]->has_ability(SABOTAZ, [1])) $jednotka[$id]->sabotaz($id_obrance);
 
-                                        if ($jednotka[$id]->has_ability(MAGIE_ETERNANU, [2]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti["imunitaMagie"][0]) $jednotka[$id]->magieEternanu2($id_obrance);
+                                        if ($jednotka[$id]->has_ability(MAGIE_ETERNANU, [2]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_MAGIE][0]) $jednotka[$id]->magieEternanu2($id_obrance);
 
-                                        if ($jednotka[$id]->has_ability(MAGIE_SMRTI, [4]) and $jednotka[$id_obrance]->stav == STAV_ZIVA and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti["imunitaMagie"][0]) $jednotka[$id]->magieSmrti4($id_obrance);
-                                        elseif ($jednotka[$id]->has_ability(MAGIE_SMRTI, [4]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti["imunitaMagie"][0]) $jednotka[$id]->magieSmrti8($id_obrance);
+                                        if ($jednotka[$id]->has_ability(MAGIE_SMRTI, [4]) and $jednotka[$id_obrance]->stav == STAV_ZIVA and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_MAGIE][0]) $jednotka[$id]->magieSmrti4($id_obrance);
+                                        elseif ($jednotka[$id]->has_ability(MAGIE_SMRTI, [4]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_MAGIE][0]) $jednotka[$id]->magieSmrti8($id_obrance);
 
-                                        if ($jednotka[$id]->has_ability(MAGIE_SMRTI, [11]) and $jednotka[$id_obrance]->stav == STAV_ZIVA and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti["imunitaMagie"][0]) $jednotka[$id]->magieSmrti11($id_obrance);
+                                        if ($jednotka[$id]->has_ability(MAGIE_SMRTI, [11]) and $jednotka[$id_obrance]->stav == STAV_ZIVA and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_MAGIE][0]) $jednotka[$id]->magieSmrti11($id_obrance);
 
-                                        if ($jednotka[$id]->has_ability(MAGIE_SMRTI, [3]) and $jednotka[$id_obrance]->stav == STAV_ZIVA and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti["imunitaMagie"][0]) $jednotka[$id]->magieSmrti3($id_obrance);
+                                        if ($jednotka[$id]->has_ability(MAGIE_SMRTI, [3]) and $jednotka[$id_obrance]->stav == STAV_ZIVA and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_MAGIE][0]) $jednotka[$id]->magieSmrti3($id_obrance);
 
-                                        if ($jednotka[$id]->has_ability(MAGIE_LEDU, [1]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti["imunitaMagie"][0] and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti["imunitaLed"][0]) $jednotka[$id]->magieLedu1($id_obrance);
-                                        elseif ($jednotka[$id]->has_ability(MAGIE_LEDU, [2]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti["imunitaMagie"][0] and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti["imunitaLed"][0]) $jednotka[$id]->magieLedu2($id_obrance);
-                                        elseif ($jednotka[$id]->has_ability(MAGIE_LEDU, [4]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti["imunitaMagie"][0] and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti["imunitaLed"][0]) $jednotka[$id]->magieLedu4($id_obrance);
-                                        elseif ($jednotka[$id]->has_ability(MAGIE_LEDU, [5]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti["imunitaMagie"][0] and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti["imunitaLed"][0]) $jednotka[$id]->magieLedu5($id_obrance);
+                                        if ($jednotka[$id]->has_ability(MAGIE_LEDU, [1]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_MAGIE][0] and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_LED][0]) $jednotka[$id]->magieLedu1($id_obrance);
+                                        elseif ($jednotka[$id]->has_ability(MAGIE_LEDU, [2]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_MAGIE][0] and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_LED][0]) $jednotka[$id]->magieLedu2($id_obrance);
+                                        elseif ($jednotka[$id]->has_ability(MAGIE_LEDU, [4]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_MAGIE][0] and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_LED][0]) $jednotka[$id]->magieLedu4($id_obrance);
+                                        elseif ($jednotka[$id]->has_ability(MAGIE_LEDU, [5]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_MAGIE][0] and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_LED][0]) $jednotka[$id]->magieLedu5($id_obrance);
 
                                         if ($jednotka[$id]->has_ability(KANIBALIZMUS, []) and $jednotka[$id_obrance]->stav == STAV_ZIVA) $jednotka[$id]->kanibalizmus($jednotka[$id]->udelala_dmg);
 
@@ -2798,9 +2798,9 @@ if ($utocnik != "" and $obrance != "") {
 
                                         if ($jednotka[$id]->has_ability(EXTERMINACE, [1]) and $jednotka[$id_obrance]->stav != STAV_NEZIVA) $jednotka[$id]->exterminace($id_obrance);
 
-                                        if ($jednotka[$id]->has_ability(MAGIE_ZEME, [1]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti["imunitaMagie"][0]) $jednotka[$id]->magieZeme1($id_obrance);
+                                        if ($jednotka[$id]->has_ability(MAGIE_ZEME, [1]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_MAGIE][0]) $jednotka[$id]->magieZeme1($id_obrance);
 
-                                        if ($jednotka[$id]->has_ability(MAGIE_VODY, [3]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti["imunitaMagie"][0]) $jednotka[$id]->magieVody3($id_obrance);
+                                        if ($jednotka[$id]->has_ability(MAGIE_VODY, [3]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_MAGIE][0]) $jednotka[$id]->magieVody3($id_obrance);
 
                                         if ($jednotka[$id]->has_ability(MAGIE_SVETLA, [1]) and $jednotka[$id_obrance]->stav == STAV_NEMRTVA) $jednotka[$id]->magieSvetla1($id_obrance);
 
