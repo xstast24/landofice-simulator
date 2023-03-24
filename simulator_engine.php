@@ -1,62 +1,10 @@
 ﻿<?php
 
-define("MAGIE_LESA", "magieLesa");
-define("MAGIE_ZEME", "magieZeme");
-define("MAGIE_OHNE", "magieOhne");
-define("MAGIE_LEDU", "magieLedu");
-define("MAGIE_SMRTI", "magieSmrti");
-define("MAGIE_SVETLA", "magieSvetla");
-define("MAGIE_PRASTARYCH", "magiePrastarych");
-define("MAGIE_ETERNANU", "magieEternanu");
-define("MAGIE_VODY", "magieVody");
-
-define("STAV_ZIVA", 1);
-define("STAV_NEMRTVA", 2);
-define("STAV_NEZIVA", 3);
-
-define("FRAKCE_DRALGAR", 1);
-define("FRAKCE_VULKAN", 2);
-define("FRAKCE_AETHER", 3);
-define("FRAKCE_DREADD", 4);
-define("FRAKCE_DHAR", 5);
-define("FRAKCE_GHORO", 6);
-define("FRAKCE_CRINIS", 7);
-define("FRAKCE_ASCENDANCY", 8);
-define("FRAKCE_DEMON", 10);
-
-define("VYVOLAVA_JEDNOTKU", "vyvolavaJednotku");
-define("IMUNITA_OHEN", "imunitaOhen");
-define("IMUNITA_LED", "imunitaLed");
-define("IMUNITA_MAGIE", "imunitaMagie");
-define("OHNIVY_STIT", "ohnivyStit");
-define("LEDOVY_STIT", "ledovyStit");
-define("TOXICKY_STIT", "toxickyStit");
-define("STEC", "stec");
-define("DAV", "dav");
-define("SLAYER", "slayer");
-define("VZKRISENI", "vzkryseni");
-define("SABOTAZ", "sabotaz");
-define("EXTERMINACE", "exterminace");
-define("UNIKATNI_JEDNOTKA", "unikatni");
-define("JEDOVY_UTOK", "jedovyUtok");
-define("DRTIVY_UTOK", "drtivyUtok");
-define("SVATY_UTOK", "svatyUtok");
-define("SEBEVRAZEDNY", "sebevrazedna");
-define("TEMNY_KRIK", "temnykrik");
-define("SILA_GOBLINU", "silaGoblinu");
-define("KONSTRUKCE", "konstrukce");
-define("KANIBALIZMUS", "kabnibalizmus");
-define("BLOK", "block");
-define("NEPREDVIDATELNOST", "nepredvidatelnost");
-
-define("STAZE", "staze"); // asi hodnota pro boostu summoningu? TODO nutno overit
-define("POSILNI_OHEN", "posileniOhen");
-define("POSILENI_VYVOLAVANI", "posileni_vyvolavani");
-
 ini_set("display_errors", 1); //show PHP errors if they happen
 error_reporting(E_ERROR | E_WARNING);
 
 require_once 'src/common.php'; //import shared methods/utils
+include_once("constants.php");
 
 
 $utocnik = reformatArmyString($_POST['ut']);
@@ -906,7 +854,7 @@ if ($utocnik != "" and $obrance != "") {
             global $jednotka;
             global $zabito_goblinu;
 
-            $dmg = $jednotka[$obrance]->schopnosti[TOXICKY_STIT] * ($jednotka[$obrance]->pocet + $kill);
+            $dmg = $jednotka[$obrance]->schopnosti[TOXICKY_STIT][0] * ($jednotka[$obrance]->pocet + $kill);
 
             $pocet_ziv = $this->celkem_zivotu - $dmg;
 
@@ -931,7 +879,7 @@ if ($utocnik != "" and $obrance != "") {
             global $jednotka;
 
 
-            $this->ini -= max($this->ini * ($jednotka[$obrance]->schopnosti[LEDOVY_STIT] / 100), 1);
+            $this->ini -= max($this->ini * ($jednotka[$obrance]->schopnosti[LEDOVY_STIT][0] / 100), 1);
             if ($this->ini < 0) $this->ini = 0;
 
             aktualizaceInic();
@@ -2604,7 +2552,7 @@ if ($utocnik != "" and $obrance != "") {
          * $abilityType   what ability type is being checked
          * $abilityValues what levels are being looked for
          * 
-         * return true if specified magic is found, false otherwise
+         * return true if specified magic is found (at least one), false otherwise
          */
         function has_ability(string $abilityType, array $abilityValues): bool{
             if (!isset($this->schopnosti[$abilityType]))  return false;
@@ -3081,3 +3029,5 @@ if ($utocnik != "" and $obrance != "") {
 function boost_summoning_count(int $baseSummonCount, int $boost): int {
     return round($baseSummonCount * (1 + ($boost / 100)));
 }
+
+?>
