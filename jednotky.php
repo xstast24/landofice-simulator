@@ -191,7 +191,7 @@
 			} elseif ($nazevSchopnosti == MAGIE_ETERNANU and $hodnotaSchopnosti == 2) {
 				echo "<img src='images/neni.gif' alt='Eternanská magie 2' title='Eternanská magie 2'> ";
 			} elseif ($nazevSchopnosti == "block") {
-				echo "<img src='images/block.jpg' alt='Block $hodnotaSchopnosti' title='Block - Jednotka má šanci $hodnotaSchopnosti%, že zablokuje nepřátelský útok.'> ";
+				echo "<img src='images/block.jpg' alt='Block $hodnotaSchopnosti' title='Block - Jednotka blokuje část obdrženého poškození. Snižuje obdržené zranění o $hodnotaSchopnosti%.'> ";
 			} elseif ($nazevSchopnosti == VYVOLAVA_JEDNOTKU and $jednotka->nazev == "Gobliní Vzducholoď") {
 				echo "<img src='images/goblini_vysadek.jpg' alt='Gobliní výsadek' title='Gobliní výsadek - Jednotka vyloží (počet*100) Gobliních paragánů.'> ";
 			} elseif ($nazevSchopnosti == VYVOLAVA_JEDNOTKU and $jednotka->nazev == "Gobliní Hybridní Vzducholoď") {
