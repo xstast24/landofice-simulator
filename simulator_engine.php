@@ -2394,7 +2394,7 @@ if ($utocnik != "" and $obrance != "") {
             echo "<span style='color:" . $this->barva . "'>" . $this->pocetJmenoArt() . " zmasakroval (" . prevod($dmg) . ") " . prevod($kill) . " x " . $jednotka[$obrance]->jmenoArt() . " (" . prevod($jednotka[$obrance]->celkem_zivotu) . ")</span><br>";
 
             // check if attacking unit can resurrect enemies as their own units
-            if ($this->has_ability(MAGIE_SMRTI, [1, 6, 9])) $this->nekromancer($kill, $obrance);
+            if ($this->has_any_ability(MAGIE_SMRTI, [1, 6, 9])) $this->nekromancer($kill, $obrance);
 
             //arcilichove ozivuje nejvýše počet zabitých/2
             if ($this->has_ability(MAGIE_SMRTI, [12])) $this->nekromancer($kill / 2, $obrance);
@@ -2456,14 +2456,33 @@ if ($utocnik != "" and $obrance != "") {
         }
 
         /**
-         * checks whether unit has some ability. Pass empty $abilityValues if value of ability is not important
-         * 
+         * Checks whether unit has ability with ALL given values. Pass empty $abilityValues if value of ability is not important.
+         *
          * $abilityType   what ability type is being checked
-         * $abilityValues what levels are being looked for
-         * 
-         * return true if specified magic is found (at least one), false otherwise
+         * $abilityValues what levels are being looked for, must have all of them
+         *
+         * return true if specified magic is found (all values), false otherwise
          */
         function has_ability(string $abilityType, array $abilityValues): bool{
+            if (!isset($this->schopnosti[$abilityType]))  return false;
+            if (empty($abilityValues)) return true;
+
+            foreach($abilityValues as $abilityValue){
+                if (!in_array($abilityValue, $this->schopnosti[$abilityType])) return false;
+            }
+
+            return true;
+        }
+
+        /**
+         * Checks whether unit has ability with ANY of given values. Pass empty $abilityValues if value of ability is not important.
+         * 
+         * $abilityType   what ability type is being checked
+         * $abilityValues what levels are being looked for, can have ANY of them
+         * 
+         * return true if specified magic is found (at least ONE value), false otherwise
+         */
+        function has_any_ability(string $abilityType, array $abilityValues): bool{
             if (!isset($this->schopnosti[$abilityType]))  return false;
             if (empty($abilityValues)) return true;
 
@@ -2704,7 +2723,7 @@ if ($utocnik != "" and $obrance != "") {
                         //vyvolání pouze v prvním kole
                         if ($aktualniKolo == 1 and $jednotka[$id]->has_ability(VYVOLAVA_JEDNOTKU, []) and !in_array($jednotka[$id]->nazev, $jednotkyNevyvolavajiciPrvniKolo)) $jednotka[$id]->vyvolat();
                         //vyvolávání v ostatních kolech -energ. služebník, vulcanovo kouzlo, ohnivý dést, rec. kockodlak,duse goblina 
-                        if ($aktualniKolo != 1 and $jednotka[$id]->has_ability(VYVOLAVA_JEDNOTKU, []) and $jednotka[$id]->has_ability(VYVOLAVA_JEDNOTKU, ["Energetický služebník", "998", "Ohnivý déšť", "Duše goblina"])) $jednotka[$id]->vyvolat();
+                        if ($aktualniKolo != 1 and $jednotka[$id]->has_ability(VYVOLAVA_JEDNOTKU, []) and $jednotka[$id]->has_any_ability(VYVOLAVA_JEDNOTKU, ["Energetický služebník", "998", "Ohnivý déšť", "Duše goblina"])) $jednotka[$id]->vyvolat();
 
                         //Schopnosti prováděné před samotným útokem v prvnim kole
                         if ($aktualniKolo == 1) {
