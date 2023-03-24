@@ -170,7 +170,7 @@ if ($utocnik != "" and $obrance != "") {
                         $this->add_ability_using_item(MAGIE_LESA, 3);
                         $popis = "Druidové přivolávají místo Entů Starodávné Enty.";
                     } else if ($this->nazev == "Veledruid") {
-                        $this->boost_summoning_amount_using_item(50);
+                        $this->set_summoning_boost(50);
                         $popis = "Veledruidové vyvolávají o 50% více Starodávných entů.";
                     }
 
@@ -178,7 +178,7 @@ if ($utocnik != "" and $obrance != "") {
 
                 case "Kostěná flétna":
                     if ($this->nazev == "Lich" or $this->nazev == "Arcilich") {
-                        $this->boost_summoning_amount_using_item(50);
+                        $this->set_summoning_boost(50);
                         $popis = "Lichové vyvolávají o 50% více kostlivců, Arcilichové vyvolávají o 50% více upírů.";
                     }
                     break;
@@ -278,7 +278,7 @@ if ($utocnik != "" and $obrance != "") {
 
                 case "Druidský Rituál":
                     if ($this->nazev == "Druid" or $this->nazev == "Nemrtvý druid") {
-                        $this->boost_summoning_amount_using_item(50);
+                        $this->set_summoning_boost(50);
                         $popis = "Druidové vyvolávají o 50% více Entů.";
                     }
                     break;
@@ -587,7 +587,7 @@ if ($utocnik != "" and $obrance != "") {
 
                 case "Amulet věznitele":
                     if ($this->has_ability(MAGIE_SMRTI, [5])){
-                        $this->add_ability_using_item(SUMMONING_BOOST, 25);
+                        $this->set_summoning_boost(25);
                         $popis = "Jednotka s magii smrti 5 vyvolá o 25% více uvěznených duší.";
                     } else
                         $popis = "Pouze pro jednotky s magii smrti 5.";
@@ -704,12 +704,12 @@ if ($utocnik != "" and $obrance != "") {
                     break;
 
                 case "Mágova róba moci":
-                    $this->boost_summoning_amount_using_item(10);
+                    $this->set_summoning_boost(10);
                     $popis = "Posílí přivolávací a vyvolávací magii jednotky o 10%.";
                     break;
 
                 case "Velemágova róba moci":
-                    $this->boost_summoning_amount_using_item(50);
+                    $this->set_summoning_boost(50);
                     $popis = "Posílí přivolávací a vyvolávací magií jednotky o 50%.	";
                     break;
 
@@ -717,7 +717,7 @@ if ($utocnik != "" and $obrance != "") {
                     $this->dmg *= 1.15;
                     $this->obr += 1;
                     if ($this->nazev == "Gobliní Vzducholoď" or $this->nazev == "Gobliní Hybridní Vzducholoď" or $this->nazev == "Gobliní Vyztužená Vzducholoď")
-                        $this->boost_summoning_amount_using_item(50);
+                        $this->set_summoning_boost(50);
 
                     $popis = "Jednotka získa +15% do poškození a +1 do obrany. Gobliní vzducholodě získávají navíc +50% na množství paragánů.";
                     break;
@@ -2434,7 +2434,7 @@ if ($utocnik != "" and $obrance != "") {
         /**
          * $boostValue represents by how many % is unit going to be boosted. Value of 50 -> 50% summoning boost and so on.
          */
-        function boost_summoning_amount_using_item(int $boostValue){
+        function set_summoning_boost(int $boostValue){
             $this->schopnosti[SUMMONING_BOOST] = $boostValue;
         }
 
