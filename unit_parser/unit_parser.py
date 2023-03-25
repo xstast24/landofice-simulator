@@ -46,10 +46,8 @@ def extract_data_from_html_table(raw_data: str) -> list:
         # this if is needed to reset fraction setting after when any unit section from html doc has finished parsing
         if row_length == 14:
             field_names = map(BeautifulSoup.get_text, row.findAll("th"))
-            if "Jmeno" in field_names and set_fraction(last_row) == "0":
-                fraction = "0"
-        elif row_length == 2:
-            fraction = set_fraction(row)
+            if "Jmeno" in field_names:
+                fraction = set_fraction(last_row)
         elif row_length == 16:
             unit_list.append(parse_html_row(row, fraction))
 
