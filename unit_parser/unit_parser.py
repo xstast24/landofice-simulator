@@ -36,16 +36,23 @@ def extract_data_from_html_table(raw_data: str) -> list:
     fraction = "0"
     html_table = BeautifulSoup(raw_data, "html.parser")
     table_rows = html_table.findAll("tr")
+    last_row = ""
 
     for row in table_rows:
         row_length = len(row)
         if row_length == 0:
             continue
 
-        if row_length == 2:
+        if row_length == 14:
+            field_names = map(BeautifulSoup.get_text, row.findAll("th"))
+            if "Jmeno" in field_names and set_fraction(last_row) == "0":
+                fraction = "0"
+        elif row_length == 2:
             fraction = set_fraction(row)
         elif row_length == 16:
             unit_list.append(parse_html_row(row, fraction))
+
+        last_row = row
 
     unit_list = handle_missing_units(unit_list)
     set_suicide_multi_attack(unit_list)
@@ -106,8 +113,11 @@ def set_default_multi_magic(units: list) -> None:
 
 
 def set_fraction(row: element.Tag) -> str:
-    god = row.find("h3").getText()
-    return fraction_list.get(god, "0")
+    try:
+        god = row.find("h3").getText()
+        return fraction_list.get(god, "0")
+    except AttributeError:
+        return "0"
 
 
 def set_unique_units(units: list) -> None:
