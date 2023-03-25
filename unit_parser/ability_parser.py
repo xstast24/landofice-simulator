@@ -83,6 +83,7 @@ def set_ability(unit: dict, ability: str) -> None:
         unit["schopnosti"]["nepredvidatelnost"] = "1"
     elif name == "Konstrukce":
         unit["schopnosti"]["konstrukce"] = "1"
+        set_constructed_unit(unit)
     elif name == "Síla goblinů":
         unit["schopnosti"]["silaGoblinu"] = "1"
     elif name == "Dezorientace":
@@ -165,6 +166,15 @@ def get_block_percentage(description: str) -> str:
 
 def get_holy_boost(description: str) -> str:
     return description.split("+")[1].split("%")[0].strip()
+
+def set_constructed_unit(unit: dict) -> None:
+    unit_name = unit["nazev"]
+    if unit_name == "Železný kněz":
+        unit["schopnosti"][VYVOLA_JEDNOTKU] = "Recyklovaný kočkodlak"
+    elif unit_name == "Goblin Pyroman Sapér":   # TODO zjistit jak funguje saper
+        pass
+    else:
+        raise Exception(f"Unit '{unit_name}' is not supported for skill 'konstrukce'")
 
 
 def set_magic(unit: dict, magic: str) -> None:
