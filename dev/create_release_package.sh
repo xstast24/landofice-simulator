@@ -15,6 +15,7 @@ RELEASE_FILES=(
   api.php
   config.ini
   config.js
+  constants.php
   favicon.ico
   index.php
   jednotky.php
