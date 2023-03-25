@@ -8121,6 +8121,10 @@
 				<nazev>konstrukce</nazev>
 				<hodnota>1</hodnota>
 			</schopnost>
+			<schopnost>
+				<nazev>vyvolavaJednotku</nazev>
+				<hodnota>Recyklovaný kočkodlak</hodnota>
+			</schopnost>
 		</schopnosti>
 	</jednotka>
 	<jednotka>

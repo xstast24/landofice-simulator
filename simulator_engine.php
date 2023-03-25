@@ -123,9 +123,8 @@ if ($utocnik != "" and $obrance != "") {
 
             if ($this->celkem_zivotu == "") die("<span style='color:red'>Neznám jednotku " . $this->nazev . "</span>");
 
-            // continue here
             $this->parse_unit_item($art);
-
+            
             $this->celkem_zivotu = $this->ziv * $this->pocet;
             $this->poc_celkem_zivotu = $this->ziv * $this->pocet;
             $this->zaokrouhlit();
@@ -2760,6 +2759,7 @@ if ($utocnik != "" and $obrance != "") {
     // echo "<span style='color:".$this->barva."'>".$zabito_goblinu." zabitogoblinu</span><br>";
 
     $jednotkyNevyvolavajiciPrvniKolo = ["Anděl věčného ohně", "Železný kněz", "Zlobří Šaman"]; //anděl vyvolává déšť až od 2. kola, kněží taky
+    $jednotkyVyvolavaneOdDruhehoKola = ["Energetický služebník", "998", "Ohnivý déšť", "Duše goblina", "Recyklovaný kočkodlak"];
     // ZACATEK SIMULACE
     while ($aktualniKolo <= $pocetKol) {
         echo "<br><hr color='#c0c0c0'><h3>kolo $aktualniKolo</h3>";
@@ -2791,7 +2791,7 @@ if ($utocnik != "" and $obrance != "") {
                         //vyvolání pouze v prvním kole
                         if ($aktualniKolo == 1 and $jednotka[$id]->has_ability(VYVOLAVA_JEDNOTKU, []) and !in_array($jednotka[$id]->nazev, $jednotkyNevyvolavajiciPrvniKolo)) $jednotka[$id]->vyvolat();
                         //vyvolávání v ostatních kolech -energ. služebník, vulcanovo kouzlo, ohnivý dést, rec. kockodlak,duse goblina 
-                        if ($aktualniKolo != 1 and $jednotka[$id]->has_ability(VYVOLAVA_JEDNOTKU, []) and $jednotka[$id]->has_any_ability(VYVOLAVA_JEDNOTKU, ["Energetický služebník", "998", "Ohnivý déšť", "Duše goblina"])) $jednotka[$id]->vyvolat();
+                        if ($aktualniKolo != 1 and $jednotka[$id]->has_ability(VYVOLAVA_JEDNOTKU, []) and $jednotka[$id]->has_any_ability(VYVOLAVA_JEDNOTKU, $jednotkyVyvolavaneOdDruhehoKola)) $jednotka[$id]->vyvolat();
 
                         //Schopnosti prováděné před samotným útokem v prvnim kole
                         if ($aktualniKolo == 1) {
