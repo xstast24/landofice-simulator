@@ -129,11 +129,11 @@ if ($utocnik != "" and $obrance != "") {
 
         #Funce schopností jednotek
         #Štíty jednotek
-        function ohnivyStit($obrance, $kill) {
+        function ohnivyStit($idObrance, $zabitoNepratel) {
             global $jednotka;
             global $zabito_goblinu;
 
-            $dmg = $jednotka[$obrance]->schopnosti[OHNIVY_STIT][0] * ($jednotka[$obrance]->pocet + $kill);
+            $dmg = $jednotka[$idObrance]->schopnosti[OHNIVY_STIT][0] * ($jednotka[$idObrance]->pocet + $zabitoNepratel);
             $pocet_ziv = $this->celkem_zivotu - $dmg;
             $zabito = ceil($this->celkem_zivotu / $this->ziv) - ceil($pocet_ziv / $this->ziv);
 
@@ -144,14 +144,14 @@ if ($utocnik != "" and $obrance != "") {
 
             if ($this->isgoblin($this->frakce, $this->stav)) $zabito_goblinu += $zabito;
 
-            echo "<span style='color:" . $this->barva . "'>Kolem jednotky " . $jednotka[$obrance]->toolNazev() . " vzplanul ohnivý štít a poranil útočníka za " . prevod($dmg) . ", zahynulo " . prevod($zabito) . " x " . $this->toolNazev() . "</span><br>";
+            echo "<span style='color:" . $this->barva . "'>Kolem jednotky " . $jednotka[$idObrance]->toolNazev() . " vzplanul ohnivý štít a poranil útočníka za " . prevod($dmg) . ", zahynulo " . prevod($zabito) . " x " . $this->toolNazev() . "</span><br>";
         }
 
-        function toxickyStit($obrance, $kill) {
+        function toxickyStit($idObrance, $zabitoNepratel) {
             global $jednotka;
             global $zabito_goblinu;
 
-            $dmg = $jednotka[$obrance]->schopnosti[TOXICKY_STIT][0] * ($jednotka[$obrance]->pocet + $kill);
+            $dmg = $jednotka[$idObrance]->schopnosti[TOXICKY_STIT][0] * ($jednotka[$idObrance]->pocet + $zabitoNepratel);
             $pocet_ziv = $this->celkem_zivotu - $dmg;
             $zabito = ceil($this->celkem_zivotu / $this->ziv) - ceil($pocet_ziv / $this->ziv);
             if ($zabito > $this->pocet) $zabito = $this->pocet;
@@ -161,19 +161,19 @@ if ($utocnik != "" and $obrance != "") {
 
             if ($this->isgoblin($this->frakce, $this->stav)) $zabito_goblinu += $zabito;
 
-            echo "<span style='color:" . $this->barva . "'>Kolem jednotky " . $jednotka[$obrance]->toolNazev() . " je toxický oblak, který zraňuje vše živé za " . prevod($dmg) . ", zahynulo " . prevod($zabito) . " x " . $this->toolNazev() . "</span><br>";
+            echo "<span style='color:" . $this->barva . "'>Kolem jednotky " . $jednotka[$idObrance]->toolNazev() . " je toxický oblak, který zraňuje vše živé za " . prevod($dmg) . ", zahynulo " . prevod($zabito) . " x " . $this->toolNazev() . "</span><br>";
         }
 
-        function ledovyStit($obrance) {
+        function ledovyStit($idObrance) {
             global $jednotka;
 
-            $this->ini -= max($this->ini * ($jednotka[$obrance]->schopnosti[LEDOVY_STIT][0] / 100), 1);
+            $this->ini -= max($this->ini * ($jednotka[$idObrance]->schopnosti[LEDOVY_STIT][0] / 100), 1);
             if ($this->ini < 0) $this->ini = 0;
 
             aktualizaceInic();
             $this->zaokrouhlit();
 
-            echo "<span style='color:" . $this->barva . "'>Kolem jednotky " . $jednotka[$obrance]->toolNazev() . " je ledový štít, který spomalil útočníka o " . $jednotka[$obrance]->schopnosti[LEDOVY_STIT][0] . "%</span><br>";
+            echo "<span style='color:" . $this->barva . "'>Kolem jednotky " . $jednotka[$idObrance]->toolNazev() . " je ledový štít, který spomalil útočníka o " . $jednotka[$idObrance]->schopnosti[LEDOVY_STIT][0] . "%</span><br>";
         }
 
 
@@ -200,26 +200,26 @@ if ($utocnik != "" and $obrance != "") {
             echo "<span style='color:" . $this->barva . "'>Mohutná exploze poničila vše. Po jednotce " . $this->jmenoArt() . " nezbylo skoro nic!</span><br>";
         }
 
-        function exterminace($obrance) {
+        function exterminace($idObrance) {
             global $jednotka;
             $kill = $this->pocet;
 
-            if ($kill > $jednotka[$obrance]->pocet) $kill = $jednotka[$obrance]->pocet;
+            if ($kill > $jednotka[$idObrance]->pocet) $kill = $jednotka[$idObrance]->pocet;
 
-            $jednotka[$obrance]->pocet -= $kill;
-            $jednotka[$obrance]->celkem_zivotu -= $kill * $jednotka[$obrance]->ziv;
+            $jednotka[$idObrance]->pocet -= $kill;
+            $jednotka[$idObrance]->celkem_zivotu -= $kill * $jednotka[$idObrance]->ziv;
 
-            echo "<span style='color:red'>" . $this->pocetJmenoArt() . " chladnokrevně zabila ze zálohy " . prevod($kill) . " x " . $jednotka[$obrance]->jmenoArt() . "! Zůstává " . $jednotka[$obrance]->pocetJmenoArt() . "</span><br>";
+            echo "<span style='color:red'>" . $this->pocetJmenoArt() . " chladnokrevně zabila ze zálohy " . prevod($kill) . " x " . $jednotka[$idObrance]->jmenoArt() . "! Zůstává " . $jednotka[$idObrance]->pocetJmenoArt() . "</span><br>";
         }
 
-        function sabotaz($obrance) {
+        function sabotaz($idObrance) {
             global $jednotka;
 
-            $jednotka[$obrance]->dmg -= $this->pocet;
+            $jednotka[$idObrance]->dmg -= $this->pocet;
 
-            if ($jednotka[$obrance]->dmg < 0) $jednotka[$obrance]->dmg = 0;
+            if ($jednotka[$idObrance]->dmg < 0) $jednotka[$idObrance]->dmg = 0;
 
-            echo "<span style='color:silver'>" . $this->jmenoArt() . " provedl sabotáž na zdroje nepřátelské jednotky " . $jednotka[$obrance]->jmenoArt() . "</span><br>";
+            echo "<span style='color:silver'>" . $this->jmenoArt() . " provedl sabotáž na zdroje nepřátelské jednotky " . $jednotka[$idObrance]->jmenoArt() . "</span><br>";
         }
 
         function temnykrik() {
@@ -279,15 +279,15 @@ if ($utocnik != "" and $obrance != "") {
             echo "<span style='color:gray'>Pán šelem: Ghoro dej nám sílu. Ghoro dej nám sílu. Ghoro!!!<br> " . $this->jmenoArt() . " posílil příslušníky rasy goblinů o $posileni%</span><br><br>";
         }
 
-        function vzkryseni($kill) {
-            if (mt_rand(0, 100) <= $this->schopnosti[VZKRISENI][0]) {
-                $kill = round($kill * (mt_rand(50, 100) / 100));
-                $this->pocet += $kill;
-                $this->celkem_zivotu += $kill * $this->ziv;
+        function vzkryseni($zabitoJednotek) {
+            if (mt_rand(0, 100) <= $this->schopnosti[VZKRISENI][0]) {   // kontrola jeslti jednotka passla ressurect check
+                $vzkrisenoJednotek = round($zabitoJednotek * (mt_rand(50, 100) / 100));
+                $this->pocet += $vzkrisenoJednotek;
+                $this->celkem_zivotu += $vzkrisenoJednotek * $this->ziv;
 
-                if ($this->celkem_zivotu <= 0) $this->celkem_zivotu = $kill * $this->ziv;
+                if ($this->celkem_zivotu <= 0) $this->celkem_zivotu = $vzkrisenoJednotek * $this->ziv;
 
-                echo "<span style='color:gray'>$kill x " . $this->jmenoArt() . " znovu povstal!</span><br>";
+                echo "<span style='color:gray'>$vzkrisenoJednotek x " . $this->jmenoArt() . " znovu povstal!</span><br>";
             }
         }
 
@@ -331,10 +331,10 @@ if ($utocnik != "" and $obrance != "") {
 
         #Magie Smrti
 
-        function magieSmrti3($obrance) {
+        function magieSmrti3($idObrance) {
             global $jednotka;
 
-            $jednotka[$obrance]->ini -= 5;
+            $jednotka[$idObrance]->ini -= 5;
             aktualizaceInic();
 
             echo "<span style='color:gray'>Obrovský strach a beznaděj doslova zmrazil zasaženou jednotku. Její iniciativa byla sníženo o 5</span><br>";
@@ -2640,7 +2640,7 @@ if ($utocnik != "" and $obrance != "") {
                                         $jednotka[$id]->nemoznoUtocit();
                                     } else {
                                         //proběhne utok, vše co se má zakouzlit před ním je třeba dát nad toto
-                                        $zabito = $jednotka[$id]->utokNa($idObrance);
+                                        $zabitoNepratel = $jednotka[$id]->utokNa($idObrance);
 
                                         if ($jednotka[$id]->has_ability(SABOTAZ, [1])) $jednotka[$id]->sabotaz($idObrance);
 
@@ -2662,13 +2662,13 @@ if ($utocnik != "" and $obrance != "") {
 
                                         if ($jednotka[$id]->has_ability(VYVOLAVA_JEDNOTKU, ["Duše goblina"])) $jednotka[$id]->vyvolat();
 
-                                        if ($jednotka[$idObrance]->has_ability(OHNIVY_STIT, []) and !$jednotka[$id]->has_ability(IMUNITA_OHEN, []) and !$jednotka[$id]->has_ability(OHNIVY_STIT, []) and $jednotka[$id]->typUtoku == 1) $jednotka[$id]->ohnivyStit($idObrance, $zabito);
+                                        if ($jednotka[$idObrance]->has_ability(OHNIVY_STIT, []) and !$jednotka[$id]->has_ability(IMUNITA_OHEN, []) and !$jednotka[$id]->has_ability(OHNIVY_STIT, []) and $jednotka[$id]->typUtoku == 1) $jednotka[$id]->ohnivyStit($idObrance, $zabitoNepratel);
 
-                                        if ($jednotka[$idObrance]->has_ability(TOXICKY_STIT, []) and !$jednotka[$id]->has_ability(TOXICKY_STIT, []) and $jednotka[$id]->typUtoku == 1 and $jednotka[$id]->stav == STAV_ZIVA) $jednotka[$id]->toxickyStit($idObrance, $zabito);
+                                        if ($jednotka[$idObrance]->has_ability(TOXICKY_STIT, []) and !$jednotka[$id]->has_ability(TOXICKY_STIT, []) and $jednotka[$id]->typUtoku == 1 and $jednotka[$id]->stav == STAV_ZIVA) $jednotka[$id]->toxickyStit($idObrance, $zabitoNepratel);
 
                                         if ($jednotka[$idObrance]->has_ability(LEDOVY_STIT, []) and !$jednotka[$id]->has_ability(LEDOVY_STIT, []) and $jednotka[$id]->typUtoku == 1) $jednotka[$id]->ledovyStit($idObrance);
 
-                                        if ($zabito > 0 and $jednotka[$idObrance]->has_ability(VZKRISENI, [])) $jednotka[$idObrance]->vzkryseni($zabito);
+                                        if ($zabitoNepratel > 0 and $jednotka[$idObrance]->has_ability(VZKRISENI, [])) $jednotka[$idObrance]->vzkryseni($zabitoNepratel);
 
                                         if ($jednotka[$id]->has_ability(EXTERMINACE, [1]) and $jednotka[$idObrance]->stav != STAV_NEZIVA) $jednotka[$id]->exterminace($idObrance);
 
