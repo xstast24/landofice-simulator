@@ -359,8 +359,8 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
         ❥Drago <small>(tvůrce LoI, ještě stále nám hostuje LoI [2022])</small>
         <br>
         <h4>Changelog</h4>
-        3/2023: +posvátný dóm země (dík Sunnie); update jednotek; fix meteoritu & kouli & uveznenych dusi; nova multimagie<br>
-        2022: znovuoživení simulátoru, 42 milionů změn
+        3/2023: <a href="http://landofice.com/forum/viewtopic.php?p=5456#p5456">Simulator 3.0</a><br>
+        2022: <a href="http://landofice.com/forum/viewtopic.php?p=4928#p4928">Simulátor 2.0</a> - znovuoživení simulátoru, 42 milionů oprav a aktualizací
         <br><br>
     </div>
 </div>
