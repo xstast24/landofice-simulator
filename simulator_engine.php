@@ -124,7 +124,7 @@ if ($utocnik != "" and $obrance != "") {
             if ($this->celkem_zivotu == "") die("<span style='color:red'>Neznám jednotku " . $this->nazev . "</span>");
 
             $this->parse_unit_item($art);
-            
+
             $this->celkem_zivotu = $this->ziv * $this->pocet;
             $this->poc_celkem_zivotu = $this->ziv * $this->pocet;
             $this->zaokrouhlit();
@@ -408,15 +408,12 @@ if ($utocnik != "" and $obrance != "") {
 
         function magieSmrti4($obrance)
         {
-
             global $jednotka;
 
             $jednotka[$obrance]->utk -= $this->pocet;
-
             $jednotka[$obrance]->obr -= $this->pocet;
 
             if ($jednotka[$obrance]->utk < 0) $jednotka[$obrance]->utk = 0;
-
             if ($jednotka[$obrance]->obr < 0) $jednotka[$obrance]->obr = 0;
 
             $jednotka[$obrance]->zaokrouhlit();
@@ -428,7 +425,6 @@ if ($utocnik != "" and $obrance != "") {
 
         function magieSmrti8($obrance)
         {
-
             global $jednotka;
 
             $koef = 0.5 * $this->pocet;
@@ -436,9 +432,7 @@ if ($utocnik != "" and $obrance != "") {
             if ($koef > 100) $koef = 100;
 
             $jednotka[$obrance]->dmg -= $jednotka[$obrance]->dmg * $koef / 100;
-
             $jednotka[$obrance]->obr -= $jednotka[$obrance]->obr * $koef / 100;
-
             $jednotka[$obrance]->utk -= $jednotka[$obrance]->utk * $koef / 100;
 
             $jednotka[$obrance]->zaokrouhlit();
@@ -2860,7 +2854,7 @@ if ($utocnik != "" and $obrance != "") {
                                         if ($jednotka[$id]->has_ability(MAGIE_ETERNANU, [2]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_MAGIE][0]) $jednotka[$id]->magieEternanu2($id_obrance);
 
                                         if ($jednotka[$id]->has_ability(MAGIE_SMRTI, [4]) and $jednotka[$id_obrance]->stav == STAV_ZIVA and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_MAGIE][0]) $jednotka[$id]->magieSmrti4($id_obrance);
-                                        elseif ($jednotka[$id]->has_ability(MAGIE_SMRTI, [4]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_MAGIE][0]) $jednotka[$id]->magieSmrti8($id_obrance);
+                                        elseif ($jednotka[$id]->has_ability(MAGIE_SMRTI, [8]) and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_MAGIE][0]) $jednotka[$id]->magieSmrti8($id_obrance);
 
                                         if ($jednotka[$id]->has_ability(MAGIE_SMRTI, [11]) and $jednotka[$id_obrance]->stav == STAV_ZIVA and mt_rand(1, 100) > $jednotka[$id_obrance]->schopnosti[IMUNITA_MAGIE][0]) $jednotka[$id]->magieSmrti11($id_obrance);
 
