@@ -1,57 +1,56 @@
 <?php
 
+const MAGIE_LESA = "magieLesa";
+const MAGIE_ZEME = "magieZeme";
+const MAGIE_OHNE = "magieOhne";
+const MAGIE_LEDU = "magieLedu";
+const MAGIE_SMRTI = "magieSmrti";
+const MAGIE_SVETLA = "magieSvetla";
+const MAGIE_PRASTARYCH = "magiePrastarych";
+const MAGIE_ETERNANU = "magieEternanu";
+const MAGIE_VODY = "magieVody";
 
-define("MAGIE_LESA", "magieLesa");
-define("MAGIE_ZEME", "magieZeme");
-define("MAGIE_OHNE", "magieOhne");
-define("MAGIE_LEDU", "magieLedu");
-define("MAGIE_SMRTI", "magieSmrti");
-define("MAGIE_SVETLA", "magieSvetla");
-define("MAGIE_PRASTARYCH", "magiePrastarych");
-define("MAGIE_ETERNANU", "magieEternanu");
-define("MAGIE_VODY", "magieVody");
+const STAV_ZIVA = 1;
+const STAV_NEMRTVA = 2;
+const STAV_NEZIVA = 3;
 
-define("STAV_ZIVA", 1);
-define("STAV_NEMRTVA", 2);
-define("STAV_NEZIVA", 3);
+const FRAKCE_DRALGAR = 1;
+const FRAKCE_VULKAN = 2;
+const FRAKCE_AETHER = 3;
+const FRAKCE_DREADD = 4;
+const FRAKCE_DHAR = 5;
+const FRAKCE_GHORO = 6;
+const FRAKCE_CRINIS = 7;
+const FRAKCE_ASCENDANCY = 8;
+const FRAKCE_DEMON = 10;
 
-define("FRAKCE_DRALGAR", 1);
-define("FRAKCE_VULKAN", 2);
-define("FRAKCE_AETHER", 3);
-define("FRAKCE_DREADD", 4);
-define("FRAKCE_DHAR", 5);
-define("FRAKCE_GHORO", 6);
-define("FRAKCE_CRINIS", 7);
-define("FRAKCE_ASCENDANCY", 8);
-define("FRAKCE_DEMON", 10);
+const VYVOLAVA_JEDNOTKU = "vyvolavaJednotku";
+const IMUNITA_OHEN = "imunitaOhen";
+const IMUNITA_LED = "imunitaLed";
+const IMUNITA_MAGIE = "imunitaMagie";
+const OHNIVY_STIT = "ohnivyStit";
+const LEDOVY_STIT = "ledovyStit";
+const TOXICKY_STIT = "toxickyStit";
+const STEC = "stec";
+const DAV = "dav";
+const SLAYER = "slayer";
+const VZKRISENI = "vzkryseni";
+const SABOTAZ = "sabotaz";
+const EXTERMINACE = "exterminace";
+const UNIKATNI_JEDNOTKA = "unikatni";
+const JEDOVY_UTOK = "jedovyUtok";
+const DRTIVY_UTOK = "drtivyUtok";
+const SVATY_UTOK = "svatyUtok";
+const SEBEVRAZEDNY = "sebevrazedna";
+const TEMNY_KRIK = "temnykrik";
+const SILA_GOBLINU = "silaGoblinu";
+const KONSTRUKCE = "konstrukce";
+const KANIBALIZMUS = "kabnibalizmus";
+const BLOK = "block";
+const NEPREDVIDATELNOST = "nepredvidatelnost";
 
-define("VYVOLAVA_JEDNOTKU", "vyvolavaJednotku");
-define("IMUNITA_OHEN", "imunitaOhen");
-define("IMUNITA_LED", "imunitaLed");
-define("IMUNITA_MAGIE", "imunitaMagie");
-define("OHNIVY_STIT", "ohnivyStit");
-define("LEDOVY_STIT", "ledovyStit");
-define("TOXICKY_STIT", "toxickyStit");
-define("STEC", "stec");
-define("DAV", "dav");
-define("SLAYER", "slayer");
-define("VZKRISENI", "vzkryseni");
-define("SABOTAZ", "sabotaz");
-define("EXTERMINACE", "exterminace");
-define("UNIKATNI_JEDNOTKA", "unikatni");
-define("JEDOVY_UTOK", "jedovyUtok");
-define("DRTIVY_UTOK", "drtivyUtok");
-define("SVATY_UTOK", "svatyUtok");
-define("SEBEVRAZEDNY", "sebevrazedna");
-define("TEMNY_KRIK", "temnykrik");
-define("SILA_GOBLINU", "silaGoblinu");
-define("KONSTRUKCE", "konstrukce");
-define("KANIBALIZMUS", "kabnibalizmus");
-define("BLOK", "block");
-define("NEPREDVIDATELNOST", "nepredvidatelnost");
-
-define("SUMMONING_BOOST", "summoningBoost");
-define("POSILNI_OHEN", "posileniOhen");
-define("BOOST_MAGIE_SVETLA", "boostMagieSvetla");
+const SUMMONING_BOOST = "summoningBoost";
+const POSILNI_OHEN = "posileniOhen";
+const BOOST_MAGIE_SVETLA = "boostMagieSvetla";
 
 ?>
