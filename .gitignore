@@ -1,6 +1,12 @@
 .idea
 *.pyc
+
 unit_parser/generovane_jednotky.xml
 unit_parser/LoI-jednotky.html
+
+# local dev stuff on Windows
 copy_to_local_server.bat
+
+# files created by release script
 simulator-release/
+simulator-release.zip
