@@ -50,8 +50,8 @@ define("KANIBALIZMUS", "kabnibalizmus");
 define("BLOK", "block");
 define("NEPREDVIDATELNOST", "nepredvidatelnost");
 
-define("SUMMONING_BOOST", "summoningBoost"); // asi hodnota pro boostu summoningu? TODO nutno overit
+define("SUMMONING_BOOST", "summoningBoost");
 define("POSILNI_OHEN", "posileniOhen");
-define("POSILENI_VYVOLAVANI", "posileni_vyvolavani");
+define("BOOST_MAGIE_SVETLA", "boostMagieSvetla");
 
 ?>

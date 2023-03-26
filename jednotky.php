@@ -227,7 +227,7 @@
 
 	function getLightMagicValue($jednotka){
 		foreach ($jednotka->schopnosti->schopnost as $schopnost){
-			if ($schopnost->nazev == "boostMagieSvetla")	return $schopnost->hodnota;
+			if ($schopnost->nazev == BOOST_MAGIE_SVETLA)	return $schopnost->hodnota;
 		}
 	}
 	?>
