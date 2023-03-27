@@ -36,6 +36,9 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
     <style type=text/css>
         table {color: black; font-size: 11px; font-weight: 900;}
         table td {padding: 1px; text-align: justify;Vertical-align:top;color:black}
+        /*TODO barvu nebo podtrhnout nebo kurzivu nebo velikost? treba color: #CCFFFF, ale zkusit napred pdtrzeni a tak*/
+        /*TODO NEdelat to tady na tabulce, ale udelat class/id a pridat to jen rpo ty sekce/tabulku s eventama, at to neovlivnuje i sipky nahore pri vyberu tabulky*/
+        table a {margin-left: 6px; white-space: nowrap}
         .boj {background:white;color:black;border:2px silver solid;font-size:15px;font-weight:bold}
         .boj:hover {cursor:hand;background:#ddd; color:#333}
         #eventy input{border:none; background:none; font-weight:bold; color:white; text-decoration:none; font-size:10px}
