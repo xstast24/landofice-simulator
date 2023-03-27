@@ -3,11 +3,9 @@ ini_set("display_errors", 1); //show PHP errors on the web if they happen
 $config = parse_ini_file("config.ini", true);
 $simulatorVersion = $config['general']['version'];
 
-$utocnik="1 x Agranat, řečený zloděj duší (Prokletá kouzelnická róba)
-2000 x Druid(Gladius)
-2,000 x Druid (Gladius)
-100 x Zasvěcenec světla [Magie světla 3]
-100 x Zasvěcenec světla (Měděné pláty) [Magie světla 4]";
+$utocnik="1 x Velitel 2 (Æthrova róba moci)
+2,000 x Ozbrojený vesničan(Gladius)
+2000 x ozbrojeny vesnican";
 $obrance="1 x Dehinator (Ohnivá zbroj)
 12 x Těžký katapult
 12 x Těžká balista
