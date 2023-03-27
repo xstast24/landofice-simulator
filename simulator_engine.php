@@ -1923,6 +1923,7 @@ if ($utocnik != "" and $obrance != "") {
                     $popis = "Jednotka získa +2 do iniciativy, -25% do obrany, +20% do utoku a naučí se dav.";
                     break;
 
+                case "Ætherův ledový prapor":
                 case "Aetherův ledový prapor":
                     if ($this->frakce == FRAKCE_AETHER) {
                         $this->ini += 3;
@@ -1934,7 +1935,6 @@ if ($utocnik != "" and $obrance != "") {
                     $popis = "Jednotka získá schopnost Magie Ledu 1, Aethrova jednotka získa schopnost Magie Ledu 2 a navíc +3 do iniciativy";
                     break;
 
-                case "Ætherův ledový prapor":
                 case "Vulkánův ohnivý prapor":
                     if ($this->has_ability(OHNIVY_STIT, [])) {
                         if ($this->frakce == FRAKCE_VULKAN)
@@ -2051,6 +2051,7 @@ if ($utocnik != "" and $obrance != "") {
                     $popis = "Unikátní jednotka se naučí ledový štít 10% a je imuní proti ohnivému štítu.";
                     break;
 
+                case "Ætherova róba moci":
                 case "Aethrova róba moci":
                     $this->add_ability_using_item(IMUNITA_OHEN, 1);
                     $this->add_ability_using_item(LEDOVY_STIT, 80);
