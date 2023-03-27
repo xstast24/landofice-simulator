@@ -1922,7 +1922,9 @@ if ($utocnik != "" and $obrance != "") {
 
                     $popis = "Jednotka získa +2 do iniciativy, -25% do obrany, +20% do utoku a naučí se dav.";
                     break;
-
+                # variants with extra "e" needs to be covered for now
+                case "Æthrův ledový prapor":
+                case "Aethrův ledový prapor":
                 case "Ætherův ledový prapor":
                 case "Aetherův ledový prapor":
                     if ($this->frakce == FRAKCE_AETHER) {
@@ -2050,8 +2052,10 @@ if ($utocnik != "" and $obrance != "") {
 
                     $popis = "Unikátní jednotka se naučí ledový štít 10% a je imuní proti ohnivému štítu.";
                     break;
-
+                # variants with extra "e" needs to be covered for now
                 case "Ætherova róba moci":
+                case "Aetherova róba moci":
+                case "Æthrova róba moci":
                 case "Aethrova róba moci":
                     $this->add_ability_using_item(IMUNITA_OHEN, 1);
                     $this->add_ability_using_item(LEDOVY_STIT, 80);
