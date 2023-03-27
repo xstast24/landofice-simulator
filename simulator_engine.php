@@ -2350,8 +2350,11 @@ if ($utocnik != "" and $obrance != "") {
             if (empty($abilityValues)) return true;
 
             foreach ($abilityValues as $abilityValue) {
-                if (is_array($this->schopnosti[$abilityType]) and !in_array($abilityValue, $this->schopnosti[$abilityType])) return false;
-                elseif ($abilityValue != $this->schopnosti[$abilityType]) return false;
+                if (is_array($this->schopnosti[$abilityType])){
+                    if (!in_array($abilityValue, $this->schopnosti[$abilityType])) return false;
+                } else {
+                    if ($abilityValue != $this->schopnosti[$abilityType]) return false;
+                }
             }
 
             return true;
@@ -2370,8 +2373,11 @@ if ($utocnik != "" and $obrance != "") {
             if (empty($abilityValues)) return true;
 
             foreach ($abilityValues as $abilityValue) {
-                if (is_array($this->schopnosti[$abilityType]) and in_array($abilityValue, $this->schopnosti[$abilityType])) return true;
-                elseif ($abilityValue == $this->schopnosti[$abilityType]) return true;
+                if (is_array($this->schopnosti[$abilityType])){
+                    if (in_array($abilityValue, $this->schopnosti[$abilityType])) return true;
+                } else {
+                    if ($abilityValue == $this->schopnosti[$abilityType]) return true;
+                }
             }
 
             return false;
