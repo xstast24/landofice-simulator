@@ -149,33 +149,33 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                     <input value='Obři dobra' class='pleneni zelene' type=button onclick='pole("50 x Lesní obr\n80 x Ledový obr\n12 x Kamenný Obr")'><br>
 <!--                    <input value='Země zatracených 1' class='pleneni zelene' type=button onclick='pole("30000 x Zombie\n1000 x Lich\n30 x Temný přízrak\n500 x Padlý válečník")'><br>-->
 <!--                    <input value='Země zatracených 2' class='pleneni zelene' type=button onclick='pole("2000 x Stín\n12000 x Kostlivec\n10000 x Uvězněná duše\n30 x Temný přízrak\n500 x Padlý válečník")'><br>-->
-                    <input value='Země zatracených - Údolí 1' class='pleneni zelene' type=button onclick='pole("TODO")'><br>
-                    <input value='Země zatracených - Údolí 2' class='pleneni zelene' type=button onclick='pole("TODO")'><br>
-                    <input value='Země zatracených - Pláň 1' class='pleneni zelene' type=button onclick='pole("TODO")'><br>
-                    <input value='Země zatracených - Pláň 2' class='pleneni zelene' type=button onclick='pole("TODO")'><br>
-                    <input value='Země zatracených - Říše 1' class='pleneni zelene' type=button onclick='pole("TODO")'><br>
-                    <input value='Země zatracených - Říše 2' class='pleneni zelene' type=button onclick='pole("TODO")'><br>
+                    <input value='Země zatracených - Údolí 1' class='pleneni zelene' type=button onclick='pole("1,500 x Stín\n8,000 x Kostlivec\n7,500 x Uvězněná duše\n25 x Temný přízrak\n300 x Padlý válečník")'><br>
+                    <input value='Země zatracených - Údolí 2' class='pleneni zelene' type=button onclick='pole("20,000 x Zombie\n750 x Lich\n25 x Temný přízrak\n300 x Padlý válečník")'><br>
+                    <input value='Země zatracených - Pláň 1' class='pleneni zelene' type=button onclick='pole("3,000 x Stín\n15,000 x Kostlivec\n10,000 x Uvězněná duše\n100 x Temný přízrak\n1,000 x Padlý válečník")'><br>
+                    <input value='Země zatracených - Pláň 2' class='pleneni zelene' type=button onclick='pole("30,000 x Zombie\n1,500 x Lich\n50 x Temný přízrak\n500 x Padlý válečník")'><br>
+                    <input value='Země zatracených - Říše 1' class='pleneni zelene' type=button onclick='pole("150 x Hnijící Nemrtvý Obr\n100 x Prokletý Mág\n100 x Temný přízrak\n1,000 x Padlý válečník")'><br>
+                    <input value='Země zatracených - Říše 2' class='pleneni zelene' type=button onclick='pole("5,000 x Stín\n100 x Kostlivec\n20,000 x Uvězněná duše\n100 x Temný přízrak\n2,000 x Padlý válečník")'><br>
                     <input value='Temný les' class='pleneni zelene' type=button onclick='pole("200 x Prokletý Obr")'><br>
                     <input value='Otrokářská kolonie 1' class='pleneni zelene' type=button onclick='pole("100 x Otrokář\n10000 x Otrok s kopím\n10000 x Otrok s oštěpy\n10000 x Otrok štítonoš")'><br>
                     <input value='Otrokářská kolonie 2' class='pleneni zelene' type=button onclick='pole("100 x Otrokář\n50000 x Otrok s kopím")'><br>
-                    <input value='Ledový palác - Ledová planina' class='pleneni zelene' type=button onclick='pole("1 x Ledový král\n750 x Ledový Přízrak\n750 x Starodávný Ledový Přízrak\n1000 x Ledový Elementál\n100 x Ledový obr")'><br>
-                    <input value='Ledový palác - Ledové nádvoří' class='pleneni zelene' type=button onclick='pole("1 x Ledový král\n750 x Ledový Přízrak\n750 x Starodávný Ledový Přízrak\n1000 x Ledový Elementál\n100 x Ledový obr")'><br>
-                    <input value='Ledový palác - Trůnní sál' class='pleneni zelene' type=button onclick='pole("1 x Ledový král\n750 x Ledový Přízrak\n750 x Starodávný Ledový Přízrak\n1000 x Ledový Elementál\n100 x Ledový obr")'><br>
-                    <input value='Ledový palác - Ledový palác' class='pleneni zelene' type=button onclick='pole("1 x Ledový král\n750 x Ledový Přízrak\n750 x Starodávný Ledový Přízrak\n1000 x Ledový Elementál\n100 x Ledový obr")'><br>
-                    <input value='Dralgarova zahrada - Neprostupný hvozd 1' class='pleneni zelene' type=button onclick='pole("TODO")'><br>
-                    <input value='Dralgarova zahrada - Neprostupný hvozd 2' class='pleneni zelene' type=button onclick='pole("TODO")'><br>
-                    <input value='Dralgarova zahrada - Zahrady kolem chrámu 1' class='pleneni zelene' type=button onclick='pole("TODO")'><br>
-                    <input value='Dralgarova zahrada - Zahrady kolem chrámu 2' class='pleneni zelene' type=button onclick='pole("TODO")'><br>
-                    <input value='Dralgarova zahrada - Gigantický chrám 1' class='pleneni zelene' type=button onclick='pole("TODO")'><br>
-                    <input value='Dralgarova zahrada - Gigantický chrám 2' class='pleneni zelene' type=button onclick='pole("TODO")'><br>
-                    <input value='Dralgarova zahrada - Dralgarova zahrada' class='pleneni zelene' type=button onclick='pole("TODO")'><br>
+                    <input value='Ledový palác - Ledová planina' class='pleneni zelene' type=button onclick='pole("750 x Ledový Přízrak\n750 x Starodávný Ledový Přízrak\n1,000 x Sněžný vlk\n1,000 x Ledový vlk\n1 x Posvátna Ledová hydra")'><br>
+                    <input value='Ledový palác - Ledové nádvoří' class='pleneni zelene' type=button onclick='pole("1,000 x Ledový Elementál\n1,000 x Starodávny Ledový Elementál\n150 x Ledový obr\n150 x Starodávný ledový obr\n1 x Velemág Ledu")'><br>
+                    <input value='Ledový palác - Trůnní sál' class='pleneni zelene' type=button onclick='pole("5,000 x Mistr boha ledu\n5,000 x Posvátny Ledový Elementál\n750 x Snežný obr\n100 x Arcimág Veledruid\n1 x Ledový král")'><br>
+                    <input value='Ledový palác - Ledový palác' class='pleneni zelene' type=button onclick='pole("1 x Ledový král\n20,000 x Ledový Přízrak\n20,000 x Starodávný Ledový Přízrak\n10,000 x Posvátny Ledový Elementál\n5,000 x Snežný obr\n5,000 x Starodávný ledový obr\n200 x Posvátna Ledová hydra\n100 x Arcimág ledu")'><br>
+                    <input value='Dralgarova zahrada - Neprostupný hvozd 1' class='pleneni zelene' type=button onclick='pole("2,500 x Zelený lesní pavouk\n2,500 x Červený lesní pavouk\n2,500 x Černý lesní pavouk\n250 x Zlatý lesní pavouk\n1,000 x Lesní Troll")'><br>
+                    <input value='Dralgarova zahrada - Neprostupný hvozd 2' class='pleneni zelene' type=button onclick='pole("1,500 x Druid\n25 x Lesní obr\n5 x Wurm\n750 x Ent\n500 x Starodávný Ent")'><br>
+                    <input value='Dralgarova zahrada - Zahrady kolem chrámu 1' class='pleneni zelene' type=button onclick='pole("1,500 x Obří zelený pavouk\n1,500 x Obří červený pavouk\n2,500 x Černý lesní pavouk\n500 x Zlatý lesní pavouk\n1,500 x Lesní Troll")'><br>
+                    <input value='Dralgarova zahrada - Zahrady kolem chrámu 2' class='pleneni zelene' type=button onclick='pole("2,000 x Veledruid\n25 x Horský obr\n5 x Horský Wurm\n1,250 x Ent\n1,000 x Starodávný Ent")'><br>
+                    <input value='Dralgarova zahrada - Gigantický chrám 1' class='pleneni zelene' type=button onclick='pole("2,500 x Obří zelený pavouk\n2,500 x Obří červený pavouk\n2,500 x Obří černý pavouk\n1,000 x Zlatý lesní pavouk\n2,500 x Lesní Troll")'><br>
+                    <input value='Dralgarova zahrada - Gigantický chrám 2' class='pleneni zelene' type=button onclick='pole("3,000 x Druid\n50 x Prastarý Horský obr\n10 x Prastarý Horský Wurm\n2,500 x Ent\n2,000 x Starodávný Ent")'><br>
+                    <input value='Dralgarova zahrada - Dralgarova zahrada' class='pleneni zelene' type=button onclick='pole("30,000 x Prastarý Lesní Troll\n20,000 x Obří černý pavouk\n10,000 x Lesní Bizon\n2,000 x Prastarý Horský obr\n1,000 x Zlatý lesní pavouk\n1,000 x Jednorožec\n250 x Prastarý Horský Wurm\n1 x Posvátný jednorožec")'><br>
                     <input value='Trpaslíci 1 - Hlídka u úpatí hor' class='pleneni zelene' type=button onclick='pole("370 x Železný kněz\n8,290 x Trpaslík\n659 x Železný golem\n16,080 x Železný pavouček\n728 x Železný škopion")'><br>
                     <input value='Trpaslíci 2 - Strážní věž' class='pleneni zelene' type=button onclick='pole("684 x Železný kněz\n15,032 x Trpaslík\n1,122 x Železný golem\n29,662 x Železný pavouček\n1,285 x Železný škopion\n418 x Železný býk")'><br>
                     <input value='Trpaslíci 3 - Citedela' class='pleneni zelene' type=button onclick='pole("1,166 x Železný kněz\n24,366 x Trpaslík\n1,513 x Kamenný chrlič\n562 x Poloautomatická socha\n145 x Železný orel - MK1\n152 x Obrněnej vrhač oštěpů\n132 x Obrněnej válečnej vůz")'><br>
                     <input value='Trpaslíci 4 - Železný chrám' class='pleneni zelene' type=button onclick='pole("2,003 x Železný kněz\n45,297 x Trpaslík\n3,992 x Železný škopion\n1,305 x Železný býk\n2,779 x Kamenný chrlič\n921 x Poloautomatická socha\n259 x Železný orel - MK1\n5 x Colosus z temné ocele")'><br>
-                    <input value='Ohnivá hora - Ohnivé pláně' class='pleneni zelene' type=button onclick='pole("TODO")'><br>
-                    <input value='Ohnivá hora - Opevnění' class='pleneni zelene' type=button onclick='pole("TODO")'><br>
-                    <input value='Ohnivá hora - Vnitřní svatyně' class='pleneni zelene' type=button onclick='pole("TODO")'><br>
+                    <input value='Ohnivá hora - Ohnivé pláně' class='pleneni zelene' type=button onclick='pole("1,000 x Mág ohně\n500 x Efreet šaman\n100 x Ohnivý Fénix\n10 x Ohnivý Obr\n2 x Flamekeeper")'><br>
+                    <input value='Ohnivá hora - Opevnění' class='pleneni zelene' type=button onclick='pole("100 x Ohnivá hradba\n10,000 x Arcimág ohně\n1,000 x Magmatický golem\n30 x Flamekeeper\n1 x Magmatický Obr")'><br>
+                    <input value='Ohnivá hora - Vnitřní svatyně' class='pleneni zelene' type=button onclick='pole("3,000 x Stínová ohnivá valkýra\n1,000 x Anděl věčného ohně\n30 x Stínový ohnivý drak\n10 x Magmatický Obr\n3 x Flamekeeper Lord")'><br>
                 </div>
             </td>
 
