@@ -2328,16 +2328,14 @@ if ($utocnik != "" and $obrance != "") {
         /**
          * Adds $abilityValue into $this->schopnosti[$abilityName]. If $abilityValue is array, its inserted as array, if scalar, then as scalar
          *
-         * @param string $abilityName       which ability is being added
-         * @param mixed $abilityValue       Values of new ability. can be [1,2,3,...] or just 50
+         * @param string $abilityName   which ability is being added
+         * @param mixed $abilityValue   Values of new ability. can be [1,2,3,...] or just 50
          */
         function add_ability(string $abilityName, $abilityValue) {
+            if (!is_array($abilityValue)) $abilityValue = [$abilityValue];
+
             if (array_key_exists($abilityName, $this->schopnosti)){
-                if (is_array($abilityValue)){
-                    $this->schopnosti[$abilityName] = array_merge($this->schopnosti[$abilityName], $abilityValue);
-                } else {
-                    $this->schopnosti[$abilityName][] = $abilityValue;
-                }
+                $this->schopnosti[$abilityName] = array_merge($this->schopnosti[$abilityName], $abilityValue);
             } else {
                 $this->schopnosti[$abilityName] = $abilityValue;
             }
