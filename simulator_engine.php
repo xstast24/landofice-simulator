@@ -1965,6 +1965,9 @@ if ($utocnik != "" and $obrance != "") {
                         $this->ziv *= 1.5;
                     else
                         $this->ziv *= 1.15;
+
+                    $this->ziv = ceil($this->ziv);
+
                     $popis = "Jednotka získá +15% do životů, pokud je Dralgarova získá dalších +35%.";
                     break;
 
