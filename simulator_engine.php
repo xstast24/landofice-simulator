@@ -1985,6 +1985,8 @@ if ($utocnik != "" and $obrance != "") {
                     else
                         $this->dmg *= 1.15;
 
+                    $this->dmg = ceil($this->dmg);
+
                     $popis = "Jednotka získá +15% do damage pokud je Ghorova získá dalších +35%.";
                     break;
 
