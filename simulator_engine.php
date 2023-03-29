@@ -1162,10 +1162,10 @@ if ($utocnik != "" and $obrance != "") {
             global $idObrance;
             global $jednotka;   // pole vsech jednotek v bitve
             global $aktualniKolo;
-            $zruseneSchopnosti = [];
+            $schopnostiZruseneNaJedenUtok = []; // po dokonceni utoku se schopnosti vraci
 
             if ($jednotka[$idObrance]->has_ability(TVRZENA_KUZE, []) and $this->has_ability(SLAYER, [])){
-                $zruseneSchopnosti[SLAYER] = $this->schopnosti[SLAYER];
+                $schopnostiZruseneNaJedenUtok[SLAYER] = $this->schopnosti[SLAYER];
                 $this->remove_ability(SLAYER, []);
             }
 
@@ -1200,7 +1200,7 @@ if ($utocnik != "" and $obrance != "") {
                 $dmg -= $blocked_dmg;
             }
 
-            foreach ($zruseneSchopnosti as $key => $value){
+            foreach ($schopnostiZruseneNaJedenUtok as $key => $value){
                 $this->add_ability($key, $value);
             }
 
@@ -2326,7 +2326,7 @@ if ($utocnik != "" and $obrance != "") {
         }
 
         /**
-         * Adds $abilityValue into $this->schopnosti[$abilityName]. If $abilityValue is array, its inserted as array, if scalar, then as scalar
+         * Adds $abilityValue into $this->schopnosti[$abilityName].
          *
          * @param string $abilityName   which ability is being added
          * @param mixed $abilityValue   Values of new ability. can be [1,2,3,...] or just 50
@@ -2350,11 +2350,10 @@ if ($utocnik != "" and $obrance != "") {
         function remove_ability(string $abilityName, array $abilityValues): void {
             if (empty($this->schopnosti[$abilityName])) return;
 
-            if (empty($abilityValue)) unset($this->schopnosti[$abilityName]);
+            if (empty($abilityValues)) unset($this->schopnosti[$abilityName]);
             else {
-                foreach ($abilityValues as $value) {
-                    unset($this->schopnosti[$abilityName], $value);
-                }
+                $this->schopnosti[$abilityName] = array_diff($this->schopnosti[$abilityName], $abilityValues);
+                if (empty($this->schopnosti[$abilityName])) unset($this->schopnosti[$abilityName]);
             }
         }
 
