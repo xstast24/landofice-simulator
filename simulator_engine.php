@@ -106,7 +106,7 @@ if ($utocnik != "" and $obrance != "") {
                     $this->frakce = $jednotka->frakce * 1;
 
                     foreach ($jednotka->schopnosti->schopnost as $schopnost) {
-                        $nazevSchopnosti = (string)trim($schopnost->nazev);
+                        $nazevSchopnosti = trim($schopnost->nazev);
                         if (preg_match('!\d+!', $schopnost->hodnota)) $hodnotaSchopnosti = (int)$schopnost->hodnota;
                         else $hodnotaSchopnosti = (string)$schopnost->hodnota;
 
@@ -692,7 +692,7 @@ if ($utocnik != "" and $obrance != "") {
                         // stinove jednotky nemuzou donekonecna sumonovat nove stinove jednotky.
                         if ($jednotka[$id]->has_ability(MAGIE_PRASTARYCH, [3])) {
                             $jednotka[$index] = new Jednotka($index, $nazev, $vyvola, $this->strana, 1, $this->barva, "");
-                            $jednotka[$index]->set_ability(MAGIE_PRASTARYCH, 0, true);
+                            $jednotka[$index]->add_ability(MAGIE_PRASTARYCH, [0]);
                         } else
                             $jednotka[$index] = new Jednotka($index, $nazev, $vyvola, $this->strana, 1, $this->barva, "");
 
@@ -1151,19 +1151,35 @@ if ($utocnik != "" and $obrance != "") {
             $this->ini += $this->nahoda;
         }
 
+        /**
+         * utok provadi jednotka v "$this"
+         *
+         * @param $bonus - o kolik se utocici jednotce yvedne utok - v procentech
+         *
+         * @return float - vrati vypocitanou dmg, kterou obrance obdrzi
+         */
         function vypocetDMG($bonus) {
             global $idObrance;
-            global $jednotka;
+            global $jednotka;   // pole vsech jednotek v bitve
             global $aktualniKolo;
+            $schopnostiZruseneNaJedenUtok = []; // po dokonceni utoku se schopnosti vraci
+
+            if ($jednotka[$idObrance]->has_ability(TVRZENA_KUZE, []) and $this->has_ability(SLAYER, [])){
+                $schopnostiZruseneNaJedenUtok[SLAYER] = $this->schopnosti[SLAYER];
+                $this->remove_ability(SLAYER, []);
+            }
+
+            if ($jednotka[$idObrance]->has_ability(TVRZENA_KUZE, []) and $this->typUtoku == 1)
+                $this->aplikuj_debuff_tvrzene_kuze();
 
             $damage = $this->dmg;
             $damage += $damage * $bonus / 100;    // bonus znaci extra procenta napr z jedoveho utoku
 
             if ($this->has_ability(STEC, []) and $aktualniKolo == 3) $damage += $this->schopnosti[STEC][0];
 
-            if ($this->utk >= $jednotka[$idObrance]->obr) {
+            if ($this->utk >= $jednotka[$idObrance]->obr) { // utok je vetsi nebo roven obrane
                 $dmg = $this->pocet * $damage * (1 + (($this->utk - $jednotka[$idObrance]->obr) / 100) * 4);
-            } elseif ($this->utk < $jednotka[$idObrance]->obr and !$this->has_ability(SLAYER, [])) {
+            } elseif ($this->utk < $jednotka[$idObrance]->obr and !$this->has_ability(SLAYER, [])) {    // utok je mensi nez obrana
                 $dmg = $this->pocet * $damage * (1 + ($this->utk - $jednotka[$idObrance]->obr) / 50);
             } else { //utoci jednotka se slayerem a utok je mensi nez obrana
                 $dmg = $this->pocet * $damage;
@@ -1172,6 +1188,7 @@ if ($utocnik != "" and $obrance != "") {
             $dmgModifier = rand(95, 105) / 100; //nahodny rozptyl dmg +-5%
             $dmg *= $dmgModifier;
 
+            // obrana je vyrazne vetsi nez utok - v takovem pripade override dmg vypoctu podle poctu utocniku
             if (($jednotka[$idObrance]->obr - $this->utk) >= 25 and !$this->has_ability(SLAYER, [])) {
                 $dmg = $this->pocet * (round(mt_rand(1, 10)) / 10);
             }
@@ -1181,6 +1198,10 @@ if ($utocnik != "" and $obrance != "") {
                 $blocked_dmg = round($dmg * ($jednotka[$idObrance]->schopnosti[BLOK][0] / 100)); //block je cele cislo v procentech, e.g. block 30
                 echo "<span style='color:gray'> Jednotce ", $jednotka[$idObrance]->nazev, " se úspěšně podařilo zablokovat ", $jednotka[$idObrance]->schopnosti['block'][0], "% nepřátelského útoku ($blocked_dmg).<br>";
                 $dmg -= $blocked_dmg;
+            }
+
+            foreach ($schopnostiZruseneNaJedenUtok as $key => $value){
+                $this->add_ability($key, $value);
             }
 
             return round($dmg);
@@ -1965,6 +1986,9 @@ if ($utocnik != "" and $obrance != "") {
                         $this->ziv *= 1.5;
                     else
                         $this->ziv *= 1.15;
+
+                    $this->ziv = ceil($this->ziv);
+
                     $popis = "Jednotka získá +15% do životů, pokud je Dralgarova získá dalších +35%.";
                     break;
 
@@ -1984,6 +2008,8 @@ if ($utocnik != "" and $obrance != "") {
                         $this->dmg *= 1.35;
                     else
                         $this->dmg *= 1.15;
+
+                    $this->dmg = ceil($this->dmg);
 
                     $popis = "Jednotka získá +15% do damage pokud je Ghorova získá dalších +35%.";
                     break;
@@ -2299,11 +2325,36 @@ if ($utocnik != "" and $obrance != "") {
             $this->schopnosti[$newAbilityType] = [$abilityValue];
         }
 
-        function set_ability(string $abilityName, $abilityValue, bool $asArray = false) {
-            if ($asArray)
-                $this->schopnosti[$abilityName] = [$abilityValue];
-            else
+        /**
+         * Adds $abilityValue into $this->schopnosti[$abilityName].
+         *
+         * @param string $abilityName   which ability is being added
+         * @param mixed $abilityValue   Values of new ability. can be [1,2,3,...] or just 50
+         */
+        function add_ability(string $abilityName, $abilityValue) {
+            if (!is_array($abilityValue)) $abilityValue = [$abilityValue];
+
+            if (array_key_exists($abilityName, $this->schopnosti)){
+                $this->schopnosti[$abilityName] = array_merge($this->schopnosti[$abilityName], $abilityValue);
+            } else {
                 $this->schopnosti[$abilityName] = $abilityValue;
+            }
+        }
+
+        /**
+         * Removes either one level of magic if levels are set by $abilityValue, or whole ability if empty
+         *
+         * @param string $abilityName     ability for removal
+         * @param array $abilityValues    array of level to be removed. If empty removes whole ability entry
+         */
+        function remove_ability(string $abilityName, array $abilityValues): void {
+            if (empty($this->schopnosti[$abilityName])) return;
+
+            if (empty($abilityValues)) unset($this->schopnosti[$abilityName]);
+            else {
+                $this->schopnosti[$abilityName] = array_diff($this->schopnosti[$abilityName], $abilityValues);
+                if (empty($this->schopnosti[$abilityName])) unset($this->schopnosti[$abilityName]);
+            }
         }
 
         /**
@@ -2381,6 +2432,11 @@ if ($utocnik != "" and $obrance != "") {
             }
 
             return false;
+        }
+
+        function aplikuj_debuff_tvrzene_kuze(): void {
+            $this->utk--;   # TODO aktualne neni znamo o kolik se utok redukuje, prozatim nastaveno o jedna
+            if ($this->utk < 1) $this->utk = 1;
         }
 
     }  // konec classy Jednotka

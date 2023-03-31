@@ -34,6 +34,7 @@ const TOXICKY_STIT = "toxickyStit";
 const STEC = "stec";
 const DAV = "dav";
 const SLAYER = "slayer";
+const TVRZENA_KUZE = "tvrzenaKuze";
 const VZKRISENI = "vzkryseni";
 const SABOTAZ = "sabotaz";
 const EXTERMINACE = "exterminace";
