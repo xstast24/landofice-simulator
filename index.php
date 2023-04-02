@@ -268,7 +268,7 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                     <input value='Ætherův dóm' class='chramy aether' type=button onclick='pole("17,429 x Zasvěcenec boha ledu\n3,863 x Ledový válečník\n243 x Ledový obr\n2,447 x Šaman Ledu\n26 x Ledová hydra")'><br>
                     <input value='Ætherův velechrám' class='chramy aether' type=button onclick='pole("9,145 x Sestra Ledu\n557 x Ledový obr\n5,295 x Šaman Ledu\n46 x Ledová hydra\n8,279 x Æthrův ledový válečník")'><br>
                     <input value='Ætherův posvátný chrám' class='chramy aether' type=button onclick='pole("25,898 x Sestra Ledu\n902 x Ledový obr\n8,006 x Æthrův šaman Ledu\n70 x Ledová hydra\n88 x Æthrova ledová hvězda\n28,389 x Æthrův ledový válečník")'><br>
-                    <input value='Ætherův posvátný dóm' class='chramy aether' type=button onclick='pole("Az vam prijde, napiste nam jednotky a pridame je (kontakty jsou dole)")'><br>
+                    <input value='Ætherův posvátný dóm' class='chramy aether' type=button onclick='alert("Ætherův posvátný dóm - NEZNÁMÉ SLOŽENÍ! Az vam prijde, napiste nam jednotky a pridame je (kontakty jsou dole)")'><br>
 
                     <input value='Chrám země' class='chramy zeme' type=button onclick='pole("1,199 x Elfí lučištník\n2 x Wurm\n972 x Ent\n563 x Starodávný Ent\n2 x Mág země")'><br>
                     <input value='Svatyně země' class='chramy zeme' type=button onclick='pole("4,247 x Elfí lučištník\n7 x Wurm\n1,832 x Starodávný Ent\n50 x Kamenožrout\n5 x Mág země")'><br>
