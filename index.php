@@ -268,14 +268,14 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
                     <input value='Ætherův dóm' class='chramy aether' type=button onclick='pole("17,429 x Zasvěcenec boha ledu\n3,863 x Ledový válečník\n243 x Ledový obr\n2,447 x Šaman Ledu\n26 x Ledová hydra")'><br>
                     <input value='Ætherův velechrám' class='chramy aether' type=button onclick='pole("9,145 x Sestra Ledu\n557 x Ledový obr\n5,295 x Šaman Ledu\n46 x Ledová hydra\n8,279 x Æthrův ledový válečník")'><br>
                     <input value='Ætherův posvátný chrám' class='chramy aether' type=button onclick='pole("25,898 x Sestra Ledu\n902 x Ledový obr\n8,006 x Æthrův šaman Ledu\n70 x Ledová hydra\n88 x Æthrova ledová hvězda\n28,389 x Æthrův ledový válečník")'><br>
-                    <input value='Ætherův posvátný dóm' class='chramy aether' type=button onclick='alert("Ætherův posvátný dóm - NEZNÁMÉ SLOŽENÍ! Az vam prijde, napiste nam jednotky a pridame je (kontakty jsou dole)")'><br>
+                    <input value='Ætherův posvátný dóm' class='chramy aether' type=button onclick='pole("75,000 x Sestra Ledu\n2,000 x Ledový obr\n30,000 x Æthrův šaman Ledu\n300 x Posvátna Ledová hydra\n500 x Æthrova ledová hvězda\n150,000 x Æthrův ledový válečník")'><br>
 
                     <input value='Chrám země' class='chramy zeme' type=button onclick='pole("1,199 x Elfí lučištník\n2 x Wurm\n972 x Ent\n563 x Starodávný Ent\n2 x Mág země")'><br>
                     <input value='Svatyně země' class='chramy zeme' type=button onclick='pole("4,247 x Elfí lučištník\n7 x Wurm\n1,832 x Starodávný Ent\n50 x Kamenožrout\n5 x Mág země")'><br>
                     <input value='Dóm země' class='chramy zeme' type=button onclick='pole("22,629 x Elfí elitní lučištník\n17 x Wurm\n8 x Horský Wurm\n2,981 x Kamenný Golem\n138 x Kamenožrout\n16 x Mág země")'><br>
                     <input value='Velechrám země' class='chramy zeme' type=button onclick='pole("42 x Horský Wurm\n24 x Prastarý Horský Wurm\n45,044 x Elfí hraničář\n8,462 x Mramorový golem\n333 x Mramorožrout\n44 x Mág země")'><br>
                     <input value='Posvátný chrám země' class='chramy zeme' type=button onclick='pole("48 x Velemág země\n84,050 x Elfí hraničář\n75 x Prastarý Horský Wurm\n85 x Horský Wurm\n685 x Onyxožrout\n85 x Mág země\n14,888 x Onyxový Golem")'><br>
-                    <input value='Posvátný dóm země' class='chramy zeme' type=button onclick='pole("1 x Lesní obr jezdící na Posvátném Wurmovi\n184 x Horský Wurm\n133 x Prastarý Horský Wurm\n288,126 x Elfí hraničář\n39,629 x Topazový Golem\n1,644 x Topazožrout\n483 x Mág země\n164 x Velemág země")'><br>
+                    <input value='Posvátný dóm země' class='chramy zeme' type=button onclick='pole("1 x Lesní obr jezdící na Posvátném Wurmovi\n200 x Horský Wurm\n160 x Prastarý Horský Wurm\n300,000 x Elfí hraničář\n40,000 x Topazový Golem\n2,000 x Topazožrout\n500 x Mág země\n200 x Velemág země")'><br>
                 </div>
             </td>
 
