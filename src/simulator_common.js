@@ -8,12 +8,12 @@ const BARVA_SOUHRN_KOLA = '#C0C0C0' //barva pouzita ve vypisech bitvy pro souhrn
 
 
 function showLoadingAnimation() {
-    const loader = document.getElementById("obrazek")
+    const loader = document.getElementById("loaderGif")
     loader.innerHTML = "<div style='position:fixed;top:400px;width:95%;text-align:center'><img src='ajax-loader.gif' alt='Loading...' style='margin:auto;background:black;padding: 5px 40px;border-radius:15px;box-shadow: 0 0 10px white'><div>";
 }
 
 function hideLoadingAnimation() {
-    document.getElementById("obrazek").innerHTML = '';
+    document.getElementById("loaderGif").innerHTML = '';
 }
 
 /**Disable/enable fight buttons (prevents spamming of backend).
