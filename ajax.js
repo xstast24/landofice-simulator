@@ -56,7 +56,7 @@ function handleServerResponse() {
     if (xmlhttp.readyState == 4) {
         hideLoadingAnimation()
         if (xmlhttp.status == 200) {
-            document.getElementById("result").innerHTML = xmlhttp.responseText;
+            document.getElementById("simulationResult").innerHTML = xmlhttp.responseText;
         } else {
             alert("Error during AJAX call. Please try again");
         }
@@ -222,7 +222,7 @@ async function simulovatCelouSekci(nazevSekce) {
         souhrnnyElement.appendChild(document.createElement('br'))
         souhrnnyElement.appendChild(infoCasBehu)
 
-        document.getElementById("result").innerHTML = souhrnnyElement.innerHTML; //nestaci jen appendChild(), protoze potrebujeme prepsat existujici obsah
+        document.getElementById("simulationResult").innerHTML = souhrnnyElement.innerHTML; //nestaci jen appendChild(), protoze potrebujeme prepsat existujici obsah
     }
 
     function vytvorVyslednyElement(event, vysledek) {
@@ -292,7 +292,7 @@ async function opakovanaSimulace(pocetOpakovani) {
     const armadaObrance = getDefenderArmy();
     const vysledek = await ziskejNejhorsiVysledekSimulace(armadaUtocnika, armadaObrance, pocetOpakovani);
     const casBehu = ((Date.now() - casZacatku) / 1000); //ms -> s
-    document.getElementById("result").innerHTML = `${vysledek.celaBitvaHtmlString}<br><center>celkem ${casBehu.toString()}s</center>`;
+    document.getElementById("simulationResult").innerHTML = `${vysledek.celaBitvaHtmlString}<br><center>celkem ${casBehu.toString()}s</center>`;
 
     setFightButtonsState('enabled');
     hideLoadingAnimation();
