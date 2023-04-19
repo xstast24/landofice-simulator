@@ -406,7 +406,7 @@ $obrance="1 x Dehinator (Ohnivá zbroj)
         ❥Drago <small>(tvůrce LoI, ještě stále nám hostuje LoI [2022])</small>
         <br>
         <h4>Changelog</h4>
-        4/2023: TODO Simulator 3.1
+        4/2023: <a href="http://landofice.com/forum/viewtopic.php?p=5479#p5479">Simulator 3.1</a><br>
         3/2023: <a href="http://landofice.com/forum/viewtopic.php?p=5456#p5456">Simulator 3.0</a><br>
         2022: <a href="http://landofice.com/forum/viewtopic.php?p=4928#p4928">Simulátor 2.0</a> - znovuoživení simulátoru, 42 milionů oprav a aktualizací
         <br><br>
